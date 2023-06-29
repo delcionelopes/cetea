@@ -18,10 +18,35 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'id',
+        'funcao_id',
+        'setor_id',
         'name',
         'email',
-        'password',
+        'password_2',
+        'ativo',
+        'cpf',
+        'rg',
+        'matricula',
+        'admin',
+        'sistema',
+        'avatar',
+        'created_at',
+        'updated_at',
+
     ];
+
+    public function artigos(){
+        return $this->hasMany(Artigo::class);
+    }
+
+    public function comentarios(){
+        return $this->hasMany(Comentario::class);
+    }
+
+    public function arquivos(){
+        return $this->hasMany(Arquivo::class);
+    }
 
     /**
      * The attributes that should be hidden for serialization.
