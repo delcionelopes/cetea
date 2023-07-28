@@ -21,6 +21,7 @@ class User extends Authenticatable
         'id',
         'funcao_id',
         'setor_id',
+        'perfil_id',
         'name',
         'email',
         'password_2',
@@ -31,6 +32,9 @@ class User extends Authenticatable
         'admin',
         'sistema',
         'avatar',
+        'link_intagram',
+        'link_facebook',
+        'link_site',
         'created_at',
         'updated_at',
 

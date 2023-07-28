@@ -104,9 +104,9 @@ class HomeController extends Controller
         //upload do novo arquivo
         $file = $request->file('imagem');                           
         $fileName =  $user->id.'_'.$file->getClientOriginalName();
-        $filePath = 'avatar/'.$fileName;
-        $storagePath = public_path().'/storage/avatar/';
-        $file->move($storagePath,$fileName);
+        //$filePath = 'avatar/'.$fileName;
+        //$storagePath = public_path().'/storage/avatar/';
+        //$file->move($storagePath,$fileName);
         }        
         $data['name'] = $request->input('name');
         $data['email'] = $request->input('email');
