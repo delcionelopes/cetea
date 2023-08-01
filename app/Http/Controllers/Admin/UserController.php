@@ -58,7 +58,7 @@ class UserController extends Controller
         $storagePath = public_path().'/storage/avatar/';
         $file->move($storagePath,$fileName);
         }
-        $data = [
+        $data = [       
             'name' => $request->input('name'),
             'email' => $request->input('email'),
             'password' => bcrypt($request->input('password')),
@@ -86,7 +86,7 @@ class UserController extends Controller
     }
 
     
-    public function edit($id)
+    public function edit(int $id)
     {
         $user = $this->user->find($id);
         return response()->json([
@@ -97,7 +97,7 @@ class UserController extends Controller
     }
 
     
-    public function update(Request $request, $id)
+    public function update(Request $request, int $id)
     {
         $validator = Validator::make($request->all(),[
             'name' => 'required|max:100',
@@ -157,7 +157,7 @@ class UserController extends Controller
     }
 
     
-    public function destroy($id)
+    public function destroy(int $id)
     {
         $user = $this->user->find($id);
         //exclusão do arquivo do avatar se houver
@@ -205,7 +205,7 @@ class UserController extends Controller
 
     }
 
-    public function moderadorUsuario(Request $request,$id){
+    public function moderadorUsuario(Request $request,int $id){
         $moderador = $request->input('moderador');
         $data = ['moderador' => $moderador];
         $user = $this->user->find($id);
@@ -217,7 +217,7 @@ class UserController extends Controller
         ]);
     }
 
-    public function inativoUsuario(Request $request,$id){
+    public function inativoUsuario(Request $request,int $id){
         $inativo = $request->input('inativo');
         $data = ['inativo' => $inativo];
         $user = $this->user->find($id);
@@ -228,5 +228,7 @@ class UserController extends Controller
             'status'=> 200,
         ]);
     }
+
+ 
 
 }
