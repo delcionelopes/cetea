@@ -32,7 +32,7 @@ class User extends Authenticatable
         'admin',
         'sistema',
         'avatar',
-        'link_intagram',
+        'link_instagram',
         'link_facebook',
         'link_site',
         'created_at',
@@ -50,6 +50,18 @@ class User extends Authenticatable
 
     public function arquivos(){
         return $this->hasMany(Arquivo::class);
+    }
+
+    public function funcao(){
+        return $this->belongsTo(Funcao::class,'funcao_id');
+    }
+
+    public function perfil(){
+        return $this->belongsTo(Perfil::class,'perfil_id');
+    }
+
+    public function setor(){
+        return $this->belongsTo(Setor::class,'setor_id');
     }
 
     /**
