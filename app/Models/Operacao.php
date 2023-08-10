@@ -20,7 +20,7 @@ class Operacao extends Model
         'updated_at',
     ];
 
-    public function modope(){
+    public function modulos(){
         return $this->belongsToMany(Modulo::class,'modulo_has_operacao','operacao_id','modulo_id');
     }
 

@@ -9,13 +9,16 @@ use Cviebrock\EloquentSluggable\Sluggable;
 class Tema extends Model
 {
     use HasFactory;    
-    use Sluggable;
-    public $timestamps = false;     //desativamos o timestamps no model
+    use Sluggable;    
     protected $table = 'temas';
+    protected $primaryKey = 'id';
     protected $fillable = [
+        'id',
         'titulo',
         'descricao',
         'slug',
+        'created_at',
+        'updated_at',
     ];
 
     public function artigos(){

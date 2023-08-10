@@ -9,9 +9,9 @@ use Cviebrock\EloquentSluggable\Sluggable;
 class Artigo extends Model
 {
     use HasFactory;
-    use Sluggable;
-    public $timestamps = false;
+    use Sluggable;    
     protected $table = 'artigos';
+    protected $primaryKey = 'id';
     protected $fillable = 
     [
         'id',

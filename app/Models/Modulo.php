@@ -21,7 +21,7 @@ class Modulo extends Model
     ];
 
 
-    public function modope(){
+    public function operacoes(){
         return $this->belongsToMany(Operacao::class,'modulo_has_operacao','modulo_id','operacao_id');
     }
 
