@@ -64,7 +64,7 @@ class ModuloController extends Controller
             'nome' => ['required','max:30'],
             'descricao' => ['required','max:50'],            
             'color' => ['required','max:15'],
-            'operacoes' => ['required','array','min:2'],
+            'operacoes' => ['required','array','min:1'],
         ]);
         if($validator->fails()){
             return response()->json([
@@ -147,7 +147,7 @@ class ModuloController extends Controller
             'nome' => ['required','max:30'],
             'descricao' => ['required','max:50'],            
             'color' => ['required','max:15'],
-            'operacoes' => ['required','array','min:2'],
+            'operacoes' => ['required','array','min:1'],
         ]);
         if($validator->fails()){
             return response()->json([
@@ -278,10 +278,19 @@ class ModuloController extends Controller
     protected function maxIdModulo(){
         $modulo = $this->modulo->orderByDesc('id')->first();
         if($modulo){
-            $codigo = $modulo->id + 1;
+            $codigo = $modulo->id;
         }else{
-            $codigo = 1;
+            $codigo = 0;
         }
-        return $codigo;
+        return $codigo+1;
     }
+
+    public function modulosXoperacoes(int $operacao_id){
+        $operacao = $this->operacao->whereId($operacao_id)->first();
+        $modulos = $operacao->modulos()->paginate(6);
+        return view('caos.modulo.index_moduloXoperacoes',[
+            'modulos' => $modulos,
+        ]);
+    }
+
 }

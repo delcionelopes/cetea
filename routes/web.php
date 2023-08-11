@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Caos\ModuloController;
 use App\Http\Controllers\Page\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -67,6 +68,19 @@ Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin.')-
         Route::prefix('cetea')->name('cetea.')->group(function(){
         Route::get('/index',[HomeController::class,'index'])->name('index');
       }); 
+
+       Route::prefix('modulo')->name('modulo.')->group(function(){
+        Route::get('/index-modulo',[ModuloController::class,'index'])->name('index');
+        Route::get('/create-modulo',[ModuloController::class,'create'])->name('create');
+        Route::post('/delete-modulo/{id}',[ModuloController::class,'destroy']);
+        Route::get('/edit-modulo/{id}',[ModuloController::class,'edit'])->name('edit');
+        Route::put('/update-modulo/{id}',[ModuloController::class,'update']);
+        Route::put('/store-modulo',[ModuloController::class,'store'])->name('store');
+        Route::put('/moduloimagemtemp-upload',[ModuloController::class,'armazenarImagemTemporaria']);        
+        Route::delete('/delete-imgmodulo',[ModuloController::class,'excluirImagemTemporaria']);
+        Route::get('/modulo-operacao/{operacao_id}',[ModuloController::class,'modulosXoperacoes'])->name('moduloxoperacao');
+      }); 
+
 
     }); //fim ceteaadmin
 
