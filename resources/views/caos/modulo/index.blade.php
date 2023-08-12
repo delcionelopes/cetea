@@ -15,7 +15,7 @@
     <form action="{{route('ceteaadmin.modulo.index')}}" class="form-search" method="GET">
         <div class="col-sm-12">
             <div class="input-group rounded">            
-            <input type="text" name="pesquisa" class="form-control rounded float-left" placeholder="nome do atleta" aria-label="Search"
+            <input type="text" name="pesquisa" class="form-control rounded float-left" placeholder="nome do módulo" aria-label="Search"
             aria-describedby="search-addon">
             <button type="submit" class="input-group-text border-0" id="search-addon" style="background: transparent;border: none;">
                 <i class="fas fa-search"></i>
