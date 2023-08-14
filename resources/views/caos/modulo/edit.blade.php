@@ -43,7 +43,7 @@
                         <div class="col-md-4">
                               <div class="form-group">
                                 <label for="descricao">Descricao</label>
-                                <input type="text" required class="form-control" name="descricao" id="descricao" placeholder="Descrição do módulo">
+                                <input type="text" required class="form-control" name="descricao" id="descricao" placeholder="Descrição do módulo" value="{{$modulo->descricao}}">
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -230,7 +230,7 @@ $(document).ready(function(){
             });
 
         }else{
-            location.replace('/moduloadmin/modulo/index-modulo');
+            location.replace('/ceteaadmin/modulo/index-modulo');
         }
 
     });

@@ -1,24 +1,12 @@
 <?php
 
 use App\Http\Controllers\Caos\ModuloController;
-use App\Http\Controllers\Page\HomeController;
+use App\Http\Controllers\Caos\OperacaoController;
+use App\Http\Controllers\Caos\SegurancaController;
+use App\Http\Controllers\HomeController as ControllersHomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-/* Route::get('/', function () {
-    return view('welcome');
-}); */
 
 Auth::routes();
 
@@ -66,7 +54,7 @@ Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin.')-
     Route::prefix('ceteaadmin')->name('ceteaadmin.')->group(function(){
 
         Route::prefix('cetea')->name('cetea.')->group(function(){
-        Route::get('/index',[HomeController::class,'index'])->name('index');
+        Route::get('/index',[ControllersHomeController::class,'index'])->name('index');
       }); 
 
        Route::prefix('modulo')->name('modulo.')->group(function(){
@@ -80,6 +68,22 @@ Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin.')-
         Route::delete('/delete-imgmodulo',[ModuloController::class,'excluirImagemTemporaria']);
         Route::get('/modulo-operacao/{operacao_id}',[ModuloController::class,'modulosXoperacoes'])->name('moduloxoperacao');
       }); 
+
+      Route::prefix('operacao')->name('operacao.')->group(function(){
+        Route::get('/index-operacao',[OperacaoController::class,'index'])->name('index');
+        Route::get('/create-operacao',[OperacaoController::class,'create'])->name('create');
+        Route::post('/delete-operacao/{id}',[OperacaoController::class,'destroy']);
+        Route::get('/edit-operacao/{id}',[OperacaoController::class,'edit'])->name('edit');
+        Route::put('/update-operacao/{id}',[OperacaoController::class,'update']);
+        Route::put('/store-operacao',[OperacaoController::class,'store'])->name('store');
+        Route::put('/operacaoimagemtemp-upload',[OperacaoController::class,'armazenarImagemTemporaria']);        
+        Route::delete('/delete-imgoperacao',[OperacaoController::class,'excluirImagemTemporaria']);
+        Route::get('/operacao-modulo/{modulo_id}',[OperacaoController::class,'operacoesXmodulos'])->name('operacaoxmodulo');
+      }); 
+
+      Route::prefix('seguranca')->name('seguranca.')->group(function(){
+        Route::get('/index-seguranca',[SegurancaController::class,'index_seguranca'])->name('index');
+      });
 
 
     }); //fim ceteaadmin
@@ -97,7 +101,3 @@ Route::namespace('App\Http\Controllers\Page')->name('page.')->group(function(){
     Route::post('/salvar-comentario','ComentarioController@salvarComentario');
     Route::delete('/delete-comentario/{id}','ComentarioController@deleteComentario');    
   });
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

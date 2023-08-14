@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Caos;
 
 use App\Http\Controllers\Controller;
+use App\Models\Modulo;
 use App\Models\Operacao;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -10,10 +11,12 @@ use Illuminate\Support\Facades\Validator;
 class OperacaoController extends Controller
 {
     private $operacao;
+    private $modulo;
 
-    public function __construct(Operacao $operacao)
+    public function __construct(Operacao $operacao, Modulo $modulo)
     {
         $this->operacao = $operacao;
+        $this->modulo = $modulo;
     }
     /**
      * Display a listing of the resource.
@@ -269,4 +272,14 @@ class OperacaoController extends Controller
         }
         return $codigo+1;
     }
+
+    public function operacoesXmodulos(int $modulo_id){
+        $modulo = $this->modulo->whereId($modulo_id)->first();
+        $operacoes = $modulo->operacoes()->paginate(6);
+        return view('caos.operacao.index_operacaoXmodulos',[
+            'operacoes' => $operacoes,
+        ]);
+    }
+
+
 }

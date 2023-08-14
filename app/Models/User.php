@@ -23,7 +23,7 @@ class User extends Authenticatable
         'perfil_id',
         'name',
         'email',
-        'password_2',
+        'password',
         'inativo',
         'cpf',
         'rg',
