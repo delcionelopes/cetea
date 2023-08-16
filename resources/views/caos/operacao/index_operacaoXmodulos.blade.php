@@ -12,7 +12,7 @@
 
     <section class="border p-4 mb-4 d-flex align-items-left">
     
-    +<form action="{{route('ceteaadmin.operacao.index')}}" class="form-search" method="GET">
+    <form action="{{route('ceteaadmin.operacao.index')}}" class="form-search" method="GET">
         <div class="col-sm-12">
             <div class="input-group rounded">            
             <input type="text" name="pesquisa" class="form-control rounded float-left" placeholder="nome da operação" aria-label="Search"
@@ -32,7 +32,8 @@
                     <table class="table table-hover">
                         <thead class="sidebar-dark-primary" style="color: white">
                             <tr>                                
-                                <th scope="col">OPERAÇÕES</th>                                
+                                <th scope="col">OPERAÇÕES</th>
+                                <th scope="col">ICO</th>
                                 <th scope="col">MÓDULOS</th>
                                 <th scope="col">AÇÕES</th>
                             </tr>
@@ -59,7 +60,7 @@
                                         </button>
                                         <ul class="dropdown-menu" id="dropdown{{$modulo->id}}">
                                             @foreach($operacao->modulos as $modulo)                                                                                                            
-                                            <li class="dropdown-item"><a href="{{route('ceteaadmin.operacao.moduloxoperacao',['modulo_id'=>$modulo->id])}}" class="dropdown-item">{{$modulo->nome}}</a></li>
+                                            <li class="dropdown-item"><a href="{{route('ceteaadmin.operacao.operacaoxmodulo',['modulo_id'=>$modulo->id])}}" class="dropdown-item">{{$modulo->nome}}</a></li>
                                             @endforeach
                                         </ul>                                           
                                         @endif                               
@@ -105,11 +106,11 @@ $(document).ready(function(){
 
      $(document).on('click','.delete_operacao_btn',function(e){   ///inicio delete 
             e.preventDefault();           
-            var CSRF_TOKEN  = document.querySelector('meta[name="csrf-token"]').getAttribute('content');   
+            var CSRF_TOKEN  = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
             var id = $(this).data("id");
             var linklogo = "{{asset('storage')}}";
 
-            var nome = (this).data("nome");
+            var nome = $(this).data("nome");
             
             Swal.fire({
                 showClass: {
@@ -140,7 +141,7 @@ $(document).ready(function(){
                     success:function(response){
                         if(response.status==200){                        
                             //remove linha correspondente da tabela html
-                            $("#operacao"+id).remove();     
+                            $('#operacao'+id).remove();     
                             $('#success_message').replaceWith('<div id="success_message"></div>');                       
                             $('#success_message').addClass('alert alert-success');
                             $('#success_message').text(response.message);         

@@ -31,6 +31,7 @@
             </div>         
 <div class="container-fluid">
  <div class="row">
+  @if((auth()->user()->admin))
   @if((auth()->user()->admin)&&(auth()->user()->perfil_id=3))  
   <div class="p-2 mt-2">
     <div class="card" style="width: 10rem;">
@@ -43,7 +44,7 @@
                                 Menu<span class="caret"></span>
                                 </button>                                
                                 <ul class="dropdown-menu" id="dropdown_modulo{{auth()->user()->id}}">
-                                            <li class="dropdown-item"><a href="#" class="dropdown-item listamodulo_btn"  
+                                            <li class="dropdown-item"><a href="{{route('ceteaadmin.modulo.index')}}" class="dropdown-item listamodulo_btn"  
                                                 style="white-space: nowrap;"><i class="fas fa-list" style="background: transparent; color: green; border: none;"></i> Cadastro de módulos</a>
                                             </li> 
                                 </ul>  
@@ -62,13 +63,14 @@
                                 Menu<span class="caret"></span>
                                 </button>                                
                                 <ul class="dropdown-menu" id="dropdown_operacao{{auth()->user()->id}}">
-                                            <li class="dropdown-item"><a href="#" class="dropdown-item listaoperacao_btn"  
+                                            <li class="dropdown-item"><a href="{{route('ceteaadmin.operacao.index')}}" class="dropdown-item listaoperacao_btn"  
                                                 style="white-space: nowrap;"><i class="fas fa-list" style="background: transparent; color: green; border: none;"></i> Cadastro de operações</a>
                                             </li> 
                                 </ul>  
       </div>
     </div>
   </div>  
+  @endif
 
   @else
   <div class="p-2 mt-2">

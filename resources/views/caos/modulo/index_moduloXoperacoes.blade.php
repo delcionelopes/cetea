@@ -32,7 +32,8 @@
                     <table class="table table-hover">
                         <thead class="sidebar-dark-primary" style="color: white">
                             <tr>                                
-                                <th scope="col">MÓDULOS</th>                                
+                                <th scope="col">MÓDULOS</th>
+                                <th scope="col">ICO</th>
                                 <th scope="col">OPERAÇÕES</th>
                                 <th scope="col">AÇÕES</th>
                             </tr>
@@ -109,7 +110,7 @@ $(document).ready(function(){
             var id = $(this).data("id");
             var linklogo = "{{asset('storage')}}";
 
-            var nome = (this).data("nome");
+            var nome = $(this).data("nome");
             
             Swal.fire({
                 showClass: {
@@ -120,7 +121,7 @@ $(document).ready(function(){
                 },
                 title:nome,
                 text: "Deseja excluir?",
-                imageUrl: linklogo+'/logo.png',
+                imageUrl: linklogo+'/logoprodap.jpg',
                 imageWidth: 400,
                 imageHeight: 200,
                 imageAlt: 'Brasão do GEA',
@@ -140,7 +141,7 @@ $(document).ready(function(){
                     success:function(response){
                         if(response.status==200){                        
                             //remove linha correspondente da tabela html
-                            $("#modulo"+id).remove();     
+                            $('#modulo'+id).remove();     
                             $('#success_message').replaceWith('<div id="success_message"></div>');                       
                             $('#success_message').addClass('alert alert-success');
                             $('#success_message').text(response.message);         

@@ -29,7 +29,7 @@
                   <fieldset>
                     <legend>Dados do Módulo</legend>
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-4">
                             <div class="form-group">
                                 <label for="nome">Nome</label>
                                 <input type="text" required class="form-control" name="nome" id="nome" placeholder="Nome do módulo">
@@ -37,13 +37,13 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-12">
                               <div class="form-group">
                                 <label for="descricao">Descrição</label>
                                 <input type="text" required class="form-control" name="descricao" id="descricao" placeholder="Descrição do módulo">
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-1">
                             <div class="form-group">
                                 <label for="color" class="form-label">Color</label>
                                 <input type="color" required class="form-control form-control-color" name="color" id="color" value="#563d7c" title="Escolha a cor">
@@ -96,7 +96,7 @@ $(document).ready(function(){
         var loading = $('#imgadd');
             loading.show();
         //Array apenas com os checkboxes marcados
-            var profissoes = new Array();
+            var operacoes = new Array;
                 $("input[name='operacoes[]']:checked").each(function(){
                     operacoes.push($(this).val());
                 });
@@ -107,7 +107,7 @@ $(document).ready(function(){
             data.append('descricao',$('#descricao').val());
             data.append('color',$('#color').val());
             data.append('imagem',$('#upimagem')[0].files[0]);         
-            data.append('operacoes',JSON.stringify(operacoes)); //array
+            data.append('operacoes',operacoes); //array
             data.append('_enctype','multipart/form-data');
             data.append('_token',CSRF_TOKEN);
             data.append('_method','PUT');              

@@ -12,7 +12,7 @@
 
     <section class="border p-4 mb-4 d-flex align-items-left">
     
-    +<form action="{{route('ceteaadmin.operacao.index')}}" class="form-search" method="GET">
+    <form action="{{route('ceteaadmin.operacao.index')}}" class="form-search" method="GET">
         <div class="col-sm-12">
             <div class="input-group rounded">            
             <input type="text" name="pesquisa" class="form-control rounded float-left" placeholder="nome da operação" aria-label="Search"
@@ -32,7 +32,8 @@
                     <table class="table table-hover">
                         <thead class="sidebar-dark-primary" style="color: white">
                             <tr>                                
-                                <th scope="col">OPERAÇÕES</th>                                
+                                <th scope="col">OPERAÇÕES</th>
+                                <th scope="col">ICO</th>
                                 <th scope="col">MÓDULOS</th>
                                 <th scope="col">AÇÕES</th>
                             </tr>
@@ -109,7 +110,7 @@ $(document).ready(function(){
             var id = $(this).data("id");
             var linklogo = "{{asset('storage')}}";
 
-            var nome = (this).data("nome");
+            var nome = $(this).data("nome");
             
             Swal.fire({
                 showClass: {

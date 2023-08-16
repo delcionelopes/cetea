@@ -61,10 +61,9 @@ class ModuloController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(),[
-            'nome' => ['required','max:30'],
-            'descricao' => ['required','max:50'],            
-            'color' => ['required','max:15'],
-            'operacoes' => ['required','array','min:1'],
+            'nome' => ['required','max:50'],
+            'descricao' => ['required','max:200'],            
+            'color' => ['required','max:15'],            
         ]);
         if($validator->fails()){
             return response()->json([
@@ -89,15 +88,15 @@ class ModuloController extends Controller
             }
            
             $data['id'] = $this->maxIdModulo();
-            $data['nome'] = strtoupper($request->input('nome'));
-            $data['descricao'] = strtoupper($request->input('descricao'));
+            $data['nome'] = $request->input('nome');
+            $data['descricao'] = $request->input('descricao');
             $data['color'] = $request->input('color');
             if($filePath){
                 $data['ico'] = $filePath;
             }
             $data['created_at'] = now();
             $modulo = $this->modulo->create($data);
-            $modulo->operacoes()->sync(json_decode($request->operacoes));
+            $modulo->operacoes()->sync($request->input('operacoes'));
             return response()->json([
                 'modulo' => $modulo,
                 'status' => 200,
@@ -144,10 +143,9 @@ class ModuloController extends Controller
     public function update(Request $request, int $id)
     {
         $validator = Validator::make($request->all(),[
-            'nome' => ['required','max:30'],
-            'descricao' => ['required','max:50'],            
-            'color' => ['required','max:15'],
-            'operacoes' => ['required','array','min:1'],
+            'nome' => ['required','max:50'],
+            'descricao' => ['required','max:200'],            
+            'color' => ['required','max:15'],            
         ]);
         if($validator->fails()){
             return response()->json([
@@ -179,8 +177,8 @@ class ModuloController extends Controller
                     }
                 }
 
-            $data['nome'] = strtoupper($request->input('nome'));
-            $data['descricao'] = strtoupper($request->input('descricao'));
+            $data['nome'] = $request->input('nome');
+            $data['descricao'] = $request->input('descricao');
             $data['color'] = $request->input('color');
             if($filePath){
                 $data['ico'] = $filePath;
@@ -190,7 +188,7 @@ class ModuloController extends Controller
             $modulo->update($data);
 
             $m = Modulo::find($id);
-            $m->operacoes()->sync(json_decode($request->operacoes));
+            $m->operacoes()->sync($request->input('operacoes'));
 
             return response()->json([
                 'status' => 200,
@@ -212,10 +210,10 @@ class ModuloController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(int $id)
-    {
+    {        
         $modulo = $this->modulo->find($id);
         $operacoes = $modulo->operacoes;
-        if($operacoes->count){
+        if($modulo->operacoes()->count()){
             $modulo->operacoes()->detach($operacoes);
         }
 

@@ -14,8 +14,7 @@ class Operacao extends Model
         'id',
         'nome',
         'descricao',
-        'ico',
-        'color',
+        'ico',        
         'created_at',
         'updated_at',
     ];

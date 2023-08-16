@@ -44,7 +44,7 @@ class OperacaoController extends Controller
      */
     public function create()
     {
-        //
+        return view('caos.operacao.create');
     }
 
     /**
@@ -56,9 +56,8 @@ class OperacaoController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(),[
-            'nome' => ['required','max:30'],
-            'descricao' => ['required','max:50'],
-            'color' => ['required','max:15'],
+            'nome' => ['required','max:50'],
+            'descricao' => ['required','max:200'],            
         ]);
         if($validator->fails()){
             return response()->json([
@@ -83,8 +82,7 @@ class OperacaoController extends Controller
 
             $data['id'] = $this->maxIdOperacao();
             $data['nome'] = strtoupper($request->input('nome'));
-            $data['descricao'] = strtoupper($request->input('descricao'));
-            $data['color'] = $request->input('color');
+            $data['descricao'] = strtoupper($request->input('descricao'));            
             if($filePath){
                 $data['ico'] = $filePath;
             }
@@ -137,9 +135,8 @@ class OperacaoController extends Controller
     public function update(Request $request, int $id)
     {
         $validator = Validator::make($request->all(),[
-            'nome' => ['required','max:30'],
-            'descricao' => ['required','max:50'],
-            'color' => ['required','max:15'],            
+            'nome' => ['required','max:50'],
+            'descricao' => ['required','max:200'],                   
         ]);
         if($validator->fails()){
             return response()->json([
@@ -172,8 +169,7 @@ class OperacaoController extends Controller
                 }
 
                 $data['nome'] = strtoupper($request->input('nome'));
-                $data['descricao'] = strtoupper($request->input('descricao'));
-                $data['color'] = $request->input('color');
+                $data['descricao'] = strtoupper($request->input('descricao'));                
                 if($filePath){
                     $data['ico'] = $filePath;
                 }

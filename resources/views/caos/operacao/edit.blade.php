@@ -15,7 +15,7 @@
                     <!--arquivo de imagem-->
                     <div class="form-group mb-3">                                                
                        <div class="image">
-                        @if($modulo->ico)
+                        @if($operacao->ico)
                             <img src="{{asset('storage/'.$operacao->ico)}}" class="imgico rounded-circle" width="100" >
                         @else
                             <img src="{{asset('storage/user.png')}}" class="imgico rounded-circle" width="100" >
@@ -32,7 +32,7 @@
                 <fieldset>
                     <legend>Dados da Operação</legend>
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-4">
                             <div class="form-group">
                                 <label for="nome">Nome</label>
                                 <input type="text" required class="form-control" name="nome" id="nome" placeholder="Nome da operação" value="{{$operacao->nome}}">
@@ -40,18 +40,12 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-12">
                               <div class="form-group">
                                 <label for="descricao">Descricao</label>
                                 <input type="text" required class="form-control" name="descricao" id="descricao" placeholder="Descrição da operacao" value="{{$operacao->descricao}}">
                             </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="color" class="form-label">Color</label>
-                                <input type="color" required class="form-control form-control-color" name="color" id="color" value="{{$operacao->color}}" title="Escolha a cor">
-                            </div>
-                        </div>                                                  
+                        </div>                        
                     </div>                    
                    
                 </fieldset>                
@@ -90,8 +84,7 @@ $(document).ready(function(){
            var data = new FormData();        
             
             data.append('nome',$('#nome').val());
-            data.append('descricao',$('#descricao').val());
-            data.append('color',$('#color').val());            
+            data.append('descricao',$('#descricao').val());               
             data.append('imagem',$('#upimagem')[0].files[0]);                        
             data.append('_enctype','multipart/form-data');
             data.append('_token',CSRF_TOKEN);

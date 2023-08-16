@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">    
         
         <!-- CSRF Token -->    
-        <meta name="_token" content="{{ csrf_token() }}">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>CETEA - Site Oficial</title>        
         
@@ -49,7 +49,7 @@
                 @endguest
                 @auth
                 @if((auth()->user()->sistema) && (auth()->user()->inativo!=1))
-                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{route('ceteaadmin.cetea.index')}}">webCETEA</a></li>
+                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{route('ceteaadmin.cetea.index')}}">AdminCETEA</a></li>
                 <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{route('admin.artigos.index')}}">Artigos</a></li>
                 <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{route('admin.tema.index')}}">Temas</a></li>                                        
                 <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{route('admin.user.index')}}">Usuários</a></li>                        
@@ -71,7 +71,8 @@
         <!--jQuery-->
         <script src="{{asset('jquery/jquery-3.6.0.js')}}"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>                
-        <script src="{{asset('js/scripts.js')}}"></script>                              
+        <script src="{{asset('js/scripts.js')}}"></script>
+        <script src="{{asset('https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.6.0/sweetalert2.min.js')}}"></script>
       @yield('scripts')
     </body>
 </html>
