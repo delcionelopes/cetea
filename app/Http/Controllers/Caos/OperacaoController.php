@@ -81,8 +81,8 @@ class OperacaoController extends Controller
             }
 
             $data['id'] = $this->maxIdOperacao();
-            $data['nome'] = strtoupper($request->input('nome'));
-            $data['descricao'] = strtoupper($request->input('descricao'));            
+            $data['nome'] = $request->input('nome');
+            $data['descricao'] = $request->input('descricao');
             if($filePath){
                 $data['ico'] = $filePath;
             }
@@ -168,8 +168,8 @@ class OperacaoController extends Controller
                     }
                 }
 
-                $data['nome'] = strtoupper($request->input('nome'));
-                $data['descricao'] = strtoupper($request->input('descricao'));                
+                $data['nome'] = $request->input('nome');
+                $data['descricao'] = $request->input('descricao');
                 if($filePath){
                     $data['ico'] = $filePath;
                 }
@@ -198,10 +198,10 @@ class OperacaoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(int $id)
-    {
+    {        
         $operacao = $this->operacao->find($id);
         $modulos = $operacao->modulos;
-        if($modulos->count){
+        if($operacao->modulos()->count()){
             $operacao->modulos()->detach($modulos);
         }
         //exclui imagem do diretório ico_operacao

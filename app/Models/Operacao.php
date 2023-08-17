@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Operacao extends Model
 {
@@ -19,7 +20,7 @@ class Operacao extends Model
         'updated_at',
     ];
 
-    public function modulos(){
+    public function modulos():BelongsToMany{
         return $this->belongsToMany(Modulo::class,'modulo_has_operacao','operacao_id','modulo_id');
     }
 

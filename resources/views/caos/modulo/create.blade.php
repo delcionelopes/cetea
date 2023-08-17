@@ -11,7 +11,7 @@
     <div class="container-fluid py-5">
         <div class="card">
             <div class="card-body">
-              <div class="card p-3" style="background-image: url('/assets/img/banner-docs.jpg')">
+              <div class="card p-3" style="background-image: url('/assets/img/banner-docs.webp')">
                 <div class="d-flex align-items-center">
                     <!--arquivo de imagem-->
                     <div class="form-group mb-3">                                                
@@ -96,7 +96,7 @@ $(document).ready(function(){
         var loading = $('#imgadd');
             loading.show();
         //Array apenas com os checkboxes marcados
-            var operacoes = new Array;
+            var operacoes = new Array();
                 $("input[name='operacoes[]']:checked").each(function(){
                     operacoes.push($(this).val());
                 });
@@ -107,7 +107,7 @@ $(document).ready(function(){
             data.append('descricao',$('#descricao').val());
             data.append('color',$('#color').val());
             data.append('imagem',$('#upimagem')[0].files[0]);         
-            data.append('operacoes',operacoes); //array
+            data.append('operacoes',JSON.stringify(operacoes)); //array
             data.append('_enctype','multipart/form-data');
             data.append('_token',CSRF_TOKEN);
             data.append('_method','PUT');              

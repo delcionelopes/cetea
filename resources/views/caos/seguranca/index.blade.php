@@ -15,7 +15,7 @@
 
 <div class="container-fluid py-5"> 
 
-            <div class="card p-3" style="background-image: url('/assets/img/banner-docs.jpg')">
+            <div class="card p-3" style="background-image: url('/assets/img/banner-docs.webp')">
                 <div class="d-flex align-items-center">
                 <div class="image">
                 @if(auth()->user()->avatar)  
@@ -45,7 +45,7 @@
                                 </button>                                
                                 <ul class="dropdown-menu" id="dropdown_modulo{{auth()->user()->id}}">
                                             <li class="dropdown-item"><a href="{{route('ceteaadmin.modulo.index')}}" class="dropdown-item listamodulo_btn"  
-                                                style="white-space: nowrap;"><i class="fas fa-list" style="background: transparent; color: green; border: none;"></i> Cadastro de módulos</a>
+                                                style="white-space: nowrap;"><i class="fas fa-list" style="background: transparent; color: red; border: none;"></i> Cadastro de módulos</a>
                                             </li> 
                                 </ul>  
       </div>
@@ -64,12 +64,73 @@
                                 </button>                                
                                 <ul class="dropdown-menu" id="dropdown_operacao{{auth()->user()->id}}">
                                             <li class="dropdown-item"><a href="{{route('ceteaadmin.operacao.index')}}" class="dropdown-item listaoperacao_btn"  
-                                                style="white-space: nowrap;"><i class="fas fa-list" style="background: transparent; color: green; border: none;"></i> Cadastro de operações</a>
+                                                style="white-space: nowrap;"><i class="fas fa-list" style="background: transparent; color: red; border: none;"></i> Cadastro de operações</a>
                                             </li> 
                                 </ul>  
       </div>
     </div>
-  </div>  
+  </div> 
+
+  <div class="p-2 mt-2">
+        <div class="card" style="width: 10rem;">
+          <div class="card-header">
+            <b><i class="fas fa-desktop" style="background: transparent; color: red; border: none;"></i> Permissões</b>
+          </div>
+          <div class="card-body">                
+            <p class="card-text">Autorizações.</p>
+            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                Opções<span class="caret"></span>
+                                </button>                                
+                                <ul class="dropdown-menu" id="dropdown_opcoes{{auth()->user()->id}}">
+                                            <li class="dropdown-item"><a href="#" class="dropdown-item listaperfil_btn"  
+                                                style="white-space: nowrap;"><i class="fas fa-folder" style="background: transparent; color: red; border: none;"></i> Cadastro de Perfis</a>
+                                            </li> 
+                                            <li class="dropdown-item"><a href="#" class="dropdown-item listafuncao_btn"  
+                                                style="white-space: nowrap;"><i class="fas fa-folder" style="background: transparent; color: red; border: none;"></i> Cadastro de Funções</a>
+                                            </li> 
+                                            <li class="dropdown-item"><a href="#" class="dropdown-item listaosetor_btn"  
+                                                style="white-space: nowrap;"><i class="fas fa-folder" style="background: transparent; color: red; border: none;"></i> Cadastro de Setores</a>
+                                            </li>
+                                            <li class="dropdown-item"><a href="#" class="dropdown-item listaousuarios_btn"  
+                                                style="white-space: nowrap;"><i class="fas fa-user" style="background: transparent; color: red; border: none;"></i> Autorizar Usuários</a>
+                                            </li> 
+                                </ul>
+          </div>
+        </div>
+      </div>  
+
+  @else 
+        @if(auth()->user()->admin)
+
+        <div class="p-2 mt-2">
+        <div class="card" style="width: 10rem;">
+          <div class="card-header">
+            <b><i class="fas fa-desktop" style="background: transparent; color: red; border: none;"></i> Permissões</b>
+          </div>
+          <div class="card-body">                
+            <p class="card-text">Autorizações.</p>        
+            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                Opções<span class="caret"></span>
+                                </button>                                
+                                <ul class="dropdown-menu" id="dropdown_opcoes{{auth()->user()->id}}">
+                                            <li class="dropdown-item"><a href="#" class="dropdown-item listaperfil_btn"  
+                                                style="white-space: nowrap;"><i class="fas fa-folder" style="background: transparent; color: red; border: none;"></i> Cadastro de Perfis</a>
+                                            </li> 
+                                            <li class="dropdown-item"><a href="#" class="dropdown-item listafuncao_btn"  
+                                                style="white-space: nowrap;"><i class="fas fa-folder" style="background: transparent; color: red; border: none;"></i> Cadastro de Funções</a>
+                                            </li> 
+                                            <li class="dropdown-item"><a href="#" class="dropdown-item listaosetor_btn"  
+                                                style="white-space: nowrap;"><i class="fas fa-folder" style="background: transparent; color: red; border: none;"></i> Cadastro de Setores</a>
+                                            </li>
+                                            <li class="dropdown-item"><a href="#" class="dropdown-item listaousuarios_btn"  
+                                                style="white-space: nowrap;"><i class="fas fa-user" style="background: transparent; color: red; border: none;"></i> Autorizar Usuários</a>
+                                            </li> 
+                                </ul>
+          </div>
+        </div>
+      </div>  
+      @endif
+        
   @endif
 
   @else

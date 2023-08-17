@@ -10,7 +10,7 @@
     <input type="hidden" id="editoperacao_id" value="{{$operacao->id}}">
         <div class="card">
             <div class="card-body">
-              <div class="card p-3" style="background-image: url('/assets/img/banner-docs.jpg')">
+              <div class="card p-3" style="background-image: url('/assets/img/banner-docs.webp')">
                 <div class="d-flex align-items-center">
                     <!--arquivo de imagem-->
                     <div class="form-group mb-3">                                                

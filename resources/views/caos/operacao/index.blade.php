@@ -58,7 +58,7 @@
                                         <button type="button" class="btn btn-none dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                         <i class="fas fa-tools"></i><span class="caret"></span>
                                         </button>
-                                        <ul class="dropdown-menu" id="dropdown{{$modulo->id}}">
+                                        <ul class="dropdown-menu" id="dropdown{{$operacao->id}}">
                                             @foreach($operacao->modulos as $modulo)                                                                                                            
                                             <li class="dropdown-item"><a href="{{route('ceteaadmin.operacao.operacaoxmodulo',['modulo_id'=>$modulo->id])}}" class="dropdown-item">{{$modulo->nome}}</a></li>
                                             @endforeach
@@ -121,15 +121,15 @@ $(document).ready(function(){
                 },
                 title:nome,
                 text: "Deseja excluir?",
-                imageUrl: linklogo+'/logo.png',
+                imageUrl: linklogo+'/logoprodap.jpg',
                 imageWidth: 400,
                 imageHeight: 200,
-                imageAlt: 'Brasão do GEA',
+                imageAlt: 'logo do sistema',
                 showCancelButton: true,
                 confirmButtonText: 'Sim, prossiga!',                
                 cancelButtonText: 'Não, cancelar!',                                 
              }).then((result)=>{
-             if(result.isConfirmed){             
+             if(result.isConfirmed){                             
                 $.ajax({
                     url: '/ceteaadmin/operacao/delete-operacao/'+id,
                     type: 'POST',
@@ -141,7 +141,7 @@ $(document).ready(function(){
                     success:function(response){
                         if(response.status==200){                        
                             //remove linha correspondente da tabela html
-                            $("#operacao"+id).remove();     
+                            $('#operacao'+id).remove();     
                             $('#success_message').replaceWith('<div id="success_message"></div>');                       
                             $('#success_message').addClass('alert alert-success');
                             $('#success_message').text(response.message);         

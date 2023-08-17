@@ -96,7 +96,7 @@ class ModuloController extends Controller
             }
             $data['created_at'] = now();
             $modulo = $this->modulo->create($data);
-            $modulo->operacoes()->sync($request->input('operacoes'));
+            $modulo->operacoes()->sync(json_decode($request->input('operacoes')));
             return response()->json([
                 'modulo' => $modulo,
                 'status' => 200,
@@ -125,8 +125,8 @@ class ModuloController extends Controller
     public function edit(int $id)
     {
         $modulo = $this->modulo->find($id);
-        $operacoes = $this->operacao->orderBy('id')->get();
-
+        $operacoes = $this->operacao->orderBy('id')->get();        
+        
         return view('caos.modulo.edit',[
             'modulo' => $modulo,
             'operacoes' => $operacoes,
@@ -188,7 +188,7 @@ class ModuloController extends Controller
             $modulo->update($data);
 
             $m = Modulo::find($id);
-            $m->operacoes()->sync($request->input('operacoes'));
+            $m->operacoes()->sync(json_decode($request->input('operacoes')));
 
             return response()->json([
                 'status' => 200,

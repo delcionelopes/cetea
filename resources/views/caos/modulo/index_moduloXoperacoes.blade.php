@@ -38,7 +38,7 @@
                                 <th scope="col">AÇÕES</th>
                             </tr>
                         </thead>
-                        <tbody id="lista_cargo">
+                        <tbody id="lista_modulo">
                         <tr id="novo" style="display:none;"></tr>
                         @forelse($modulos as $modulo)   
                             <tr id="modulo{{$modulo->id}}">                                
@@ -110,7 +110,7 @@ $(document).ready(function(){
             var id = $(this).data("id");
             var linklogo = "{{asset('storage')}}";
 
-            var nome = $(this).data("nome");
+            var nome = $(this).data("nome");            
             
             Swal.fire({
                 showClass: {
@@ -134,9 +134,9 @@ $(document).ready(function(){
                     url: '/ceteaadmin/modulo/delete-modulo/'+id,
                     type: 'POST',
                     dataType: 'json',
-                    data:{
+                    data:{                        
                         'id': id,                                         
-                        '_token':CSRF_TOKEN,
+                        '_token':CSRF_TOKEN,                        
                     },
                     success:function(response){
                         if(response.status==200){                        

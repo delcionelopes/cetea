@@ -10,7 +10,7 @@
     <input type="hidden" id="editmodulo_id" value="{{$modulo->id}}">
         <div class="card">
             <div class="card-body">
-              <div class="card p-3" style="background-image: url('/assets/img/banner-docs.jpg')">
+              <div class="card p-3" style="background-image: url('/assets/img/banner-docs.webp')">
                 <div class="d-flex align-items-center">
                     <!--arquivo de imagem-->
                     <div class="form-group mb-3">                                                
@@ -59,12 +59,12 @@
                 <div class="card">
                      <div class="card-body"> 
                             <fieldset>
-                                <legend>Operações do Módulo</legend>
-                                <div class="form-check">                                    
+                                <legend>Operações do Módulo</legend>                                
+                                <div class="form-check">                                                                        
                                     @foreach ($operacoes as $operacao)               
-                                    @if($modulo->operacoes->count())                     
-                                        @foreach ($modulo->operacoes as $modope)                                        
-                                        @if(($operacao->id)==($modope->operacao_id))                                        
+                                    @if ($modulo->operacoes->count())                                                                     
+                                        @foreach ($modulo->operacoes as $ope)                                        
+                                        @if (($operacao->id)==($ope->id))
                                             <label class="form-check-label" for="check{{$operacao->id}}">
                                                 <input type="checkbox" id="check{{$operacao->id}}" name="operacoes[]" value="{{$operacao->id}}" class="form-check-input" checked> {{$operacao->nome}}
                                             </label><br>                                       
@@ -129,7 +129,7 @@ $(document).ready(function(){
             data.append('descricao',$('#descricao').val());
             data.append('color',$('#color').val());            
             data.append('imagem',$('#upimagem')[0].files[0]);            
-            data.append('operacoes',operacoes); //array
+            data.append('operacoes',JSON.stringify(operacoes)); //array
             data.append('_enctype','multipart/form-data');
             data.append('_token',CSRF_TOKEN);
             data.append('_method','PUT');   
