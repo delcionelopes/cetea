@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Tipo_Resposta extends Model
 {
@@ -19,7 +20,7 @@ class Tipo_Resposta extends Model
         'updater_user',
         ];
     
-    public function resposta(){
+    public function resposta():HasMany{
         return $this->hasMany(Resposta::class,'id','tipo_resposta_id');
     }
 }

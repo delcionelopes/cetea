@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Tipo_Atendimento extends Model
 {
@@ -20,7 +21,7 @@ class Tipo_Atendimento extends Model
         'updater_user',
     ];
 
-    public function atendimento(){
+    public function atendimento():HasMany{
         return $this->hasMany(Atendimento::class,'id','tipo_atendimento_id');
     }
 

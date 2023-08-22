@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Autorizacao extends Model
 {
@@ -21,15 +22,15 @@ class Autorizacao extends Model
         'user_updater',
     ];
 
-    public function perfil(){
+    public function perfil():BelongsTo{
         return $this->belongsTo(Perfil::class,'perfil_id');
     }
 
-    public function modulo(){
+    public function modulo():BelongsTo{
         return $this->belongsTo(Modulo::class,'modulo_has_operacao_modulo_id');
     }
 
-    public function operacao(){
+    public function operacao():BelongsTo{
         return $this->belongsTo(Operacao::class,'modulo_has_operacao_operacao_id');
     }
 

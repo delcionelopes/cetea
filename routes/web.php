@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Caos\FuncaoController;
 use App\Http\Controllers\Caos\ModuloController;
 use App\Http\Controllers\Caos\OperacaoController;
 use App\Http\Controllers\Caos\SegurancaController;
@@ -84,6 +85,14 @@ Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin.')-
       Route::prefix('seguranca')->name('seguranca.')->group(function(){
         Route::get('/index-seguranca',[SegurancaController::class,'index_seguranca'])->name('index');
       });
+
+      Route::prefix('funcao')->name('funcao.')->group(function(){
+        Route::get('/index-funcao',[FuncaoController::class,'index'])->name('index');        
+        Route::post('/delete-funcao/{id}',[FuncaoController::class,'destroy']);
+        Route::get('/edit-funcao/{id}',[FuncaoController::class,'edit'])->name('edit');
+        Route::put('/update-funcao/{id}',[FuncaoController::class,'update']);
+        Route::put('/store-funcao',[FuncaoController::class,'store'])->name('store');        
+      }); 
 
 
     }); //fim ceteaadmin

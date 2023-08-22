@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Atendimento_Docs extends Model
 {
@@ -22,7 +23,7 @@ class Atendimento_Docs extends Model
         'updater_user',
     ];
 
-    public function atendimento(){
+    public function atendimento():BelongsTo{
         return $this->belongsTo(Atendimento::class,'atendimento_id');
     }
 }

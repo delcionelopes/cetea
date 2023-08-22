@@ -29,11 +29,11 @@ class Anamnese_Hist_Pregressa extends Model
         'updater_user',
     ];
 
-    public function paciente(){
+    public function paciente():BelongsTo{
         return $this->belongsTo(Paciente::class,'paciente_id');
     }
 
-    public function atendimento(){
+    public function atendimento():BelongsTo{
         return $this->BelongsTo(Atendimento::class,'atendimento_id');
     }
 

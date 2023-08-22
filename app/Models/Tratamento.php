@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Tratamento extends Model
 {
@@ -21,11 +23,11 @@ class Tratamento extends Model
         'updater_user',
     ];
 
-    public function tipo_tratamento(){
+    public function tipo_tratamento():BelongsTo{
         return $this->belongsTo(Tipo_Tratamento::class,'tipo_tratamento_id');
     }
 
-    public function questionario(){
+    public function questionario():HasMany{
         return $this->hasMany(Questionario::class,'id','tratamento_id');
     }
 }

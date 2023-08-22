@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Pergunta extends Model
 {
@@ -21,7 +22,7 @@ class Pergunta extends Model
         'updater_user',
     ];
 
-    public function questionario(){
+    public function questionario():BelongsTo{
         return $this->belongsTo(Questionario::class,'questionario_id');
     }
     

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class HistDes_VersaoPais_Brincadeiras extends Model
 {
@@ -47,11 +48,11 @@ class HistDes_VersaoPais_Brincadeiras extends Model
         'updater_user',
     ];
 
-    public function paciente(){
+    public function paciente():BelongsTo{
         return $this->belongsTo(Paciente::class,'paciente_id');
     }
 
-    public function atendimento(){
+    public function atendimento():BelongsTo{
         return $this->belongsTo(Atendimento::class,'atendimento_id');
     }
 

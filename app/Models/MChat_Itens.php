@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class MChat_Itens extends Model
 {
@@ -20,7 +21,7 @@ class MChat_Itens extends Model
         'updater_user',
     ];
 
-    public function mchat(){
+    public function mchat():BelongsToMany{
         return $this->belongsToMany(MChat::class,'mchat_has_mchat_itens','mchat_itens_id','mchat_id')->withPivot('cuidador_observador','cotacao','p_f');
     }
 

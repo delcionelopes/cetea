@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -39,27 +41,27 @@ class User extends Authenticatable
 
     ];
 
-    public function artigos(){
+    public function artigos():HasMany{
         return $this->hasMany(Artigo::class);
     }
 
-    public function comentarios(){
+    public function comentarios():HasMany{
         return $this->hasMany(Comentario::class);
     }
 
-    public function arquivos(){
+    public function arquivos():HasMany{
         return $this->hasMany(Arquivo::class);
     }
 
-    public function funcao(){
+    public function funcao():BelongsTo{
         return $this->belongsTo(Funcao::class,'funcao_id');
     }
 
-    public function perfil(){
+    public function perfil():BelongsTo{
         return $this->belongsTo(Perfil::class,'perfil_id');
     }
 
-    public function setor(){
+    public function setor():BelongsTo{
         return $this->belongsTo(Setor::class,'setor_id');
     }
 

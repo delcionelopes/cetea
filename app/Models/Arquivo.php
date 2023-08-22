@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Arquivo extends Model
 {
@@ -20,10 +21,10 @@ class Arquivo extends Model
         'created_at',
         'updated_at',
     ];
-    public function user(){
+    public function user():BelongsTo{
         return $this->belongsTo(User::class,'users_id');
     }
-    public function artigo(){
+    public function artigo():BelongsTo{
         return $this->belongsTo(Artigo::class,'artigos_id');
     }
 

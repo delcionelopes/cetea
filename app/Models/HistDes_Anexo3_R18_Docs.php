@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class HistDes_Anexo3_R18_Docs extends Model
 {
@@ -24,11 +25,11 @@ class HistDes_Anexo3_R18_Docs extends Model
         'updater_user',
     ];
 
-    public function paciente(){
+    public function paciente():BelongsTo{
         return $this->belongsTo(Paciente::class,'paciente_id');
     }
 
-    public function histdes_anexo3_infosensoriais(){
+    public function histdes_anexo3_infosensoriais():BelongsTo{
         return $this->belongsTo(HistDes_Anexo3_InfoSensoriais::class,'histdes_anexo3_infosensoriais_id');
     }
 
