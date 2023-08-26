@@ -114,8 +114,8 @@
                                 <th scope="row">{{$funcao->nome}}</th>                                
                                 <td>                                    
                                         <div class="btn-group">                                           
-                                            <button type="button" data-id="{{$funcao->id}}" data-nomefuncao="{{$funcao->nome}}" class="edit_funcao fas fa-edit" style="background:transparent;border:none; white-space: nowrap;" data-html="true" data-placement="left" data-toggle="popover" title="Editar FUNÇÃO"></button>
-                                            <button type="button" data-id="{{$funcao->id}}" data-nomefuncao="{{$funcao->nome}}" class="delete_funcao_btn fas fa-trash" style="background:transparent;border:none; white-space: nowrap;" data-html="true" data-placement="right" data-toggle="popover" title="Excluir FUNÇÃO"></button>
+                                            <button type="button" data-id="{{$funcao->id}}" data-nomefuncao="{{$funcao->nome}}" class="edit_funcao fas fa-edit" style="background:transparent;border:none; white-space: nowrap;" data-html="true" data-placement="left" data-toggle="popover" title="Editar"></button>
+                                            <button type="button" data-id="{{$funcao->id}}" data-nomefuncao="{{$funcao->nome}}" class="delete_funcao_btn fas fa-trash" style="background:transparent;border:none; white-space: nowrap;" data-html="true" data-placement="right" data-toggle="popover" title="Excluir"></button>
                                         </div>                                    
                                 </td>
                             </tr>  
@@ -155,7 +155,7 @@ $(document).ready(function(){
             var linklogo = "{{asset('storage')}}";
             var CSRF_TOKEN  = document.querySelector('meta[name="csrf-token"]').getAttribute('content');   
             var id = $(this).data("id");            
-            var nome = ($(this).data("nomefuncao")).trim();                    
+            var nome = $(this).data("nomefuncao");
             
             Swal.fire({
                 showClass: {
@@ -310,7 +310,7 @@ $(document).ready(function(){
         $("#AddFuncaoModal").on('shown.bs.modal',function(){
             $(".nome_funcao").focus();
         });
-        $(document).on('click','.AddFuncaoModal_btn',function(e){  //início da exibição do form EditFuncaoModal
+        $(document).on('click','.AddFuncaoModal_btn',function(e){  //início da exibição do form AddFuncaoModal
             e.preventDefault();     
             
             var link = "{{asset('storage')}}";           

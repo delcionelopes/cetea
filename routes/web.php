@@ -3,7 +3,9 @@
 use App\Http\Controllers\Caos\FuncaoController;
 use App\Http\Controllers\Caos\ModuloController;
 use App\Http\Controllers\Caos\OperacaoController;
+use App\Http\Controllers\Caos\PerfilController;
 use App\Http\Controllers\Caos\SegurancaController;
+use App\Http\Controllers\Caos\SetorController;
 use App\Http\Controllers\HomeController as ControllersHomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -88,10 +90,26 @@ Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin.')-
 
       Route::prefix('funcao')->name('funcao.')->group(function(){
         Route::get('/index-funcao',[FuncaoController::class,'index'])->name('index');        
-        Route::post('/delete-funcao/{id}',[FuncaoController::class,'destroy']);
+        Route::delete('/delete-funcao/{id}',[FuncaoController::class,'destroy']);
         Route::get('/edit-funcao/{id}',[FuncaoController::class,'edit'])->name('edit');
         Route::put('/update-funcao/{id}',[FuncaoController::class,'update']);
         Route::put('/store-funcao',[FuncaoController::class,'store'])->name('store');        
+      }); 
+
+      Route::prefix('setor')->name('setor.')->group(function(){
+        Route::get('/index-setor',[SetorController::class,'index'])->name('index');        
+        Route::delete('/delete-setor/{id}',[SetorController::class,'destroy']);
+        Route::get('/edit-setor/{id}',[SetorController::class,'edit'])->name('edit');
+        Route::put('/update-setor/{id}',[SetorController::class,'update']);
+        Route::put('/store-setor',[SetorController::class,'store'])->name('store');        
+      }); 
+
+      Route::prefix('perfil')->name('perfil.')->group(function(){
+        Route::get('/index-perfil',[PerfilController::class,'index'])->name('index');        
+        Route::delete('/delete-perfil/{id}',[PerfilController::class,'destroy']);
+        Route::get('/edit-perfil/{id}',[PerfilController::class,'edit'])->name('edit');
+        Route::put('/update-perfil/{id}',[PerfilController::class,'update']);
+        Route::put('/store-perfil',[PerfilController::class,'store'])->name('store');        
       }); 
 
 

@@ -27,7 +27,7 @@ class SetorController extends Controller
             $setores = $this->setor->orderByDesc('id')->paginate(6);
         }else{
             $query = $this->setor->query()
-                          ->where('nome','LIKE','%'.strtoupper($request->pesquisa).'%');
+                          ->where('sigla','LIKE','%'.strtoupper($request->pesquisa).'%');
             $setores = $query->orderByDesc('id')->paginate(6);
         }
         return view('caos.setor.index',[
@@ -67,6 +67,7 @@ class SetorController extends Controller
             $data['nome'] = strtoupper($request->input('nome'));
             $data['sigla'] = strtoupper($request->input('sigla'));
             $data['created_at'] = now();
+            $data['updated_at'] = null;
             $setor = $this->setor->create($data);
             return response()->json([
                 'setor' => $setor,
