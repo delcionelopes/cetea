@@ -91,7 +91,7 @@
                                             <li class="dropdown-item"><a href="{{route('ceteaadmin.setor.index')}}" class="dropdown-item listaosetor_btn"  
                                                 style="white-space: nowrap;"><i class="fas fa-folder" style="background: transparent; color: red; border: none;"></i> Cadastro de Setores</a>
                                             </li>
-                                            <li class="dropdown-item"><a href="#" class="dropdown-item listaousuarios_btn"  
+                                            <li class="dropdown-item"><a href="{{route('admin.user.index')}}" class="dropdown-item listaousuarios_btn"  
                                                 style="white-space: nowrap;"><i class="fas fa-user" style="background: transparent; color: red; border: none;"></i> Cadastro de Usuários</a>
                                             </li> 
                                 </ul>

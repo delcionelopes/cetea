@@ -147,23 +147,35 @@ $(document).ready(function(){
     //inicio delete Tema
     $(document).on('click','.delete_tema_btn',function(e){
         e.preventDefault();
+        var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
         var id = $(this).data("id");
         var titulotema = $(this).data("titulotema");
-        var resposta = confirm(titulotema+". Deseja excluir?");
-
-        if(resposta==true){
-            $.ajaxSetup({
-                headers:{
-                    'X-CSRF-TOKEN':$('meta[name="_token"]').attr('content')
-                }
-            });
+       Swal.fire({
+                showClass: {
+                    popup: 'animate__animated animate__fadeInDown'
+                },
+                hideClass: {
+                    popup: 'animate__animated animate__fadeOutUp'
+                },
+                title:titulotema,
+                text: "Deseja excluir?",
+                imageUrl: linklogo+'/logoprodap.jpg',
+                imageWidth: 400,
+                imageHeight: 200,
+                imageAlt: 'imagem do sistema',
+                showCancelButton: true,
+                confirmButtonText: 'Sim, prossiga!',                
+                cancelButtonText: 'Não, cancelar!',                                 
+             }).then((result)=>{
+             if(result.isConfirmed){ 
             $.ajax({
-                url:'delete/'+id,
+                url:'/admin/tema/delete/'+id,
                 type:'POST',
                 dataType:'json',
                 data:{
                     "id":id,
                     "_method":'DELETE',
+                    "_token":CSRF_TOKEN,
                 },                
                 success:function(response){
                     if(response.status==200){
@@ -172,11 +184,16 @@ $(document).ready(function(){
                         $('#success_message').replaceWith('<div id="success_message"></div>');
                         $('#success_message').addClass("alert alert-success");
                         $('#success_message').text(response.message);
+                    }else{
+                        $('#success_message').replaceWith('<div id="success_message"></div>');
+                        $('#success_message').addClass("alert alert-danger");
+                        $('#success_message').text(response.message);
                     }
                 }
             });
         }
     });
+});
     //fim delete Tema
 //Início chamada EditTemaModal
 $('#EditTemaModal').on('shown.bs.modal',function(){
@@ -196,7 +213,7 @@ $('#EditTemaModal').on('shown.bs.modal',function(){
         $.ajax({
             type:'GET',
             dataType:'json',
-            url:'edit/'+id,
+            url:'/admin/tema/edit/'+id,
             success:function(response){
                 if(response.status==200){
                     $('#edit_tema_id').val(response.tema.id);
@@ -211,6 +228,7 @@ $('#EditTemaModal').on('shown.bs.modal',function(){
     //Início processo update do tema
     $(document).on('click','.update_tema',function(e){
         e.preventDefault();
+        var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
         var loading = $('#imgedit');
             loading.show();
         var id = $('#edit_tema_id').val();
@@ -218,17 +236,13 @@ $('#EditTemaModal').on('shown.bs.modal',function(){
             'titulo':$('#edit_titulo').val(),
             'descricao':$('#edit_descricao').val(),
             //'slug':$('#edit_slug').val(),
-        }
-        $.ajaxSetup({
-            headers:{
-                'X-CSRF-TOKEN':$('meta[name="_token"]').attr('content')
-            }
-        });
+            '_method':'PUT',
+            '_token':CSRF_TOKEN,
+        }        
         $.ajax({
             type:'POST',            
-            dataType:'json',
-            method:'PUT',
-            url:'update/'+id,
+            dataType:'json',            
+            url:'/admin/tema/update/'+id,
             data:data,
             success:function(response){
                 if(response.status==400){
@@ -298,20 +312,19 @@ $('#EditTemaModal').on('shown.bs.modal',function(){
     //Adicionar tema na base
     $(document).on('click','.add_tema',function(e){
         e.preventDefault();
+        var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
         var loading = $('#imgadd');
             loading.show();
         var data = {
             'titulo':$('.titulo').val(),
             'descricao':$('.descricao').val(),
             //'slug':$('.slug').val(),
+            '_method':'PUT',
+            '_token':CSRF_TOKEN,
         }
-        $.ajaxSetup({
-            headers:{
-                'X-CSRF-TOKEN':$('meta[name="_token"]').attr('content')
-            }
-        });
+        
         $.ajax({
-            url:'store',
+            url:'/admin/tema/store',
             type:'POST',
             dataType:'json',
             data:data,

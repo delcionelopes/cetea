@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Admin\ArtigoController;
+use App\Http\Controllers\Admin\TemaController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Caos\FuncaoController;
 use App\Http\Controllers\Caos\ModuloController;
 use App\Http\Controllers\Caos\OperacaoController;
@@ -17,38 +20,42 @@ Route::get('/home', [App\Http\Controllers\Page\HomeController::class, 'master'])
 
 Route::group(['middleware' => ['auth']],function(){
 
-Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin.')->group(function(){
+Route::prefix('admin')->name('admin.')->group(function(){
 
     Route::prefix('artigos')->name('artigos.')->group(function(){
-        Route::get('/index','ArtigoController@index')->name('index');         
-        Route::get('/create','ArtigoController@create')->name('create');
-        Route::post('/store','ArtigoController@store')->name('store');
-        Route::get('/edit/{id}','ArtigoController@edit')->name('edit');
-        Route::put('/update/{id}','ArtigoController@update')->name('update');
-        Route::delete('/delete/{id}','ArtigoController@destroy')->name('delete');
-        Route::get('/edit-capa/{id}','ArtigoController@editCapa');
-        Route::put('/upload-capa/{id}','ArtigoController@uploadCapa');
-        Route::post('/delete-capa/{id}','ArtigoController@deleteCapa');
-        Route::get('/edit-arquivo/{id}','ArtigoController@editArquivo');
-        Route::put('/upload-arquivo/{id}','ArtigoController@uploadArquivo');
-        Route::delete('/delete-arquivo/{id}','ArtigoController@deleteArquivo');            
+        Route::get('/index',[ArtigoController::class,'index'])->name('index');         
+        Route::get('/create',[ArtigoController::class,'create'])->name('create');
+        Route::post('/store',[ArtigoController::class,'store'])->name('store');
+        Route::get('/edit/{id}',[ArtigoController::class,'edit'])->name('edit');
+        Route::put('/update/{id}',[ArtigoController::class,'update'])->name('update');
+        Route::delete('/delete/{id}',[ArtigoController::class,'destroy'])->name('delete');
+        Route::get('/edit-capa/{id}',[ArtigoController::class,'editCapa']);
+        Route::put('/upload-capa/{id}',[ArtigoController::class,'uploadCapa']);
+        Route::post('/delete-capa/{id}',[ArtigoController::class,'deleteCapa']);
+        Route::get('/edit-arquivo/{id}',[ArtigoController::class,'editArquivo']);
+        Route::put('/upload-arquivo/{id}',[ArtigoController::class,'uploadArquivo']);
+        Route::delete('/delete-arquivo/{id}',[ArtigoController::class,'deleteArquivo']);            
     });  
     Route::prefix('tema')->name('tema.')->group(function(){
-        Route::get('/index','TemaController@index')->name('index');
-        Route::post('/store','TemaController@store');
-        Route::get('/edit/{id}','TemaController@edit');
-        Route::put('/update/{id}','TemaController@update');
-        Route::delete('/delete/{id}','TemaController@destroy');
+        Route::get('/index',[TemaController::class,'index'])->name('index');
+        Route::post('/store',[TemaController::class,'store']);
+        Route::get('/edit/{id}',[TemaController::class,'edit']);
+        Route::put('/update/{id}',[TemaController::class,'update']);
+        Route::delete('/delete/{id}',[TemaController::class,'destroy']);
       }); 
 
     Route::prefix('user')->name('user.')->group(function(){
-        Route::get('/index','UserController@index')->name('index');
-        Route::put('/store','UserController@store');
-        Route::get('/edit/{id}','UserController@edit');
-        Route::put('/update/{id}','UserController@update');
-        Route::delete('/delete/{id}','UserController@destroy');
-        Route::post('/moderador/{id}', 'UserController@moderadorUsuario');
-        Route::post('/inativo/{id}', 'UserController@inativoUsuario');
+        Route::get('/index',[UserController::class,'index'])->name('index');
+        Route::get('/create',[UserController::class,'create'])->name('create');
+        Route::put('/store',[UserController::class,'store']);
+        Route::get('/edit/{id}',[UserController::class,'edit'])->name('edit');
+        Route::put('/update/{id}',[UserController::class,'update']);
+        Route::delete('/delete/{id}',[UserController::class,'destroy']);
+        Route::put('/sistema/{id}',[UserController::class,'sistemaUsuario']);
+        Route::put('/inativo/{id}', [UserController::class,'inativoUsuario']);
+        Route::put('/admin/{id}', [UserController::class,'adminUsuario']);
+        Route::put('/armazenar-imgtemp',[UserController::class,'armazenarImgTemp']);
+        Route::delete('/delete-imgtemp',[UserController::class,'deleteImgTemp']);
       });    
        
     

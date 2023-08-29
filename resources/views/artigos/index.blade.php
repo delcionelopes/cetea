@@ -267,7 +267,7 @@ $(document).ready(function(){  //INÍCIO
     ///inicio delete artigo
     $(document).on('click','.delete_artigo_btn',function(e){
         e.preventDefault();
-      
+        var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute('content');      
         var id = $(this).data("id");
         var tituloartigo = $(this).data("tituloartigo");
 
@@ -282,12 +282,13 @@ $(document).ready(function(){  //INÍCIO
             });
             
             $.ajax({
-                url: 'delete/'+id,
+                url: '/admin/artigos/delete/'+id,
                 type: 'POST',
                 dataType: 'json',
                 data:{
                     "id": id,
                     "_method": 'DELETE',
+                    "_token":CSRF_TOKEN,
                 },
                 success:function(response){
                     if(response.status==200){                        
@@ -295,6 +296,10 @@ $(document).ready(function(){  //INÍCIO
                         $("#art"+id).remove();
                         $('#success_message').replaceWith('<div id="success_message"></div>');
                         $('#success_message').addClass("alert alert-success");
+                        $('#success_message').text(response.message);                         
+                    }else{
+                        $('#success_message').replaceWith('<div id="success_message"></div>');
+                        $('#success_message').addClass("alert alert-danger");
                         $('#success_message').text(response.message);                         
                     }
                 }
@@ -323,7 +328,7 @@ $('#EditArtigoModal').on('shown.bs.modal',function(){
         $.ajax({
             type: 'GET',
             dataType: 'json',
-            url:'edit/'+id,
+            url:'/admin/artigos/edit/'+id,
             success: function(response){
                 if(response.status==200){
                     $('#edit_artigo_id').val(response.artigo.id);
@@ -372,7 +377,7 @@ e.preventDefault();
                 type:'POST',                
                 dataType:'json',
                 method: 'PUT',
-                url: 'update/'+id,
+                url: '/admin/artigos/update/'+id,
                 data: data,
                 success:function(response){                    
                     if(response.status==400){                        
@@ -501,7 +506,7 @@ e.preventDefault();
                 }
             });
             $.ajax({
-                url:'store',
+                url:'/admin/artigos/store',
                 type:'POST',
                 dataType: 'json',
                 data:data,
@@ -590,7 +595,7 @@ $(document).on('click','.capa_envia_btn',function(e){
             $.ajax({
                 type: 'GET',
                 dataType: 'json',
-                url:'edit-capa/'+id,
+                url:'/admin/artigos/edit-capa/'+id,
                 success: function(response){
                     if(response.status==200){                                                       
                         $('#imagem').attr('data-artigoid',response.artigo.id);
@@ -614,7 +619,7 @@ $(document).on('click','.capa_envia_btn',function(e){
       
   $.ajax({                      
         type: 'POST',                             
-        url:'upload-capa/'+id,                
+        url:'admin/artigos/upload-capa/'+id,                
         dataType: 'json',            
         data: fd,
         cache: false,
@@ -660,7 +665,7 @@ $(document).on('click','.capa_exclui_btn',function(e){
                 });
                 
                 $.ajax({
-                    url: 'delete-capa/'+id,
+                    url: '/admin/artigos/delete-capa/'+id,
                     type: 'POST',
                     dataType: 'json',                    
                     success:function(response){
@@ -698,7 +703,7 @@ $(document).on('click','.files_enviar_btn',function(e){
             $.ajax({
                 type: 'get',
                 dataType: 'json',
-                url:'edit-arquivo/'+id,
+                url:'/admin/artigos/edit-arquivo/'+id,
                 success: function(response){
                     if(response.status==200){                                                       
                         $('#arquivo').attr('data-artigoid',response.artigo.id);           
@@ -733,7 +738,7 @@ $(document).on('click','.fazer_upload_btn',function(e){
                 });          
 
      $.ajax({                                             
-        url: 'upload-arquivo/'+id,              
+        url: '/admin/artigos/upload-arquivo/'+id,              
         type:'post',
         dataType: 'json',        
         data:formData,
@@ -790,7 +795,7 @@ $(document).on('click','.arq_exclui_btn',function(e){
         });
                 
         $.ajax({
-        url: 'delete-arquivo/'+id,
+        url: '/admin/artigos/delete-arquivo/'+id,
         type: 'POST',
         dataType: 'json',  
         data:{
