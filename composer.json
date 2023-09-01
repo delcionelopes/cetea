@@ -8,6 +8,7 @@
         "php": "^7.3|^8.0",
         "cviebrock/eloquent-sluggable": "^8.0",
         "fruitcake/laravel-cors": "^2.0",
+        "geekcom/validator-docs": "^3.9",
         "guzzlehttp/guzzle": "^7.0.1",
         "jeroennoten/laravel-adminlte": "^3.9",
         "laravel/framework": "^8.75",

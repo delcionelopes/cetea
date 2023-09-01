@@ -213,7 +213,7 @@ $(document).ready(function(){
                         loading.hide();
                 } else{
                     loading.hide();
-                    $('#saveform_errList').replaceWith('<ul id="saveform_errList"></ul>');  
+                    $('#saveform_errList').replaceWith('<ul id="saveform_errList"></ul>');
                     loading.hide();
                      location.replace('/admin/user/index');
                 }  

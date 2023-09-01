@@ -59,6 +59,7 @@ class UserController extends Controller
             'name' => ['required','max:100'],
             'email' => ['required','email','max:100','unique:users'],
             'password' => ['required','min:8','max:100'],
+            'cpf' => ['required','cpf'],
             'perfil_id' => ['required','integer'],
             'funcao_id' => ['required','integer'],
             'setor_id' => ['required','integer'],
@@ -141,7 +142,7 @@ class UserController extends Controller
         $validator = Validator::make($request->all(),[
             'name' => ['required','max:100'],
             'email' => ['required','email','max:100'],
-            'password' => ['required','min:8','max:100'],
+            'cpf' => ['required','cpf'],
             'perfil_id' => ['required','integer'],
             'funcao_id' => ['required','integer'],
             'setor_id' => ['required','integer'],
@@ -176,13 +177,15 @@ class UserController extends Controller
             unlink($tempPath);
         }
 
-        }        
+        }                
         $data['name'] = $request->input('name');
         $data['funcao_id'] = $request->input('funcao_id');
         $data['perfil_id'] = $request->input('perfil_id');
         $data['setor_id'] = $request->input('setor_id');
         $data['email'] = $request->input('email');
+        if($request->password){
         $data['password'] = bcrypt($request->input('password'));
+        }
         $data['matricula'] = $request->input('matricula');
         $data['cpf'] = $request->input('cpf');
         $data['rg'] = $request->input('rg');
@@ -262,9 +265,9 @@ class UserController extends Controller
     }
 
     public function sistemaUsuario(Request $request,int $id){
-        $sistema = $request->input('sistema');
-        $data = ['sistema' => $sistema];
         $user = $this->user->find($id);
+        $sistema = $request->input('sistema');
+        $data = ['sistema' => $sistema];        
         $user->update($data);
         $u = User::find($id);
         return response()->json([
@@ -274,9 +277,9 @@ class UserController extends Controller
     }
 
     public function inativoUsuario(Request $request,int $id){
-        $inativo = $request->input('inativo');
-        $data = ['inativo' => $inativo];
         $user = $this->user->find($id);
+        $inativo = $request->input('inativo');
+        $data = ['inativo' => $inativo];        
         $user->update($data);
         $u = User::find($id);
         return response()->json([
@@ -286,9 +289,9 @@ class UserController extends Controller
     }
 
     public function adminUsuario(Request $request,int $id){
-        $admin = $request->input('admin');
-        $data = ['admin' => $admin];
         $user = $this->user->find($id);
+        $admin = $request->input('admin');
+        $data = ['admin' => $admin];        
         $user->update($data);
         $u = User::find($id);
         return response()->json([

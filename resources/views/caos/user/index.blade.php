@@ -46,20 +46,20 @@
                     @forelse($users as $user)
                     <tr id="user{{$user->id}}">                        
                         <td>{{$user->name}}</td>
-                        @if($user->sistema)
-                        <td id="sistema{{$user->id}}"><button type="button" data-id="{{$user->id}}" data-sistema="false" class="sistema_user fas fa-check" style="background: transparent; color: green; border: none;"></button></td>
+                        @if($user->sistema)                        
+                        <td id="sistema{{$user->id}}"><button type="button" data-id="{{$user->id}}" data-sistema="false" class="sistema_user fas fa-thumbs-up" style="background: transparent; color: green; border: none;"></button></td>
                         @else
-                        <td id="sistema{{$user->id}}"><button type="button" data-id="{{$user->id}}" data-sistema="true" class="sistema_user fas fa-close" style="background: transparent; color: red; border: none;"></button></td>
+                        <td id="sistema{{$user->id}}"><button type="button" data-id="{{$user->id}}" data-sistema="true" class="sistema_user fas fa-thumbs-down" style="background: transparent; color: red; border: none;"></button></td>
                         @endif
                         @if($user->inativo)
-                        <td id="inativo{{$user->id}}"><button type="button" data-id="{{$user->id}}" data-inativo="false" class="inativo_user fas fa-close" style="background: transparent; color: red; border: none;"></button></td>
+                        <td id="inativo{{$user->id}}"><button type="button" data-id="{{$user->id}}" data-inativo="false" class="inativo_user fas fa-thumbs-down" style="background: transparent; color: red; border: none;"></button></td>
                         @else
-                        <td id="inativo{{$user->id}}"><button type="button" data-id="{{$user->id}}" data-inativo="true" class="inativo_user fas fa-check" style="background: transparent; color: green; border: none;"></button></td>
+                        <td id="inativo{{$user->id}}"><button type="button" data-id="{{$user->id}}" data-inativo="true" class="inativo_user fas fa-thumbs-up" style="background: transparent; color: green; border: none;"></button></td>
                         @endif
                         @if($user->admin)
-                        <td id="admin{{$user->id}}"><button type="button" data-id="{{$user->id}}" data-admin="false" class="admin_user fas fa-check" style="background: transparent; color: green; border: none;"></button></td>
+                        <td id="admin{{$user->id}}"><button type="button" data-id="{{$user->id}}" data-admin="false" class="admin_user fas fa-thumbs-up" style="background: transparent; color: green; border: none;"></button></td>
                         @else
-                        <td id="admin{{$user->id}}"><button type="button" data-id="{{$user->id}}" data-admin="true" class="admin_user fas fa-close" style="background: transparent; color: red; border: none;"></button></td>
+                        <td id="admin{{$user->id}}"><button type="button" data-id="{{$user->id}}" data-admin="true" class="admin_user fas fa-thumbs-down" style="background: transparent; color: red; border: none;"></button></td>
                         @endif
                         <td>
                             <div class="btn-group">
@@ -154,7 +154,7 @@ $(document).ready(function(){
 });   
     //fim delete usuário
 
-//inicio moderador usuario
+//inicio acesso sistema usuario
 $(document).on('click','.sistema_user',function(e){
         e.preventDefault();
         var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
@@ -179,14 +179,14 @@ $(document).on('click','.sistema_user',function(e){
                         limita1 = '<td id="sistema'+response.user.id+'"><button type="button"\
                                    data-id="'+response.user.id+'" \
                                    data-sistema="false" \
-                                   class="sistema_user fas fa-check"\
+                                   class="sistema_user fas fa-thumbs-up"\
                                    style="background: transparent; color: green; border: none;">\
                                    </button></td>';
                                 }else{
                         limita2 = '<td id="sistema'+response.user.id+'"><button type="button" \
                                    data-id="'+response.user.id+'" \
                                    data-sistema="true" \
-                                   class="sistema_user fas fa-close" \
+                                   class="sistema_user fas fa-thumbs-down" \
                                    style="background: transparent; color: red; border: none;">\
                                    </button></td>';
                                 }
@@ -196,7 +196,53 @@ $(document).on('click','.sistema_user',function(e){
                 }
             });
     });
-    //fim moderador usuario
+    //fim acesso ao sistema usuario
+
+    //inicio admin usuario
+$(document).on('click','.admin_user',function(e){
+        e.preventDefault();
+        var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+        var id = $(this).data("id");        
+        var admin = $(this).data("admin");
+        
+        var data = {
+            'admin':admin,
+            '_method':'PUT',
+            '_token':CSRF_TOKEN,
+        }        
+            $.ajax({
+                type: 'post',
+                dataType: 'json',
+                data:data,
+                url:'/admin/user/admin/'+id,
+                success: function(response){
+                    if(response.status==200){   
+                        var celula = "";
+                        var limita1 = "";
+                        var limita2 = "";                        
+                        if(response.user.admin==true){
+                        limita1 = '<td id="admin'+response.user.id+'"><button type="button"\
+                                   data-id="'+response.user.id+'" \
+                                   data-admin="false" \
+                                   class="admin_user fas fa-thumbs-up"\
+                                   style="background: transparent; color: green; border: none;">\
+                                   </button></td>';
+                                }else{
+                        limita2 = '<td id="admin'+response.user.id+'"><button type="button" \
+                                   data-id="'+response.user.id+'" \
+                                   data-admin="true" \
+                                   class="admin_user fas fa-thumbs-down" \
+                                   style="background: transparent; color: red; border: none;">\
+                                   </button></td>';
+                                }
+                        var celula = limita1+limita2;                        
+                        $('#admin'+id).replaceWith(celula);        
+                    }
+                }
+            });
+    });
+    //fim admin usuario
+
     //inicio inativa usuario
     $(document).on('click','.inativo_user',function(e){
         e.preventDefault();
@@ -217,18 +263,18 @@ $(document).on('click','.sistema_user',function(e){
                     if(response.status==200){                                                                               
                         var limita1 = "";
                         var limita2 = "";                        
-                        if(response.user.inativo==1){
+                        if(response.user.inativo==true){
                         limita1 = '<td id="inativo'+response.user.id+'"><button type="button" \
                                   data-id="'+response.user.id+'" \
                                   data-inativo="false" \
-                                  class="inativo_user fas fa-close" \
+                                  class="inativo_user fas fa-thumbs-down" \
                                   style="background: transparent; color: red; border: none;">\
                                   </button></td>';
                         }else{
                         limita1 = '<td id="inativo'+response.user.id+'"><button type="button" \
                                    data-id="'+response.user.id+'" \
                                    data-inativo="true" \
-                                   class="inativo_user fas fa-check" \
+                                   class="inativo_user fas fa-thumbs-up" \
                                    style="background: transparent; color: green; border: none;">\
                                    </button></td>';
                         }
