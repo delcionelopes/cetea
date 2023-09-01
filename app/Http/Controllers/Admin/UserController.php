@@ -92,7 +92,7 @@ class UserController extends Controller
            $data['email'] = $request->input('email');
            $data['password'] = bcrypt($request->input('password'));
            $data['matricula'] = $request->input('matricula');
-           $data['cpf'] = $request->input('cpf');
+           $data['cpf'] = $this->deixaSomenteDigitos($request->input('cpf'));
            $data['rg'] = $request->input('rg');
            $data['sistema'] = $request->input('sistema');
            $data['inativo'] = false;
@@ -187,7 +187,7 @@ class UserController extends Controller
         $data['password'] = bcrypt($request->input('password'));
         }
         $data['matricula'] = $request->input('matricula');
-        $data['cpf'] = $request->input('cpf');
+        $data['cpf'] = $this->deixaSomenteDigitos($request->input('cpf'));
         $data['rg'] = $request->input('rg');
         $data['sistema'] = $request->input('sistema');
         $data['inativo'] = $request->input('inativo');
@@ -338,6 +338,10 @@ class UserController extends Controller
         return response()->json([
             'status' => 200,            
         ]);
+    }
+
+    protected function deixaSomenteDigitos($input){
+        return preg_replace('/[^0-9]/','',$input);
     }
 
  
