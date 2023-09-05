@@ -69,6 +69,38 @@
     </div>
 </div>
 
+
+<!--Begin ListAuthorizationModal-->
+
+<div class="modal fade animate__animated animate__bounce" id="ListAuthorizationModal" tabindex="-1" role="dialog" aria-labelledby="listtitleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header navbar-dark bg-primary">
+                <h5 class="modal-title" id="listtitleModalLabel" style="color: white;">Perfil: </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                    <span aria-hidden="true" style="color: white;">&times;</span>
+                </button>                
+            </div>
+            <div class="modal-body form-horizontal">
+            <form id="listform" name="listform" class="form-horizontal" role="form">                
+                <ul id="listform_errList"></ul>               
+                <input type="hidden" id="list_perfil_id">
+                <div class="card">
+                     <div class="card-body" id="cardauthorizations">                            
+                     </div>
+                </div>                  
+            </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-primary update_listauthorization"><img id="imglist" src="{{asset('storage/ajax-loader.gif')}}" style="display: none;" class="rounded-circle" width="20"> Confirmar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--End ListAuthorizationModal -->
+
 <!--index-->
 @auth
 @if(!(auth()->user()->inativo))
@@ -96,6 +128,7 @@
                         <thead class="sidebar-dark-primary" style="color: white">
                             <tr>                                
                                 <th scope="col">PERFIS</th>
+                                <th scope="col">AUTORIZAÇÕES</th>
                                 <th scope="col">AÇÕES</th>
                             </tr>
                         </thead>
@@ -104,6 +137,11 @@
                         @forelse($perfis as $perfil)   
                             <tr id="perfil{{$perfil->id}}">                                
                                 <th scope="row">{{$perfil->nome}}</th>                                
+                                <td>
+                                        <div class="btn-group">                                           
+                                            <button type="button" data-id="{{$perfil->id}}" data-nome="{{$perfil->nome}}" class="list_authorizations_btn" style="background:transparent;border:none;"><i id="ico_list{{$perfil->id}}" class="fas fa-list"></i><img id="img_list{{$perfil->id}}" src="{{asset('storage/ajax-loader.gif')}}" style="display: none;" class="rounded-circle" width="20"></button>
+                                        </div>    
+                                </td>
                                 <td>                                    
                                         <div class="btn-group">                                           
                                             <button type="button" data-id="{{$perfil->id}}" data-nomeperfil="{{$perfil->nome}}" class="edit_perfil fas fa-edit" style="background:transparent;border:none; white-space: nowrap;" data-html="true" data-placement="left" data-toggle="popover" title="Editar"></button>
@@ -187,7 +225,7 @@ $(document).ready(function(){
                             //Não pôde excluir por causa dos relacionamentos    
                             $("#success_message").replaceWith('<div id="success_message"></div>');                        
                             $("#success_message").addClass('alert alert-danger');
-                            $("#success_message").text(response.message);         
+                            $("#success_message").text(response.errors);         
                         }
                     }
                 }); 
@@ -278,9 +316,14 @@ $(document).ready(function(){
                         $("#editPerfilModal").modal('hide');                  
                         
                         //atualizando a linha na tabela html                      
-    
+                            var link = "{{asset('')}}"+"storage/ajax-loader.gif"; 
                             var linha = '<tr id="perfil'+response.perfil.id+'">\
                                     <th scope="row">'+response.perfil.nome+'</th>\
+                                    <td>\
+                                        <div class="btn-group">\
+                                            <button type="button" data-id="'+response.perfil.id+'" data-nome="'+response.perfil.nome+'" class="list_authorizations_btn" style="background:transparent;border:none;"><i id="ico_list'+response.roule.id+'" class="fas fa-list"></i><img id="img_list'+response.perfil.id+'" src="'+link+'" style="display: none;" class="rounded-circle" width="20"></button>\
+                                        </div>\
+                                    </td>\
                                     <td><div class="btn-group">\
                                     <button type="button" data-id="'+response.perfil.id+'" data-nomeperfil="'+response.perfil.nome+'" class="edit_perfil fas fa-edit" style="background:transparent;border:none"></button>\
                                     <button type="button" data-id="'+response.perfil.id+'" data-nomeperfil="'+response.perfil.nome+'" class="delete_perfil_btn fas fa-trash" style="background:transparent;border:none"></button>\
@@ -345,14 +388,19 @@ $(document).ready(function(){
                         $("#addform").trigger('reset');                    
                         $("#AddPerfilModal").modal('hide');
     
-                        //adiciona a linha na tabela html                      
-                            
+                        //adiciona a linha na tabela html
+                        var link = "{{asset('')}}"+"storage/ajax-loader.gif";
                         var tupla = "";
                         var linha0 = "";
                         var linha1 = "";
                             linha0 = '<tr id="novo" style="display:none;"></tr>';
                             linha1 = '<tr id="perfil'+response.perfil.id+'">\
                                     <th scope="row">'+response.perfil.nome+'</th>\
+                                    <td>\
+                                        <div class="btn-group">\
+                                            <button type="button" data-id="'+response.perfil.id+'" data-nome="'+response.perfil.nome+'" class="list_authorizations_btn" style="background:transparent;border:none;"><i id="ico_list'+response.perfil.id+'" class="fas fa-list"></i><img id="img_list'+response.perfil.id+'" src="'+link+'" style="display: none;" class="rounded-circle" width="20"></button>\
+                                        </div>\
+                                    </td>\
                                     <td><div class="btn-group">\
                                     <button type="button" data-id="'+response.perfil.id+'" data-nomeperfil="'+response.perfil.nome+'" class="edit_perfil fas fa-edit" style="background:transparent;border:none"></button>\
                                     <button type="button" data-id="'+response.perfil.id+'" data-nomeperfil="'+response.perfil.nome+'" class="delete_perfil_btn fas fa-trash" style="background:transparent;border:none"></button>\
@@ -370,6 +418,155 @@ $(document).ready(function(){
             });
     
         }); //Fim da adição de registro
+
+
+        ///inicio lista
+         $(document).on('click','.list_authorizations_btn',function(e){
+            e.preventDefault();
+
+            var id = $(this).data("id");
+                                      
+                     $('#ico_list'+id).replaceWith('<i id="ico_list'+id+'"></i>');
+            var loading = $('#img_list'+id);
+                loading.show();
+
+            $.ajaxSetup({
+                    headers:{
+                        'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+                    }
+                });                
+    
+            $.ajax({ 
+                type: 'GET',             
+                dataType: 'json',                                    
+                url: '/ceteaadmin/perfil/list-authorizations/'+id,                                
+                success: function(response){
+                    if(response.status==200){                        
+                       $('#listform_errList').replaceWith('<ul id="listform_errList"></ul>');     
+                        $('#listtitleModalLabel').replaceWith('<h5 class="modal-title" id="listtitleModalLabel" style="color: white;">Perfil: '+response.perfil.nome+'</h5>');
+                        $('#cardauthorizations').replaceWith('<div class="card-body" id="cardauthorizations"></div>');                        
+                        var limitacard = "";
+                        var alfa = "";
+                        var beta = "";
+                        $.each(response.modope,function(key,modope){                            
+                                alfa = '<div class="card-body" id="cardauthorizations'+modope.modulo_id+'">\
+                                <fieldset>\
+                                    <legend>'+modope.modulo.nome+'</legend>\
+                                    <div class="form-check" id="form-check-vinculo'+modope.modulo_id+'">\
+                                    </div>\
+                                </fieldset>\
+                                </div>';
+                                if(alfa!=beta){
+                                limitacard = limitacard+
+                                '<div class="card-body" id="cardauthorizations'+modope.modulo_id+'">\
+                                <fieldset>\
+                                    <legend>'+modope.modulo.nome+'</legend>\
+                                    <div class="form-check" id="form-check-vinculo'+modope.modulo_id+'">\
+                                    </div>\
+                                </fieldset>\
+                                </div>';       
+                                }
+                                beta = '<div class="card-body" id="cardauthorizations'+modope.modulo_id+'">\
+                                <fieldset>\
+                                    <legend>'+modope.modulo.nome+'</legend>\
+                                    <div class="form-check" id="form-check-vinculo'+modope.modulo_id+'">\
+                                    </div>\
+                                </fieldset>\
+                                </div>';                  
+                        });
+                        $('#cardauthorizations').append(limitacard);
+                        
+                        $.each(response.modope,function(key,modope){                        
+                        $('#form-check-vinculo'+modope.modulo_id).append('<label class="form-check-label" for="check'+modope.id+'">\
+                            <input type="checkbox" id="check'+modope.id+'" name="authorizations[]" value="'+modope.id+'" class="form-check-input">\
+                            '+modope.operacao.nome+'</label><br>');
+                        });     
+                        
+                       
+                        $("input[name='authorizations[]']").attr('checked',false);
+                        
+                        $.each(response.authorizations,function(key,authorization){                                                                                    
+                                $("#check"+authorization.id).attr('checked',true);
+                        });
+
+                        
+
+                        $('#listmyform').trigger('reset');                    
+                        $('#ListAuthorizationModal').modal('show');                       
+
+                        $('#listform_errList').replaceWith('<ul id="listform_errList"></ul>');   
+                        $('#list_perfil_id').val(id);
+                        loading.hide();
+                        $('#ico_list'+id).replaceWith('<i id="ico_list'+id+'" class="fas fa-list"></i>');
+                          
+                    }else{
+                       var message = '<div class="card-body" id="cardauthorizations">\
+                                <fieldset>\
+                                    <legend>'+response.message+'</legend>\
+                                </fieldset>\
+                                </div>';
+                        $('#cardauthorizations').replaceWith('<div class="card-body" id="cardauthorizations"></div>');
+                        $('#cardauthorizations').append(message);
+                        $('#listmyform').trigger('reset');
+                        $('#ListAuthorizationModal').modal('show');                        
+
+                        $('#listform_errList').replaceWith('<ul id="listform_errList"></ul>');   
+                        $('#list_perfil_id').val(id);
+                        loading.hide();
+                        $('#ico_list'+id).replaceWith('<i id="ico_list'+id+'" class="fas fa-list"></i>');
+                    }
+                }
+            });
+        });
+
+        $(document).on('click','.update_listauthorization',function(e){
+            e.preventDefault();
+            var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+            var loading = $('#imglist');
+                loading.show();
+            var id = $('#list_perfil_id').val();
+            
+            var authorizations = new Array;
+                        $("input[name='authorizations[]']:checked").each(function(){                
+                            authorizations.push($(this).val());
+                        });   
+            var data = {
+                'id':id,
+                'permissoes':authorizations,
+                '_method':'PUT',
+                '_token':CSRF_TOKEN,
+            }
+            
+            $.ajax({
+                url:'/ceteaadmin/perfil/store-authorizations/'+id,
+                type:'POST',
+                dataType:'json',
+                data:data,
+                success:function(response){
+                    if(response.status==400){
+                        $('#listform_errList').replaceWith('<ul id="listform_errList"></ul>');
+                        $('#listform_errList').addClass('alert alert-danger');
+                        $.each(response.errors,function(key,err_values){
+                            $('#listform_errList').append('<li>'+err_values+'</li>');
+                        });
+                        loading.hide();
+                    } else {
+                        $('#listform_errList').replaceWith('<ul id="listform_errList"></ul>');     
+                        $('#success_message').replaceWith('<div id="success_message"></div>');              
+                        $('#success_message').addClass('alert alert-success');
+                        $('#success_message').text(response.message);                                        
+                        loading.hide();
+                        $('#listmyform').trigger('reset');
+                        $('#ListAuthorizationModal').modal('hide');
+                    }
+                }
+            });
+        }); 
+
+        ///fim lista de autorizações
+
+
+
     ///tooltip
     $(function(){             
         $(".AddPerfilModal_btn").tooltip();

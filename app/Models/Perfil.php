@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Perfil extends Model
 {
@@ -18,11 +17,11 @@ class Perfil extends Model
         'updated_at',
     ];
 
-    public function users():HasMany{
+    public function users(){
         return $this->hasMany(User::class,'id','perfil_id');
     }
 
-    public function autorizacao():HasMany{
+    public function autorizacao(){
         return $this->hasMany(Autorizacao::class,'id','perfil_id');
     }
 }

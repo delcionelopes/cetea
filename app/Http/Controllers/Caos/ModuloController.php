@@ -213,9 +213,18 @@ class ModuloController extends Controller
     {        
         $modulo = $this->modulo->find($id);
         $operacoes = $modulo->operacoes;
+        $autorizacoes = $modulo->autorizacao;
+
+        if($autorizacoes){
+            return response()->json([
+                'status' => 400,
+                'errors' => 'Este módulo não pode ser excluído. Pois há autorizações que dependem dele.',
+            ]);
+        }
+
         if($modulo->operacoes()->count()){
             $modulo->operacoes()->detach($operacoes);
-        }
+        }        
 
         //excluir imagem do diretório ico_modulo
         $filePath = public_path().'/storage/'.$modulo->ico;
@@ -290,5 +299,6 @@ class ModuloController extends Controller
             'modulos' => $modulos,
         ]);
     }
+
 
 }

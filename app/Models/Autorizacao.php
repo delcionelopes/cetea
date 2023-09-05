@@ -15,6 +15,7 @@ class Autorizacao extends Model
         'id',
         'modulo_has_operacao_operacao_id',
         'modulo_has_operacao_modulo_id',
+        'modulo_has_operacao_id',
         'perfil_id',
         'created_at',
         'updated_at',

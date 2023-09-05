@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Caos;
 
 use App\Http\Controllers\Controller;
+use App\Models\Autorizacao;
+use App\Models\Modope;
 use App\Models\Perfil;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -10,10 +12,15 @@ use Illuminate\Support\Facades\Validator;
 class PerfilController extends Controller
 {
     private $perfil;
+    private $modope;
+    private $autorizacao;
 
-    public function __construct(Perfil $perfil)
+    public function __construct(Perfil $perfil, Modope $modope, Autorizacao $autorizacao)
     {
         $this->perfil = $perfil;
+        $this->modope = $modope;
+        $this->autorizacao = $autorizacao;
+
     }
 
     /**
@@ -150,14 +157,16 @@ class PerfilController extends Controller
      */
     public function destroy(int $id)
     {
-        $perfil = $this->perfil->find($id);        
-        if($perfil->users->count()){
+        $perfil = $this->perfil->find($id);
+        $users = $perfil->users;
+        $autorizacoes = $perfil->autorizacao;                        
+        if($users){
             return response()->json([
                 'status' => 400,
                 'errors' => 'Este perfil não pode ser excluído. Pois há usuários que dependem dele.',
             ]);
         }
-        if($perfil->autorizacao->count()){
+        if($autorizacoes){
             return response()->json([
                 'status' => 400,
                 'errors' => 'Este perfil não pode ser excluído. Pois há permissões que dependem dele.',
@@ -179,4 +188,77 @@ class PerfilController extends Controller
         }
         return $codigo+1;
     }
+
+    public function listAuthorizations(int $id){        
+        $perfil = $this->perfil->find($id);
+        $modope = $this->modope->with('modulo','operacao')->get();        
+        $authorizations = $this->autorizacao->wherePerfil_id($id)->get();                
+        if($modope->count()){
+            return response()->json([
+                'status' => 200,
+                'modope' => $modope,
+                'perfil' => $perfil,
+                'authorizations' => $authorizations,
+            ]);
+        }else{
+            return response()->json([
+                'status' => 400,
+                'perfil' => $perfil,
+            ]);
+        }
+
+    }
+
+
+    public function storeAuthorizations(Request $request, int $id){
+        $validator = Validator::make($request->all(),[
+            'permissoes' => ['required','array','min:1'],
+        ]);
+        if($validator->fails()){
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->errors()->getMessages(),
+            ]);
+        }else{
+            $user = auth()->user();
+            $perfil = $this->perfil->find($id);            
+            $auths = $this->autorizacao->wherePerfil_id($perfil->id)->get();
+            if($auths->count()){
+                foreach ($auths as $aut) {
+                   $a = $this->autorizacao->find($aut->id);
+                   $a->delete();
+                }
+            }            
+            foreach ($request->permissoes as $permissao) {
+                $modope = $this->modope->whereId($permissao)->first();                                
+                
+                $data['id'] = $this->autoincAuthorization();
+                $data['modulo_has_operacao_id'] = $modope->id;
+                $data['modulo_has_operacao_modulo_id'] = $modope->modulo_id;
+                $data['modulo_has_operacao_operacao_id'] = $modope->operacao_id;
+                $data['perfil_id'] = $id;
+                $data['user_creater'] = $user->id;
+                $data['created_at'] = now();
+                $data['updated_at'] = null;
+                
+                $this->autorizacao->create($data);
+            }
+            return response()->json([
+                'status' => 200,
+                'message' => 'Permissões autorizadas com sucesso!',
+            ]);
+        }
+    }
+
+    protected function autoincAuthorization(){
+        $authorization = $this->autorizacao->orderByDesc('id')->first();
+        if($authorization){
+            $codigo = $authorization->id;
+        }else{
+            $codigo = 0;
+        }
+        return $codigo+1;
+    }
+
+
 }

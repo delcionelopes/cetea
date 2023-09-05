@@ -201,6 +201,15 @@ class OperacaoController extends Controller
     {        
         $operacao = $this->operacao->find($id);
         $modulos = $operacao->modulos;
+        $autorizacoes = $operacao->autorizacao;
+
+        if($autorizacoes){
+            return response()->json([
+                'status' => 400,
+                'errors' => 'Esta operação não pode ser excluída! Pois há autorizações que dependem dela.',
+            ]);
+        }
+        
         if($operacao->modulos()->count()){
             $operacao->modulos()->detach($modulos);
         }

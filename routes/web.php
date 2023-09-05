@@ -116,7 +116,9 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::delete('/delete-perfil/{id}',[PerfilController::class,'destroy']);
         Route::get('/edit-perfil/{id}',[PerfilController::class,'edit'])->name('edit');
         Route::put('/update-perfil/{id}',[PerfilController::class,'update']);
-        Route::put('/store-perfil',[PerfilController::class,'store'])->name('store');        
+        Route::put('/store-perfil',[PerfilController::class,'store'])->name('store');
+        Route::get('/list-authorizations/{id}',[PerfilController::class,'listAuthorizations']);
+        Route::put('/store-authorizations/{id}',[PerfilController::class,'storeAuthorizations']); 
       }); 
 
 
