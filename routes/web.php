@@ -28,13 +28,12 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::post('/store',[ArtigoController::class,'store'])->name('store');
         Route::get('/edit/{id}',[ArtigoController::class,'edit'])->name('edit');
         Route::put('/update/{id}',[ArtigoController::class,'update'])->name('update');
-        Route::delete('/delete/{id}',[ArtigoController::class,'destroy'])->name('delete');
-        Route::get('/edit-capa/{id}',[ArtigoController::class,'editCapa']);
-        Route::put('/upload-capa/{id}',[ArtigoController::class,'uploadCapa']);
-        Route::post('/delete-capa/{id}',[ArtigoController::class,'deleteCapa']);
-        Route::get('/edit-arquivo/{id}',[ArtigoController::class,'editArquivo']);
-        Route::put('/upload-arquivo/{id}',[ArtigoController::class,'uploadArquivo']);
-        Route::delete('/delete-arquivo/{id}',[ArtigoController::class,'deleteArquivo']);            
+        Route::delete('/delete/{id}',[ArtigoController::class,'destroy'])->name('delete');        
+        Route::put('/imagemtemp-upload',[ArtigoController::class,'armazenarImagemTemporaria']);
+        Route::delete('/delete-imgtemp',[ArtigoController::class,'excluirImagemTemporaria']);
+        Route::put('/upload-docs/{id}',[ArtigoController::class,'uploadDocs']);
+        Route::delete('/delete-docs/{id}',[ArtigoController::class,'deleteDocs']);
+        Route::get('/abrir-doc/{id}',[ArtigoController::class,'abrirDoc']);    
     });  
     Route::prefix('tema')->name('tema.')->group(function(){
         Route::get('/index',[TemaController::class,'index'])->name('index');
@@ -134,6 +133,8 @@ Route::namespace('App\Http\Controllers\Page')->name('page.')->group(function(){
     Route::get('/tema/{slug}','TemaArtigoController@index')->name('tema');
     Route::get('/show-perfil/{id}','HomeController@showPerfil')->name('showperfil');
     Route::put('/perfil/{id}','HomeController@perfilUsuario')->name('perfil');  
+    Route::put('/fototemp-upload','HomeController@fotoTempUpload');
+    Route::delete('/delete-fototemp','HomeController@deleteFotoTemp');
     Route::post('/salvar-comentario','ComentarioController@salvarComentario');
     Route::delete('/delete-comentario/{id}','ComentarioController@deleteComentario');    
   });

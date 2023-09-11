@@ -25,7 +25,9 @@ class TemaController extends Controller
                      ->where('titulo','LIKE','%'.$request->pesquisa.'%');
             $temas = $query->orderBy('id','DESC')->paginate(5);
         }
-        return view('tema.index',compact('temas'));
+        return view('admin.tema.index',[
+            'temas' => $temas,
+        ]);
     }
     
     public function create()
@@ -37,29 +39,24 @@ class TemaController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(),[
-            'titulo'     => 'required|max:100',
-            'descricao'  => 'required|max:180',         
+            'titulo'     => ['required','max:100'],
+            'descricao'  => ['required','max:180'],
         ]);
         if($validator->fails()){
             return response()->json([
                 'status' => 400,
                 'message' => $validator->errors()->getMessages(),
             ]);
-        }else{
-            $timestamps = $this->tema->timestamps;    //atribuímos o timestamps
-            $this->tema->timestamps=false;      //desativamos o timestamps
-            $data = [
-                'titulo'    => $request->input('titulo'),
-                'descricao' => $request->input('descricao'),
-                //'slug'      => $request->input('slug'),
-                'created_at'=> now(),      //atribuição explícita da data atual
-                'updated_at'=> null,        //anulação explícita
-            ];
-            $tema = $this->tema->create($data); //registro criado
-            $this->tema->timestamps=true;  //reativamos o timestamps
-            $t = Tema::find($tema->id);
+        }else{            
+            $data['titulo'] = $request->input('titulo');
+            $data['descricao'] = $request->input('descricao');            
+            $data['created_at'] = now();
+            $data['updated_at'] = null;
+
+            $tema = $this->tema->create($data);
+            
             return response()->json([
-                'tema' => $t, //o objeto $t é atribuído ao json tema
+                'tema' => $tema,
                 'status' => 200,
                 'message' => 'Registro gravado com sucesso!',
             ]);
@@ -73,7 +70,7 @@ class TemaController extends Controller
     }
 
     
-    public function edit($id)
+    public function edit(int $id)
     {
         $tema = $this->tema->find($id);
         return response()->json([
@@ -83,11 +80,11 @@ class TemaController extends Controller
     }
 
     
-    public function update(Request $request, $id)
+    public function update(Request $request, int $id)
     {
         $validator = Validator::make($request->all(),[
-            'titulo'     => 'required|max:100',
-            'descricao'  => 'required|max:180',         
+            'titulo'     => ['required','max:100'],
+            'descricao'  => ['required','max:180'],
         ]);
         if($validator->fails()){
             return response()->json([
@@ -97,13 +94,11 @@ class TemaController extends Controller
         }else{
             $tema = $this->tema->find($id);            
             if($tema){
-                $data = [
-                    'titulo'    => $request->input('titulo'),
-                    'descricao' => $request->input('descricao'),
-                    //'slug'      => $request->input('slug'),
-                ];
-                $tema->update($data);
-                $t = $this->tema->find($id);
+                $data['titulo'] = $request->input('titulo');
+                $data['descricao'] = $request->input('descricao');                
+                $data['updated_at'] = now();
+                $tema->update($data); //retorna um valor booleano
+                $t = Tema::find($id); //registro atualizado
                 return response()->json([
                     'tema'    => $t,
                     'status'  => 200,
@@ -120,11 +115,13 @@ class TemaController extends Controller
     }
 
     
-    public function destroy($id)
+    public function destroy(int $id)
     {
         $tema = $this->tema->find($id);
-        $a = $tema->artigos;
-        $tema->artigos()->detach($a);
+        $artigos = $tema->artigos;
+        if($tema->artigos->count()){
+        $tema->artigos()->detach($artigos);
+        }
         $tema->delete();
         return response()->json([
             'status'  => 200,

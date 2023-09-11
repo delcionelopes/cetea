@@ -79,11 +79,10 @@ class HomeController extends Controller
 
     public function perfilUsuario(Request $request,$id){        
         $validator = Validator::make($request->all(),[
-            'name' => 'required|max:100',
-            'email' => 'required|email|max:100',
-            'password' => 'required|min:8|max:100',
-            'cpf' => 'required|cpf',
-            'reg' => 'required',            
+            'name' => ['required','max:100'],
+            'email' => ['required','email','max:100'],
+            'cpf' => ['required','cpf'],
+            
         ]);
         if($validator->fails()){
             return response()->json([
@@ -102,23 +101,33 @@ class HomeController extends Controller
             }
           }
         //upload do novo arquivo
-        $file = $request->file('imagem');                           
-        $fileName =  $user->id.'_'.$file->getClientOriginalName();
-        //$filePath = 'avatar/'.$fileName;
-        //$storagePath = public_path().'/storage/avatar/';
-        //$file->move($storagePath,$fileName);
+        $file = $request->file('imagem');
+        $fileNameOriginal = $file->getClientOriginalName();
+        $fileName =  $user->id.'_'.$fileNameOriginal;
+        $filePath = 'avatar/'.$fileName;
+        $storagePath = public_path().'/storage/avatar/';
+        $file->move($storagePath,$fileName);
+
+        //exclui a imagem temporária
+        $tempPath = public_path().'/storage/temp/'.$fileNameOriginal;
+        if(file_exists($tempPath)){
+            unlink($tempPath);
+        }
         }        
         $data['name'] = $request->input('name');
         $data['email'] = $request->input('email');
-        $data['password_2'] = bcrypt($request->input('password'));        
+        $data['password'] = bcrypt($request->input('password'));        
         if($filePath!=""){
         $data['avatar']  = $filePath;
         }
-        $data['cpf'] = $request->input('cpf');
+        $data['cpf'] = $this->deixaSomenteDigitos($request->input('cpf'));
         $data['rg'] = $request->input('rg');
         $data['matricula'] = $request->input('matricula');        
         $data['admin'] = $request->input('admin');        
-        $data['sistema'] = $request->input('sistema');        
+        $data['sistema'] = $request->input('sistema');
+        $data['funcao_id'] = $request->input('funcao_id');
+        $data['perfil_id'] = $request->input('perfil_id');
+        $data['setor_id'] = $request->input('setor_id');
         $data['updated_at'] = now();        
         $user->update($data);          
         return response()->json([
@@ -128,6 +137,48 @@ class HomeController extends Controller
     
     }   
 
+public function fotoTempUpload(Request $request){
+        $validator = Validator::make($request->all(),[
+             'imagem' => 'required',
+        ]);
+        if($validator->fails()){
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->errors()->getMessages(),
+            ]);
+        }else{
+            $filePath="";
+            if($request->hasFile('imagem')){
+            $file = $request->file('imagem');                           
+            $fileName =  $file->getClientOriginalName();        
+            $storagePath = public_path().'/storage/temp/';
+            $filePath = 'storage/temp/'.$fileName;
+            $file->move($storagePath,$fileName);            
+            }
+            return response()->json([
+                'status' => 200,
+                'filepath' => $filePath,
+            ]);
+        }
+    }
 
+    public function deleteFotoTemp(Request $request){
+         //exclui o arquivo temporário se houver
+                if($request->hasFile('imagem')){
+                    $file = $request->file('imagem');
+                    $filename = $file->getClientOriginalName();
+                    $antigoPath = public_path().'/storage/temp/'.$filename;
+                    if(file_exists($antigoPath)){
+                        unlink($antigoPath);
+                    }
+                }     
+        return response()->json([
+            'status' => 200,            
+        ]);
+    }
+    
+    protected function deixaSomenteDigitos($input){
+        return preg_replace('/[^0-9]/','',$input);
+    }
     
 }
