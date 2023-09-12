@@ -28,6 +28,6 @@ class Modulo extends Model
     }
 
     public function autorizacao():BelongsTo{
-        return $this->belongsTo(Autorizacao::class,'id','modulo_has_operacao_modulo_id');
+        return $this->belongsTo(Autorizacao::class,'modulo_has_operacao_modulo_id');
     }
 }

@@ -7,6 +7,7 @@ use App\Http\Controllers\Caos\FuncaoController;
 use App\Http\Controllers\Caos\ModuloController;
 use App\Http\Controllers\Caos\OperacaoController;
 use App\Http\Controllers\Caos\PerfilController;
+use App\Http\Controllers\Caos\PrincipalController;
 use App\Http\Controllers\Caos\SegurancaController;
 use App\Http\Controllers\Caos\SetorController;
 use App\Http\Controllers\HomeController as ControllersHomeController;
@@ -92,6 +93,10 @@ Route::prefix('admin')->name('admin.')->group(function(){
 
       Route::prefix('seguranca')->name('seguranca.')->group(function(){
         Route::get('/index-seguranca',[SegurancaController::class,'index_seguranca'])->name('index');
+      });
+
+      Route::prefix('principal')->name('.principal')->group(function(){
+        Route::get('/index',[PrincipalController::class,'index'])->name('index');
       });
 
       Route::prefix('funcao')->name('funcao.')->group(function(){

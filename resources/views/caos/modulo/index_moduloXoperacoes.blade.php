@@ -95,6 +95,8 @@
 @stop
 
 @section('css')
+
+<link href="{{asset('css/styles.css')}}" rel="stylesheet"/>  {{-- css da aplicação --}}
     
 @stop
 

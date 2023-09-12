@@ -299,7 +299,7 @@ return [
         // Sidebar items:        
         [
             'text' => 'Página principal',
-            'url'  => 'home',
+            'url'  => 'ceteaadmin/principal/index',
             'icon' => 'fas fa-fw fa-home',
             'icon_color'  => 'green',
         ],

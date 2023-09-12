@@ -172,6 +172,7 @@
 
 @section('css')
     <!--<link rel="stylesheet" href="/css/admin_custom.css">  -->
+    <link href="{{asset('css/styles.css')}}" rel="stylesheet"/>  {{-- css da aplicação --}}
 @stop
 
 @section('js')

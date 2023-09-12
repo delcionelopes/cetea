@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'CETEA - Área do desenvolvedor')
+@section('title', 'Segurança')
 
 @section('content')
 
@@ -163,15 +163,6 @@
 @stop
 
 @section('js')
-
-<script type="text/javascript">
-
-$(document).ready(function(){ //início do bloco principal
-
-
-}); //fim do bloco principal
- 
-</script>
 
 @stop
 
