@@ -95,9 +95,11 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::get('/index-seguranca',[SegurancaController::class,'index_seguranca'])->name('index');
       });
 
-      Route::prefix('principal')->name('.principal')->group(function(){
-        Route::get('/index',[PrincipalController::class,'index'])->name('index');
+      Route::prefix('principal')->name('principal.')->group(function(){   //navegação módulos autorizados
+        Route::get('/index',[PrincipalController::class,'index'])->name('index'); //módulos
+        Route::get('/operacoes/{id}',[PrincipalController::class,'operacoes'])->name('operacoes');  //operações
       });
+      
 
       Route::prefix('funcao')->name('funcao.')->group(function(){
         Route::get('/index-funcao',[FuncaoController::class,'index'])->name('index');        

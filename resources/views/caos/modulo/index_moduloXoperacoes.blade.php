@@ -55,7 +55,7 @@
                                 <td>
                                 <div class="btn-group">                                
                                         @if($modulo->operacoes->count())                                
-                                        <button type="button" class="btn btn-none dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                        <button type="button" class="btn btn-{{$modulo->color}} dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                         <i class="fas fa-tools"></i><span class="caret"></span>
                                         </button>
                                         <ul class="dropdown-menu" id="dropdown{{$modulo->id}}">

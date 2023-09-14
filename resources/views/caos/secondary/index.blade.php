@@ -45,18 +45,18 @@
 <div class="row">
 @if($autorizacao)
 
-@foreach ($modulos as $mod)   
+@foreach ($operacoes as $ope)   
   @foreach($autorizacao as $aut)
-  @if(($aut->modulo_has_operacao_modulo_id) == ($mod->id))
+  @if(($aut->modulo_has_operacao_operacao_id) == ($ope->id))
     <div class="p-2 mt-2">
     <div class="card card-hover" style="width: 14rem;">
       <div class="card-header">
-        <b style="background: transparent; color: black; border: none;"><i class="fas fa-desktop"></i> {{$mod->nome}}</b>
+        <b style="background: transparent; color: black; border: none;"><i class="fas fa-desktop"></i> {{$ope->nome}}</b>
       </div>
-      <img class="card-img-top" src="{{asset('storage/'.$mod->ico)}}" alt="Imagem de capa do módulo" width="286" height="180">
+      <img class="card-img-top" src="{{asset('storage/'.$ope->ico)}}" alt="Imagem de capa do módulo" width="286" height="180">
       <div class="card-body">                
-        <p class="card-text">{{$mod->descricao}}</p>        
-        <a href="{{route('ceteaadmin.principal.operacoes',['id' => $mod->id])}}" type="button" class="btn btn-{{$mod->color}}">Opções</a>
+        <p class="card-text">{{$ope->descricao}}</p>        
+        <button type="button" class="btn btn-{{$aut->modulo->color}}">Abrir</button>                                        
       </div>
     </div>
   </div>

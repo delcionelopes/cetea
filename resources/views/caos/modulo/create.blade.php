@@ -45,8 +45,22 @@
                         </div>
                         <div class="col-md-1">
                             <div class="form-group">
-                                <label for="color" class="form-label">Color</label>
-                                <input type="color" required class="form-control form-control-color" name="color" id="color" value="#563d7c" title="Escolha a cor">
+                               <input type="hidden" id="color"> 
+                               <label for="color">Cores</label>
+                               <div class="btn-group">
+                                <button type="button" id="corbtn" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li class="dropdown-item cores" data-color="primary"><span class="btn btn-primary"></span> primary</li>
+                                    <li class="dropdown-item cores" data-color="secondary"><span class="btn btn-secondary"></span> secondary</li>
+                                    <li class="dropdown-item cores" data-color="success"><span class="btn btn-success"></span> success</li>
+                                    <li class="dropdown-item cores" data-color="danger"><span class="btn btn-danger"></span> danger</li>
+                                    <li class="dropdown-item cores" data-color="warning"><span class="btn btn-warning"></span> warning</li>
+                                    <li class="dropdown-item cores" data-color="info"><span class="btn btn-info"></span> info</li>                                    
+                                </ul>
+                               </div>
+                             
                             </div>
                         </div>                         
                     </div>                    
@@ -213,6 +227,18 @@ $(document).ready(function(){
 
     });
     //fim excluir imagem temporária pelo cancelamento
+
+    //atribuição de cores
+    $(document).on('click','.cores',function(e){
+        e.preventDefault();
+        var color = $(this).data("color");
+        var id = $(this).data("id");
+            $('#corbtn').replaceWith('<button type="button" id="corbtn" class="btn btn-'+color+' dropdown-toggle" data-toggle="dropdown" aria-expanded="false">\
+                                      <span class="caret"></span>\
+                                      </button>');            
+            $('#color').val(color);
+    });
+    //fim atribuição de cores
 
 });
 
