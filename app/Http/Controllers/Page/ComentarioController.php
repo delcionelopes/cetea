@@ -31,12 +31,11 @@ class ComentarioController extends Controller
         }else{
         $artigo = Artigo::find($request->input('artigoid'));
         $user = auth()->user();        
-        $texto = $request->input('comentario');
-        $timestamps = $this->comentario->timestamps;
-        $this->comentario->timestamps=false;
+        $texto = $request->input('comentario');        
         $data = [
+            'id' => $this->maxId(),
             'artigos_id' => $artigo->id,
-            'user_id' => $user->id,
+            'users_id' => $user->id,
             'texto' => $texto,
             'created_at' => now(),
             'updated_at' => null,
@@ -58,5 +57,15 @@ class ComentarioController extends Controller
         return response()->json([
             'status' => 200,
         ]);
+    }
+
+    protected function maxId(){
+        $comentario = $this->comentario->orderByDesc('id')->first();
+        if($comentario){
+            $codigo = $comentario->id;
+        }else{
+            $codigo = 0;
+        }
+        return $codigo+1;
     }
 }

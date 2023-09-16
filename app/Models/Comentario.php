@@ -8,8 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Comentario extends Model
 {
-    use HasFactory;
-    public $timestamps = false;
+    use HasFactory;    
     protected $table = 'comentarios';
     protected $primaryKey = 'id';
     protected $fillable = [

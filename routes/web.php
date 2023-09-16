@@ -26,7 +26,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
     Route::prefix('artigos')->name('artigos.')->group(function(){
         Route::get('/index',[ArtigoController::class,'index'])->name('index');         
         Route::get('/create',[ArtigoController::class,'create'])->name('create');
-        Route::post('/store',[ArtigoController::class,'store'])->name('store');
+        Route::put('/store',[ArtigoController::class,'store'])->name('store');
         Route::get('/edit/{id}',[ArtigoController::class,'edit'])->name('edit');
         Route::put('/update/{id}',[ArtigoController::class,'update'])->name('update');
         Route::delete('/delete/{id}',[ArtigoController::class,'destroy'])->name('delete');        
@@ -38,7 +38,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
     });  
     Route::prefix('tema')->name('tema.')->group(function(){
         Route::get('/index',[TemaController::class,'index'])->name('index');
-        Route::post('/store',[TemaController::class,'store']);
+        Route::put('/store',[TemaController::class,'store']);
         Route::get('/edit/{id}',[TemaController::class,'edit']);
         Route::put('/update/{id}',[TemaController::class,'update']);
         Route::delete('/delete/{id}',[TemaController::class,'destroy']);

@@ -18,9 +18,9 @@
                             <h2 class="subheading">{{$artigo->descricao}}</h2>
                             <span class="meta">
                                 Postado por
-                                <a href="#!">{{$artigo->users->name}}</a>
-                                @if($artigo->users->avatar)
-                                <img src="{{asset('/storage/'.$artigo->users->avatar)}}" class="imgfoto rounded-circle" width="50">                                
+                                <a href="#!">{{$artigo->user->name}}</a>
+                                @if($artigo->user->avatar)
+                                <img src="{{asset('/storage/'.$artigo->user->avatar)}}" class="imgfoto rounded-circle" width="50">                                
                                 @else
                                 <img src="{{asset('storage/user.png')}}" class="imgfoto rounded-circle" width="100">                                
                                 @endif
@@ -121,6 +121,8 @@
 @stop
 
 @section('css')
+
+<link href="{{asset('css/styles.css')}}" rel="stylesheet"/>
     
 @stop
 

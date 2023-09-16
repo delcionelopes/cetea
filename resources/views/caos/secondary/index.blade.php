@@ -56,7 +56,7 @@
       <img class="card-img-top" src="{{asset('storage/'.$ope->ico)}}" alt="Imagem de capa do módulo" width="286" height="180">
       <div class="card-body">                
         <p class="card-text">{{$ope->descricao}}</p>        
-        <button type="button" class="btn btn-{{$aut->modulo->color}}">Abrir</button>                                        
+        <button type="button" id="abrir_btn" data-id="{{$ope->id}}" class="btn btn-{{$aut->modulo->color}}">Abrir</button>                                        
       </div>
     </div>
   </div>
@@ -98,6 +98,30 @@
 @stop
 
 @section('js')
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+  $(document).on('click','#abrir_btn',function(e){
+    e.preventDefault();
+    var codoperacao = $(this).data("id");
+
+    switch (codoperacao) {
+      case 1: location.replace('/admin/artigos/index'); ///frontpage/postagens
+      break;
+      case 2: location.replace('/admin/tema/index'); //frontpage/temas        
+      break;
+    
+      default:
+        break;
+    }
+
+  });
+
+});
+
+</script>
 
 @stop
 

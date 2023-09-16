@@ -12,7 +12,7 @@
                             <span class="meta">
                                 Postado por
                                 <a href="#!">{{$artigo->user->name}}</a>
-                                <img src="" class="rounded-circle" width="50">
+                                <img src="{{asset('storage/'.$artigo->user->avatar)}}" class="rounded-circle" width="50">
                                 <span class="caret"></span><br>                               
                                 {{ucwords(strftime('%A, %d de %B de %Y', strtotime($artigo->created_at)))}}
                             </span>
@@ -101,8 +101,8 @@
                 @endforeach 
                 </tbody>                
                 </table>
-                <div class="d-flex justify-content-center mb-4">
-                {{$comentarios->links("pagination::bootstrap-4")}}                
+                <div class="d-flex hover justify-content-center">
+                {{$comentarios->links()}}                
                 </div>
                 </div>                   
                 <!--fim dos comentários -->
@@ -166,7 +166,7 @@
             </div>
             <div class="modal-footer"> 
                 <button type="button" class="btn btn-default fechar_btn" data-dismiss="modal">Fechar</button>               
-                <button type="button" class="btn btn-primary add_comment">Adicionar</button>
+                <button type="button" class="btn btn-primary add_comment"><img id="imgadd" src="{{asset('storage/ajax-loader.gif')}}" style="display: none;" class="rounded-circle" width="20"> Adicionar</button>
             </div>            
         </div>
     </div>
@@ -200,16 +200,17 @@ $(document).ready(function(){ //INÍCIO ESCOPO GERAL
         //Fim da chamada ao FormCommentModal
         //Adicionar comentário
        $(document).on('click','.add_comment',function(e){
-            e.preventDefault();
-            $(this).text("Salvando...");
+            e.preventDefault();            
             var id = $('#artigoid').val();
+            var loading = $('#imgadd');
+                loading.show();
             var data = {
                 'artigoid':id,
                 'comentario':$('.comentario').val(),
             }
             $.ajaxSetup({
                 headers:{
-                    'X-CSRF-TOKEN':$('meta[name="_token"]').attr('content')
+                    'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
                 }
             });
             $.ajax({
@@ -224,10 +225,10 @@ $(document).ready(function(){ //INÍCIO ESCOPO GERAL
                     $.each(response.errors,function(key,err_values){
                         $('#saveform_errList').append('<li>'+err_values+'</li>');
                     });                        
-                    $('.comentario').focus();                                               
-                    $(this).text("Adicionar");
-                    }else{                        
-                    $(this).text("Obrigado!");
+                    $('.comentario').focus();                                                                   
+                    loading.hide();
+                    }else{
+                    loading.hide();
                     $('#addform').trigger('reset');
                     $('#FormCommentModal').modal('hide');
                         
@@ -278,7 +279,7 @@ var datacriacao = new Date(response.comentario.created_at);
             var id = $(this).data("id");
             $.ajaxSetup({
                 headers:{
-                    'X-CSRF-TOKEN':$('meta[name="_token"]').attr('content')
+                    'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
                 }
             });            
             $.ajax({

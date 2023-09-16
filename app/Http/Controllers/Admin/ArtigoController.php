@@ -8,7 +8,6 @@ use App\Models\Artigo;
 use App\Models\Tema;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use App\Models\User;
 
 class ArtigoController extends Controller
 {
@@ -39,7 +38,7 @@ class ArtigoController extends Controller
 
     
     public function create()
-    {
+    {       
         $temas = $this->tema->all('id','titulo');
         return view('admin.artigos.create',[
             'temas' => $temas,
@@ -75,14 +74,15 @@ class ArtigoController extends Controller
                     unlink($tempPath);
                 }
             }
-            $user = auth()->user();            
+            $user = auth()->user();
+            $data['id'] = $this->maxId();
             $data['titulo'] = $request->input('titulo');
             $data['descricao'] = $request->input('descricao');
             $data['conteudo'] = $request->input('conteudo');
             if($filePath){
                 $data['imagem'] = $filePath;
             }
-            $data['user_id'] = $user->id;
+            $data['users_id'] = $user->id;
             $data['created_at'] = now();
             $data['updated_at'] = null;
             
@@ -106,6 +106,9 @@ class ArtigoController extends Controller
     
     public function edit(int $id)
     {
+        setlocale(LC_ALL, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
+        date_default_timezone_set('America/Sao_Paulo');
+
         $artigo = $this->artigo->find($id);
         $temas = $this->tema->all('id','titulo');
         return view('admin.artigos.edit',[
@@ -163,7 +166,7 @@ class ArtigoController extends Controller
                 if($filePath){
                     $data['imagem'] = $filePath;
                 }
-                $data['user_id'] = $user->id;
+                $data['users_id'] = $user->id;
                 $data['updated_at'] = now();
                 
                 $artigo->update($data);       //atualização retorna um booleano  
@@ -271,7 +274,7 @@ class ArtigoController extends Controller
                     $maxid++;
                     
                     $data[$x]['id'] = $maxid;
-                    $data[$x]['user_id'] = $user->id;
+                    $data[$x]['users_id'] = $user->id;
                     $data[$x]['artigos_id'] = $id;                    
                     $data[$x]['rotulo'] = $fileLabel;
                     $data[$x]['nome'] = $fileName;
@@ -326,10 +329,18 @@ class ArtigoController extends Controller
             unlink($arquivoPath);
         }    
         //excluir na tabela                             
-        $arquivo->delete();
-        $artigo = $this->artigo->find($artigoid);
-        $totalarqs = $artigo->arquivos->count();
+        $arquivo->delete();        
         return true;        
+    }
+
+    protected function maxId(){
+        $artigo = $this->artigo->orderByDesc('id')->first();
+        if($artigo){
+            $codigo = $artigo->id;
+        }else{
+            $codigo = 0;
+        }
+        return $codigo+1;
     }
 
 }

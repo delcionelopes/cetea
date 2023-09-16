@@ -111,7 +111,7 @@
                                 <td>                                    
                                         <div class="btn-group">                                           
                                             <button type="button" data-id="{{$tema->id}}" class="edit_tema fas fa-edit" style="background:transparent;border:none"></button>
-                                            <button type="button" data-id="{{$tema->id}}" data-titulo="{{$tema->titulo}}" class="delete_titulo_btn fas fa-trash" style="background:transparent;border:none"></button>
+                                            <button type="button" data-id="{{$tema->id}}" data-titulo="{{$tema->titulo}}" class="delete_tema_btn fas fa-trash" style="background:transparent;border:none"></button>
                                         </div>                                    
                                 </td>
                             </tr>  

@@ -47,7 +47,8 @@ class TemaController extends Controller
                 'status' => 400,
                 'message' => $validator->errors()->getMessages(),
             ]);
-        }else{            
+        }else{        
+            $data['id'] = $this->maxId();
             $data['titulo'] = $request->input('titulo');
             $data['descricao'] = $request->input('descricao');            
             $data['created_at'] = now();
@@ -120,7 +121,11 @@ class TemaController extends Controller
         $tema = $this->tema->find($id);
         $artigos = $tema->artigos;
         if($tema->artigos->count()){
-        $tema->artigos()->detach($artigos);
+        //$tema->artigos()->detach($artigos);
+            return response()->json([
+                'status' => 400,
+                'errors' => 'Este registro não pode ser excluído! Pois há outros que dependem dele.',
+            ]);
         }
         $tema->delete();
         return response()->json([
@@ -128,4 +133,16 @@ class TemaController extends Controller
             'message' => 'Registro excluído com sucesso!',
         ]);
     }
+
+    protected function maxId(){
+        $tema = $this->tema->orderByDesc('id')->first();
+        if($tema){
+            $codigo = $tema->id;
+        }else{
+            $codigo = 0;
+        }
+        return $codigo+1;
+    }
+
+
 }
