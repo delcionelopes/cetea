@@ -44,8 +44,8 @@
             </div>         
 <div class="container-fluid">
  <div class="row">
-  @if((auth()->user()->admin))
-  @if((auth()->user()->admin)&&(auth()->user()->perfil_id=3))  
+  @auth
+  @if((auth()->user()->admin) && (auth()->user()->perfil_id==3))  
   <div class="p-2 mt-2">
     <div class="card" style="width: 10rem;">
       <div class="card-header">
@@ -112,8 +112,7 @@
         </div>
       </div>  
 
-  @else 
-        @if(auth()->user()->admin)
+  @elseif((auth()->user()->admin) && (auth()->user()->perfil_id!=3))
 
         <div class="p-2 mt-2">
         <div class="card" style="width: 10rem;">
@@ -126,25 +125,22 @@
                                 Opções<span class="caret"></span>
                                 </button>                                
                                 <ul class="dropdown-menu" id="dropdown_opcoes{{auth()->user()->id}}">
-                                            <li class="dropdown-item"><a href="#" class="dropdown-item listaperfil_btn"  
+                                            <li class="dropdown-item"><a href="{{route('ceteaadmin.perfil.index')}}" class="dropdown-item listaperfil_btn"  
                                                 style="white-space: nowrap;"><i class="fas fa-folder" style="background: transparent; color: red; border: none;"></i> Cadastro de Perfis</a>
                                             </li> 
-                                            <li class="dropdown-item"><a href="#" class="dropdown-item listafuncao_btn"  
+                                            <li class="dropdown-item"><a href="{{route('ceteaadmin.funcao.index')}}" class="dropdown-item listafuncao_btn"  
                                                 style="white-space: nowrap;"><i class="fas fa-folder" style="background: transparent; color: red; border: none;"></i> Cadastro de Funções</a>
                                             </li> 
-                                            <li class="dropdown-item"><a href="#" class="dropdown-item listaosetor_btn"  
+                                            <li class="dropdown-item"><a href="{{route('ceteaadmin.setor.index')}}" class="dropdown-item listaosetor_btn"  
                                                 style="white-space: nowrap;"><i class="fas fa-folder" style="background: transparent; color: red; border: none;"></i> Cadastro de Setores</a>
                                             </li>
-                                            <li class="dropdown-item"><a href="#" class="dropdown-item listaousuarios_btn"  
-                                                style="white-space: nowrap;"><i class="fas fa-user" style="background: transparent; color: red; border: none;"></i> Autorizar Usuários</a>
+                                            <li class="dropdown-item"><a href="{{route('admin.user.index')}}" class="dropdown-item listaousuarios_btn"  
+                                                style="white-space: nowrap;"><i class="fas fa-user" style="background: transparent; color: red; border: none;"></i> Cadastro de Usuários</a>
                                             </li> 
                                 </ul>
           </div>
         </div>
-      </div>  
-      @endif
-        
-  @endif
+      </div>
 
   @else
   <div class="p-2 mt-2">
@@ -164,6 +160,7 @@
 </div>
 </div>
 @endif
+@endauth
 </div>
 </div>
 </div>

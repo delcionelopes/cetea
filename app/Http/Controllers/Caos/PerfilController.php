@@ -210,16 +210,7 @@ class PerfilController extends Controller
     }
 
 
-    public function storeAuthorizations(Request $request, int $id){
-        $validator = Validator::make($request->all(),[
-            'permissoes' => ['required','array','min:1'],
-        ]);
-        if($validator->fails()){
-            return response()->json([
-                'status' => 400,
-                'errors' => $validator->errors()->getMessages(),
-            ]);
-        }else{
+    public function storeAuthorizations(Request $request, int $id){        
             $user = auth()->user();
             $perfil = $this->perfil->find($id);            
             $auths = $this->autorizacao->wherePerfil_id($perfil->id)->get();
@@ -228,7 +219,8 @@ class PerfilController extends Controller
                    $a = $this->autorizacao->find($aut->id);
                    $a->delete();
                 }
-            }            
+            }      
+            if($request->permissoes){
             foreach ($request->permissoes as $permissao) {
                 $modope = $this->modope->whereId($permissao)->first();                                
                 
@@ -243,11 +235,11 @@ class PerfilController extends Controller
                 
                 $this->autorizacao->create($data);
             }
+            }
             return response()->json([
                 'status' => 200,
                 'message' => 'Permissões autorizadas com sucesso!',
-            ]);
-        }
+            ]);        
     }
 
     protected function autoincAuthorization(){

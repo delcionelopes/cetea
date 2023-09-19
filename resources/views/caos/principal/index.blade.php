@@ -43,7 +43,7 @@
             </div>         
 <div class="container-fluid">
 <div class="row">
-@if($autorizacao)
+@if($autorizacao->count())
 
 @foreach ($modulos as $mod)   
   @foreach($autorizacao as $aut)
