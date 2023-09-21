@@ -19,6 +19,7 @@ class Paciente extends Model
         'data_avaliacao',
         'nome',
         'endereco',
+        'numero',
         'bairro',
         'cidade',
         'cep',
@@ -49,83 +50,83 @@ class Paciente extends Model
     }
 
     public function atendimento():HasMany{
-        return $this->hasMany(Atendimento::class,'id','paciente_id');
+        return $this->hasMany(Atendimento::class,'paciente_id');
     }
 
     public function quest_paciente():HasMany{
-        return $this->hasMany(Quest_Paciente::class,'id','paciente_id');
+        return $this->hasMany(Quest_Paciente::class,'paciente_id');
     }
 
     public function anamnese_inicial():HasMany{
-        return $this->hasMany(Anamnese_Inicial::class,'id','paciente_id');
+        return $this->hasMany(Anamnese_Inicial::class,'paciente_id');
     }
 
     public function anamnese_his_pregressa():HasMany{
-        return $this->hasMany(Anamnese_Hist_Pregressa::class,'id','paciente_id');
+        return $this->hasMany(Anamnese_Hist_Pregressa::class,'paciente_id');
     }
 
     public function anamnese_desenvolvimento():HasMany{
-        return $this->hasMany(Anamnese_Desenvolvimento::class,'id','paciente_id');
+        return $this->hasMany(Anamnese_Desenvolvimento::class,'paciente_id');
     }
 
     public function histdes_versaopais_inicial():HasMany{
-        return $this->hasMany(HistDes_VersaoPais_Inicial::class,'id','paciente_id');
+        return $this->hasMany(HistDes_VersaoPais_Inicial::class,'paciente_id');
     }
 
     public function histdes_versaopais_linguagem():HasMany{
-        return $this->hasMany(HistDes_VersaoPais_Linguagem::class,'id','paciente_id');
+        return $this->hasMany(HistDes_VersaoPais_Linguagem::class,'paciente_id');
     }
 
     public function histdes_versaopais_desenvsocial():HasMany{
-        return $this->hasMany(HistDes_VersaoPais_DesenvSocial::class,'id','paciente_id');
+        return $this->hasMany(HistDes_VersaoPais_DesenvSocial::class,'paciente_id');
     }
 
     public function histdes_versaopais_brincadeiras():HasMany{
-        return $this->hasMany(HistDes_VersaoPais_Brincadeiras::class,'id','paciente_id');
+        return $this->hasMany(HistDes_VersaoPais_Brincadeiras::class,'paciente_id');
     }
 
     public function histdes_versaopais_comportamentos():HasMany{
-        return $this->hasMany(HistDes_VersaoPais_Comportamentos::class,'id','paciente_id');
+        return $this->hasMany(HistDes_VersaoPais_Comportamentos::class,'paciente_id');
     }
 
     public function histdes_versaopais_independencia():HasMany{
-        return $this->hasMany(HistDes_VersaoPais_Independencia::class,'id','paciente_id');
+        return $this->hasMany(HistDes_VersaoPais_Independencia::class,'paciente_id');
     }
 
     public function histdes_versaopais_desenvmotor():HasMany{
-        return $this->hasMany(HistDes_VersaoPais_DesenvMotor::class,'id','paciente_id');
+        return $this->hasMany(HistDes_VersaoPais_DesenvMotor::class,'paciente_id');
     }
 
     public function histdes_versaopais_histescolar():HasMany{
-        return $this->hasMany(HistDes_VersaoPais_HistEscolar::class,'id','paciente_id');
+        return $this->hasMany(HistDes_VersaoPais_HistEscolar::class,'paciente_id');
     }
 
     public function histdes_versaopais_compcasa():HasMany{
-        return $this->hasMany(HistDes_VersaoPais_CompCasa::class,'id','paciente_id');
+        return $this->hasMany(HistDes_VersaoPais_CompCasa::class,'paciente_id');
     }
 
     public function histdes_anexo1_rotalim():HasMany{
-        return $this->hasMany(HistDes_Anexo1_RotAlim::class,'id','paciente_id');
+        return $this->hasMany(HistDes_Anexo1_RotAlim::class,'paciente_id');
     }
 
     public function histdes_anexo2_histmedico():HasMany{
-        return $this->hasMany(HistDes_Anexo2_HistMedico::class,'id','paciente_id');
+        return $this->hasMany(HistDes_Anexo2_HistMedico::class,'paciente_id');
     }
 
     public function histdes_anexo3_infosensoriais():HasMany{
-        return $this->hasMany(HistDes_Anexo3_InfoSensoriais::class,'id','paciente_id');
+        return $this->hasMany(HistDes_Anexo3_InfoSensoriais::class,'paciente_id');
     }
 
     public function histdes_anexo3_r18_docs():HasMany{
-        return $this->hasMany(HistDes_Anexo3_R18_Docs::class,'id','paciente_id');
+        return $this->hasMany(HistDes_Anexo3_R18_Docs::class,'paciente_id');
     }
 
     public function evolucao():HasMany{
-        return $this->hasMany(Evolucao::class,'id','paciente_id');
+        return $this->hasMany(Evolucao::class,'paciente_id');
     }
 
     public function mchat():HasMany{
-        return $this->hasMany(MChat::class,'id','paciente_id');
+        return $this->hasMany(MChat::class,'paciente_id');
     }
 
     
