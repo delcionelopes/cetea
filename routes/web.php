@@ -10,6 +10,7 @@ use App\Http\Controllers\Caos\PerfilController;
 use App\Http\Controllers\Caos\PrincipalController;
 use App\Http\Controllers\Caos\SegurancaController;
 use App\Http\Controllers\Caos\SetorController;
+use App\Http\Controllers\Cetea\PacienteController;
 use App\Http\Controllers\HomeController as ControllersHomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -126,6 +127,18 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::get('/list-authorizations/{id}',[PerfilController::class,'listAuthorizations']);
         Route::put('/store-authorizations/{id}',[PerfilController::class,'storeAuthorizations']); 
       }); 
+
+      Route::prefix('paciente')->name('paciente.')->group(function(){
+        Route::get('/index',[PacienteController::class,'index'])->name('index');
+        Route::get('/create',[PacienteController::class,'create'])->name('create');
+        Route::put('/store',[PacienteController::class,'store']);
+        Route::get('/edit/{id}',[PacienteController::class,'edit'])->name('edit');
+        Route::put('/update/{id}',[PacienteController::class,'update']);
+        Route::delete('/delete/{id}',[PacienteController::class,'destroy']);        
+        Route::put('/upload-docs/{id}',[PacienteController::class,'uploadDocs']);
+        Route::delete('/delete-docs/{id}',[PacienteController::class,'deleteDocs']);
+        Route::get('/abrir-doc/{id}',[PacienteController::class,'abrirDoc']);
+    });  
 
 
     }); //fim ceteaadmin

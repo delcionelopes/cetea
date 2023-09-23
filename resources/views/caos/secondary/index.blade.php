@@ -112,6 +112,8 @@ $(document).ready(function(){
       break;
       case 2: location.replace('/admin/tema/index'); //frontpage/temas        
       break;
+      case 3: location.replace('/ceteaadmin/paciente/index'); //ficha básica do paciente
+      break;
     
       default:
         break;

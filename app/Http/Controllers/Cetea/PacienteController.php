@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Cetea;
 
 use App\Http\Controllers\Controller;
+use App\Models\ArquivosPaciente;
 use App\Models\Paciente;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -11,10 +12,12 @@ use JeroenNoten\LaravelAdminLte\View\Components\Form\Input;
 class PacienteController extends Controller
 {
     private $paciente;
+    private $arquivopaciente;
 
-    public function __construct(Paciente $paciente)
+    public function __construct(Paciente $paciente, ArquivosPaciente $arquivopaciente)
     {
         $this->paciente = $paciente;
+        $this->arquivopaciente = $arquivopaciente;
     }
     /**
      * Display a listing of the resource.
@@ -239,6 +242,13 @@ class PacienteController extends Controller
             ]);
            }
 
+           if($paciente->arquivos_paciente->count()>0){
+            foreach($paciente->arquivos_paciente as $arqs){
+                $this->deleteArquivo($arqs->id);
+            }
+           }
+
+
            $paciente->delete();
 
            return response()->json([
@@ -260,5 +270,90 @@ class PacienteController extends Controller
 
     protected function deixaSomenteDigitos($input){
         return preg_replace('/[^0-9]/','',$input);
+    }
+
+    public function uploadDocs(Request $request, int $id){             
+         if ($request->TotalFiles>0) 
+         {
+           $user = auth()->user();
+           $arquivo = $this->arquivopaciente->orderByDesc('id')->first();
+           if($arquivo){
+            $maxid = $arquivo->id;
+           }else{
+            $maxid = 0;
+           }
+
+           for($x = 0; $x < $request->TotalFiles; $x++) 
+           {                                              
+              if($request->hasFile('arquivo'.$x))
+              {
+                    $file = $request->file('arquivo'.$x);
+                    $fileLabel = $file->getClientOriginalName();
+                    $fileName = $id.'_'.$fileLabel;                        
+                    $filePath = 'arquivos_paciente/'.$fileName;
+                    $storagePath = public_path().'/storage/arquivos_paciente/';
+                    $file->move($storagePath,$fileName);                                                 
+
+                    $maxid++;
+                    
+                    $data[$x]['id'] = $maxid;                    
+                    $data[$x]['paciente_id'] = $id;                    
+                    $data[$x]['rotulo'] = $fileLabel;
+                    $data[$x]['nome'] = $fileName;
+                    $data[$x]['path'] = $filePath;                    
+                    $data[$x]['created_at'] = now();
+                    $data[$x]['updated_at'] = now();
+                    $data[$x]['creater_user'] = $user->id;
+                    $data[$x]['updater_user'] = $user->id;
+                } 
+           }                      
+             ArquivosPaciente::insert($data);                                                                  
+         }    
+             $paciente = $this->paciente->find($id);             
+             $arquivos = $paciente->arquivos_paciente;
+             return response()->json([
+                 'paciente' => $paciente,                 
+                 'arquivos' => $arquivos,
+                 'status' => 200,                 
+             ]);  
+
+    }
+
+    public function deleteDocs(int $id){        
+            $arquivo = $this->arquivopaciente->find($id);    
+            $pacienteid = $arquivo->paciente_id;
+            //deleção do arquivo na pasta /storage/arquivos_paciente/   
+            $arquivoPath = public_path('/storage/'.$arquivo->path);
+            if(file_exists($arquivoPath)){
+                unlink($arquivoPath);
+            }    
+            //excluir na tabela                             
+            $arquivo->delete();
+            $paciente = $this->paciente->find($pacienteid);    
+            return response()->json([
+                'paciente' => $paciente,
+                'status' => 200,                
+            ]);        
+    }
+
+    public function abrirDoc(int $id){
+        $arquivo = $this->arquivopaciente->find($id);
+        return response()->json([
+            'status' => 200,
+            'arquivo' => $arquivo,
+        ]);
+    }  
+
+    public function deleteArquivo(int $id){        
+        $arquivo = ArquivosPaciente::find($id);
+        $pacienteid = $arquivo->paciente_id;  
+        //deleção o arquivo na pasta /storage/arquivos_paciente/   
+        $arquivoPath = public_path('/storage/'.$arquivo->path);
+        if(file_exists($arquivoPath)){
+            unlink($arquivoPath);
+        }    
+        //excluir na tabela                             
+        $arquivo->delete();        
+        return true;        
     }
 }

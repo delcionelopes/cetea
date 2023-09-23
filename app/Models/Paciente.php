@@ -129,6 +129,10 @@ class Paciente extends Model
         return $this->hasMany(MChat::class,'paciente_id');
     }
 
+    public function arquivos_paciente():HasMany{
+        return $this->hasMany(ArquivosPaciente::class,'paciente_id');
+    }
+
     
 
 
