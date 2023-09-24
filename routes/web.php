@@ -145,7 +145,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
 
 }); //fim do escopo do middleware auth
 
-
+///parte do site front-page
 Route::namespace('App\Http\Controllers\Page')->name('page.')->group(function(){
     Route::get('/','HomeController@master')->name('master');
     Route::get('/artigo/{slug}','HomeController@detail')->name('detail');
@@ -157,4 +157,21 @@ Route::namespace('App\Http\Controllers\Page')->name('page.')->group(function(){
     Route::delete('/delete-fototemp','HomeController@deleteFotoTemp');
     Route::post('/salvar-comentario','ComentarioController@salvarComentario');
     Route::delete('/delete-comentario/{id}','ComentarioController@deleteComentario');    
+  });
+
+  
+  //busca o cep  
+  Route::get('/cep/{cep}', function ($cep)
+  {    
+     $cep = strval($cep);
+     $link = 'http://viacep.com.br/ws/'.$cep.'/json/';
+    
+     $url = sprintf($link);     
+
+     $json = json_decode(file_get_contents($url), true);
+
+     return response()->json([
+      'status'=>200,
+      'localizacao' => $json,
+    ]);
   });

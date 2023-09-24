@@ -97,6 +97,7 @@ class PacienteController extends Controller
             $data['updated_at'] = null;
             $data['creater_user'] = $user->id;
             $data['updater_user'] = null;
+
             $paciente = $this->paciente->create($data);
             return response()->json([
                 'status' => 200,
@@ -126,8 +127,7 @@ class PacienteController extends Controller
     public function edit(int $id)
     {
         $paciente = $this->paciente->find($id);
-        return response()->json([
-            'status' => 200,
+        return view('cetea.paciente.edit',[            
             'paciente' => $paciente,
         ]);
     }
@@ -181,6 +181,7 @@ class PacienteController extends Controller
             $data['encaminhamentos'] = $request->input('encaminhamentos');            
             $data['updated_at'] = now();            
             $data['updater_user'] = $user->id;
+
             $paciente->update($data);
             $p = Paciente::find($id);
             return response()->json([
