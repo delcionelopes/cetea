@@ -11,6 +11,7 @@ use App\Http\Controllers\Caos\PrincipalController;
 use App\Http\Controllers\Caos\SegurancaController;
 use App\Http\Controllers\Caos\SetorController;
 use App\Http\Controllers\Cetea\PacienteController;
+use App\Http\Controllers\Cetea\TipoTratamentoController;
 use App\Http\Controllers\HomeController as ControllersHomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -139,6 +140,14 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::delete('/delete-docs/{id}',[PacienteController::class,'deleteDocs']);
         Route::get('/abrir-doc/{id}',[PacienteController::class,'abrirDoc']);
     });  
+
+    Route::prefix('tipotratamento')->name('tipotratamento.')->group(function(){
+        Route::get('/index',[TipoTratamentoController::class,'index'])->name('index');        
+        Route::delete('/delete/{id}',[TipoTratamentoController::class,'destroy']);
+        Route::get('/edit/{id}',[TipoTratamentoController::class,'edit'])->name('edit');
+        Route::put('/update/{id}',[TipoTratamentoController::class,'update']);
+        Route::put('/store',[TipoTratamentoController::class,'store']);
+      }); 
 
 
     }); //fim ceteaadmin

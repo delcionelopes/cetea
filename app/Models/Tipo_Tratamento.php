@@ -21,6 +21,6 @@ class Tipo_Tratamento extends Model
     ];
 
     public function tratamento():HasMany{
-        return $this->hasMany(Tratamento::class,'id','tipo_tratamento_id');
+        return $this->hasMany(Tratamento::class,'tipo_tratamento_id');
     }
 }

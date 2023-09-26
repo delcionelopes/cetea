@@ -114,6 +114,8 @@ $(document).ready(function(){
       break;
       case 3: location.replace('/ceteaadmin/paciente/index'); //ficha básica do paciente
       break;
+      case 4: location.replace('/ceteaadmin/tipotratamento/index'); //cadastro de tipos de tratamentos
+      break;
     
       default:
         break;

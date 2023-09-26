@@ -7,7 +7,6 @@ use App\Models\ArquivosPaciente;
 use App\Models\Paciente;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use JeroenNoten\LaravelAdminLte\View\Components\Form\Input;
 
 class PacienteController extends Controller
 {
