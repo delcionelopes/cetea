@@ -116,6 +116,8 @@ $(document).ready(function(){
       break;
       case 4: location.replace('/ceteaadmin/tipotratamento/index'); //cadastro de tipos de tratamentos
       break;
+      case 5: location.replace('/ceteaadmin/tratamento/index'); //cadastro de tratamentos
+      break;
     
       default:
         break;

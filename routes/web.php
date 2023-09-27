@@ -12,6 +12,7 @@ use App\Http\Controllers\Caos\SegurancaController;
 use App\Http\Controllers\Caos\SetorController;
 use App\Http\Controllers\Cetea\PacienteController;
 use App\Http\Controllers\Cetea\TipoTratamentoController;
+use App\Http\Controllers\Cetea\TratamentoController;
 use App\Http\Controllers\HomeController as ControllersHomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -147,6 +148,14 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::get('/edit/{id}',[TipoTratamentoController::class,'edit'])->name('edit');
         Route::put('/update/{id}',[TipoTratamentoController::class,'update']);
         Route::put('/store',[TipoTratamentoController::class,'store']);
+      }); 
+
+    Route::prefix('tratamento')->name('tratamento.')->group(function(){
+        Route::get('/index',[TratamentoController::class,'index'])->name('index');        
+        Route::delete('/delete/{id}',[TratamentoController::class,'destroy']);
+        Route::get('/edit/{id}',[TratamentoController::class,'edit'])->name('edit');
+        Route::put('/update/{id}',[TratamentoController::class,'update']);
+        Route::put('/store',[TratamentoController::class,'store']);
       }); 
 
 
