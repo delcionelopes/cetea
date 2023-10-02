@@ -120,9 +120,11 @@ class MedicoTerapeutaController extends Controller
     public function edit(int $id)
     {
        $medicoterapeuta = $this->medicoterapeuta->find($id);
+       $tratamentosrelacionados = $medicoterapeuta->tratamentos;
        return response()->json([
         'status' => 200,
         'medicoterapeuta' => $medicoterapeuta,
+        'tratamentosrelacionados' => $tratamentosrelacionados,
        ]);
     }
 
@@ -223,9 +225,10 @@ class MedicoTerapeutaController extends Controller
     public function medicosXtratamentos(int $tratamento_id){
         $tratamento = $this->tratamento->whereId($tratamento_id)->first();
         $medicosterapeutas = $tratamento->medicos()->paginate(6);
-
+        $tratamentos = $this->tratamento->all('id','nome');
         return view('cetea.medicoterapeuta.index_medicoXtratamentos',[
             'medicosterapeutas' => $medicosterapeutas,
+            'tratamentos' => $tratamentos,
         ]);
     }
 }

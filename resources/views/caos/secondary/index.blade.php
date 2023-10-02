@@ -118,6 +118,8 @@ $(document).ready(function(){
       break;
       case 5: location.replace('/ceteaadmin/tratamento/index'); //cadastro de tratamentos
       break;
+      case 6: location.replace('/ceteaadmin/medicoterapeuta/index'); //cadastro de médicos terapeutas
+      break;
     
       default:
         break;

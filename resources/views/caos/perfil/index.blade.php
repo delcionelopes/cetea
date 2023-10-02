@@ -486,7 +486,7 @@ $(document).ready(function(){
                        
                         $("input[name='authorizations[]']").attr('checked',false);
                         
-                        $.each(response.authorizations,function(key,authorization){                                                                                    
+                        $.each(response.authorizations,function(key,authorization){
                                 $("#check"+authorization.modulo_has_operacao_id).attr('checked',true);
                         });
 

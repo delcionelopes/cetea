@@ -293,7 +293,7 @@ class ModuloController extends Controller
     }
 
     public function modulosXoperacoes(int $operacao_id){
-        $operacao = $this->operacao->whereCodope($operacao_id)->first();
+        $operacao = $this->operacao->find($operacao_id);
         $modulos = $operacao->modulos()->paginate(6);
         return view('caos.modulo.index_moduloXoperacoes',[
             'modulos' => $modulos,

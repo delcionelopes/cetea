@@ -10,6 +10,7 @@ use App\Http\Controllers\Caos\PerfilController;
 use App\Http\Controllers\Caos\PrincipalController;
 use App\Http\Controllers\Caos\SegurancaController;
 use App\Http\Controllers\Caos\SetorController;
+use App\Http\Controllers\Cetea\MedicoTerapeutaController;
 use App\Http\Controllers\Cetea\PacienteController;
 use App\Http\Controllers\Cetea\TipoTratamentoController;
 use App\Http\Controllers\Cetea\TratamentoController;
@@ -156,6 +157,16 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::get('/edit/{id}',[TratamentoController::class,'edit'])->name('edit');
         Route::put('/update/{id}',[TratamentoController::class,'update']);
         Route::put('/store',[TratamentoController::class,'store']);
+      });
+
+      Route::prefix('medicoterapeuta')->name('medicoterapeuta.')->group(function(){
+        Route::get('/index',[MedicoTerapeutaController::class,'index'])->name('index');
+        Route::get('/create',[MedicoTerapeutaController::class,'create'])->name('create');
+        Route::delete('/delete/{id}',[MedicoTerapeutaController::class,'destroy']);
+        Route::get('/edit/{id}',[MedicoTerapeutaController::class,'edit'])->name('edit');
+        Route::put('/update/{id}',[MedicoTerapeutaController::class,'update']);
+        Route::put('/store',[MedicoTerapeutaController::class,'store'])->name('store');        
+        Route::get('/medico-tratamento/{tratamento_id}',[MedicoTerapeutaController::class,'medicosXtratamentos'])->name('medicoxtratamento');
       }); 
 
 

@@ -219,8 +219,7 @@ $(document).ready(function(){
             $("#edit_nome").focus();
         });
         $(document).on('click','.edit_tratamento',function(e){  
-            e.preventDefault();
-            var linklogo = "{{asset('storage')}}";
+            e.preventDefault();            
             var id = $(this).data("id");            
             var nome = $(this).data("nome");
             
@@ -328,10 +327,7 @@ $(document).ready(function(){
             $(".nome").focus();
         });
         $(document).on('click','.AddTratamentoModal_btn',function(e){  //início da exibição do form Add
-            e.preventDefault();     
-            
-            var link = "{{asset('storage')}}";           
-            
+            e.preventDefault();            
             $("#addform").trigger('reset');
             $("#AddTratamentoModal").modal('show'); 
             $("#saveform_errList").replaceWith('<ul id="saveform_errList"></ul>');    

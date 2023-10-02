@@ -279,7 +279,7 @@ class OperacaoController extends Controller
     }
 
     public function operacoesXmodulos(int $modulo_id){
-        $modulo = $this->modulo->whereId($modulo_id)->first();
+        $modulo = $this->modulo->find($modulo_id);
         $operacoes = $modulo->operacoes()->paginate(6);
         return view('caos.operacao.index_operacaoXmodulos',[
             'operacoes' => $operacoes,
