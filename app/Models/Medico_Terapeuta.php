@@ -30,11 +30,11 @@ class Medico_Terapeuta extends Model
         'updater_user',
     ];
 
-    public function medico_tratamento():BelongsToMany{
+    public function tratamentos():BelongsToMany{
         return $this->belongsToMany(Tratamento::class,'medico_terapeuta_has_tratamento','medico_terapeuta_id','tratamento_id');
     }
 
-    public function atendimento():HasMany{
-        return $this->hasMany(Atendimento::class,'id','medico_terapeuta_id');
+    public function atendimentos():HasMany{
+        return $this->hasMany(Atendimento::class,'medico_terapeuta_id');
     }
 }
