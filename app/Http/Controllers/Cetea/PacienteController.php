@@ -319,14 +319,16 @@ class PacienteController extends Controller
 
     }
 
-    public function deleteDocs(int $id){        
+    public function deleteDocs(int $id){                
             $arquivo = $this->arquivopaciente->find($id);    
             $pacienteid = $arquivo->paciente_id;
-            //deleção do arquivo na pasta /storage/arquivos_paciente/   
+            //deleção do arquivo na pasta /storage/arquivos_paciente/
+            if($arquivo){            
             $arquivoPath = public_path('/storage/'.$arquivo->path);
             if(file_exists($arquivoPath)){
                 unlink($arquivoPath);
             }    
+        }
             //excluir na tabela                             
             $arquivo->delete();
             $paciente = $this->paciente->find($pacienteid);    

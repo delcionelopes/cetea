@@ -58,8 +58,8 @@
                                         </li>
                                             @foreach($paciente->arquivos_paciente as $doc)
                                             <li id="doc{{$doc->id}}" class="dropdown-item">                                                 
-                                                    <a href="#!" id="btn_excluir_doc" data-id="{{$doc->id}}" data-filename="{{$doc->rotulo}}" class="fas fa-trash" style="color: red"></a>
-                                                    <a href="#!" id="btn_abrir_doc" data-id="{{$doc->id}}" type="button" class="btn btn-none" style="color: blue">{{$doc->rotulo}}</a>
+                                                    <a href="#!" id="btn_excluir" data-id="{{$doc->id}}" data-filename="{{$doc->rotulo}}" class="btn_excluir_doc fas fa-trash" style="color: red"></a>
+                                                    <a href="#!" id="btn_abrir" data-id="{{$doc->id}}" type="button" class="btn_abrir_doc btn btn-none" style="color: blue">{{$doc->rotulo}}</a>
                                             </li>                                            
                                             @endforeach                                        
                                         </ul>                                        
@@ -204,15 +204,13 @@ $(document).ready(function(){
     });
     ////fim enviar docs
     ///delete doc
-     $(document).on('click','#btn_excluir_doc',function(e){ 
+     $(document).on('click','.btn_excluir_doc',function(e){ 
             e.preventDefault();           
             var CSRF_TOKEN  = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
             var id = $(this).data("id");            
-            var nome = $(this).data("filename");
-            
                       
                 $.ajax({
-                    url: '/cetea/paciente/delete-docs/'+id,
+                    url: '/ceteaadmin/paciente/delete-docs/'+id,
                     type: 'POST',
                     dataType: 'json',
                     data:{
@@ -231,7 +229,7 @@ $(document).ready(function(){
         }); 
     ///fim delete doc
     ////Abrir doc
-    $(document).on('click','#btn_abrir_doc',function(e){
+    $(document).on('click','.btn_abrir_doc',function(e){
         e.preventDefault();            
             var id = $(this).data("id"); 
 
@@ -248,7 +246,7 @@ $(document).ready(function(){
                 url: '/ceteaadmin/paciente/abrir-doc/'+id,                                
                 success: function(response){ 
                     if(response.status==200){
-                      var link = '{{asset('')}}'+'storage/'+response.arquivo.path;
+                      var link = "{{asset('')}}"+"storage/"+response.arquivo.path;
                       //visualizar o pdf no browser                
                           window.open(link);                    
                     }
