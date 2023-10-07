@@ -25,7 +25,7 @@ class PrincipalController extends Controller
         $user = auth()->user();        
         $autorizacao = $this->autorizacao->query()
                                 ->wherePerfil_id($user->perfil_id)
-                                ->paginate(4);       
+                                ->get();
         $modulos = $this->modulo->all();
         return view('caos.principal.index',[
             'autorizacao' => $autorizacao,
@@ -38,7 +38,7 @@ class PrincipalController extends Controller
         $autorizacao = $this->autorizacao->query()
                                 ->wherePerfil_id($user->perfil_id)
                                 ->whereModulo_has_operacao_modulo_id($id)
-                                ->paginate(4);       
+                                ->get();
         $operacoes = $this->operacao->all();
         return view('caos.secondary.index',[
             'autorizacao' => $autorizacao,

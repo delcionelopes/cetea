@@ -12,6 +12,7 @@ use App\Http\Controllers\Caos\SegurancaController;
 use App\Http\Controllers\Caos\SetorController;
 use App\Http\Controllers\Cetea\MedicoTerapeutaController;
 use App\Http\Controllers\Cetea\PacienteController;
+use App\Http\Controllers\Cetea\TipoAtendimentoController;
 use App\Http\Controllers\Cetea\TipoTratamentoController;
 use App\Http\Controllers\Cetea\TratamentoController;
 use App\Http\Controllers\HomeController as ControllersHomeController;
@@ -167,6 +168,14 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::put('/update/{id}',[MedicoTerapeutaController::class,'update']);
         Route::put('/store',[MedicoTerapeutaController::class,'store'])->name('store');        
         Route::get('/medico-tratamento/{tratamento_id}',[MedicoTerapeutaController::class,'medicosXtratamentos'])->name('medicoxtratamento');
+      });
+      
+      Route::prefix('tipoatendimento')->name('tipoatendimento.')->group(function(){
+        Route::get('/index',[TipoAtendimentoController::class,'index'])->name('index');        
+        Route::delete('/delete/{id}',[TipoAtendimentoController::class,'destroy']);
+        Route::get('/edit/{id}',[TipoAtendimentoController::class,'edit'])->name('edit');
+        Route::put('/update/{id}',[TipoAtendimentoController::class,'update']);
+        Route::put('/store',[TipoAtendimentoController::class,'store']);
       }); 
 
 

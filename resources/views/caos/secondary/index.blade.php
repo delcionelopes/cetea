@@ -120,6 +120,8 @@ $(document).ready(function(){
       break;
       case 6: location.replace('/ceteaadmin/medicoterapeuta/index'); //cadastro de médicos terapeutas
       break;
+      case 7: location.replace('/ceteaadmin/tipoatendimento/index'); //cadastro de tipos de atendimento
+      break;
     
       default:
         break;

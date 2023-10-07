@@ -21,8 +21,8 @@ class Tipo_Atendimento extends Model
         'updater_user',
     ];
 
-    public function atendimento():HasMany{
-        return $this->hasMany(Atendimento::class,'id','tipo_atendimento_id');
+    public function atendimentos():HasMany{
+        return $this->hasMany(Atendimento::class,'tipo_atendimento_id');
     }
 
     
