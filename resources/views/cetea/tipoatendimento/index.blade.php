@@ -250,7 +250,7 @@ $(document).ready(function(){
     
             var data = {
                 'nome' : $("#edit_nome").val(),
-                'descricao' : $("$edit_descricao").val(),
+                'descricao' : $("#edit_descricao").val(),
                 '_method':'PUT',
                 '_token':CSRF_TOKEN,
             }
