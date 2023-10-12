@@ -10,6 +10,7 @@ use App\Http\Controllers\Caos\PerfilController;
 use App\Http\Controllers\Caos\PrincipalController;
 use App\Http\Controllers\Caos\SegurancaController;
 use App\Http\Controllers\Caos\SetorController;
+use App\Http\Controllers\Cetea\AtendimentoController;
 use App\Http\Controllers\Cetea\MedicoTerapeutaController;
 use App\Http\Controllers\Cetea\PacienteController;
 use App\Http\Controllers\Cetea\TipoAtendimentoController;
@@ -176,7 +177,19 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::get('/edit/{id}',[TipoAtendimentoController::class,'edit'])->name('edit');
         Route::put('/update/{id}',[TipoAtendimentoController::class,'update']);
         Route::put('/store',[TipoAtendimentoController::class,'store']);
-      }); 
+      });
+
+      Route::prefix('atendimento')->name('atendimento.')->group(function(){
+        Route::get('/index',[AtendimentoController::class,'index'])->name('index');
+        Route::get('/create',[AtendimentoController::class,'create'])->name('create');
+        Route::put('/store',[AtendimentoController::class,'store']);
+        Route::get('/edit/{id}',[AtendimentoController::class,'edit'])->name('edit');
+        Route::put('/update/{id}',[AtendimentoController::class,'update']);
+        Route::delete('/delete/{id}',[AtendimentoController::class,'destroy']);        
+        Route::put('/upload-docs/{id}',[AtendimentoController::class,'uploadDocs']);
+        Route::delete('/delete-docs/{id}',[AtendimentoController::class,'deleteDocs']);
+        Route::get('/abrir-doc/{id}',[AtendimentoController::class,'abrirDoc']);
+    });   
 
 
     }); //fim ceteaadmin

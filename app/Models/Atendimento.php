@@ -46,6 +46,10 @@ class Atendimento extends Model
         return $this->belongsTo(Paciente::class,'paciente_id');
     }
 
+    public function arquivos_atendimento():HasMany{
+        return $this->hasMany(Atendimento_Docs::class,'atendimento_id');
+    }
+
     public function anamnese_incicial():HasMany{
         return $this->hasMany(Anamnese_Inicial::class,'id','atendimento_id');
     }
