@@ -47,7 +47,7 @@
                                 <td>{{$atendimento->tipo_atendimento->nome}}</td>
                                 @if($atendimento->tipo_atendimento->id===1)
                                 <td>{{date('d/m/Y H:i:s',strtotime($atendimento->data_atendimento))}}</td>
-                                @else @if(@atendimento->tipo_atendimento->id===2)
+                                @else @if($atendimento->tipo_atendimento->id===2)
                                       <td>{{date('d/m/Y',strtotime($atendimento->data_retorno))}}</td>
                                       @else
                                       <td>{{date('d/m/Y', strtotime($atendimento->data_agendamento))}}</td>

@@ -122,7 +122,9 @@ $(document).ready(function(){
       break;
       case 7: location.replace('/ceteaadmin/tipoatendimento/index'); //cadastro de tipos de atendimento
       break;
-    
+      case 8: location.replace('/ceteaadmin/atendimento/index'); //cadastro de atendimentos
+      break;
+          
       default:
         break;
     }
