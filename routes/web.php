@@ -189,6 +189,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::put('/upload-docs/{id}',[AtendimentoController::class,'uploadDocs']);
         Route::delete('/delete-docs/{id}',[AtendimentoController::class,'deleteDocs']);
         Route::get('/abrir-doc/{id}',[AtendimentoController::class,'abrirDoc']);
+        Route::get('/tipoatendimento',[AtendimentoController::class,'tipoatendimento']);
     });   
 
 

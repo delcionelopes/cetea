@@ -50,72 +50,72 @@ class Atendimento extends Model
         return $this->hasMany(Atendimento_Docs::class,'atendimento_id');
     }
 
-    public function anamnese_incicial():HasMany{
-        return $this->hasMany(Anamnese_Inicial::class,'id','atendimento_id');
+    public function anamnese_inicial():HasMany{
+        return $this->hasMany(Anamnese_Inicial::class,'atendimento_id');
     }
 
     public function anamnese_hist_pregressa():HasMany{
-        return $this->hasMany(Anamnese_Hist_Pregressa::class,'id','atendimento_id');
+        return $this->hasMany(Anamnese_Hist_Pregressa::class,'atendimento_id');
     }
 
     public function anamnese_desenvolvimento():HasMany{
-        return $this->hasMany(Anamnese_Desenvolvimento::class,'id','atendimento_id');
+        return $this->hasMany(Anamnese_Desenvolvimento::class,'atendimento_id');
     }
 
-    public function histdes_varsaopais_inicial():HasMany{
-        return $this->hasMany(HistDes_VersaoPais_Inicial::class,'id','atendimento_id');
+    public function histdes_versaopais_inicial():HasMany{
+        return $this->hasMany(HistDes_VersaoPais_Inicial::class,'atendimento_id');
     }
 
     public function histdes_versaopais_linguagem():HasMany{
-        return $this->hasMany(HistDes_VersaoPais_Linguagem::class,'id','atendimento_id');
+        return $this->hasMany(HistDes_VersaoPais_Linguagem::class,'atendimento_id');
     }
 
     public function histdes_versaopais_desenvsocial():HasMany{
-        return $this->hasMany(HistDes_VersaoPais_DesenvSocial::class,'id','atendimento_id');
+        return $this->hasMany(HistDes_VersaoPais_DesenvSocial::class,'atendimento_id');
     }
 
     public function histdes_versaopais_brincadeiras():HasMany{
-        return $this->hasMany(HistDes_VersaoPais_Brincadeiras::class,'id','atendimento_id');
+        return $this->hasMany(HistDes_VersaoPais_Brincadeiras::class,'atendimento_id');
     }
 
     public function histdes_versaopais_comportamentos():HasMany{
-        return $this->hasMany(HistDes_VersaoPais_Comportamentos::class,'id','atendimento_id');
+        return $this->hasMany(HistDes_VersaoPais_Comportamentos::class,'atendimento_id');
     }
 
     public function histdes_versaopais_independencia():HasMany{
-        return $this->hasMany(HistDes_VersaoPais_Independencia::class,'id','atendimento_id');
+        return $this->hasMany(HistDes_VersaoPais_Independencia::class,'atendimento_id');
     }
 
     public function histdes_versaopais_desenvmotor():HasMany{
-        return $this->hasMany(HistDes_VersaoPais_DesenvMotor::class,'id','atendimento_id');
+        return $this->hasMany(HistDes_VersaoPais_DesenvMotor::class,'atendimento_id');
     }
 
     public function histdes_versaopais_histescolar():HasMany{
-        return $this->hasMany(HistDes_VersaoPais_HistEscolar::class,'id','atendimento_id');
+        return $this->hasMany(HistDes_VersaoPais_HistEscolar::class,'atendimento_id');
     }
 
     public function histdes_versaopais_compcasa():HasMany{
-        return $this->hasMany(HistDes_VersaoPais_CompCasa::class,'id','atendimento_id');
+        return $this->hasMany(HistDes_VersaoPais_CompCasa::class,'atendimento_id');
     }
 
     public function histdes_anexo1_rotalim():HasMany{
-        return $this->hasMany(HistDes_Anexo1_RotAlim::class,'id','atendimento_id');
+        return $this->hasMany(HistDes_Anexo1_RotAlim::class,'atendimento_id');
     }
 
     public function histdes_anexo2_histmedico():HasMany{
-        return $this->hasMany(HistDes_Anexo2_HistMedico::class,'id','atendimento_id');
+        return $this->hasMany(HistDes_Anexo2_HistMedico::class,'atendimento_id');
     }
 
     public function histdes_anexo3_infosensoriais():HasMany{
-        return $this->hasMany(HistDes_Anexo3_InfoSensoriais::class,'id','atendimento_id');
+        return $this->hasMany(HistDes_Anexo3_InfoSensoriais::class,'atendimento_id');
     }
 
     public function evolucao():HasMany{
-        return $this->hasMany(Evolucao::class,'id','atendimento_id');
+        return $this->hasMany(Evolucao::class,'atendimento_id');
     }
 
     public function mchat():HasMany{
-        return $this->hasMany(MChat::class,'id','atendimento_id');
+        return $this->hasMany(MChat::class,'atendimento_id');
     }
 
 

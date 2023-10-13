@@ -57,11 +57,11 @@
                                     <form action="" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
-                                    <div class="btn-group" id="docs{{$paciente->id}}">
+                                    <div class="btn-group" id="docs{{$atendimento->id}}">
                                         <button type="button" class="btn btn-none dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                         <i class="fas fa-file-pdf"></i><span class="caret"></span>
                                         </button>
-                                        <ul class="dropdown-menu" id="listdocs{{$atendimento->id}}">
+                                        <ul class="dropdown-menu dropdown-menu-right" id="listdocs{{$atendimento->id}}">
                                         <li class="dropdown-item files_enviar_btn" data-id="{{$atendimento->id}}">
                                              <span class="btn btn-primary fileinput-button"><i class="fas fa-folder-open" style="color: red"></i>
                                                 <input data-id="{{$atendimento->id}}" id="arquivo{{$atendimento->id}}" class="arquivo" type="file" name="arquivo[]" accept="application/pdf" multiple>
@@ -150,6 +150,7 @@ $(document).ready(function(){
                     data:{
                         'id': id,                                         
                         '_token':CSRF_TOKEN,
+                        '_method':'delete',
                     },
                     success:function(response){
                         if(response.status==200){                        
