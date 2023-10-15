@@ -63,6 +63,7 @@ class MedicoTerapeutaController extends Controller
             'cr_registro' => ['required','max:20'],
             'cr_sigla' => ['required','max:10'],
             'nome' => ['required','max:50'],
+            'cpf' => ['required','cpf','unique:medico_terapeuta'],
             'especialidade' => ['required','max:100'],            
         ]);
         if($validator->fails()){
@@ -77,6 +78,7 @@ class MedicoTerapeutaController extends Controller
             $data['nome'] = $request->input('nome');
             $data['crm_registro'] = $request->input('cr_registro');
             $data['sigla_crm'] = $request->input('cr_sigla');
+            $data['cpf'] = $this->deixaSomenteDigitos($request->input('cpf'));
             $data['especialidade'] = $request->input('especialidade');
             $data['celular'] = $request->input('celular');
             $data['telefone'] = $request->input('telefone');
@@ -141,7 +143,8 @@ class MedicoTerapeutaController extends Controller
             'cr_registro' => ['required','max:20'],
             'cr_sigla' => ['required','max:10'],
             'nome' => ['required','max:50'],
-            'especialidade' => ['required','max:100'],            
+            'especialidade' => ['required','max:100'],
+            'cpf' => ['required','cpf'],
         ]);
         if($validator->fails()){
             return response()->json([
@@ -155,6 +158,7 @@ class MedicoTerapeutaController extends Controller
             $data['nome'] = $request->input('nome');
             $data['crm_registro'] = $request->input('cr_registro');
             $data['sigla_crm'] = $request->input('cr_sigla');
+            $data['cpf'] = $this->deixaSomenteDigitos($request->input('cpf'));
             $data['especialidade'] = $request->input('especialidade');
             $data['celular'] = $request->input('celular');
             $data['telefone'] = $request->input('telefone');
@@ -231,4 +235,10 @@ class MedicoTerapeutaController extends Controller
             'tratamentos' => $tratamentos,
         ]);
     }
+
+    protected function deixaSomenteDigitos($input){
+        return preg_replace('/[^0-9]/','',$input);
+    }
+
+
 }

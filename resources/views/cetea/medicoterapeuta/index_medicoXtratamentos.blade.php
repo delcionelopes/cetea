@@ -39,6 +39,10 @@
                             <label for="addcrm_sigla">Sigla CR</label>
                             <input type="text" id="addcrm_sigla" class="crsigla form-control">
                         </div>
+                        <div class="form-group mb-4">                            
+                                <label for="cpf">CPF</label>
+                                <input type="text" required class="cpf form-control" name="addcpf" id="addcpf" placeholder="000.000.000-00" data-mask="000.000.000-00" data-mask-reverse="true">
+                        </div>
                     </div>
                     <div class="row">
                         <div class="form-group mb-3">
@@ -139,6 +143,10 @@
                         <div class="form-group mb-2">
                             <label for="editcrm_sigla">Sigla CR</label>
                             <input type="text" id="editcrm_sigla" class="crsigla form-control">
+                        </div>
+                        <div class="form-group mb-4">                            
+                                <label for="cpf">CPF</label>
+                                <input type="text" required class="cpf form-control" name="editcpf" id="editcpf" placeholder="000.000.000-00" data-mask="000.000.000-00" data-mask-reverse="true">
                         </div>
                     </div>
                     <div class="row">
@@ -381,6 +389,7 @@ $(document).ready(function(){
                         $(".nome").val(response.medicoterapeuta.nome);
                         $(".crregistro").val(response.medicoterapeuta.crm_registro);
                         $(".crsigla").val(response.medicoterapeuta.sigla_crm);
+                        $(".cpf").val(response.medicoterapeuta.cpf);
                         $(".especialidade").val(response.medicoterapeuta.especialidade);
                         if(response.medicoterapeuta.ativo){
                         $(".ativo").attr('checked',true);
@@ -421,6 +430,7 @@ $(document).ready(function(){
                 'nome' : $("#editnome").val(),                
                 'cr_registro' : $('#editcrm_registro').val(),
                 'cr_sigla' : $('#editcrm_sigla').val(),
+                'cpf' : $('#editcpf').val(),
                 'especialidade' : $('#editespecialidade').val(),
                 'celular' : $('#editcelular').val(),
                 'telefone' : $('#edittelefone').val(),
@@ -506,6 +516,7 @@ $(document).ready(function(){
                 'nome' : $("#addnome").val(),                
                 'cr_registro' : $('#addcrm_registro').val(),
                 'cr_sigla' : $('#addcrm_sigla').val(),
+                'cpf' : $('#addcpf').val(),
                 'especialidade' : $('#addespecialidade').val(),
                 'celular' : $('#addcelular').val(),
                 'telefone' : $('#addtelefone').val(),

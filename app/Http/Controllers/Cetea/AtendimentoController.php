@@ -62,14 +62,10 @@ class AtendimentoController extends Controller
     public function create()
     {
         $pacientes = $this->paciente->orderByDesc('id')->get();
-        $medicosterapeutas = $this->medicoterapeuta->orderByDesc('id')->get();
-        $tratamentos = $this->tratamento->orderByDesc('id')->get();
-        $tiposdeatendimentos = $this->tipoatendimento->orderByDesc('id')->get();
+        $medicosterapeutas = $this->medicoterapeuta->orderByDesc('id')->get();                
         return view('cetea.atendimento.create',[
             'pacientes' => $pacientes,
             'medicosterapeutas' => $medicosterapeutas,
-            'tratamentos' => $tratamentos,
-            'tiposatendimentos' => $tiposdeatendimentos,
         ]);
     }
 
@@ -101,21 +97,8 @@ class AtendimentoController extends Controller
             $data['tratamento_id'] = $request->input('tratamento');
             $data['paciente_id'] = $request->input('paciente');
             $data['responsavel_do_paciente'] = strtoupper($request->input('responsavel'));
-            $data['responsavel_parentesco'] = strtoupper($request->input('parentesco'));
-            if($request->input('tipo_atendimento')==1){ //atendimento no programa
-                $data['data_atendimento'] = now(); //atendimento
-                $data['data_agendamento'] = null; //outro médico
-                $data['data_retorno'] = null; //mesmo médico
-            }elseif($request->input('tipo_atendimento')==2){ //retorno
-                $data['data_atendimento'] = null; //atendimento
-                $data['data_agendamento'] = null; //outro médico
-                $data['data_retorno'] = $request->input('data_retorno'); //mesmo médico
-            }else{ //  agendamento
-                $data['data_atendimento'] = null; //atendimento
-                $data['data_agendamento'] = $request->input('data_agendamento');  //outro médico
-                $data['data_retorno'] = null; //mesmo médico
-            }
-            $data['encaminhamento'] = $request->input('encaminhamento');
+            $data['responsavel_parentesco'] = strtoupper($request->input('parentesco'));            
+            $data['data_atendimento'] = now(); //atendimento
             $data['created_at'] = now();
             $data['updated_at'] = null;
             $data['creater_user'] = $user->id;
@@ -148,16 +131,11 @@ class AtendimentoController extends Controller
     public function edit(int $id)
     {
         $atendimento = $this->atendimento->find($id);        
-        $medicosterapeutas = $this->medicoterapeuta->orderByDesc('id')->get();
-        $tratamentos = $this->tratamento->orderByDesc('id')->get();
-        $tiposatendimentos = $this->tipoatendimento->orderByDesc('id')->get();
-        //levar informações dos atendimentos anteriores?
+        $medicosterapeutas = $this->medicoterapeuta->orderByDesc('id')->get();        
         return response()->json([
             'status' => 200,
             'atendimento' => $atendimento,
-            'medicosterapeutas' => $medicosterapeutas,
-            'tratamentos' => $tratamentos,
-            'tiposatendimentos' => $tiposatendimentos,
+            'medicosterapeutas' => $medicosterapeutas,            
         ]);
     }
 
@@ -189,18 +167,7 @@ class AtendimentoController extends Controller
             $data['tratamento_id'] = $request->input('tratamento');            
             $data['responsavel_do_paciente'] = strtoupper($request->input('responsavel'));
             $data['responsavel_parentesco'] = strtoupper($request->input('parentesco'));
-            if($request->input('tipo_atendimento')==1){ //atendimento no programa
-                $data['data_atendimento'] = now(); //atendimento
-                $data['data_agendamento'] = null; //outro médico
-                $data['data_retorno'] = null; //mesmo médico
-            }elseif($request->input('tipo_atendimento')==2){ //retorno                
-                $data['data_agendamento'] = null; //outro médico
-                $data['data_retorno'] = $request->input('data_retorno'); //mesmo médico
-            }else{ //  agendamento                
-                $data['data_agendamento'] = $request->input('data_agendamento');  //outro médico
-                $data['data_retorno'] = null; //mesmo médico
-            }
-            $data['encaminhamento'] = $request->input('encaminhamento');            
+            $data['data_atendimento'] = now(); //atendimento                
             $data['updated_at'] = now();            
             $data['updater_user'] = $user->id;
             $atendimento->update($data);
@@ -465,6 +432,14 @@ class AtendimentoController extends Controller
         ]);
     }
 
+    public function medicoxtratamento(int $id){
+        $medicoterapeuta = $this->medicoterapeuta->find($id);
+        $tratamentos = $medicoterapeuta->tratamentos;        
+        return response()->json([
+            'status' => 200,
+            'tratamentos' => $tratamentos,
+        ]);
+    }
 
 
 }

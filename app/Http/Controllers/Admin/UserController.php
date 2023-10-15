@@ -59,7 +59,7 @@ class UserController extends Controller
             'name' => ['required','max:100'],
             'email' => ['required','email','max:100','unique:users'],
             'password' => ['required','min:8','max:100'],
-            'cpf' => ['required','cpf'],
+            'cpf' => ['required','cpf','unique:users'],
             'perfil_id' => ['required','integer'],
             'funcao_id' => ['required','integer'],
             'setor_id' => ['required','integer'],

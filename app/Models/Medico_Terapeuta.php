@@ -16,6 +16,7 @@ class Medico_Terapeuta extends Model
         'id',
         'crm_registro',
         'sigla_crm',
+        'cpf',
         'nome',
         'especialidade',
         'celular',

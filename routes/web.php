@@ -168,7 +168,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::get('/edit/{id}',[MedicoTerapeutaController::class,'edit'])->name('edit');
         Route::put('/update/{id}',[MedicoTerapeutaController::class,'update']);
         Route::put('/store',[MedicoTerapeutaController::class,'store'])->name('store');        
-        Route::get('/medico-tratamento/{tratamento_id}',[MedicoTerapeutaController::class,'medicosXtratamentos'])->name('medicoxtratamento');
+        Route::get('/medico-tratamento/{tratamento_id}',[MedicoTerapeutaController::class,'medicosXtratamentos'])->name('medicoxtratamento');        
       });
       
       Route::prefix('tipoatendimento')->name('tipoatendimento.')->group(function(){
@@ -190,6 +190,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::delete('/delete-docs/{id}',[AtendimentoController::class,'deleteDocs']);
         Route::get('/abrir-doc/{id}',[AtendimentoController::class,'abrirDoc']);
         Route::get('/tipoatendimento',[AtendimentoController::class,'tipoatendimento']);
+        Route::get('/medicoxtratamento/{medico_id}',[AtendimentoController::class,'medicoxtratamento']);
     });   
 
 
