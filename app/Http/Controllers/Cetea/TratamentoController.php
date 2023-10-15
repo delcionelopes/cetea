@@ -21,7 +21,7 @@ class TratamentoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index(Request $request, $color)
     {
         if(is_null($request->pesquisa)){
             $tratamentos = $this->tratamento->orderByDesc('id')->paginate(6);
@@ -34,6 +34,7 @@ class TratamentoController extends Controller
         return view('cetea.tratamento.index',[
             'tratamentos' => $tratamentos,
             'tipos_tratamentos' => $tipos_tratamentos,
+            'color' => $color,
         ]);
     }
 

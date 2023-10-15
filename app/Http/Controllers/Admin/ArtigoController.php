@@ -22,7 +22,7 @@ class ArtigoController extends Controller
         $this->arquivo = $arquivo;
     }
 
-    public function index(Request $request)
+    public function index(Request $request, $color)
     {     
         if(is_null($request->pesquisa)){
             $artigos = $this->artigo->orderBy('id','DESC')->paginate(5);                           
@@ -30,18 +30,20 @@ class ArtigoController extends Controller
             $query = Artigo::with('User')
                          ->where('titulo','LIKE','%'.$request->pesquisa.'%');         
             $artigos = $query->orderBy('id','DESC')->paginate(5);
-        }            
+        }
         return view('admin.artigos.index',[
             'artigos' => $artigos,
+            'color' => $color,
         ]);
     }
 
     
-    public function create()
+    public function create($color)
     {       
         $temas = $this->tema->all('id','titulo');
         return view('admin.artigos.create',[
             'temas' => $temas,
+            'color' => $color,
         ]);
     }
 
@@ -104,7 +106,7 @@ class ArtigoController extends Controller
     }
 
     
-    public function edit(int $id)
+    public function edit(int $id, $color)
     {
         setlocale(LC_ALL, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
         date_default_timezone_set('America/Sao_Paulo');
@@ -113,7 +115,8 @@ class ArtigoController extends Controller
         $temas = $this->tema->all('id','titulo');
         return view('admin.artigos.edit',[
             'temas'  => $temas,
-            'artigo' => $artigo,            
+            'artigo' => $artigo,
+            'color' => $color,
         ]);
    
     }

@@ -242,8 +242,8 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="modal-footer">
-                            <button type="button" class="cancelar_btn btn btn-default">Cancelar</button>
-                            <button class="salvar_btn btn btn-primary" type="button"><img id="imgadd" src="{{asset('storage/ajax-loader.gif')}}" style="display: none;" class="rounded-circle" width="20"> Salvar</button>
+                            <button type="button" data-color="{{$color}}" class="cancelar_btn btn btn-default">Cancelar</button>
+                            <button class="salvar_btn btn btn-{{$color}}" data-color="{{$color}}" type="button"><img id="imgadd" src="{{asset('storage/ajax-loader.gif')}}" style="display: none;" class="rounded-circle" width="20"> Salvar</button>
                         </div>
                     </div>
                 </div>
@@ -268,6 +268,7 @@ $(document).ready(function(){
     $(document).on('click','.salvar_btn',function(e){
         e.preventDefault();
         var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute('content');   
+        var color = $(this).data("color");
         var loading = $('#imgadd');
             loading.show();
 
@@ -320,7 +321,7 @@ $(document).ready(function(){
                 } else{
                     $('#saveform_errList').replaceWith('<ul id="saveform_errList"></ul>');  
                     loading.hide();
-                     location.replace('/ceteaadmin/paciente/index');
+                     location.replace('/ceteaadmin/paciente/index/'+color);
                 }  
             }  
         });
@@ -331,7 +332,8 @@ $(document).ready(function(){
     
     $(document).on('click','.cancelar_btn',function(e){
         e.preventDefault();
-        location.replace('/ceteaadmin/paciente/index');
+        var color = $(this).data("color");
+        location.replace('/ceteaadmin/paciente/index/'+color);
     });
 
     //busca cep

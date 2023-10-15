@@ -40,7 +40,7 @@ class AtendimentoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index(Request $request, $color)
     {
         if(is_null($request->pesquisa)){
             $atendimentos = $this->atendimento->orderByDesc('id')->paginate(10);
@@ -50,7 +50,8 @@ class AtendimentoController extends Controller
             $atendimentos = $query->orderByDesc('id')->paginate(10);            
         }        
         return view('cetea.atendimento.index',[
-            'atendimentos' => $atendimentos,            
+            'atendimentos' => $atendimentos,
+            'color' => $color,
         ]);
     }
 
@@ -59,13 +60,14 @@ class AtendimentoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($color)
     {
         $pacientes = $this->paciente->orderByDesc('id')->get();
         $medicosterapeutas = $this->medicoterapeuta->orderByDesc('id')->get();                
         return view('cetea.atendimento.create',[
             'pacientes' => $pacientes,
             'medicosterapeutas' => $medicosterapeutas,
+            'color' => $color,
         ]);
     }
 
@@ -128,7 +130,7 @@ class AtendimentoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(int $id)
+    public function edit(int $id, $color)
     {
         $atendimento = $this->atendimento->find($id);        
         $medicosterapeutas = $this->medicoterapeuta->orderByDesc('id')->get();        
@@ -136,6 +138,7 @@ class AtendimentoController extends Controller
             'status' => 200,
             'atendimento' => $atendimento,
             'medicosterapeutas' => $medicosterapeutas,            
+            'color' => $color,
         ]);
     }
 
@@ -422,13 +425,6 @@ class AtendimentoController extends Controller
         return response()->json([
             'status' => 200,
             'arquivo' => $arquivo,
-        ]);
-    }
-
-    public function tipoatendimento(){
-        $tipoatendimento = $this->tipoatendimento->all('id','nome');
-        return response()->json([
-            'tipoatendimento' => $tipoatendimento,
         ]);
     }
 

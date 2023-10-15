@@ -30,10 +30,10 @@ Route::group(['middleware' => ['auth']],function(){
 Route::prefix('admin')->name('admin.')->group(function(){
 
     Route::prefix('artigos')->name('artigos.')->group(function(){
-        Route::get('/index',[ArtigoController::class,'index'])->name('index');         
-        Route::get('/create',[ArtigoController::class,'create'])->name('create');
+        Route::get('/index/{color}',[ArtigoController::class,'index'])->name('index');         
+        Route::get('/create/{color}',[ArtigoController::class,'create'])->name('create');
         Route::put('/store',[ArtigoController::class,'store'])->name('store');
-        Route::get('/edit/{id}',[ArtigoController::class,'edit'])->name('edit');
+        Route::get('/edit/{id}/{color}',[ArtigoController::class,'edit'])->name('edit');
         Route::put('/update/{id}',[ArtigoController::class,'update'])->name('update');
         Route::delete('/delete/{id}',[ArtigoController::class,'destroy'])->name('delete');        
         Route::put('/imagemtemp-upload',[ArtigoController::class,'armazenarImagemTemporaria']);
@@ -43,9 +43,9 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::get('/abrir-doc/{id}',[ArtigoController::class,'abrirDoc']);    
     });  
     Route::prefix('tema')->name('tema.')->group(function(){
-        Route::get('/index',[TemaController::class,'index'])->name('index');
+        Route::get('/index/{color}',[TemaController::class,'index'])->name('index');
         Route::put('/store',[TemaController::class,'store']);
-        Route::get('/edit/{id}',[TemaController::class,'edit']);
+        Route::get('/edit/{id}/{color}',[TemaController::class,'edit']);
         Route::put('/update/{id}',[TemaController::class,'update']);
         Route::delete('/delete/{id}',[TemaController::class,'destroy']);
       }); 
@@ -134,10 +134,10 @@ Route::prefix('admin')->name('admin.')->group(function(){
       }); 
 
       Route::prefix('paciente')->name('paciente.')->group(function(){
-        Route::get('/index',[PacienteController::class,'index'])->name('index');
-        Route::get('/create',[PacienteController::class,'create'])->name('create');
+        Route::get('/index/{color}',[PacienteController::class,'index'])->name('index');
+        Route::get('/create/{color}',[PacienteController::class,'create'])->name('create');
         Route::put('/store',[PacienteController::class,'store']);
-        Route::get('/edit/{id}',[PacienteController::class,'edit'])->name('edit');
+        Route::get('/edit/{id}/{color}',[PacienteController::class,'edit'])->name('edit');
         Route::put('/update/{id}',[PacienteController::class,'update']);
         Route::delete('/delete/{id}',[PacienteController::class,'destroy']);        
         Route::put('/upload-docs/{id}',[PacienteController::class,'uploadDocs']);
@@ -146,7 +146,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
     });  
 
     Route::prefix('tipotratamento')->name('tipotratamento.')->group(function(){
-        Route::get('/index',[TipoTratamentoController::class,'index'])->name('index');        
+        Route::get('/index/{color}',[TipoTratamentoController::class,'index'])->name('index');        
         Route::delete('/delete/{id}',[TipoTratamentoController::class,'destroy']);
         Route::get('/edit/{id}',[TipoTratamentoController::class,'edit'])->name('edit');
         Route::put('/update/{id}',[TipoTratamentoController::class,'update']);
@@ -154,7 +154,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
       }); 
 
     Route::prefix('tratamento')->name('tratamento.')->group(function(){
-        Route::get('/index',[TratamentoController::class,'index'])->name('index');        
+        Route::get('/index/{color}',[TratamentoController::class,'index'])->name('index');        
         Route::delete('/delete/{id}',[TratamentoController::class,'destroy']);
         Route::get('/edit/{id}',[TratamentoController::class,'edit'])->name('edit');
         Route::put('/update/{id}',[TratamentoController::class,'update']);
@@ -162,7 +162,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
       });
 
       Route::prefix('medicoterapeuta')->name('medicoterapeuta.')->group(function(){
-        Route::get('/index',[MedicoTerapeutaController::class,'index'])->name('index');
+        Route::get('/index/{color}',[MedicoTerapeutaController::class,'index'])->name('index');
         Route::get('/create',[MedicoTerapeutaController::class,'create'])->name('create');
         Route::delete('/delete/{id}',[MedicoTerapeutaController::class,'destroy']);
         Route::get('/edit/{id}',[MedicoTerapeutaController::class,'edit'])->name('edit');
@@ -172,7 +172,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
       });
       
       Route::prefix('tipoatendimento')->name('tipoatendimento.')->group(function(){
-        Route::get('/index',[TipoAtendimentoController::class,'index'])->name('index');        
+        Route::get('/index/{color}',[TipoAtendimentoController::class,'index'])->name('index');        
         Route::delete('/delete/{id}',[TipoAtendimentoController::class,'destroy']);
         Route::get('/edit/{id}',[TipoAtendimentoController::class,'edit'])->name('edit');
         Route::put('/update/{id}',[TipoAtendimentoController::class,'update']);
@@ -180,16 +180,15 @@ Route::prefix('admin')->name('admin.')->group(function(){
       });
 
       Route::prefix('atendimento')->name('atendimento.')->group(function(){
-        Route::get('/index',[AtendimentoController::class,'index'])->name('index');
-        Route::get('/create',[AtendimentoController::class,'create'])->name('create');
+        Route::get('/index/{color}',[AtendimentoController::class,'index'])->name('index');
+        Route::get('/create/{color}',[AtendimentoController::class,'create'])->name('create');
         Route::put('/store',[AtendimentoController::class,'store']);
-        Route::get('/edit/{id}',[AtendimentoController::class,'edit'])->name('edit');
+        Route::get('/edit/{id}/{color}',[AtendimentoController::class,'edit'])->name('edit');
         Route::put('/update/{id}',[AtendimentoController::class,'update']);
         Route::delete('/delete/{id}',[AtendimentoController::class,'destroy']);        
         Route::put('/upload-docs/{id}',[AtendimentoController::class,'uploadDocs']);
         Route::delete('/delete-docs/{id}',[AtendimentoController::class,'deleteDocs']);
-        Route::get('/abrir-doc/{id}',[AtendimentoController::class,'abrirDoc']);
-        Route::get('/tipoatendimento',[AtendimentoController::class,'tipoatendimento']);
+        Route::get('/abrir-doc/{id}',[AtendimentoController::class,'abrirDoc']);        
         Route::get('/medicoxtratamento/{medico_id}',[AtendimentoController::class,'medicoxtratamento']);
     });   
 

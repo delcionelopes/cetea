@@ -25,7 +25,7 @@ class MedicoTerapeutaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index(Request $request, $color)
     {
         if(is_null($request->pesquisa)){
             $medicosterapeutas = $this->medicoterapeuta->orderByDesc('id')->paginate(6);
@@ -38,6 +38,7 @@ class MedicoTerapeutaController extends Controller
         return view('cetea.medicoterapeuta.index',[
             'medicosterapeutas' => $medicosterapeutas,
             'tratamentos' => $tratamentos,
+            'color' => $color,
         ]);
     }
 

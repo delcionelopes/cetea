@@ -56,7 +56,7 @@
       <img class="card-img-top" src="{{asset('storage/'.$ope->ico)}}" alt="Imagem de capa do módulo" width="286" height="180">
       <div class="card-body">                
         <p class="card-text">{{$ope->descricao}}</p>        
-        <button type="button" id="abrir_btn" data-id="{{$ope->id}}" class="btn btn-{{$aut->modulo->color}}">Abrir</button>                                        
+        <button type="button" id="abrir_btn" data-id="{{$ope->id}}" data-color="{{$aut->modulo->color}}" class="btn btn-{{$aut->modulo->color}}">Abrir</button>                                        
       </div>
     </div>
   </div>
@@ -106,23 +106,24 @@ $(document).ready(function(){
   $(document).on('click','#abrir_btn',function(e){
     e.preventDefault();
     var codoperacao = $(this).data("id");
+    var color = $(this).data("color");
 
     switch (codoperacao) {
-      case 1: location.replace('/admin/artigos/index'); ///frontpage/postagens
+      case 1: location.replace('/admin/artigos/index/'+color); ///frontpage/postagens
       break;
-      case 2: location.replace('/admin/tema/index'); //frontpage/temas        
+      case 2: location.replace('/admin/tema/index/'+color); //frontpage/temas        
       break;
-      case 3: location.replace('/ceteaadmin/paciente/index'); //ficha básica do paciente
+      case 3: location.replace('/ceteaadmin/paciente/index/'+color); //ficha básica do paciente
       break;
-      case 4: location.replace('/ceteaadmin/tipotratamento/index'); //cadastro de tipos de tratamentos
+      case 4: location.replace('/ceteaadmin/tipotratamento/index/'+color); //cadastro de tipos de tratamentos
       break;
-      case 5: location.replace('/ceteaadmin/tratamento/index'); //cadastro de tratamentos
+      case 5: location.replace('/ceteaadmin/tratamento/index/'+color); //cadastro de tratamentos
       break;
-      case 6: location.replace('/ceteaadmin/medicoterapeuta/index'); //cadastro de médicos terapeutas
+      case 6: location.replace('/ceteaadmin/medicoterapeuta/index/'+color); //cadastro de médicos terapeutas
       break;
-      case 7: location.replace('/ceteaadmin/tipoatendimento/index'); //cadastro de tipos de atendimento
+      case 7: location.replace('/ceteaadmin/tipoatendimento/index/'+color); //cadastro de tipos de atendimento
       break;
-      case 8: location.replace('/ceteaadmin/atendimento/index'); //cadastro de atendimentos
+      case 8: location.replace('/ceteaadmin/atendimento/index/'+color); //cadastro de atendimentos
       break;
           
       default:

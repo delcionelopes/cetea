@@ -12,7 +12,7 @@
 
     <section class="border p-4 mb-4 d-flex align-items-left">
     
-    <form action="{{route('admin.artigos.index')}}" class="form-search" method="GET">
+    <form action="{{route('admin.artigos.index',['color'=>$color])}}" class="form-search" method="GET">
         <div class="col-sm-12">
             <div class="input-group rounded">            
             <input type="text" name="pesquisa" class="form-control rounded float-left" placeholder="título" aria-label="Search"
@@ -20,7 +20,7 @@
             <button type="submit" class="input-group-text border-0" id="search-addon" style="background: transparent;border: none;">
                 <i class="fas fa-search"></i>
             </button>        
-            <a href="{{route('admin.artigos.create')}}" type="button" class="AddArtigo_btn input-group-text border-0 animate__animated animate__bounce" style="background: transparent;border: none;"><i class="fas fa-plus"></i></a>
+            <a href="{{route('admin.artigos.create',['color'=>$color])}}" type="button" class="AddArtigo_btn input-group-text border-0 animate__animated animate__bounce" style="background: transparent;border: none;"><i class="fas fa-plus"></i></a>
             </div>            
             </div>        
             </form>                     
@@ -28,7 +28,7 @@
     </section>    
             
                     <table class="table table-hover">
-                        <thead class="sidebar-dark-primary" style="color: white">
+                        <thead class="btn-{{$color}}" style="color: white">
                             <tr>                                
                                 <th scope="col">ARTIGOS</th>                                
                                 <th scope="col">DOC(s)</th>                                
@@ -50,7 +50,7 @@
                                         </button>
                                         <ul class="dropdown-menu" id="listdocs{{$artigo->id}}">
                                         <li class="dropdown-item files_enviar_btn" data-id="{{$artigo->id}}">
-                                             <span class="btn btn-primary fileinput-button"><i class="fas fa-folder-open" style="color: red"></i>
+                                             <span class="btn btn-{{$color}} fileinput-button"><i class="fas fa-folder-open" style="color: red"></i>
                                                 <input data-id="{{$artigo->id}}" id="arquivo{{$artigo->id}}" class="arquivo" type="file" name="arquivo[]" accept="application/pdf" multiple>
                                              </span>  
                                         </li>
@@ -66,7 +66,7 @@
                                 </td>                                
                                 <td>                                    
                                         <div class="btn-group">                                           
-                                            <a href="{{route('admin.artigos.edit',['id'=>$artigo->id])}}" type="button" data-id="{{$artigo->id}}" class="edit_artigo fas fa-edit" style="background:transparent;border:none"></a>
+                                            <a href="{{route('admin.artigos.edit',['id'=>$artigo->id,'color'=>$color])}}" type="button" data-id="{{$artigo->id}}" class="edit_artigo fas fa-edit" style="background:transparent;border:none"></a>
                                             <button type="button" data-id="{{$artigo->id}}" data-titulo="{{$artigo->titulo}}" class="delete_artigo_btn fas fa-trash" style="background:transparent;border:none"></button>
                                         </div>                                    
                                 </td>

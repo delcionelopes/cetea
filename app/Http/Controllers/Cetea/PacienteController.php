@@ -23,7 +23,7 @@ class PacienteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index(Request $request, $color)
     {
         if(is_null($request->pesquisa)){
             $pacientes = $this->paciente->orderByDesc('id')->paginate(6);
@@ -34,6 +34,7 @@ class PacienteController extends Controller
         }
         return view('cetea.paciente.index',[
             'pacientes' => $pacientes,
+            'color' => $color,
         ]);
     }
 
@@ -42,9 +43,11 @@ class PacienteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($color)
     {
-        return view('cetea.paciente.create');
+        return view('cetea.paciente.create',[
+            'color' => $color,
+        ]);
     }
 
     /**
@@ -123,11 +126,12 @@ class PacienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(int $id)
+    public function edit(int $id, $color)
     {
         $paciente = $this->paciente->find($id);
         return view('cetea.paciente.edit',[            
             'paciente' => $paciente,
+            'color' => $color,
         ]);
     }
 

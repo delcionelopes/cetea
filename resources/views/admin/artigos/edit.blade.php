@@ -108,8 +108,8 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="modal-footer">
-                            <button type="button" class="cancelar_btn btn btn-default">Cancelar</button>
-                            <button class="update_btn btn btn-primary" type="button"><img id="imgedit" src="{{asset('storage/ajax-loader.gif')}}" style="display: none;" class="rounded-circle" width="20"> Atualizar</button>
+                            <button type="button" data-color="{{$color}}" class="cancelar_btn btn btn-default">Cancelar</button>
+                            <button class="update_btn btn btn-{{$color}}" type="button"><img id="imgedit" src="{{asset('storage/ajax-loader.gif')}}" style="display: none;" class="rounded-circle" width="20"> Atualizar</button>
                         </div>
                     </div>
                 </div>
@@ -229,6 +229,7 @@ $(document).ready(function(){
         e.preventDefault();
         var CSRF_TOKEN  = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
         var data = new FormData();
+        var color = $(this).data("color");
         var arqs = $('#upimagem')[0].files;        
 
         if(arqs.length > 0){        
@@ -247,13 +248,13 @@ $(document).ready(function(){
                 success: function(response){
                     if(response.status==200){
                     $('#saveform_errList').replaceWith('<ul id="saveform_errList"></ul>');
-                    location.replace('/admin/artigos/index');
+                    location.replace('/admin/artigos/index/'+color);
                 } 
                 }                                  
             });
 
         }else{
-            location.replace('/admin/artigos/index');
+            location.replace('/admin/artigos/index/'+color);
         }
 
     });

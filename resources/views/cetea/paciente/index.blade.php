@@ -12,7 +12,7 @@
 
     <section class="border p-4 mb-4 d-flex align-items-left">
     
-    <form action="{{route('ceteaadmin.paciente.index')}}" class="form-search" method="GET">
+    <form action="{{route('ceteaadmin.paciente.index',['color'=>$color])}}" class="form-search" method="GET">
         <div class="col-sm-12">
             <div class="input-group rounded">            
             <input type="text" name="pesquisa" class="form-control rounded float-left" placeholder="nome do paciente" aria-label="Search"
@@ -21,7 +21,7 @@
                 <i class="fas fa-search"></i>
             </button>            
             
-            <a href="{{route('ceteaadmin.paciente.create')}}" type="button" class="AddPacienteModal_btn input-group-text border-0 animate__animated animate__bounce" style="background: transparent;border: none;"><i class="fas fa-plus"></i></a>
+            <a href="{{route('ceteaadmin.paciente.create',['color'=>$color])}}" type="button" class="AddPacienteModal_btn input-group-text border-0 animate__animated animate__bounce" style="background: transparent;border: none;"><i class="fas fa-plus"></i></a>
             
             </div>            
             </div>        
@@ -30,7 +30,7 @@
     </section>    
             
                     <table class="table table-hover">
-                        <thead class="sidebar-dark-primary" style="color: white">
+                        <thead class="bg-{{$color}}" style="color: white">
                             <tr>                                
                                 <th scope="col">PACIENTE(s)</th>
                                 <th scope="col">ANEXOS</th>                                
@@ -52,7 +52,7 @@
                                         </button>
                                         <ul class="dropdown-menu" id="listdocs{{$paciente->id}}">
                                         <li class="dropdown-item files_enviar_btn" data-id="{{$paciente->id}}">
-                                             <span class="btn btn-primary fileinput-button"><i class="fas fa-folder-open" style="color: red"></i>
+                                             <span class="btn btn-{{$color}} fileinput-button"><i class="fas fa-folder-open" style="color: red"></i>
                                                 <input data-id="{{$paciente->id}}" id="arquivo{{$paciente->id}}" class="arquivo" type="file" name="arquivo[]" accept="application/pdf" multiple>
                                              </span>  
                                         </li>
@@ -68,7 +68,7 @@
                                 </td>                                
                                 <td>                                    
                                         <div class="btn-group">                                           
-                                            <a href="{{route('ceteaadmin.paciente.edit',['id'=>$paciente->id])}}" type="button" data-id="{{$paciente->id}}" class="edit_paciente fas fa-edit" style="color: black; background:transparent;border:none"></a>
+                                            <a href="{{route('ceteaadmin.paciente.edit',['id'=>$paciente->id,'color'=>$color])}}" type="button" data-id="{{$paciente->id}}" class="edit_paciente fas fa-edit" style="color: black; background:transparent;border:none"></a>
                                             <button type="button" data-id="{{$paciente->id}}" data-nome="{{$paciente->nome}}" class="delete_paciente_btn fas fa-trash" style="background:transparent;border:none"></button>
                                         </div>                                    
                                 </td>
