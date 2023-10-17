@@ -189,7 +189,8 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::put('/upload-docs/{id}',[AtendimentoController::class,'uploadDocs']);
         Route::delete('/delete-docs/{id}',[AtendimentoController::class,'deleteDocs']);
         Route::get('/abrir-doc/{id}',[AtendimentoController::class,'abrirDoc']);        
-        Route::get('/medicoxtratamento/{medico_id}',[AtendimentoController::class,'medicoxtratamento']);
+        Route::get('/medicoxtratamento/{medico_id}',[AtendimentoController::class,'medicoxtratamento']);        
+        Route::put('/cria-atendimento/{id}',[AtendimentoController::class,'criaAtendimento']);
     });   
 
 

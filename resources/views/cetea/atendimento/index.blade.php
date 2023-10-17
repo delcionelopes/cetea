@@ -92,10 +92,16 @@
                                     </form>
                                 </td>                                
                                 <td>                                    
+                                    @if(($atendimento->tipo_atendimento_id===1) || ($atendimento->tipo_atendimento_id===4 && date('Y-m-d', strtotime($atendimento->data_atendimento))===date('Y-m-d')))
                                         <div class="btn-group">                                           
                                             <a href="{{route('ceteaadmin.atendimento.edit',['id'=>$atendimento->id,'color'=>$color])}}" type="button" data-id="{{$atendimento->id}}" class="edit_atendimento fas fa-edit" style="color: black; background:transparent;border:none; white-space: nowrap;" data-html="true" data-placement="left" data-toggle="popover" title="Editar"></a>
                                             <button type="button" data-id="{{$atendimento->id}}" data-nome="{{$atendimento->paciente}}" class="delete_atendimento_btn fas fa-trash" style="background:transparent;border:none; white-space: nowrap;" data-html="true" data-placement="right" data-toggle="popover" title="Excluir"></button>
-                                        </div>                                    
+                                        </div>
+                                    @else
+                                        <div class="btn-group">                                           
+                                            <button type="button" data-id="{{$atendimento->id}}" data-nome="{{$atendimento->paciente}}" data-color="{{$color}}" class="cria_atendimento fas fa-file" style="color: black; background:transparent;border:none; white-space: nowrap;" data-html="true" data-placement="left" data-toggle="popover" title="Criar atendimento"></button>
+                                        </div>
+                                    @endif                                    
                                 </td>
                             </tr>  
                             @empty
@@ -282,12 +288,60 @@ $(document).ready(function(){
     });
     ///fim abrir doc   
 
+    $(document).on('click','.cria_atendimento',function(e){
+        e.preventDefault();
+        var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+        var id = $(this).data("id");
+        var color = $(this).data("color");
+
+        var linklogo = "{{asset('storage')}}";
+
+            var nome = $(this).data("nome");
+            
+            Swal.fire({
+                showClass: {
+                    popup: 'animate__animated animate__fadeInDown'
+                },
+                hideClass: {
+                    popup: 'animate__animated animate__fadeOutUp'
+                },
+                title:'Paciente: '+nome,
+                text: "Deseja CRIAR ATENDIMENTO para este paciente?",
+                imageUrl: linklogo+'/logoprodap.jpg',
+                imageWidth: 400,
+                imageHeight: 200,
+                imageAlt: 'imagem do sistema',
+                showCancelButton: true,
+                confirmButtonText: 'Sim, prossiga!',                
+                cancelButtonText: 'Não, cancelar!',                                 
+             }).then((result)=>{
+             if(result.isConfirmed){             
+                $.ajax({
+                    url: '/ceteaadmin/atendimento/cria-atendimento/'+id,
+                    type: 'POST',
+                    dataType: 'json',
+                    data:{
+                        'id': id,                                         
+                        '_token':CSRF_TOKEN,
+                        '_method':'put',
+                    },
+                    success:function(response){
+                        if(response.status==200){
+                            location.replace('/ceteaadmin/atendimento/index/'+color);
+                        }
+                    }
+                }); 
+            }  
+        });    
+    });
+
     ///tooltip
     $(function(){             
         $(".AddAtendimentoModal_btn").tooltip();
         $(".pesquisa_btn").tooltip();        
         $(".delete_atendimento_btn").tooltip();
-        $(".edit_atendimento").tooltip();    
+        $(".edit_atendimento").tooltip();
+        $(".cria_atendimento").tooltip();
     });
     ///fim tooltip
 

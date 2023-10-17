@@ -153,14 +153,18 @@ class AtendimentoController extends Controller
      */
     public function edit(int $id, $color)
     {
-        $atendimento = $this->atendimento->find($id);        
+        $atendimento = $this->atendimento->find($id);
+        $pacientes = $this->paciente->orderByDesc('id')->get();
         $medicosterapeutas = $this->medicoterapeuta->orderByDesc('id')->get();
         $tiposatendimentos = $this->tipoatendimento->whereIn('id',[1,4])->get();
-        return response()->json([
+        $tratamentos = $this->tratamento->orderBy('id')->get();        
+        return view('cetea.atendimento.edit',[
             'status' => 200,
             'atendimento' => $atendimento,
+            'pacientes' => $pacientes,
             'medicosterapeutas' => $medicosterapeutas,
             'tiposatendimentos' => $tiposatendimentos,
+            'tratamentos' => $tratamentos,
             'color' => $color,
         ]);
     }
@@ -461,11 +465,37 @@ class AtendimentoController extends Controller
     }
 
     public function medicoxtratamento(int $id){
-        $medicoterapeuta = $this->medicoterapeuta->find($id);
+        $medicoterapeuta = $this->medicoterapeuta->find($id);        
         $tratamentos = $medicoterapeuta->tratamentos;        
         return response()->json([
             'status' => 200,
             'tratamentos' => $tratamentos,
+        ]);
+    }
+
+    public function criaAtendimento(int $id){
+        
+        $atendimento = $this->atendimento->find($id);
+
+        $user = auth()->user();      
+        $inc = $this->maxId();
+        $data['id'] = $inc;
+        $data['tipo_atendimento_id'] = 1;
+        $data['paciente_id'] = $atendimento->paciente_id;        
+        $data['paciente'] = $atendimento->paciente;
+        $data['medico_terapeuta_id'] = $atendimento->medico_terapeuta_id;
+        $data['tratamento_id'] = $atendimento->tratamento_id;
+        $data['responsavel_do_paciente'] = $atendimento->responsavel_do_paciente;
+        $data['responsavel_parentesco'] = $atendimento->responsavel_parentesco;        
+        $data['data_atendimento'] = now();        
+        $data['created_at'] = now();            
+        $data['creater_user'] = $user->id;
+        $data['updated_at'] = null;
+        $data['updater_user'] = null;
+
+        $att = $this->atendimento->create($data);
+        return response()->json([
+            'status' => 200,
         ]);
     }
 
