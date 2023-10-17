@@ -4,6 +4,13 @@
 
 @section('content')
 
+<style>
+    .tooltip-inner {
+    text-align: left;
+}
+</style>
+
+
 <!--index-->
 @auth
 @if(!(auth()->user()->inativo))
@@ -17,11 +24,11 @@
             <div class="input-group rounded">            
             <input type="text" name="pesquisa" class="form-control rounded float-left" placeholder="nome do paciente" aria-label="Search"
             aria-describedby="search-addon">
-            <button type="submit" class="input-group-text border-0" id="search-addon" style="background: transparent;border: none;">
+            <button type="submit" class="pesquisa_btn input-group-text border-0" id="search-addon" style="background: transparent;border: none; white-space: nowrap;" data-html="true" data-placement="bottom" data-toggle="popover" title="Pesquisa<br>Informe e tecle ENTER">
                 <i class="fas fa-search"></i>
             </button>            
             
-            <a href="{{route('ceteaadmin.atendimento.create',['color'=>$color])}}" type="button" class="AddAtendimentoModal_btn input-group-text border-0 animate__animated animate__bounce" style="background: transparent;border: none;"><i class="fas fa-plus"></i></a>
+            <a href="{{route('ceteaadmin.atendimento.create',['color'=>$color])}}" type="button" class="AddAtendimentoModal_btn input-group-text border-0 animate__animated animate__bounce" style="background: transparent;border: none; white-space: nowrap;" data-html="true" data-placement="top" data-toggle="popover" title="Novo registro"><i class="fas fa-plus"></i></a>
             
             </div>            
             </div>        
@@ -41,16 +48,23 @@
                         </thead>
                         <tbody id="lista_paciente">
                         <tr id="novo" style="display:none;"></tr>
-                        @forelse($atendimentos as $atendimento)   
-                            <tr id="atendimento{{$atendimento->id}}">                                
-                                <th scope="row">{{$atendimento->paciente->nome}}</th>
+                        @forelse($atendimentos as $atendimento)
+                        @if($atendimento->tipo_atendimento_id===1)
+                            <tr id="atendimento{{$atendimento->id}}" class="bg-success">
+                        @else
+                            <tr id="atendimento{{$atendimento->id}}">
+                        @endif        
+                                <th scope="row">{{$atendimento->paciente}}</th>
                                 <td>{{$atendimento->tipo_atendimento->nome}}</td>
-                                @if($atendimento->tipo_atendimento->id===1)
+                                @if($atendimento->tipo_atendimento_id===1)
                                 <td>{{date('d/m/Y H:i:s',strtotime($atendimento->data_atendimento))}}</td>
-                                @else @if($atendimento->tipo_atendimento->id===2)
+                                @else @if($atendimento->tipo_atendimento_id===2)
                                       <td>{{date('d/m/Y',strtotime($atendimento->data_retorno))}}</td>
-                                      @else
-                                      <td>{{date('d/m/Y', strtotime($atendimento->data_agendamento))}}</td>
+                                      @else @if($atendimento->tipo_atendimento_id===3)
+                                            <td>{{date('d/m/Y', strtotime($atendimento->data_encaminhamento))}}</td>
+                                            @else
+                                            <td>{{date('d/m/Y', strtotime($atendimento->data_agendamento))}}</td>
+                                            @endif
                                       @endif
                                 @endif      
                                 <td>
@@ -79,8 +93,8 @@
                                 </td>                                
                                 <td>                                    
                                         <div class="btn-group">                                           
-                                            <a href="{{route('ceteaadmin.atendimento.edit',['id'=>$atendimento->id,'color'=>$color])}}" type="button" data-id="{{$atendimento->id}}" class="edit_atendimento fas fa-edit" style="color: black; background:transparent;border:none"></a>
-                                            <button type="button" data-id="{{$atendimento->id}}" data-nome="{{$atendimento->paciente->nome}}" class="delete_atendimento_btn fas fa-trash" style="background:transparent;border:none"></button>
+                                            <a href="{{route('ceteaadmin.atendimento.edit',['id'=>$atendimento->id,'color'=>$color])}}" type="button" data-id="{{$atendimento->id}}" class="edit_atendimento fas fa-edit" style="color: black; background:transparent;border:none; white-space: nowrap;" data-html="true" data-placement="left" data-toggle="popover" title="Editar"></a>
+                                            <button type="button" data-id="{{$atendimento->id}}" data-nome="{{$atendimento->paciente}}" class="delete_atendimento_btn fas fa-trash" style="background:transparent;border:none; white-space: nowrap;" data-html="true" data-placement="right" data-toggle="popover" title="Excluir"></button>
                                         </div>                                    
                                 </td>
                             </tr>  
@@ -268,6 +282,14 @@ $(document).ready(function(){
     });
     ///fim abrir doc   
 
+    ///tooltip
+    $(function(){             
+        $(".AddAtendimentoModal_btn").tooltip();
+        $(".pesquisa_btn").tooltip();        
+        $(".delete_atendimento_btn").tooltip();
+        $(".edit_atendimento").tooltip();    
+    });
+    ///fim tooltip
 
 
 

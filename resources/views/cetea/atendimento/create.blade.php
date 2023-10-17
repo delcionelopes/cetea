@@ -34,7 +34,23 @@
                                 </select>                                
                                 </div>
                             </div>
-                        </div>                    
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="idtipoatendimento">Tipo de atendimento</label>
+                                <select name="idtipoatendimento" id="idtipoatendimento" class="idtipoatendimento custom-select">
+                                    @foreach ($tiposatendimentos as $tipo)
+                                    <option value="{{$tipo->id}}">{{$tipo->nome}}</option>
+                                    @endforeach                                    
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="adddata">Data</label>
+                                <input type="date" name="adddata" id="adddata" class="addata form-control" required pattern="\d{4}-\d{2}-\d{2}" autocomplete="on" value="{{date('Y-m-d')}}"/>
+                            </div>
+                        </div>    
                     </div>
                     <div class="row">
                          <div class="col-md-6">
@@ -124,8 +140,9 @@ $(document).ready(function(){
         var data = new FormData();        
             
             data.append('paciente',$('#idpaciente').val());            
-            data.append('tipo_atendimento','1');
+            data.append('tipo_atendimento',$('#idtipoatendimento').val());
             data.append('terapeuta',$('#idmedicoterapeuta').val());
+            data.append('data',formatDate($('#adddata').val()))
             data.append('tratamento',$('#idtratamento').val());            
             data.append('responsavel',$('#responsavel').val());
             data.append('parentesco',$('#parentesco').val());            
@@ -194,6 +211,17 @@ $(document).ready(function(){
             });
        
     });
+
+
+    //formatação str para date
+        function formatDate(data, formato) {
+        if (formato == 'pt-BR') {
+            return (data.substr(0, 10).split('-').reverse().join('/'));
+        } else {
+            return (data.substr(0, 10).split('/').reverse().join('-'));
+        }
+        } 
+    //fim formatDate
 
 
 });

@@ -42,13 +42,24 @@ class AtendimentoController extends Controller
      */
     public function index(Request $request, $color)
     {
+        $data = date("Y-m-d");
+        
         if(is_null($request->pesquisa)){
-            $atendimentos = $this->atendimento->orderByDesc('id')->paginate(10);
+            $query = $this->atendimento->query()
+                                       ->whereDate('data_atendimento','=',$data)
+                                       ->orwhereDate('data_retorno','=',$data)
+                                       ->orwhereDate('data_encaminhamento','=',$data)
+                                       ->orwhereDate('data_agendamento','=',$data);
+            $atendimentos = $query->orderBy('data_atendimento')->paginate(10);
         }else{
-            $query = $this->atendimento->with('paciente')
-                                       ->where(strtoupper('paciente.nome'),'LIKE','%'.strtoupper($request->pesquisa).'%');
-            $atendimentos = $query->orderByDesc('id')->paginate(10);            
-        }        
+            $query = $this->atendimento->query()
+                                       ->where('paciente','LIKE','%'.$request->pesquisa.'%')
+                                       ->whereDate('data_atendimento','=',$data)
+                                       ->orwhereDate('data_retorno','=',$data)
+                                       ->orwhereDate('data_encaminhamento','=',$data)
+                                       ->orwhereDate('data_agendamento','=',$data);
+            $atendimentos = $query->orderBy('data_atendimento')->paginate(10);            
+        }                
         return view('cetea.atendimento.index',[
             'atendimentos' => $atendimentos,
             'color' => $color,
@@ -62,12 +73,15 @@ class AtendimentoController extends Controller
      */
     public function create($color)
     {
+        date_default_timezone_set('America/Sao_Paulo');
         $pacientes = $this->paciente->orderByDesc('id')->get();
-        $medicosterapeutas = $this->medicoterapeuta->orderByDesc('id')->get();                
+        $medicosterapeutas = $this->medicoterapeuta->orderByDesc('id')->get();
+        $tiposatendimentos = $this->tipoatendimento->whereIn('id',[1,4])->get();
         return view('cetea.atendimento.create',[
             'pacientes' => $pacientes,
             'medicosterapeutas' => $medicosterapeutas,
             'color' => $color,
+            'tiposatendimentos' => $tiposatendimentos,
         ]);
     }
 
@@ -98,9 +112,16 @@ class AtendimentoController extends Controller
             $data['medico_terapeuta_id'] = $request->input('terapeuta');
             $data['tratamento_id'] = $request->input('tratamento');
             $data['paciente_id'] = $request->input('paciente');
+            $paciente = $this->paciente->find($request->input('paciente'));
+            $data['paciente'] = $paciente->nome;
             $data['responsavel_do_paciente'] = strtoupper($request->input('responsavel'));
-            $data['responsavel_parentesco'] = strtoupper($request->input('parentesco'));            
-            $data['data_atendimento'] = now(); //atendimento
+            $data['responsavel_parentesco'] = strtoupper($request->input('parentesco'));
+            if($request->input('tipo_atendimento')==1){
+            $data['data_atendimento'] = now(); //1 atendimento
+            }else{
+            $data['data_atendimento'] = now();
+            $data['data_agendamento'] = $request->input('data'); //4 agendamento
+            }
             $data['created_at'] = now();
             $data['updated_at'] = null;
             $data['creater_user'] = $user->id;
@@ -133,11 +154,13 @@ class AtendimentoController extends Controller
     public function edit(int $id, $color)
     {
         $atendimento = $this->atendimento->find($id);        
-        $medicosterapeutas = $this->medicoterapeuta->orderByDesc('id')->get();        
+        $medicosterapeutas = $this->medicoterapeuta->orderByDesc('id')->get();
+        $tiposatendimentos = $this->tipoatendimento->whereIn('id',[1,4])->get();
         return response()->json([
             'status' => 200,
             'atendimento' => $atendimento,
-            'medicosterapeutas' => $medicosterapeutas,            
+            'medicosterapeutas' => $medicosterapeutas,
+            'tiposatendimentos' => $tiposatendimentos,
             'color' => $color,
         ]);
     }
@@ -152,6 +175,7 @@ class AtendimentoController extends Controller
     public function update(Request $request, int $id)
     {
         $validator = Validator::make($request->all(),[
+            'paciente' => ['required'],
             'tipo_atendimento' => ['required'],
             'terapeuta' => ['required'],
             'tratamento' => ['required'],            
@@ -166,11 +190,19 @@ class AtendimentoController extends Controller
             if($atendimento){
             $user = auth()->user();                        
             $data['tipo_atendimento_id'] = $request->input('tipo_atendimento');
+            $data['paciente_id'] = $request->input('paciente');
+            $paciente = $this->paciente->find($request->input('paciente'));
+            $data['paciente'] = $paciente->nome;
             $data['medico_terapeuta_id'] = $request->input('terapeuta');
             $data['tratamento_id'] = $request->input('tratamento');            
             $data['responsavel_do_paciente'] = strtoupper($request->input('responsavel'));
             $data['responsavel_parentesco'] = strtoupper($request->input('parentesco'));
-            $data['data_atendimento'] = now(); //atendimento                
+            if($request->input('tipo_atendimento')==1){
+            $data['data_atendimento'] = now(); //1 atendimento
+            }else{
+            $data['data_atendimento'] = now();
+            $data['data_agendamento'] = $request->input('data'); //4 agendamento
+            }
             $data['updated_at'] = now();            
             $data['updater_user'] = $user->id;
             $atendimento->update($data);
