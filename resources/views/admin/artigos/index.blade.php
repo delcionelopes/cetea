@@ -4,6 +4,12 @@
 
 @section('content')
 
+<style>
+    .tooltip-inner {
+    text-align: left;
+}
+</style>
+
 <!--index-->
 @auth
 @if(!(auth()->user()->inativo))
@@ -17,10 +23,10 @@
             <div class="input-group rounded">            
             <input type="text" name="pesquisa" class="form-control rounded float-left" placeholder="título" aria-label="Search"
             aria-describedby="search-addon">
-            <button type="submit" class="input-group-text border-0" id="search-addon" style="background: transparent;border: none;">
+            <button type="submit" class="pesquisa_btn input-group-text border-0" id="search-addon" style="background: transparent;border: none; white-space: nowrap;" data-html="true" data-placement="bottom" data-toggle="popover" title="Pesquisa<br>Informe e tecle ENTER">
                 <i class="fas fa-search"></i>
             </button>        
-            <a href="{{route('admin.artigos.create',['color'=>$color])}}" type="button" class="AddArtigo_btn input-group-text border-0 animate__animated animate__bounce" style="background: transparent;border: none;"><i class="fas fa-plus"></i></a>
+            <a href="{{route('admin.artigos.create',['color'=>$color])}}" type="button" class="AddArtigo_btn input-group-text border-0 animate__animated animate__bounce" style="background: transparent;border: none; white-space: nowrap;" data-html="true" data-placement="top" data-toggle="popover" title="Novo registro"><i class="fas fa-plus"></i></a>
             </div>            
             </div>        
             </form>                     
@@ -66,8 +72,8 @@
                                 </td>                                
                                 <td>                                    
                                         <div class="btn-group">                                           
-                                            <a href="{{route('admin.artigos.edit',['id'=>$artigo->id,'color'=>$color])}}" type="button" data-id="{{$artigo->id}}" class="edit_artigo fas fa-edit" style="background:transparent;border:none"></a>
-                                            <button type="button" data-id="{{$artigo->id}}" data-titulo="{{$artigo->titulo}}" class="delete_artigo_btn fas fa-trash" style="background:transparent;border:none"></button>
+                                            <a href="{{route('admin.artigos.edit',['id'=>$artigo->id,'color'=>$color])}}" type="button" data-id="{{$artigo->id}}" class="edit_artigo fas fa-edit" style="background:transparent;border:none; white-space: nowrap;" data-html="true" data-placement="left" data-toggle="popover" title="Editar"></a>
+                                            <button type="button" data-id="{{$artigo->id}}" data-titulo="{{$artigo->titulo}}" class="delete_artigo_btn fas fa-trash" style="background:transparent;border:none; white-space: nowrap;" data-html="true" data-placement="right" data-toggle="popover" title="Excluir"></button>
                                         </div>                                    
                                 </td>
                             </tr>  
@@ -253,6 +259,16 @@ $(document).ready(function(){
 
     });
     ///fim abrir doc   
+
+    ///tooltip
+    $(function(){             
+        $(".AddArtigo_btn").tooltip();
+        $(".pesquisa_btn").tooltip();        
+        $(".delete_artigo_btn").tooltip();
+        $(".edit_artigo").tooltip();    
+    });
+    ///fim tooltip
+
     
     
     }); ///Fim do escopo do script

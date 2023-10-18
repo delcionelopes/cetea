@@ -4,6 +4,12 @@
 
 @section('content')
 
+<style>
+    .tooltip-inner {
+    text-align: left;
+}
+</style>
+
 <!--AddTemaModal-->
 
 <div class="modal fade animate__animated animate__bounce animate__faster" id="AddTemaModal" tabindex="-1" role="dialog" aria-labelledby="addtitleModalLabel" aria-hidden="true">
@@ -86,10 +92,10 @@
             <div class="input-group rounded">            
             <input type="text" name="pesquisa" class="form-control rounded float-left" placeholder="título do tema" aria-label="Search"
             aria-describedby="search-addon">
-            <button type="submit" class="input-group-text border-0" id="search-addon" style="background: transparent;border: none;">
+            <button type="submit" class="pesquisa_btn input-group-text border-0" id="search-addon" style="background: transparent;border: none; white-space: nowrap;" data-html="true" data-placement="bottom" data-toggle="popover" title="Pesquisa<br>Informe e tecle ENTER">
                 <i class="fas fa-search"></i>
             </button>        
-            <button type="button" class="AddTemaModal_btn input-group-text border-0 animate__animated animate__bounce" style="background: transparent;border: none;"><i class="fas fa-plus"></i></button>
+            <button type="button" class="AddTemaModal_btn input-group-text border-0 animate__animated animate__bounce" style="background: transparent;border: none; white-space: nowrap;" data-html="true" data-placement="top" data-toggle="popover" title="Novo registro"><i class="fas fa-plus"></i></button>
             </div>            
             </div>        
             </form>                     
@@ -110,8 +116,8 @@
                                 <th scope="row">{{$tema->titulo}}</th>                                
                                 <td>                                    
                                         <div class="btn-group">                                           
-                                            <button type="button" data-id="{{$tema->id}}" class="edit_tema fas fa-edit" style="background:transparent;border:none"></button>
-                                            <button type="button" data-id="{{$tema->id}}" data-titulo="{{$tema->titulo}}" class="delete_tema_btn fas fa-trash" style="background:transparent;border:none"></button>
+                                            <button type="button" data-id="{{$tema->id}}" class="edit_tema fas fa-edit" style="background:transparent;border:none; white-space: nowrap;" data-html="true" data-placement="left" data-toggle="popover" title="Editar"></button>
+                                            <button type="button" data-id="{{$tema->id}}" data-titulo="{{$tema->titulo}}" class="delete_tema_btn fas fa-trash" style="background:transparent;border:none; white-space: nowrap;" data-html="true" data-placement="right" data-toggle="popover" title="Excluir"></button>
                                         </div>                                    
                                 </td>
                             </tr>  
@@ -375,6 +381,15 @@ $(document).ready(function(){
             });
     
         }); //Fim da adição de registro
+
+        ///tooltip
+    $(function(){             
+        $(".AddTemaModal_btn").tooltip();
+        $(".pesquisa_btn").tooltip();        
+        $(".delete_tema_btn").tooltip();
+        $(".edit_tema").tooltip();    
+    });
+    ///fim tooltip
     
     
     }); ///Fim do escopo do script

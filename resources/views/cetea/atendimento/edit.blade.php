@@ -97,7 +97,7 @@
                     <div class="col-md-12">
                         <div class="modal-footer">
                             <button type="button" data-color="{{$color}}" class="cancelar_btn btn btn-default">Cancelar</button>
-                            <button data-color="{{$color}}" class="salvar_btn btn btn-{{$color}}" type="button"><img id="imgadd" src="{{asset('storage/ajax-loader.gif')}}" style="display: none;" class="rounded-circle" width="20"> Salvar</button>
+                            <button data-color="{{$color}}" data-id="{{$atendimento->id}}" class="salvar_btn btn btn-{{$color}}" type="button"><img id="imgadd" src="{{asset('storage/ajax-loader.gif')}}" style="display: none;" class="rounded-circle" width="20"> Salvar</button>
                         </div>
                     </div>
                 </div>
@@ -136,6 +136,7 @@ $(document).ready(function(){
         e.preventDefault();
         var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute('content');   
         var color = $(this).data("color");
+        var id = $(this).data("id");
         var loading = $('#imgadd');
             loading.show();
 
@@ -152,7 +153,7 @@ $(document).ready(function(){
             data.append('_method','PUT');              
 
         $.ajax({
-            url: '/ceteaadmin/atendimento/store',
+            url: '/ceteaadmin/atendimento/update/'+id,
             type: 'POST',
             dataType: 'json',
             data: data,

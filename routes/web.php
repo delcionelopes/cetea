@@ -13,6 +13,7 @@ use App\Http\Controllers\Caos\SetorController;
 use App\Http\Controllers\Cetea\AtendimentoController;
 use App\Http\Controllers\Cetea\MedicoTerapeutaController;
 use App\Http\Controllers\Cetea\PacienteController;
+use App\Http\Controllers\Cetea\TerapiaController;
 use App\Http\Controllers\Cetea\TipoAtendimentoController;
 use App\Http\Controllers\Cetea\TipoTratamentoController;
 use App\Http\Controllers\Cetea\TratamentoController;
@@ -189,9 +190,19 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::put('/upload-docs/{id}',[AtendimentoController::class,'uploadDocs']);
         Route::delete('/delete-docs/{id}',[AtendimentoController::class,'deleteDocs']);
         Route::get('/abrir-doc/{id}',[AtendimentoController::class,'abrirDoc']);        
-        Route::get('/medicoxtratamento/{medico_id}',[AtendimentoController::class,'medicoxtratamento']);        
+        Route::get('/medicoxtratamento/{medico_id}',[AtendimentoController::class,'medicoxtratamento']);
         Route::put('/cria-atendimento/{id}',[AtendimentoController::class,'criaAtendimento']);
-    });   
+      });
+      
+      Route::prefix('terapia')->name('terapia.')->group(function(){
+        Route::get('/index/{color}',[TerapiaController::class,'index'])->name('index');                
+        Route::get('/edit/{id}/{color}',[TerapiaController::class,'edit'])->name('edit');
+        Route::put('/update/{id}',[TerapiaController::class,'update']);        
+        Route::put('/upload-docs/{id}',[TerapiaController::class,'uploadDocs']);
+        Route::delete('/delete-docs/{id}',[TerapiaController::class,'deleteDocs']);
+        Route::get('/abrir-doc/{id}',[TerapiaController::class,'abrirDoc']);        
+        Route::get('/medicoxtratamento/{medico_id}',[TerapiaController::class,'medicoxtratamento']);
+      });
 
 
     }); //fim ceteaadmin

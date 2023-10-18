@@ -106,7 +106,7 @@ $(document).ready(function(){
   $(document).on('click','#abrir_btn',function(e){
     e.preventDefault();
     var codoperacao = $(this).data("id");
-    var color = $(this).data("color");
+    var color = $(this).data("color");    
 
     switch (codoperacao) {
       case 1: location.replace('/admin/artigos/index/'+color); ///frontpage/postagens
@@ -124,6 +124,8 @@ $(document).ready(function(){
       case 7: location.replace('/ceteaadmin/tipoatendimento/index/'+color); //cadastro de tipos de atendimento
       break;
       case 8: location.replace('/ceteaadmin/atendimento/index/'+color); //cadastro de atendimentos
+      break;
+      case 9: location.replace('/ceteaadmin/terapia/index/'+color); //atendimento da terapia
       break;
           
       default:

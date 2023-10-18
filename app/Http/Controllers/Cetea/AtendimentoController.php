@@ -217,7 +217,7 @@ class AtendimentoController extends Controller
         }else{
             return response()->json([
                 'status' => 404,
-                'message' => 'Atendimento não localizado!',
+                'message' => 'Registro não localizado!',
             ]);
         }
         }
@@ -352,7 +352,7 @@ class AtendimentoController extends Controller
             $atendimento->delete();
             return response()->json([
             'status' => 200,
-            'message' => 'Atendimento excluído com sucesso!',
+            'message' => 'Registro excluído com sucesso!',
             ]);
         }else{
         if($anamnese_inicial || $anamnese_hist_pregressa || $anamnese_desenvolvimento ||
@@ -363,13 +363,13 @@ class AtendimentoController extends Controller
            $evolucao || $mchat || $atendimentoarqs){
             return response()->json([
                 'status' => 400,
-                'erros' => 'Este atendimento não pode ser excluído! Pois há outros registros que dependem dele.',
+                'erros' => 'Este registro não pode ser excluído! Pois há outros que dependem dele.',
             ]);
            }else{
             $atendimento->delete();
             return response()->json([
             'status' => 200,
-            'message' => 'Atendimento excluído com sucesso!',
+            'message' => 'Registro excluído com sucesso!',
             ]);
            }           
         }

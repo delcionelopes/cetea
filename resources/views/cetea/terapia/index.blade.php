@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Atendimento')
+@section('title', 'Terapia')
 
 @section('content')
 
@@ -19,7 +19,7 @@
 
     <section class="border p-4 mb-4 d-flex align-items-left">
     
-    <form action="{{route('ceteaadmin.atendimento.index',['color'=>$color])}}" class="form-search" method="GET">
+    <form action="{{route('ceteaadmin.terapia.index',['color'=>$color])}}" class="form-search" method="GET">
         <div class="col-sm-12">
             <div class="input-group rounded">            
             <input type="text" name="pesquisa" class="form-control rounded float-left" placeholder="nome do paciente" aria-label="Search"
@@ -27,8 +27,6 @@
             <button type="submit" class="pesquisa_btn input-group-text border-0" id="search-addon" style="background: transparent;border: none; white-space: nowrap;" data-html="true" data-placement="bottom" data-toggle="popover" title="Pesquisa<br>Informe e tecle ENTER">
                 <i class="fas fa-search"></i>
             </button>            
-            
-            <a href="{{route('ceteaadmin.atendimento.create',['color'=>$color])}}" type="button" class="AddAtendimentoModal_btn input-group-text border-0 animate__animated animate__bounce" style="background: transparent;border: none; white-space: nowrap;" data-html="true" data-placement="top" data-toggle="popover" title="Novo registro"><i class="fas fa-plus"></i></a>
             
             </div>            
             </div>        
@@ -92,15 +90,14 @@
                                     </form>
                                 </td>                                
                                 <td>                                    
-                                    @if(($atendimento->tipo_atendimento_id===1) || ($atendimento->tipo_atendimento_id===4 && date('Y-m-d', strtotime($atendimento->data_atendimento))===date('Y-m-d')))
+                                    @if(($atendimento->tipo_atendimento_id===1) && date('Y-m-d', strtotime($atendimento->data_atendimento))===date('Y-m-d'))
                                         <div class="btn-group">                                           
-                                            <a href="{{route('ceteaadmin.atendimento.edit',['id'=>$atendimento->id,'color'=>$color])}}" type="button" data-id="{{$atendimento->id}}" class="edit_atendimento fas fa-edit" style="color: black; background:transparent;border:none; white-space: nowrap;" data-html="true" data-placement="left" data-toggle="popover" title="Editar"></a>
-                                            <button type="button" data-id="{{$atendimento->id}}" data-nome="{{$atendimento->paciente}}" class="delete_atendimento_btn fas fa-trash" style="background:transparent;border:none; white-space: nowrap;" data-html="true" data-placement="right" data-toggle="popover" title="Excluir"></button>
+                                            <a href="{{route('ceteaadmin.terapia.edit',['id'=>$atendimento->id,'color'=>$color])}}" type="button" data-id="{{$atendimento->id}}" class="atende_terapia fas fa-file" style="color: black; background:transparent;border:none; white-space: nowrap;" data-html="true" data-placement="left" data-toggle="popover" title="Atender"></a>                                            
                                         </div>
                                     @else
-                                        @if(date('Y-m-d',strtotime($atendimento->data_atendimento))<date('Y-m-d'))
+                                        @if((($atendimento->tipo_atendimento_id===2) || ($atendimento->tipo_atendimento_id===3)) && date('Y-m-d', strtotime($atendimento->data_atendimento))===date('Y-m-d'))
                                         <div class="btn-group">                                           
-                                            <button type="button" data-id="{{$atendimento->id}}" data-nome="{{$atendimento->paciente}}" data-color="{{$color}}" class="cria_atendimento fas fa-file" style="color: black; background:transparent;border:none; white-space: nowrap;" data-html="true" data-placement="left" data-toggle="popover" title="Criar atendimento"></button>
+                                            <a href="{{route('ceteaadmin.terapia.edit',['id'=>$atendimento->id,'color'=>$color])}}" type="button" data-id="{{$atendimento->id}}" class="edit_terapia fas fa-edit" style="color: black; background:transparent;border:none; white-space: nowrap;" data-html="true" data-placement="right" data-toggle="popover" title="Editar"></a>
                                         </div>
                                         @endif
                                     @endif                                    
@@ -137,63 +134,7 @@
 
 <script type="text/javascript">
 
-$(document).ready(function(){
-
-     $(document).on('click','.delete_atendimento_btn',function(e){   ///inicio delete
-            e.preventDefault();           
-            var CSRF_TOKEN  = document.querySelector('meta[name="csrf-token"]').getAttribute('content');   
-            var id = $(this).data("id");
-            var linklogo = "{{asset('storage')}}";
-
-            var nome = $(this).data("nome");
-            
-            Swal.fire({
-                showClass: {
-                    popup: 'animate__animated animate__fadeInDown'
-                },
-                hideClass: {
-                    popup: 'animate__animated animate__fadeOutUp'
-                },
-                title:nome,
-                text: "Deseja excluir?",
-                imageUrl: linklogo+'/logoprodap.jpg',
-                imageWidth: 400,
-                imageHeight: 200,
-                imageAlt: 'imagem do sistema',
-                showCancelButton: true,
-                confirmButtonText: 'Sim, prossiga!',                
-                cancelButtonText: 'Não, cancelar!',                                 
-             }).then((result)=>{
-             if(result.isConfirmed){             
-                $.ajax({
-                    url: '/ceteaadmin/atendimento/delete/'+id,
-                    type: 'POST',
-                    dataType: 'json',
-                    data:{
-                        'id': id,                                         
-                        '_token':CSRF_TOKEN,
-                        '_method':'delete',
-                    },
-                    success:function(response){
-                        if(response.status==200){                        
-                            //remove linha correspondente da tabela html
-                            $("#atendimento"+id).remove();     
-                            $('#success_message').replaceWith('<div id="success_message"></div>');                       
-                            $('#success_message').addClass('alert alert-success');
-                            $('#success_message').text(response.message);         
-                        }else{
-                            //Não pôde excluir por causa dos relacionamentos    
-                            $('#success_message').replaceWith('<div id="success_message"></div>');                                                    
-                            $('#success_message').addClass('alert alert-danger');
-                            $('#success_message').text(response.errors);         
-                        }
-                    }
-                }); 
-            }  
-        });        
-       
-      
-    });  ///fim delete
+$(document).ready(function(){     
 
    //inicio enviar docs
     $(document).on('change','.arquivo',function(){
@@ -215,7 +156,7 @@ $(document).ready(function(){
             $('.arquivo').val(""); ///limpa o input
                                 
             $.ajax({                                             
-                url: '/ceteaadmin/atendimento/upload-docs/'+id,              
+                url: '/ceteaadmin/terapia/upload-docs/'+id,              
                 type:'POST',
                 dataType: 'json',        
                 data:formData,
@@ -244,7 +185,7 @@ $(document).ready(function(){
             var id = $(this).data("id");            
                       
                 $.ajax({
-                    url: '/ceteaadmin/atendimento/delete-docs/'+id,
+                    url: '/ceteaadmin/terapia/delete-docs/'+id,
                     type: 'POST',
                     dataType: 'json',
                     data:{
@@ -277,7 +218,7 @@ $(document).ready(function(){
             $.ajax({ 
                 type: 'GET',             
                 dataType: 'json',                                    
-                url: '/ceteaadmin/atendimento/abrir-doc/'+id,                                
+                url: '/ceteaadmin/terapia/abrir-doc/'+id,                                
                 success: function(response){ 
                     if(response.status==200){
                       var link = "{{asset('')}}"+"storage/"+response.arquivo.path;
@@ -288,62 +229,13 @@ $(document).ready(function(){
             });
 
     });
-    ///fim abrir doc   
-
-    $(document).on('click','.cria_atendimento',function(e){
-        e.preventDefault();
-        var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-        var id = $(this).data("id");
-        var color = $(this).data("color");
-
-        var linklogo = "{{asset('storage')}}";
-
-            var nome = $(this).data("nome");
-            
-            Swal.fire({
-                showClass: {
-                    popup: 'animate__animated animate__fadeInDown'
-                },
-                hideClass: {
-                    popup: 'animate__animated animate__fadeOutUp'
-                },
-                title:'Paciente: '+nome,
-                text: "Deseja CRIAR ATENDIMENTO para este paciente?",
-                imageUrl: linklogo+'/logoprodap.jpg',
-                imageWidth: 400,
-                imageHeight: 200,
-                imageAlt: 'imagem do sistema',
-                showCancelButton: true,
-                confirmButtonText: 'Sim, prossiga!',                
-                cancelButtonText: 'Não, cancelar!',                                 
-             }).then((result)=>{
-             if(result.isConfirmed){             
-                $.ajax({
-                    url: '/ceteaadmin/atendimento/cria-atendimento/'+id,
-                    type: 'POST',
-                    dataType: 'json',
-                    data:{
-                        'id': id,                                         
-                        '_token':CSRF_TOKEN,
-                        '_method':'put',
-                    },
-                    success:function(response){
-                        if(response.status==200){
-                            location.replace('/ceteaadmin/atendimento/index/'+color);
-                        }
-                    }
-                }); 
-            }  
-        });    
-    });
+    ///fim abrir doc       
 
     ///tooltip
-    $(function(){             
-        $(".AddAtendimentoModal_btn").tooltip();
-        $(".pesquisa_btn").tooltip();        
-        $(".delete_atendimento_btn").tooltip();
-        $(".edit_atendimento").tooltip();
-        $(".cria_atendimento").tooltip();
+    $(function(){                     
+        $(".pesquisa_btn").tooltip();                
+        $(".atende_terapia").tooltip();
+        $(".edit_terapia").tooltip();
     });
     ///fim tooltip
 
