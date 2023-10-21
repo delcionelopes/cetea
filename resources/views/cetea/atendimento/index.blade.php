@@ -46,14 +46,20 @@
                                 <th scope="col">AÇÕES</th>
                             </tr>
                         </thead>
-                        <tbody id="lista_paciente">
+                        <tbody id="lista_paciente">                        
                         <tr id="novo" style="display:none;"></tr>
                         @forelse($atendimentos as $atendimento)
                         @if($atendimento->tipo_atendimento_id===1)
                             <tr id="atendimento{{$atendimento->id}}" class="bg-success">
-                        @else
-                            <tr id="atendimento{{$atendimento->id}}">
-                        @endif        
+                        @else                                 
+                           @if(($atendimento->tipo_atendimento_id===4) && (date('Y-m-d', strtotime($atendimento->data_agendamento))===date('Y-m-d')) || 
+                               ($atendimento->tipo_atendimento_id===3) && (date('Y-m-d', strtotime($atendimento->data_encaminhamento))===date('Y-m-d')) ||
+                               ($atendimento->tipo_atendimento_id===2) && (date('Y-m-d', strtotime($atendimento->data_retorno))===date('Y-m-d')))
+                                <tr id="atendimento{{$atendimento->id}}" class="bg-warning">
+                            @else
+                                <tr id="atendimento{{$atendimento->id}}">
+                            @endif
+                        @endif                              
                                 <th scope="row">{{$atendimento->paciente}}</th>
                                 <td>{{$atendimento->tipo_atendimento->nome}}</td>
                                 @if($atendimento->tipo_atendimento_id===1)

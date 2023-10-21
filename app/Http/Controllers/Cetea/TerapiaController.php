@@ -50,13 +50,15 @@ class TerapiaController extends Controller
         
         if(is_null($request->pesquisa)){
             $query = $this->atendimento->query()
-                                       ->where('medico_terapeuta_id','=',$medicoterapeuta->id)                                       
+                                       ->where('medico_terapeuta_id','=',$medicoterapeuta->id)
+                                       ->where('atendido','=',false)
                                        ->whereDate('data_atendimento','=',$data);                                     
             $atendimentos = $query->orderBy('data_atendimento')->paginate(10);
         }else{
             $query = $this->atendimento->query()            
                                        ->where('paciente','LIKE','%'.$request->pesquisa.'%')
                                        ->where('medico_terapeuta_id','=',$medicoterapeuta->id)
+                                       ->where('atendido','=',false)
                                        ->whereDate('data_atendimento','=',$data);                                      
             $atendimentos = $query->orderBy('data_atendimento')->paginate(10);            
         }

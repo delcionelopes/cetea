@@ -25,6 +25,7 @@ class Atendimento extends Model
         'data_retorno',
         'data_encaminhamento',
         'encaminhamento',
+        'atendido',
         'paciente',
         'created_at',
         'updated_at',

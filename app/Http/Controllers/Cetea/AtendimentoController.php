@@ -44,20 +44,24 @@ class AtendimentoController extends Controller
     {
         $data = date("Y-m-d");
         
-        if(is_null($request->pesquisa)){
-            $query = $this->atendimento->query()
-                                       ->whereDate('data_atendimento','=',$data)
-                                       ->orwhereDate('data_retorno','=',$data)
-                                       ->orwhereDate('data_encaminhamento','=',$data)
-                                       ->orwhereDate('data_agendamento','=',$data);
+        if(is_null($request->pesquisa)){           
+            $query = $this->atendimento->where('atendido','=',0)
+                                       ->where(function($query){
+                                              $query->whereDate('data_atendimento','=',date("Y-m-d"))
+                                                    ->orwhereDate('data_retorno','=',date("Y-m-d"))
+                                                    ->orwhereDate('data_encaminhamento','=',date("Y-m-d"))
+                                                    ->orwhereDate('data_agendamento','=',date("Y-m-d"));                                                 
+                                       });                                       
             $atendimentos = $query->orderBy('data_atendimento')->paginate(10);
-        }else{
-            $query = $this->atendimento->query()
-                                       ->where('paciente','LIKE','%'.$request->pesquisa.'%')
-                                       ->whereDate('data_atendimento','=',$data)
-                                       ->orwhereDate('data_retorno','=',$data)
-                                       ->orwhereDate('data_encaminhamento','=',$data)
-                                       ->orwhereDate('data_agendamento','=',$data);
+        }else{       
+            $query = $this->atendimento->where('paciente','LIKE','%'.$request->pesquisa.'%')
+                                       ->where('atendido','=',0)
+                                       ->where(function($query){
+                                              $query->whereDate('data_atendimento','=',date("Y-m-d"))
+                                                    ->orwhereDate('data_retorno','=',date("Y-m-d"))
+                                                    ->orwhereDate('data_encaminhamento','=',date("Y-m-d"))
+                                                    ->orwhereDate('data_agendamento','=',date("Y-m-d"));
+                                       });
             $atendimentos = $query->orderBy('data_atendimento')->paginate(10);            
         }                
         return view('cetea.atendimento.index',[
@@ -112,6 +116,7 @@ class AtendimentoController extends Controller
             $data['medico_terapeuta_id'] = $request->input('terapeuta');
             $data['tratamento_id'] = $request->input('tratamento');
             $data['paciente_id'] = $request->input('paciente');
+            $data['atendido'] = 0;
             $paciente = $this->paciente->find($request->input('paciente'));
             $data['paciente'] = $paciente->nome;
             $data['responsavel_do_paciente'] = strtoupper($request->input('responsavel'));
@@ -197,6 +202,7 @@ class AtendimentoController extends Controller
             $data['paciente_id'] = $request->input('paciente');
             $paciente = $this->paciente->find($request->input('paciente'));
             $data['paciente'] = $paciente->nome;
+            $data['atendido'] = 0;
             $data['medico_terapeuta_id'] = $request->input('terapeuta');
             $data['tratamento_id'] = $request->input('tratamento');            
             $data['responsavel_do_paciente'] = strtoupper($request->input('responsavel'));
@@ -483,6 +489,7 @@ class AtendimentoController extends Controller
         $data['tipo_atendimento_id'] = 1;
         $data['paciente_id'] = $atendimento->paciente_id;        
         $data['paciente'] = $atendimento->paciente;
+        $data['atendido'] = 0;
         $data['medico_terapeuta_id'] = $atendimento->medico_terapeuta_id;
         $data['tratamento_id'] = $atendimento->tratamento_id;
         $data['responsavel_do_paciente'] = $atendimento->responsavel_do_paciente;
@@ -491,9 +498,11 @@ class AtendimentoController extends Controller
         $data['created_at'] = now();            
         $data['creater_user'] = $user->id;
         $data['updated_at'] = null;
-        $data['updater_user'] = null;
-
+        $data['updater_user'] = null;        
         $att = $this->atendimento->create($data);
+
+        $dataStatus['atendido'] = 1;
+        $atendimento->update($dataStatus);
         return response()->json([
             'status' => 200,
         ]);
