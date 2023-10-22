@@ -52,7 +52,8 @@
                         @if($atendimento->tipo_atendimento_id===1)
                             <tr id="atendimento{{$atendimento->id}}" class="bg-success">
                         @else                                 
-                           @if(($atendimento->tipo_atendimento_id===4) && (date('Y-m-d', strtotime($atendimento->data_agendamento))===date('Y-m-d')) || 
+                           @if(($atendimento->tipo_atendimento_id===5) && (date('Y-m-d', strtotime($atendimento->data_agonline))===date('Y-m-d')) || 
+                               ($atendimento->tipo_atendimento_id===4) && (date('Y-m-d', strtotime($atendimento->data_agendamento))===date('Y-m-d')) || 
                                ($atendimento->tipo_atendimento_id===3) && (date('Y-m-d', strtotime($atendimento->data_encaminhamento))===date('Y-m-d')) ||
                                ($atendimento->tipo_atendimento_id===2) && (date('Y-m-d', strtotime($atendimento->data_retorno))===date('Y-m-d')))
                                 <tr id="atendimento{{$atendimento->id}}" class="bg-warning">
@@ -69,7 +70,11 @@
                                       @else @if($atendimento->tipo_atendimento_id===3)
                                             <td>{{date('d/m/Y', strtotime($atendimento->data_encaminhamento))}}</td>
                                             @else
-                                            <td>{{date('d/m/Y', strtotime($atendimento->data_agendamento))}}</td>
+                                                @if($atendimento->tipo_atendimento_id===4)
+                                                <td>{{date('d/m/Y', strtotime($atendimento->data_agendamento))}}</td>
+                                                @else
+                                                <td>{{date('d/m/Y', strtotime($atendimento->data_agonline))}}</td>
+                                                @endif
                                             @endif
                                       @endif
                                 @endif      

@@ -23,6 +23,7 @@ class Atendimento extends Model
         'data_agendamento',
         'data_atendimento',
         'data_retorno',
+        'data_agonline',
         'data_encaminhamento',
         'encaminhamento',
         'atendido',

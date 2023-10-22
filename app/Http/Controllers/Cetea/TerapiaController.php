@@ -42,24 +42,24 @@ class TerapiaController extends Controller
      */
     public function index(Request $request, $color)
     {
-        $data = date("Y-m-d");
-
         $user = auth()->user();
 
         $medicoterapeuta = $this->medicoterapeuta->whereCpf($user->cpf)->first();        
         
         if(is_null($request->pesquisa)){
-            $query = $this->atendimento->query()
-                                       ->where('medico_terapeuta_id','=',$medicoterapeuta->id)
-                                       ->where('atendido','=',false)
-                                       ->whereDate('data_atendimento','=',$data);                                     
+            $query = $this->atendimento->where('medico_terapeuta_id','=',$medicoterapeuta->id)
+                                       ->where('atendido','=',0)
+                                       ->where(function($qry){
+                                       $qry->whereDate('data_atendimento','=',date("Y-m-d"));
+                                       });
             $atendimentos = $query->orderBy('data_atendimento')->paginate(10);
         }else{
-            $query = $this->atendimento->query()            
-                                       ->where('paciente','LIKE','%'.$request->pesquisa.'%')
+            $query = $this->atendimento->where('paciente','LIKE','%'.$request->pesquisa.'%')
                                        ->where('medico_terapeuta_id','=',$medicoterapeuta->id)
-                                       ->where('atendido','=',false)
-                                       ->whereDate('data_atendimento','=',$data);                                      
+                                       ->where('atendido','=',0)
+                                       ->where(function($qry){
+                                       $qry->whereDate('data_atendimento','=',date("Y-m-d"));
+                                       });
             $atendimentos = $query->orderBy('data_atendimento')->paginate(10);            
         }
         
@@ -109,15 +109,13 @@ class TerapiaController extends Controller
      */
     public function edit(int $id, $color)
     {
-        $atendimento = $this->atendimento->find($id);
-        $pacientes = $this->paciente->orderByDesc('id')->get();
+        $atendimento = $this->atendimento->find($id);        
         $medicosterapeutas = $this->medicoterapeuta->orderByDesc('id')->get();
         $tiposatendimentos = $this->tipoatendimento->whereIn('id',[2,3])->get();
         $tratamentos = $this->tratamento->orderBy('id')->get();        
         return view('cetea.terapia.edit',[
             'status' => 200,
-            'atendimento' => $atendimento,
-            'pacientes' => $pacientes,
+            'atendimento' => $atendimento,            
             'medicosterapeutas' => $medicosterapeutas,
             'tiposatendimentos' => $tiposatendimentos,
             'tratamentos' => $tratamentos,
@@ -161,6 +159,8 @@ class TerapiaController extends Controller
             $data['data_retorno'] = $request->input('data'); //2 retorno
             }else{            
             $data['data_encaminhamento'] = $request->input('data'); //3 encaminhamento
+            $medicoterapeuta = $this->medicoterapeuta->whereCpf($user->cpf)->first();
+            $data['encaminhamento'] = $medicoterapeuta->nome;
             }
             $data['updated_at'] = now();            
             $data['updater_user'] = $user->id;

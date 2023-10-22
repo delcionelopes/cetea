@@ -50,6 +50,7 @@ class AtendimentoController extends Controller
                                               $query->whereDate('data_atendimento','=',date("Y-m-d"))
                                                     ->orwhereDate('data_retorno','=',date("Y-m-d"))
                                                     ->orwhereDate('data_encaminhamento','=',date("Y-m-d"))
+                                                    ->orwhereDate('data_agonline','=',date("Y-m-d"))
                                                     ->orwhereDate('data_agendamento','=',date("Y-m-d"));                                                 
                                        });                                       
             $atendimentos = $query->orderBy('data_atendimento')->paginate(10);
@@ -60,6 +61,7 @@ class AtendimentoController extends Controller
                                               $query->whereDate('data_atendimento','=',date("Y-m-d"))
                                                     ->orwhereDate('data_retorno','=',date("Y-m-d"))
                                                     ->orwhereDate('data_encaminhamento','=',date("Y-m-d"))
+                                                    ->orwhereDate('data_agonline','=',date("Y-m-d"))
                                                     ->orwhereDate('data_agendamento','=',date("Y-m-d"));
                                        });
             $atendimentos = $query->orderBy('data_atendimento')->paginate(10);            
