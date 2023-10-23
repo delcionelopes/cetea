@@ -3,9 +3,25 @@
 namespace App\Http\Controllers\Cetea;
 
 use App\Http\Controllers\Controller;
+use App\Models\Anamnese_Desenvolvimento;
+use App\Models\Anamnese_Hist_Pregressa;
+use App\Models\Anamnese_Inicial;
 use App\Models\Atendimento;
 use App\Models\Atendimento_Docs;
+use App\Models\Evolucao;
+use App\Models\HistDes_Anexo1_RotAlim;
+use App\Models\HistDes_Anexo2_HistMedico;
+use App\Models\HistDes_Anexo3_InfoSensoriais;
 use App\Models\HistDes_Anexo3_R18_Docs;
+use App\Models\HistDes_VersaoPais_Brincadeiras;
+use App\Models\HistDes_VersaoPais_CompCasa;
+use App\Models\HistDes_VersaoPais_Comportamentos;
+use App\Models\HistDes_VersaoPais_DesenvMotor;
+use App\Models\HistDes_VersaoPais_DesenvSocial;
+use App\Models\HistDes_VersaoPais_HistEscolar;
+use App\Models\HistDes_VersaoPais_Independencia;
+use App\Models\HistDes_VersaoPais_Inicial;
+use App\Models\HistDes_VersaoPais_Linguagem;
 use App\Models\Medico_Terapeuta;
 use App\Models\Paciente;
 use App\Models\Tipo_Atendimento;
@@ -23,9 +39,35 @@ class TerapiaController extends Controller
     private $arquivoatendimento;
     private $histdes_anexo3_docs;
 
+    private $anamnese_inicial;
+    private $anamnese_hist_pregressa;
+    private $anamnese_desenvolvimento;
+    private $histdes_versaopais_inicial;
+    private $histdes_versaopais_linguagem;
+    private $histdes_versaopais_desenvsocial;
+    private $histdes_versaopais_brincadeiras;
+    private $histdes_versaopais_comportamentos;
+    private $histdes_versaopais_independencia;
+    private $histdes_versaopais_desenvmotor;
+    private $histdes_versaopais_histescolar;
+    private $histdes_versaopais_compcasa;
+    private $histdes_anexo1_rotalim;
+    private $histdes_anexo2_histmedico;
+    private $histdes_anexo3_infosensoriais;
+    private $evolucao;
+
+
     public function __construct(Atendimento $atendimento, Medico_Terapeuta $medicoterapeuta,
                                 Tipo_Atendimento $tipoatendimento, Tratamento $tratamento, Paciente $paciente,
-                                Atendimento_Docs $arquivoatendimento, HistDes_Anexo3_R18_Docs $histdes_anexo3_docs)
+                                Atendimento_Docs $arquivoatendimento, HistDes_Anexo3_R18_Docs $histdes_anexo3_docs,
+                                Anamnese_Inicial $anamnese_inicial, Anamnese_Hist_Pregressa $anamnese_hist_pregressa,
+                                Anamnese_Desenvolvimento $anamnese_desenvolvimento, HistDes_VersaoPais_Inicial $histdes_versaopais_inicial,
+                                HistDes_VersaoPais_Linguagem $histdes_versaopais_linguagem, HistDes_VersaoPais_DesenvSocial $histdes_versaopais_desenvsocial,
+                                HistDes_VersaoPais_Brincadeiras $histdes_versaopais_brincadeiras, HistDes_VersaoPais_Comportamentos $histdes_versaopais_comportamentos,
+                                HistDes_VersaoPais_Independencia $histdes_versaopais_independencia, HistDes_VersaoPais_DesenvMotor $histdes_versaopais_desenvmotor,
+                                HistDes_VersaoPais_HistEscolar $histdes_versaopais_histescolar, HistDes_VersaoPais_CompCasa $histdes_versaopais_compcasa,
+                                HistDes_Anexo1_RotAlim $histdes_anexo1_rotalim, HistDes_Anexo2_HistMedico $histdes_anexo2_histmedico,
+                                HistDes_Anexo3_InfoSensoriais $histdes_anexo3_infosensoriais, Evolucao $evolucao)
     {
         $this->atendimento = $atendimento;
         $this->medicoterapeuta = $medicoterapeuta;
@@ -34,6 +76,23 @@ class TerapiaController extends Controller
         $this->paciente = $paciente;
         $this->arquivoatendimento = $arquivoatendimento;
         $this->histdes_anexo3_docs = $histdes_anexo3_docs;
+
+        $this->anamnese_inicial = $anamnese_inicial;
+        $this->anamnese_hist_pregressa = $anamnese_hist_pregressa;
+        $this->anamnese_desenvolvimento = $anamnese_desenvolvimento;
+        $this->histdes_versaopais_inicial = $histdes_versaopais_inicial;
+        $this->histdes_versaopais_linguagem = $histdes_versaopais_linguagem;
+        $this->histdes_versaopais_desenvsocial = $histdes_versaopais_desenvsocial;
+        $this->histdes_versaopais_brincadeiras = $histdes_versaopais_brincadeiras;
+        $this->histdes_versaopais_comportamentos = $histdes_versaopais_comportamentos;
+        $this->histdes_versaopais_independencia = $histdes_versaopais_independencia;
+        $this->histdes_versaopais_desenvmotor = $histdes_versaopais_desenvmotor;
+        $this->histdes_versaopais_histescolar = $histdes_versaopais_histescolar;
+        $this->histdes_versaopais_compcasa = $histdes_versaopais_compcasa;
+        $this->histdes_anexo1_rotalim = $histdes_anexo1_rotalim;
+        $this->histdes_anexo2_histmedico = $histdes_anexo2_histmedico;
+        $this->histdes_anexo3_infosensoriais = $histdes_anexo3_infosensoriais;
+        $this->evolucao = $evolucao;
     }
     /**
      * Display a listing of the resource.
@@ -112,7 +171,25 @@ class TerapiaController extends Controller
         $atendimento = $this->atendimento->find($id);        
         $medicosterapeutas = $this->medicoterapeuta->orderByDesc('id')->get();
         $tiposatendimentos = $this->tipoatendimento->whereIn('id',[2,3])->get();
-        $tratamentos = $this->tratamento->orderBy('id')->get();        
+        $tratamentos = $this->tratamento->orderBy('id')->get();
+        
+        $count_anamnese_inicial = $this->anamnese_inicial->wherePaciente_id($atendimento->paciente_id)->first();
+        $count_anamnese_hist_pregressa = $this->anamnese_hist_pregressa->wherePaciente_id($atendimento->paciente_id)->first();
+        $count_anamnese_desenvolvimento = $this->anamnese_desenvolvimento->wherePaciente_id($atendimento->paciente_id)->first();
+        $count_histdes_versaopais_inicial = $this->histdes_versaopais_inicial->wherePaciente_id($atendimento->paciente_id)->first();
+        $count_histdes_versaopais_linguagem = $this->histdes_versaopais_linguagem->wherePaciente_id($atendimento->paciente_id)->first();
+        $count_histdes_versaopais_desenvsocial = $this->histdes_versaopais_desenvsocial->wherePaciente_id($atendimento->paciente_id)->first();
+        $count_histdes_versaopais_brincadeiras = $this->histdes_versaopais_brincadeiras->wherePaciente_id($atendimento->paciente_id)->first();
+        $count_histdes_versaopais_comportamentos = $this->histdes_versaopais_comportamentos->wherePaciente_id($atendimento->paciente_id)->first();
+        $count_histdes_versaopais_independencia = $this->histdes_versaopais_independencia->wherePaciente_id($atendimento->paciente_id)->first();
+        $count_histdes_versaopais_desenvmotor = $this->histdes_versaopais_desenvmotor->wherePaciente_id($atendimento->paciente_id)->first();
+        $count_histdes_versaopais_histescolar = $this->histdes_versaopais_histescolar->wherePaciente_id($atendimento->paciente_id)->first();
+        $count_histdes_versaopais_compcasa = $this->histdes_versaopais_compcasa->wherePaciente_id($atendimento->paciente_id)->first();
+        $count_histdes_anexo1_rotalim = $this->histdes_anexo1_rotalim->wherePaciente_id($atendimento->paciente_id)->first();
+        $count_histdes_anexo2_histmedico = $this->histdes_anexo2_histmedico->wherePaciente_id($atendimento->paciente_id)->first();
+        $count_histdes_anexo3_infosensoriais = $this->histdes_anexo3_infosensoriais->wherePaciente_id($atendimento->paciente_id)->first();
+        $count_evolucao = $this->evolucao->wherePaciente_id($atendimento->paciente_id)->first();        
+
         return view('cetea.terapia.edit',[
             'status' => 200,
             'atendimento' => $atendimento,            
@@ -120,6 +197,22 @@ class TerapiaController extends Controller
             'tiposatendimentos' => $tiposatendimentos,
             'tratamentos' => $tratamentos,
             'color' => $color,
+            'count_anamnese_inicial' => $count_anamnese_inicial,
+            'count_anamnese_hist_pregressa' => $count_anamnese_hist_pregressa,
+            'count_anamnese_desenvolvimento' => $count_anamnese_desenvolvimento,
+            'count_histdes_versaopais_inicial' => $count_histdes_versaopais_inicial,
+            'count_histdes_versaopais_linguagem' => $count_histdes_versaopais_linguagem,
+            'count_histdes_versaopais_desenvsocial' => $count_histdes_versaopais_desenvsocial,
+            'count_histdes_versaopais_brincadeiras' => $count_histdes_versaopais_brincadeiras,
+            'count_histdes_versaopais_comportamentos' => $count_histdes_versaopais_comportamentos,
+            'count_histdes_versaopais_independencia' => $count_histdes_versaopais_independencia,
+            'count_histdes_versaopais_desenvmotor' => $count_histdes_versaopais_desenvmotor,
+            'count_histdes_versaopais_histescolar' => $count_histdes_versaopais_histescolar,
+            'count_histdes_versaopais_compcasa' => $count_histdes_versaopais_compcasa,
+            'count_histdes_anexo1_rotalim' => $count_histdes_anexo1_rotalim,
+            'count_histdes_anexo2_histmedico' => $count_histdes_anexo2_histmedico,
+            'count_histdes_anexo3_infosensoriais' => $count_histdes_anexo3_infosensoriais,
+            'count_evolucao' => $count_evolucao,            
         ]);
     }
 
