@@ -29,6 +29,7 @@ use App\Models\Tratamento;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
+
 class TerapiaController extends Controller
 {
     private $atendimento;
@@ -363,6 +364,95 @@ class TerapiaController extends Controller
             'status' => 200,
             'tratamentos' => $tratamentos,
         ]);
+    }
+
+    public function storeAnamneseInicial(Request $request){
+        $validator = Validator::make($request->all(),[
+            'atendimento' => ['required'],
+            'paciente' => ['required'],
+            'composicao_familiar' => ['required','max:400'],
+            'queixa_motivo_encaminhamento' => ['required','max:200'],
+            'idade_constatado_problema' => ['required','max:10'],
+            'providencias_tomadas' => ['required','max:400'],
+        ]);
+        if($validator->fails()){
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->errors()->getMessages(),
+            ]);
+        }else{
+            $user = auth()->user();
+            $data['id'] = $this->maxId_AnamneseInicial();
+            $data['atendimento_id'] = $request->input('atendimento');
+            $data['paciente_id'] = $request->input('paciente');
+            $data['II_composicao_familiar'] = $request->input('composicao_familiar');
+            $data['III_queixa_motivo_encaminhamento'] = $request->input('queixa_motivo_encaminhamento');
+            $data['III_A_idade_constatado_problema'] = $request->input('idade_constatado_problema');
+            $data['III_B_providencias_tomadas'] = $request->input('providencias_tomadas');
+            $data['created_at'] = now();
+            $data['updated_at'] = null;
+            $data['creater_user'] = $user->id;
+            $data['updater_user'] = null;
+            $anamnese_inicial = $this->anamnese_inicial->create($data);
+
+            return response()->json([
+                'status' => 200,                
+                'message' => 'Anamnese inicial criada com sucesso!',
+            ]);
+
+        }
+    }
+
+    protected function maxId_AnamneseInicial(){
+        $anamnese_inicial = $this->anamnese_inicial->orderByDesc('id')->first();
+        if($anamnese_inicial){
+            $codigo = $anamnese_inicial->id;
+        }else{
+            $codigo = 0;
+        }
+        return $codigo+1;
+    }
+
+    public function updateAnamneseInicial(Request $request, $id){
+        $validator = Validator::make($request->all(),[
+            'atendimento' => ['required'],
+            'paciente' => ['required'],
+            'composicao_familiar' => ['required','max:400'],
+            'queixa_motivo_encaminhamento' => ['required','max:200'],
+            'idade_constatado_problema' => ['required','max:10'],
+            'providencias_tomadas' => ['required','max:400'],
+        ]);
+        if($validator->fails()){
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->errors()->getMessages(),
+            ]);
+        }else{
+            $anamnese_inicial = $this->anamnese_inicial->wherePaciente_id($id)->first();
+            if($anamnese_inicial){
+            $user = auth()->user();            
+            $data['atendimento_id'] = $request->input('atendimento');
+            $data['paciente_id'] = $request->input('paciente');
+            $data['II_composicao_familiar'] = $request->input('composicao_familiar');
+            $data['III_queixa_motivo_encaminhamento'] = $request->input('queixa_motivo_encaminhamento');
+            $data['III_A_idade_constatado_problema'] = $request->input('idade_constatado_problema');
+            $data['III_B_providencias_tomadas'] = $request->input('providencias_tomadas');            
+            $data['updated_at'] = now();
+            $data['updater_user'] = $user->id;
+            $anamnese_inicial->update($data);            
+
+            return response()->json([
+                'status' => 200,
+                'message' => 'Anamnese inicial atualizada com sucesso!',
+            ]);
+
+        }else{
+            return response()->json([
+                'status' => 404,
+                'message' => 'Registro não localizado!',
+            ]);
+        }
+    }
     }
 
     
