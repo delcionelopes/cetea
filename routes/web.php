@@ -202,6 +202,9 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::delete('/delete-docs/{id}',[TerapiaController::class,'deleteDocs']);
         Route::get('/abrir-doc/{id}',[TerapiaController::class,'abrirDoc']);        
         Route::get('/medicoxtratamento/{medico_id}',[TerapiaController::class,'medicoxtratamento']);
+        Route::put('/store_anamneseinicial',[TerapiaController::class,'storeAnamneseInicial']);
+        Route::get('/edit_anamneseinicial/{id}',[TerapiaController::class,'editAnamneseInicial']);
+        Route::put('/update_anamneseinicial/{id}',[TerapiaController::class,'updateAnamneseInicial']);
       });
 
 

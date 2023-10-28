@@ -97,7 +97,7 @@ $(document).ready(function(){
 
     $(document).on('click','.salvar_btn',function(e){
         e.preventDefault();
-        var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute('content');   
+        var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
         var loading = $('#imgadd');
             loading.show();        
 
@@ -136,8 +136,7 @@ $(document).ready(function(){
                         loading.hide();
                 } else{
                     loading.hide();
-                    $('#saveform_errList').replaceWith('<ul id="saveform_errList"></ul>');
-                    loading.hide();
+                    $('#saveform_errList').replaceWith('<ul id="saveform_errList"></ul>');                    
                     location.replace('/admin/artigos/index');
                 }  
             }  

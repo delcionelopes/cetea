@@ -8,7 +8,7 @@
 <div class="modal fade animate__animated animate__bounce animate__faster bd-example-modal-xl" id="AddAnamnese_inicialModal" tabindex="-1" role="dialog" aria-labelledby="AddmyExtraLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-xl" role="document">
     <div class="modal-content">
-        <div class="modal-hader nav-dark bg-{{$color}}">
+        <div class="modal-header bg-{{$color}}">
             <h5 class="modal-title" id="AddmyExtraLargeModalLabel" style="color: white;">Anamnese Inicial</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="close">
                 <span aria-hidden="true" style="color: white.">&times;</span>
@@ -16,6 +16,8 @@
         </div>      
         <div class="modal-body form-horizontal" role="form">
             <form id="addform_anamnese_inicial" class="form-horizontal" role="form">
+                <input type="hidden" id="addpacienteid">
+                <input type="hidden" id="addatendimentoid">
                 <ul id="saveform_errlist_anamnese_inicial"></ul>
                 <fieldset>
                     <legend>Composição Familiar: nome, idade, estado civil, grau de parentesco, instrução, local de trabalho, renda familiar. </legend>
@@ -28,7 +30,7 @@
                 <fieldset>
                     <legend>Idade em que foi constatado o problema?</legend>
                     <div class="col-md-4">
-                    <input type="text" name="addidade_contatado_problema" id="addidade_contatado_problema" class="idade_contatado_problema form-control">
+                    <input type="text" name="addidade_constatado_problema" id="addidade_constatado_problema" class="idade_constatado_problema form-control">
                     </div>
                 </fieldset>
                 <fieldset>
@@ -39,7 +41,7 @@
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-            <button class="btn btn-{{$color}} add_anamnese_inicial_btn"><img id="imgaddanamnese_inicial" src="{{asset('storage/ajax-loader.gif')}}" style="display: none;" class="rounded-circle" width="20"> Salvar</button>
+            <button data-color="{{$color}}" class="btn btn-{{$color}} add_anamnese_inicial_btn"><img id="imgaddanamnese_inicial" src="{{asset('storage/ajax-loader.gif')}}" style="display: none;" class="rounded-circle" width="20"> Salvar</button>
         </div>
     </div>
   </div>
@@ -49,7 +51,7 @@
 <div class="modal fade animate__animated animate__bounce animate__faster bd-example-modal-xl" id="EditAnamnese_inicialModal" tabindex="-1" role="dialog" aria-labelledby="EditmyExtraLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-xl" role="document">
     <div class="modal-content">
-        <div class="modal-hader nav-dark bg-{{$color}}">
+        <div class="modal-header nav-dark bg-{{$color}}">
             <h5 class="modal-title" id="EditmyExtraLargeModalLabel" style="color: white;">Anamnese Inicial</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="close">
                 <span aria-hidden="true" style="color: white.">&times;</span>
@@ -57,6 +59,8 @@
         </div>      
         <div class="modal-body form-horizontal" role="form">
             <form id="editform_anamnese_inicial" class="form-horizontal" role="form">
+                <input type="hidden" id="editpacienteid">
+                <input type="hidden" id="editatendimentoid">
                 <ul id="updateform_errlist_anamnese_inicial"></ul>
                 <fieldset>
                     <legend>Composição Familiar: nome, idade, estado civil, grau de parentesco, instrução, local de trabalho, renda familiar. </legend>
@@ -69,7 +73,7 @@
                 <fieldset>
                     <legend>Idade em que foi constatado o problema?</legend>
                     <div class="col-md-4">
-                    <input type="text" name="editidade_contatado_problema" id="editidade_contatado_problema" class="idade_contatado_problema form-control">
+                    <input type="text" name="editidade_constatado_problema" id="editidade_constatado_problema" class="idade_constatado_problema form-control">
                     </div>
                 </fieldset>
                 <fieldset>
@@ -80,7 +84,7 @@
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-            <button class="btn btn-{{$color}} update_anamnese_inicial_btn"><img id="imgeditanamnese_inicial" src="{{asset('storage/ajax-loader.gif')}}" style="display: none;" class="rounded-circle" width="20"> Salvar</button>
+            <button type="button" data-color="{{$color}}" class="btn btn-{{$color}} update_anamnese_inicial_btn"><img id="imgeditanamnese_inicial" src="{{asset('storage/ajax-loader.gif')}}" style="display: none;" class="rounded-circle" width="20"> Salvar</button>
         </div>
     </div>
   </div>
@@ -109,7 +113,7 @@
                                <div class="btn-group"> 
                                     <button type="button" class="btn btn-none dropdown-toggle bg-light" data-toggle="dropdown" aria-expanded="false">Anamnese</button>
                                     <ul class="dropdown-menu">
-                                        <li class="dropdown-item bg-light"><a href="#" class="dropdown-item" data-id="{{$atendimento->paciente_id}}">
+                                        <li class="dropdown-item bg-light"><a href="#" class="anamnese_inicial dropdown-item" data-pacienteid="{{$atendimento->paciente_id}}" data-atendimentoid="{{$atendimento->id}}">
                                             @if($count_anamnese_inicial)<i data-id="1" id="anamnese_inicial{{$atendimento->id}}" class="fas fa-check" style="color: green"></i>@else<i data-id="0" id="anamnese_inicial{{$atendimento->id}}"></i>@endif Inicial</a></li>
                                         <li class="dropdown-item bg-light"><a href="#" class="dropdown-item" data-id="{{$atendimento->paciente_id}}">
                                             @if($count_anamnese_hist_pregressa)<i data-id="1" id="anamnese_hist_pregressa{{$atendimento->id}}" class="fas fa-check" style="color: green"></i>@else<i data-id="0" id="anamnese_hist_pregressa{{$atendimento->id}}"></i>@endif História pregressa</a></li>
@@ -375,6 +379,156 @@ $(document).ready(function(){
         }
         } 
     //fim formatDate
+    
+    
+    $("#AddAnamnese_inicialModal").on('shown.bs.modal',function(){
+            $(".composicao_familiar").focus();
+        });
+
+    $("#EditAnamnese_inicialModal").on('shown.bs.modal',function(){
+            $(".composicao_familiar").focus();
+        });
+
+    $(document).on('click','.anamnese_inicial',function(e){
+        e.preventDefault();
+        var pacienteid = $(this).data("pacienteid");
+        var atendimentoid = $(this).data("atendimentoid");
+        var opcao_form_anamneseinicial = $("#anamnese_inicial"+atendimentoid).data("id");        
+
+        if(opcao_form_anamneseinicial==0){
+                $("#addpacienteid").val(pacienteid);
+                $("#addatendimentoid").val(atendimentoid);
+                $("#addform_anamnese_inicial").trigger('reset');
+                $("#AddAnamnese_inicialModal").modal('show'); 
+                $("#saveform_errList_anamnese_inicial").replaceWith('<ul id="saveform_errList_anamnese_inicial"></ul>');
+        }else{            
+                $("#editpacienteid").val(pacienteid);
+                $("#editatendimentoid").val(atendimentoid);
+                $("#editform_anamnese_inicial").trigger('reset');
+                $("#EditAnamnese_inicialModal").modal('show'); 
+                $("#updateform_errList_anamnese_inicial").replaceWith('<ul id="updateform_errList_anamnese_inicial"></ul>');
+
+                 $.ajaxSetup({
+                    headers:{
+                        'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+    
+    
+                $.ajax({ 
+                    type: 'GET',             
+                    dataType: 'json',                                    
+                    url: '/ceteaadmin/terapia/edit_anamneseinicial/'+pacienteid,                                
+                    success: function(response){           
+                        if(response.status==200){                           
+                            $(".composicao_familiar").val(response.anamnese_inicial.ii_composicao_familiar);
+                            $(".queixa_motivo_encaminhamento").val(response.anamnese_inicial.iii_queixa_motivo_encaminhamento);
+                            $(".idade_constatado_problema").val(response.anamnese_inicial.iii_a_idade_constatado_problema);
+                            $(".providencias_tomadas").val(response.anamnese_inicial.iii_b_providencias_tomadas);
+                        }      
+                    }
+                });
+        }
+    });
+
+    $(document).on('click','.add_anamnese_inicial_btn',function(e){
+        e.preventDefault();
+        var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+        var pacienteid = $("#addpacienteid").val();
+        var atendimentoid = $("#addatendimentoid").val();
+
+        var loading = $("#imgaddanamnese_inicial");
+            loading.show();
+
+        var data = new FormData();
+
+        data.append('atendimento',atendimentoid);
+        data.append('paciente',pacienteid);
+        data.append('composicao_familiar',$(".composicao_familiar").val());
+        data.append('queixa_motivo_encaminhamento',$(".queixa_motivo_encaminhamento").val());
+        data.append('idade_constatado_problema',$(".idade_constatado_problema").val());
+        data.append('providencias_tomadas',$(".providencias_tomadas").val());
+        data.append('_token',CSRF_TOKEN);
+        data.append('_method','put');        
+
+        $.ajax({
+            url:'/ceteaadmin/terapia/store_anamneseinicial',
+            type: 'POST',
+            dataType: 'json',
+            data: data,
+            cache: false,
+            processData: false,
+            contentType: false,
+            async:true,
+            success:function(response){
+                if(response.status==400){
+                    $("#saveform_errlist_anamnese_inicial").replaceWith('<ul id="saveform_errList_anamnese_inicial"></ul>');
+                    $("#saveform_errlist_anamnese_inicial").addClass("alert alert-danger");
+                    $.each(response.errors,function(key,err_values){
+                        $("#saveform_errlist_anamnese_inicial").append('<li>'+err_values+'</li>')
+                    });
+                    loading.hide();
+                }else{
+                    loading.hide();
+                    $("#saveform_errlist_anamnese_inicial").replaceWith('<ul id="saveform_errList_anamnese_inicial"></ul>');
+                    $("#anamnese_inicial"+atendimentoid).replaceWith('<i data-id="1" id="anamnese_inicial'+atendimentoid+'" class="fas fa-check" style="color: green"></i>');
+                    $("#addform_anamnese_inicial").trigger('reset');
+                    $("#AddAnamnese_inicialModal").modal('hide');                     
+                }
+            }
+
+        });
+
+    });
+
+
+    $(document).on('click','.update_anamnese_inicial_btn',function(e){
+        var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+        var atendimentoid = $("#editatendimentoid").val();
+        var pacienteid = $("#editpacienteid").val();
+
+        var loading = $("#imgeditanamnese_inicial");
+            loading.show();
+
+        var data = new FormData();
+
+        data.append('atendimento',atendimentoid);
+        data.append('paciente',pacienteid);
+        data.append('composicao_familiar',$("#editcomposicao_familiar").val());
+        data.append('queixa_motivo_encaminhamento',$("#editqueixa_motivo_encaminhamento").val());
+        data.append('idade_constatado_problema',$("#editidade_constatado_problema").val());
+        data.append('providencias_tomadas',$("#editprovidencias_tomadas").val());
+        data.append('_token',CSRF_TOKEN);
+        data.append('_method','put');
+
+        $.ajax({
+            url:'/ceteaadmin/terapia/update_anamneseinicial/'+pacienteid,
+            type:'POST',
+            contentType: 'json',
+            data: data,
+            cache: false,
+            processData: false,
+            contentType: false,
+            async:true,
+            success:function(response){
+                if(response.status==400){
+                    $("#updateform_errList_anamnese_inicial").replaceWith('<ul id="updateform_errList_anamnese_inicial"></ul>');
+                    $("#updateform_errlist_anamnese_inicial").addClass('alert alert-danger');
+                    $.each(response.errors,function(key,err_values){
+                        $("#updateform_errlist_anamnese_inicial").append('<li>'+err_values+'</li>');
+                    });
+                    loading.hide();
+                }else{
+                    loading.hide();
+                    $("#updateform_errlist_anamnese_inicial").replaceWith('<ul id="updateform_errList_anamnese_inicial"></ul>');
+                    $("#anamnese_inicial"+atendimentoid).replaceWith('<i data-id="1" id="anamnese_inicial'+atendimentoid+'" class="fas fa-check" style="color: green"></i>');
+                    $("#editform_anamnese_inicial").trigger('reset');
+                    $("#EditAnamnese_inicialModal").modal('hide');    
+                }
+            }
+        });
+    });
+
 
 
 });
@@ -382,3 +536,5 @@ $(document).ready(function(){
 </script>
 
 @stop
+
+
