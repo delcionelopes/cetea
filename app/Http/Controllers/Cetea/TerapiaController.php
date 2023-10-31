@@ -453,5 +453,109 @@ class TerapiaController extends Controller
     }
     }
 
+
+    public function storeAnamneseHistPregressa(Request $request){
+        $validator = Validator::make($request->all(),[
+            'atendimento' => ['required'],
+            'paciente' => ['required'],            
+            'detalhe_gestacao' => ['required','max:400'],
+            'parto_nascimento' => ['required','max:200'],
+            'periodo_neonatal' => ['required','max:200'],
+            'tratamentos_anteriores' => ['required','max:200'],
+            'internacoes' => ['required','max:200'],
+            'vacinas' => ['required','max:200'],
+            'antecedentes_alergicos' => ['required','max:200'],            
+        ]);
+        if($validator->fails()){
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->errors()->getMessages(),
+            ]);
+        }else{
+            $user = auth()->user();
+            $data['id'] = $this->maxId_AnamneseInicial();
+            $data['atendimento_id'] = $request->input('atendimento');
+            $data['paciente_id'] = $request->input('paciente');
+            $data['gestacao_planejada'] = $request->input('gestacao_planejada');
+            $data['detalhe_gestacao'] = $request->input('detalhe_gestacao');
+            $data['parto_nascimento'] = $request->input('parto_nascimento');
+            $data['periodo_neonatal'] = $request->input('periodo_neonatal');
+            $data['tratamentos_anteriores'] = $request->input('tratamentos_anteriores');
+            $data['internacoes'] = $request->input('internacoes');
+            $data['vacinas'] = $request->input('vacinas');
+            $data['antecedentes_alergicos'] = $request->input('antecedentes_alergicos');
+            $data['created_at'] = now();
+            $data['updated_at'] = null;
+            $data['creater_user'] = $user->id;
+            $data['updater_user'] = null;
+            $anamnese_hist_pregressa = $this->anamnese_hist_pregressa->create($data);
+
+            return response()->json([
+                'status' => 200,
+            ]);
+
+        }
+    }    
+
+    protected function maxId_AnamneseHistPregressa(){
+        $anamnese_inicial = $this->anamnese_inicial->orderByDesc('id')->first();
+        if($anamnese_inicial){
+            $codigo = $anamnese_inicial->id;
+        }else{
+            $codigo = 0;
+        }
+        return $codigo+1;
+    }
+
+    public function editAnamneseHistPregressa($id){
+        $anamnese_hist_pregressa = $this->anamnese_hist_pregressa->wherePaciente_id($id)->first();
+        return response()->json([
+            'status' => 200,
+            'anamnese_hist_pregressa' => $anamnese_hist_pregressa,
+        ]);
+    }
+
+    public function updateAnamneseHistPregressa(Request $request, $id){
+        $validator = Validator::make($request->all(),[
+            'atendimento' => ['required'],
+            'paciente' => ['required'],            
+            'detalhe_gestacao' => ['required','max:400'],
+            'parto_nascimento' => ['required','max:200'],
+            'periodo_neonatal' => ['required','max:200'],
+            'tratamentos_anteriores' => ['required','max:200'],
+            'internacoes' => ['required','max:200'],
+            'vacinas' => ['required','max:200'],
+            'antecedentes_alergicos' => ['required','max:200'], 
+        ]);
+        if($validator->fails()){
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->errors()->getMessages(),
+            ]);
+        }else{
+            $hist_pregressa = $this->anamnese_hist_pregressa->wherePaciente_id($id)->first();            
+            $anamnese_hist_pregressa = $this->anamnese_hist_pregressa->find($hist_pregressa->id);
+            $user = auth()->user();            
+            $data['atendimento_id'] = $request->input('atendimento');
+            $data['paciente_id'] = $request->input('paciente');
+            $data['gestacao_planejada'] = $request->input('gestacao_planejada');
+            $data['detalhe_gestacao'] = $request->input('detalhe_gestacao');
+            $data['parto_nascimento'] = $request->input('parto_nascimento');
+            $data['periodo_neonatal'] = $request->input('periodo_neonatal');
+            $data['tratamentos_anteriores'] = $request->input('tratamentos_anteriores');
+            $data['internacoes'] = $request->input('internacoes');
+            $data['vacinas'] = $request->input('vacinas');
+            $data['antecedentes_alergicos'] = $request->input('antecedentes_alergicos');
+            $data['updated_at'] = now();
+            $data['updater_user'] = $user->id;
+            $anamnese_hist_pregressa->update($data);            
+
+            return response()->json([
+                'status' => 200,                
+            ]);        
+    }
+    }
     
+
+
 }

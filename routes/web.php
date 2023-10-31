@@ -205,6 +205,9 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::put('/store_anamneseinicial',[TerapiaController::class,'storeAnamneseInicial']);
         Route::get('/edit_anamneseinicial/{id}',[TerapiaController::class,'editAnamneseInicial']);
         Route::put('/update_anamneseinicial/{id}',[TerapiaController::class,'updateAnamneseInicial']);
+        Route::put('/store_anamnesehistpregressa',[TerapiaController::class,'storeAnamneseHistPregressa']);
+        Route::get('/edit_anamnesehistpregressa/{id}',[TerapiaController::class,'editAnamneseHistPregressa']);
+        Route::put('/update_anamnesehistpregressa/{id}',[TerapiaController::class,'updateAnamneseHistPregressa']);
       });
 
 
