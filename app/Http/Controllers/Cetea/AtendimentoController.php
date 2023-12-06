@@ -41,9 +41,7 @@ class AtendimentoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request, $color)
-    {
-        $data = date("Y-m-d");
-        
+    {        
         if(is_null($request->pesquisa)){           
             $query = $this->atendimento->where('atendido','=',0)
                                        ->where(function($query){
