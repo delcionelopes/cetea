@@ -209,7 +209,7 @@ class AtendimentoController extends Controller
             $data['responsavel_parentesco'] = strtoupper($request->input('parentesco'));
             if($request->input('tipo_atendimento')==1){
             $data['data_atendimento'] = now(); //1 atendimento
-            }else{
+            }else{            
             $data['data_atendimento'] = now();
             $data['data_agendamento'] = $request->input('data'); //4 agendamento
             }

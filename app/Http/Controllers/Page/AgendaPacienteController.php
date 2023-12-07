@@ -44,11 +44,18 @@ class AgendaPacienteController extends Controller
                                    });
         $atendimentos = $query->orderBy('data_atendimento')->paginate(2);
 
+        if($paciente){
+            $ispaciente = true;
+        }else{
+            $ispaciente = false;
+        }
+
         return view('page.agenda.index',[
             'atendimentos' => $atendimentos,
             'paciente' => $paciente,
             'medicosterapeutas' => $medicosterapeutas,
             'tratamentos' => $tratamentos,
+            'ispaciente' => $ispaciente,
         ]);
     }
 

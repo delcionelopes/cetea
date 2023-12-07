@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Arquivo;
 use App\Models\Artigo;
 use App\Models\Comentario;
+use App\Models\Paciente;
 use App\Models\Tema;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
@@ -15,10 +16,14 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     private $artigo;
+    private $paciente;
+    private $user;
 
-    public function __construct(Artigo $artigo)
+    public function __construct(Artigo $artigo, Paciente $paciente,User $user)
     {
         $this->artigo = $artigo;
+        $this->paciente = $paciente;
+        $this->user = $user;
     }
 
     public function master(Request $request){
@@ -34,9 +39,24 @@ class HomeController extends Controller
             $artigos = $query->orderByDesc('id')->paginate(5);
         }
         $temas = Tema::all();
+
+        $user = auth()->user();
+        if($user){
+        $user = $this->user->find($user->id);
+        $paciente = $this->paciente->whereCpf($user->cpf)->first();
+        if($paciente){
+            $ispaciente = true;
+        }else{
+            $ispaciente = false;
+        }
+        }else{
+            $ispaciente = false;
+        }
+
         return view('page.artigos.master',[
             'temas' => $temas,
             'artigos' => $artigos,
+            'ispaciente' => $ispaciente,
         ]);
     }
 
@@ -49,11 +69,25 @@ class HomeController extends Controller
 
         $query = Comentario::query()
                  ->where('artigos_id','=',$artigo->id);
-        $comentarios = $query->orderByDesc('id')->paginate(10);             
+        $comentarios = $query->orderByDesc('id')->paginate(10);
+        
+        $user = auth()->user();
+        if($user){
+        $user = $this->user->find($user->id);
+        $paciente = $this->paciente->whereCpf($user->cpf)->first();
+        if($paciente){
+            $ispaciente = true;
+        }else{
+            $ispaciente = false;
+        }
+        }else{
+            $ispaciente = false;
+        }
 
         return view('page.artigos.detail',[
             'artigo' => $artigo,
             'comentarios' => $comentarios,
+            'ispaciente' => $ispaciente,
         ]);
     }
 
@@ -71,9 +105,18 @@ class HomeController extends Controller
     }
 
     public function showPerfil($id){
-        $user = User::find($id);
+        $user = $this->user->find($id);
+
+        $paciente = $this->paciente->whereCpf($user->cpf)->first();
+        if($paciente){
+            $ispaciente = true;
+        }else{
+            $ispaciente = false;
+        }
+
         return view('page.perfil',[
             'user' => $user,
+            'ispaciente' => $ispaciente,
             ]);
     }
 

@@ -20,6 +20,63 @@
                 </div>
             </div>
 </header>
+
+<!-- início AddAgendamentoModal -->
+<div class="modal fade animate__animated animate__bounce animate__faster" id="AddAgendamentoModal" tabindex="-1" role="dialog" aria-labelledby="titleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header navbar-dark bg-success">
+                <h5 class="modal-title" id="titleModalLabel" style="color: white;">Agendamento para: {{$paciente->nome}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                <span aria-hidden="true" style="color: white;">&times;</span>
+                </button>                
+            </div>
+            <div class="modal-body form-horizontal">
+            <form id="addform" name="addform" class="form-horizontal" role="form">
+                <input type="hidden" id="add_paciente_id" value="{{$paciente->id}}">
+                <ul id="saveform_errList"></ul>                                   
+                <div class="form-group mb-3">
+                    <label for="adddata">Para quando deseja agendar?</label>
+                    <input type="date" name="adddata" id="adddata" class="addata form-control" required pattern="\d{4}-\d{2}-\d{2}" autocomplete="on" value="{{date('Y-m-d')}}"/>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="addmedicoterapeuta">Para qual terapeuta?</label>
+                    <select name="addmedicoterapeuta" id="addmedicoterapeuta" class="addmedicoterapeuta custom-select">
+                                    @foreach ($medicosterapeutas as $terapeuta)
+                                    <option value="{{$terapeuta->id}}">{{$terapeuta->nome}}</option>
+                                    @endforeach                                    
+                    </select>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="addtratamento">Qual terapia?</label>
+                    <select name="addtratamento" id="addtratamento" class="addtratamento custom-select">
+                                   <option value=""></option>
+                    </select>
+                </div>
+                <fieldset>
+                    <legend>Outras informações</legend>
+                    <div class="form-group mb-3">
+                        <label for="addresponsavel">Nome do responsável?</label>
+                        <input type="text" class="form-control" name="addresponsavel" id="addresponsavel">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="addparentesco">Qual o parentesco do responsável?</label>
+                        <input type="text" class="form-control" name="addparentesco" id="addparentesco">
+                    </div>
+                </fieldset>
+            </form>            
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-success add_agendamento"><img id="imgadd" src="{{asset('storage/ajax-loader.gif')}}" style="display: none;" class="rounded-circle" width="20"> Salvar</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- fim AddAgendamentoModal -->
+
+
 @auth
 @if(!(auth()->user()->inativo))
 <div class="container px-4 px-lg-5">
@@ -61,12 +118,16 @@
                             @endif
                             <td>{{$atendimento->medico_terapeuta->nome}}</td>
                             <td>{{$atendimento->tratamento->nome}}</td>
+                            @if($atendimento->tipo_atendimento_id==5)
                             <td>
                                 <div class="btn-group">
                                     <button type="button" data-id="{{$atendimento->id}}" data-nome="{{$atendimento->paciente->nome}}" class="edit_agendamento fas fa-edit" style="background:transparent;border:none; white-space: nowrap;" data-html="true" data-placement="left" data-toggle="popover" title="Editar"></button>
                                     <button type="button" data-id="{{$atendimento->id}}" data-nome="{{$atendimento->paciente->nome}}" class="delete_agendamento_btn fas fa-trash" style="background:transparent;border:none; white-space: nowrap;" data-html="true" data-placement="right" data-toggle="popover" title="Excluir"></button>
                                 </div>
                             </td>
+                            @else
+                            <td></td>
+                            @endif
                         </tr>
                         @empty
                         <tr id="nadaencontrado">
