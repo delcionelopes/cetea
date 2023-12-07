@@ -50,6 +50,9 @@
                 @auth
                 @if((auth()->user()->sistema) && (auth()->user()->inativo!=1))
                 <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{route('ceteaadmin.cetea.index')}}">AdminCETEA</a></li>
+                @endif
+                @if((auth()->user()->sistema) && (auth()->user()->inativo!=1))
+                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{route('page.minhaagenda',['cpf'=>auth()->user()->cpf])}}">Minha Agenda</a></li>
                 @endif   
                 @if(auth()->user()->inativo!=1)                     
                 <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{route('page.showperfil',['id' => auth()->user()->id])}}">{{auth()->user()->name}}</a></li>

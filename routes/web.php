@@ -226,7 +226,8 @@ Route::namespace('App\Http\Controllers\Page')->name('page.')->group(function(){
     Route::put('/fototemp-upload','HomeController@fotoTempUpload');
     Route::delete('/delete-fototemp','HomeController@deleteFotoTemp');
     Route::post('/salvar-comentario','ComentarioController@salvarComentario');
-    Route::delete('/delete-comentario/{id}','ComentarioController@deleteComentario');    
+    Route::delete('/delete-comentario/{id}','ComentarioController@deleteComentario');
+    Route::get('/minhaagenda/{cpf}','AgendaPacienteController@index')->name('minhaagenda');
   });
 
   

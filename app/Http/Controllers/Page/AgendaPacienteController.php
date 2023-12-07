@@ -44,7 +44,7 @@ class AgendaPacienteController extends Controller
                                    });
         $atendimentos = $query->orderBy('data_atendimento')->paginate(2);
 
-        return view('page.pacienteagenda',[
+        return view('page.agenda.index',[
             'atendimentos' => $atendimentos,
             'paciente' => $paciente,
             'medicosterapeutas' => $medicosterapeutas,
