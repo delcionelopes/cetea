@@ -76,7 +76,63 @@
 </div>
 <!-- fim AddAgendamentoModal -->
 
+<!-- início EditAgendamentoModal -->
+<div class="modal fade animate__animated animate__bounce animate__faster" id="EditAgendamentoModal" tabindex="-1" role="dialog" aria-labelledby="titleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header navbar-dark bg-success">
+                <h5 class="modal-title" id="titleModalLabel" style="color: white;">Agendamento para: {{$paciente->nome}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                <span aria-hidden="true" style="color: white;">&times;</span>
+                </button>                
+            </div>
+            <div class="modal-body form-horizontal">
+            <form id="editform" name="editform" class="form-horizontal" role="form">
+                <input type="hidden" id="edit_paciente_id">                
+                <input type="hidden" id="edit_atendimento_id">
+                <ul id="updateform_errList"></ul>                                   
+                <div class="form-group mb-3">
+                    <label for="editdata">Para quando deseja agendar?</label>
+                    <input type="date" name="editdata" id="editdata" class="editdata form-control" required pattern="\d{4}-\d{2}-\d{2}" autocomplete="on" value="{{date('Y-m-d')}}"/>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="editmedicoterapeuta">Para qual terapeuta?</label>
+                    <select name="editmedicoterapeuta" id="editmedicoterapeuta" class="editmedicoterapeuta custom-select">
+                                    @foreach ($medicosterapeutas as $terapeuta)
+                                    <option value="{{$terapeuta->id}}">{{$terapeuta->nome}}</option>
+                                    @endforeach                                    
+                    </select>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="edittratamento">Qual terapia?</label>
+                    <select name="edittratamento" id="edittratamento" class="edittratamento custom-select">
+                                   <option value=""></option>
+                    </select>
+                </div>
+                <fieldset>
+                    <legend>Outras informações</legend>
+                    <div class="form-group mb-3">
+                        <label for="editresponsavel">Nome do responsável?</label>
+                        <input type="text" class="form-control" name="editresponsavel" id="editresponsavel">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="editparentesco">Qual o parentesco do responsável?</label>
+                        <input type="text" class="form-control" name="editparentesco" id="editparentesco">
+                    </div>
+                </fieldset>
+            </form>            
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-success update_agendamento"><img id="imgedit" src="{{asset('storage/ajax-loader.gif')}}" style="display: none;" class="rounded-circle" width="20"> Salvar</button>
+            </div>
+        </div>
+    </div>
 
+</div>
+<!-- fim EditAgendamentoModal -->
+
+<!-- inicio index -->
 @auth
 @if(!(auth()->user()->inativo))
 <div class="container px-4 px-lg-5">
@@ -121,8 +177,8 @@
                             @if($atendimento->tipo_atendimento_id==5)
                             <td>
                                 <div class="btn-group">
-                                    <button type="button" data-id="{{$atendimento->id}}" data-nome="{{$atendimento->paciente->nome}}" class="edit_agendamento fas fa-edit" style="background:transparent;border:none; white-space: nowrap;" data-html="true" data-placement="left" data-toggle="popover" title="Editar"></button>
-                                    <button type="button" data-id="{{$atendimento->id}}" data-nome="{{$atendimento->paciente->nome}}" class="delete_agendamento_btn fas fa-trash" style="background:transparent;border:none; white-space: nowrap;" data-html="true" data-placement="right" data-toggle="popover" title="Excluir"></button>
+                                    <button type="button" data-id="{{$atendimento->id}}" data-nome="{{$atendimento->medico_terapeuta->nome}}" class="edit_agendamento fas fa-edit" style="background:transparent;border:none; white-space: nowrap;" data-html="true" data-placement="left" data-toggle="popover" title="Editar"></button>
+                                    <button type="button" data-id="{{$atendimento->id}}" data-nome="{{$atendimento->medico_terapeuta->nome}}" class="delete_agendamento_btn fas fa-trash" style="background:transparent;border:none; white-space: nowrap;" data-html="true" data-placement="right" data-toggle="popover" title="Excluir"></button>
                                 </div>
                             </td>
                             @else
@@ -148,6 +204,8 @@
 @endif
 @endauth
 
+<!-- fim index -->
+
 <!-- Rodapé-->
 <footer class="border-top">
        <div class="container px-4 px-lg-5">
@@ -157,5 +215,184 @@
                   </div>
                 </div>
             </div>
-</footer>      
+</footer>     
+<!-- fim Rodapé-->
+
+@endsection
+
+@section('scripts')
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+    $(document).on('click','.delete_agendamento_btn',function(e){   ///inicio delete
+            e.preventDefault();          
+            var linklogo = "{{asset('storage')}}";
+            var CSRF_TOKEN  = document.querySelector('meta[name="csrf-token"]').getAttribute('content');   
+            var id = $(this).data("id");            
+            var nome = $(this).data("nome");
+            
+            Swal.fire({
+                showClass: {
+                    popup: 'animate__animated animate__fadeInDown'
+                },
+                hideClass: {
+                    popup: 'animate__animated animate__fadeOutUp'
+                },
+                title:nome,
+                text: "Deseja excluir?",
+                imageUrl: linklogo+'/logoprodap.jpg',
+                imageWidth: 400,
+                imageHeight: 200,
+                imageAlt: 'imagem do sistema',
+                showCancelButton: true,
+                confirmButtonText: 'Sim, prossiga!',                
+                cancelButtonText: 'Não, cancelar!',                                 
+             }).then((result)=>{
+             if(result.isConfirmed){             
+                $.ajax({
+                    url: '/page/minhaagenda/delete/'+id,
+                    type: 'POST',
+                    dataType: 'json',
+                    data:{
+                        'id': id,
+                        '_method': 'DELETE',                    
+                        '_token':CSRF_TOKEN,
+                    },
+                    success:function(response){
+                        if(response.status==200){                        
+                            //remove linha correspondente da tabela html
+                            $("#atendimento"+id).remove();     
+                            $("#success_message").replaceWith('<div id="success_message"></div>');                       
+                            $("#success_message").addClass('alert alert-success');
+                            $("#success_message").text(response.message);         
+                        }else{
+                            //Não pôde excluir por causa dos relacionamentos    
+                            $("#success_message").replaceWith('<div id="success_message"></div>');                        
+                            $("#success_message").addClass('alert alert-danger');
+                            $("#success_message").text(response.errors);
+                        }
+                    }
+                }); 
+            } 
+        });   
+      
+        });  ///fim delete
+
+    //início da exibição do form Edit
+        $("#EditAgendamentoModal").on('shown.bs.modal',function(){
+            $("#editdata").focus();
+        });
+        $(document).on('click','.edit_agendamento',function(e){  
+            e.preventDefault();            
+            var id = $(this).data("id");            
+            var nome = $(this).data("nome");
+            
+            $("#editform").trigger('reset');
+            $("#EditAgendamentoModal").modal('show');          
+            $("#updateform_errList").replaceWith('<ul id="updateform_errList"></ul>');      
+    
+            $.ajaxSetup({
+                    headers:{
+                        'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+    
+    
+            $.ajax({ 
+                type: 'GET',             
+                dataType: 'json',                                    
+                url: '/page/minhaagenda/edit/'+id,                                
+                success: function(response){           
+                    if(response.status==200){                           
+                        $(".editdata").val(response.atendimento.nome);
+                        $('.editmedicoterapeuta option')
+                            .removeAttr('selected')
+                            .filter('[value='+response.atendimento.medico_terapeuta_id+']')
+                            .attr('selected', true);
+                        $('.edittratamento option')
+                            .removeAttr('selected')
+                            .filter('[value='+response.atendimento.tratamento_id+']')
+                            .attr('selected',true);
+                        $('.editresponsavel').val(response.atendimento.responsavel_do_paciente);
+                        $('.editparentesco').val(response.atendimento.responsavel_parentesco);                        
+                        $("#edit_paciente_id").val(response.paciente.id);
+                        $("#edit_atendimento_id").val(response.atendimento.id);
+                    }      
+                }
+            });        
+    
+        }); //fim da da exibição do form Edit
+
+        $(document).on('click','.update_agendamento',function(e){ //inicio da atualização de registro
+            e.preventDefault();
+            var loading = $("#imgedit");
+                loading.show();
+            var CSRF_TOKEN  = document.querySelector('meta[name="csrf-token"]').getAttribute('content');            
+    
+            var id = $("#edit_atendimento_id").val();        
+    
+            var data = {
+                'data' : $('#editdata').val(),
+                'tipo_atendimento' : '4',
+                'terapeuta' : $('#editmedicoterapeuta').val(),
+                'paciente' : $('#edit_paciente_id').val(),
+                'tratamento' : $('#edittratamento').val(),
+                'responsavel' : $('#editresponsavel').val(),
+                'parentesco' : $('#editparentesco').val(),
+                '_method':'PUT',
+                '_token':CSRF_TOKEN,
+            }
+            
+            $.ajax({     
+                type: 'POST',                          
+                data: data,
+                dataType: 'json',    
+                url: '/page/minhaagenda/update/'+id,         
+                success: function(response){                                                    
+                    if(response.status==400){
+                        //erros
+                        $("#updateform_errList").replaceWith('<ul id="updateform_errList"></ul>');
+                        $("#updateform_errList").addClass('alert alert-danger');
+                        $.each(response.errors,function(key,err_values){
+                            $("#updateform_errList").append('<li>'+err_values+'</li>');
+                        });
+    
+                        loading.hide();    
+                    } else {
+                        $("#updateform_errList").replaceWith('<ul id="updateform_errList"></ul>');      
+                        $("#success_message").replaceWith('<div id="success_message"></div>');                 
+                        $("#success_message").addClass("alert alert-success");
+                        $("#success_message").text(response.message);
+                        loading.hide();
+    
+                        $("#editform").trigger('reset');
+                        $("#EditAgendamentoModal").modal('hide');                  
+                        
+                        //atualizando a linha na tabela html                      
+    
+                            var linha = '<tr id="atendimento'+response.atendimento.id+'">\
+                                    <th scope="row">'+response.atendimento.data_agonline+'</th>\
+                                    <th scope="row">'+response.terapeuta.nome+'</th>\
+                                    <th scope="row">'+response.tratamento.nome+'</th>\
+                                    <td><div class="btn-group">\
+                                    <button type="button" data-id="'+response.atendimento.id+'" data-nome="'+response.terapeuta.nome+'" class="edit_agendamento fas fa-edit" style="background:transparent;border:none"></button>\
+                                    <button type="button" data-id="'+response.atenmdimento.id+'" data-nome="'+response.terapeuta.nome+'" class="delete_agendamento_btn fas fa-trash" style="background:transparent;border:none"></button>\
+                                    </div></td>\
+                                    </tr>';                             
+                        $("#atendimento"+id).replaceWith(linha);                                                                                
+    
+                    }
+                }
+            });    
+    
+        
+    
+        }); //fim da atualização do registro
+
+});
+
+</script>
+
 @endsection

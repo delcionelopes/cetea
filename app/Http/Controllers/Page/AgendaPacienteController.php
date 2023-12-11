@@ -135,13 +135,13 @@ class AgendaPacienteController extends Controller
     public function edit(int $id)
     {
         $atendimento = $this->atendimento->find($id);
-        $pacientes = $this->paciente->find($atendimento->paciente_id);
+        $paciente = $this->paciente->find($atendimento->paciente_id);
         $medicosterapeutas = $this->medicoterapeuta->orderByDesc('id')->get();        
         $tratamentos = $this->tratamento->orderBy('id')->get();
         return view('cetea.atendimento.edit',[
             'status' => 200,
             'atendimento' => $atendimento,
-            'pacientes' => $pacientes,
+            'paciente' => $paciente,
             'medicosterapeutas' => $medicosterapeutas,            
             'tratamentos' => $tratamentos,
         ]);
@@ -156,8 +156,7 @@ class AgendaPacienteController extends Controller
      */
     public function update(Request $request, int $id)
     {
-        $validator = Validator::make($request->all(),[
-            'paciente' => ['required'],
+        $validator = Validator::make($request->all(),[            
             'tipo_atendimento' => ['required'],
             'terapeuta' => ['required'],
             'tratamento' => ['required'],            
@@ -186,8 +185,14 @@ class AgendaPacienteController extends Controller
             $data['updated_at'] = now();            
             $data['updater_user'] = $user->id;
             $atendimento->update($data);
+            $att = Atendimento::find($id);
+            $terapeuta = $att->medico_terapeuta;
+            $tratamento = $att->tratamento;
             return response()->json([
-                'status' => 200,                
+                'status' => 200,
+                'atendimento' => $att,
+                'terapeuta' => $terapeuta,
+                'tratamento' => $tratamento,
             ]);
 
         }else{

@@ -227,7 +227,12 @@ Route::namespace('App\Http\Controllers\Page')->name('page.')->group(function(){
     Route::delete('/delete-fototemp','HomeController@deleteFotoTemp');
     Route::post('/salvar-comentario','ComentarioController@salvarComentario');
     Route::delete('/delete-comentario/{id}','ComentarioController@deleteComentario');
+    //agenda
     Route::get('/minhaagenda/{cpf}','AgendaPacienteController@index')->name('minhaagenda');
+    Route::delete('/minhaagenda/delete/{id}','AgendaPacienteController@delete');
+    Route::get('/minhaagenda/edit/{id}','AgendaPacienteController@edit');
+    Route::put('/minhaagenda/update/{id}','AgendaPacienteController@update');
+    //fim agenda
   });
 
   
