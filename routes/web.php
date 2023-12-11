@@ -232,6 +232,8 @@ Route::namespace('App\Http\Controllers\Page')->name('page.')->group(function(){
     Route::delete('/minhaagenda/delete/{id}','AgendaPacienteController@delete');
     Route::get('/minhaagenda/edit/{id}','AgendaPacienteController@edit');
     Route::put('/minhaagenda/update/{id}','AgendaPacienteController@update');
+    Route::put('/minhaagenda/store','AgendaPacienteController@store');
+    Route::get('/minhaagenda/medicoxtratamento/{medico_id}','AgendaPacienteController@medicoxtratamento');
     //fim agenda
   });
 

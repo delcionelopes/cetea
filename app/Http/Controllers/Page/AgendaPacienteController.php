@@ -109,8 +109,13 @@ class AgendaPacienteController extends Controller
                 $data['creater_user'] = $user->id;
                 $data['updater_user'] = null;
                 $atendimento = $this->atendimento->create($data);
+                $terapeuta = $atendimento->medico_terapeuta;
+                $tipo_atendimento = $atendimento->tipo_atendimento;
                 return response()->json([
-                    'status' => 200,                
+                    'status' => 200,
+                    'atendimento' => $atendimento,
+                    'medico_terapeuta' => $terapeuta,
+                    'tipo_atendimento' => $tipo_atendimento,
                 ]);
         }
     }
@@ -167,8 +172,7 @@ class AgendaPacienteController extends Controller
                 'errors' => $validator->errors()->getMessages(),
             ]);
         }else{
-            $atendimento = $this->atendimento->find($id);
-            if($atendimento){
+            $atendimento = $this->atendimento->find($id);            
             $user = auth()->user();       
             $yesterday = \Carbon\Carbon::yesterday();                  
             $data['tipo_atendimento_id'] = $request->input('tipo_atendimento');
@@ -187,21 +191,15 @@ class AgendaPacienteController extends Controller
             $atendimento->update($data);
             $att = Atendimento::find($id);
             $terapeuta = $att->medico_terapeuta;
-            $tratamento = $att->tratamento;
+            $tipo_atendimento = $att->tipo_atendimento;
             return response()->json([
                 'status' => 200,
                 'atendimento' => $att,
                 'terapeuta' => $terapeuta,
-                'tratamento' => $tratamento,
+                'tipo_atendimento' => $tipo_atendimento,
             ]);
 
-        }else{
-            return response()->json([
-                'status' => 404,
-                'message' => 'Registro não localizado!',
-            ]);
-        }
-        }
+        }        
     }
 
     /**
@@ -229,4 +227,15 @@ class AgendaPacienteController extends Controller
         }
         return $codigo + 1;
     }
+
+        public function medicoxtratamento(int $id){
+        $medicoterapeuta = $this->medicoterapeuta->find($id);        
+        $tratamentos = $medicoterapeuta->tratamentos;        
+        return response()->json([
+            'status' => 200,
+            'tratamentos' => $tratamentos,
+        ]);
+    }
+
+    
 }

@@ -22,6 +22,9 @@
         
         <link href="{{asset('css/styles.css')}}" rel="stylesheet"/>
         <link href="{{asset('css/menu_estilo.css')}}" rel="stylesheet"/>
+
+        <link rel="stylesheet" href="{{asset('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css')}}">
+
     </head>
     <body>
          <!-- Navegação-->
@@ -70,9 +73,9 @@
             @yield('content')
         <!--jQuery-->
         <script src="{{asset('jquery/jquery-3.6.0.js')}}"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>                
+        <script src="{{asset('https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js')}}"></script>
         <script src="{{asset('js/scripts.js')}}"></script>
-        <script src="{{asset('https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.6.0/sweetalert2.min.js')}}"></script>
+        <script src="{{asset('https://cdn.jsdelivr.net/npm/sweetalert2@11')}}"></script>  <!-- 'https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.6.0/sweetalert2.min.js' -->
         <script src="{{asset('https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js')}}"></script>
       @yield('scripts')
     </body>
