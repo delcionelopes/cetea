@@ -14,11 +14,11 @@
 
         <link rel="icon" type="image/x-icon" href="{{asset('assets/favicon.ico')}}" />                    
         <!-- Font Awesome ícones (versão livre)-->
-        <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
+        <script src="{{asset('https://use.fontawesome.com/releases/v5.15.4/js/all.js')}}" crossorigin="anonymous"></script>
 
          <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+        <link href="{{asset('https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic')}}" rel="stylesheet" type="text/css" />
+        <link href="{{asset('https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800')}}" rel="stylesheet" type="text/css" />
         
         <link href="{{asset('css/styles.css')}}" rel="stylesheet"/>
         <link href="{{asset('css/menu_estilo.css')}}" rel="stylesheet"/>
@@ -55,7 +55,7 @@
                 <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{route('ceteaadmin.cetea.index')}}">AdminCETEA</a></li>
                 @endif
                 @if((auth()->user()->sistema) && (auth()->user()->inativo!=1) && ($ispaciente))
-                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{route('page.minhaagenda',['cpf'=>auth()->user()->cpf])}}">Minha Agenda</a></li>
+                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{route('page.minhaagenda')}}">Minha Agenda</a></li>
                 @endif   
                 @if(auth()->user()->inativo!=1)                     
                 <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{route('page.showperfil',['id' => auth()->user()->id])}}">{{auth()->user()->name}}</a></li>

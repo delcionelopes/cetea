@@ -30,7 +30,7 @@
         <section class="border p-4 mb-4 d-flex align-items-left">
             <div class="col-sm-12">
             <div class="input-group rounded">
-                <button type="button" class="addAgendamentoModal_Btn btn btn-default" style="background: transparent;border: none; white-space: nowrap;" data-html="true" data-placement="top" data-toggle="popover" title="Marcação de atendimento"><i class="fas fa-plus"></i> Novo Agendamento</button>
+                <a href="{{route('page.minhaagenda.create')}}" type="button" class="addAgendamentoModal_Btn btn btn-default" style="background: transparent;border: none; white-space: nowrap;" data-html="true" data-placement="top" data-toggle="popover" title="Marcação de atendimento"><i class="fas fa-plus"></i> Novo Agendamento</a>
             </div>            
             </div>
         </section>
@@ -66,7 +66,7 @@
                             @if($atendimento->tipo_atendimento_id==5)
                             <td>
                                 <div class="btn-group">
-                                    <button type="button" data-id="{{$atendimento->id}}" data-nome="{{$atendimento->medico_terapeuta->nome}}" class="edit_agendamento fas fa-edit" style="background:transparent;border:none; white-space: nowrap;" data-html="true" data-placement="left" data-toggle="popover" title="Editar"></button>
+                                    <a type="button" href="{{route('page.minhaagenda.edit',['id'=>$atendimento->id])}}" data-id="{{$atendimento->id}}" data-nome="{{$atendimento->medico_terapeuta->nome}}" class="edit_agendamento fas fa-edit" style="background:transparent;border:none; white-space: nowrap;" data-html="true" data-placement="left" data-toggle="popover" title="Editar"></a>
                                     <button type="button" data-id="{{$atendimento->id}}" data-nome="{{$atendimento->medico_terapeuta->nome}}" class="delete_agendamento_btn fas fa-trash" style="background:transparent;border:none; white-space: nowrap;" data-html="true" data-placement="right" data-toggle="popover" title="Excluir"></button>
                                 </div>
                             </td>
@@ -169,35 +169,37 @@ $(document).ready(function(){
       
         });  ///fim delete
 
-   
+        ///Cria agendamento
 
-   /*      $(document).on('change','#addmedicoterapeuta',function(){   ///master-detail entre o select medico e o select tratamentos
-
-        var medicoid = $(this).val();
-
-        $.ajaxSetup({
+        /* $(document).on('click','.addAgendamentoModal_Btn',function(e){
+            e.preventDefault();            
+                $.ajaxSetup({
                     headers:{
                         'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
-                    }                    
+                    }
                 });
 
-         $.ajax({ 
-                type: 'GET',             
+                $.ajax({ 
+                type: 'get',             
                 dataType: 'json',                                    
-                url: '/page/minhaagenda/medicoxtratamento/'+medicoid,
+                url: '/page/minhaagenda/create',                                
                 success: function(response){           
-                    if(response.status==200){                       
-                        $('#addtratamento').html('');
-                        $.each(response.tratamentos,function(key,tratamentos){
-                            $('#addtratamento').append('<option value="'+tratamentos.id+'">'+tratamentos.nome+'</option>');
-                        });
+                    if(response.status==400){                           
+                         $("#success_message").replaceWith('<div id="success_message"></div>');                        
+                         $("#success_message").addClass('alert alert-danger');
+                         $("#success_message").text(response.message);
+                    }else{
+                        console.log('cheguei aqui!');
                     }
-                },
+                }
 
-            });
-       
-    }); */
-    ///////////////
+        });
+
+    });
+ */
+
+        //fim cria agendamento
+   
 
          ///tooltip
     $(function(){             

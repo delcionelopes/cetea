@@ -18,6 +18,10 @@ use App\Http\Controllers\Cetea\TipoAtendimentoController;
 use App\Http\Controllers\Cetea\TipoTratamentoController;
 use App\Http\Controllers\Cetea\TratamentoController;
 use App\Http\Controllers\HomeController as ControllersHomeController;
+use App\Http\Controllers\Page\AgendaPacienteController;
+use App\Http\Controllers\Page\ComentarioController;
+use App\Http\Controllers\Page\HomeController;
+use App\Http\Controllers\Page\TemaArtigoController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -216,24 +220,25 @@ Route::prefix('admin')->name('admin.')->group(function(){
 }); //fim do escopo do middleware auth
 
 ///parte do site front-page
-Route::namespace('App\Http\Controllers\Page')->name('page.')->group(function(){
-    Route::get('/','HomeController@master')->name('master');
-    Route::get('/artigo/{slug}','HomeController@detail')->name('detail');
-    Route::get('/download-arquivo/{id}','HomeController@downloadArquivo')->name('download');
-    Route::get('/tema/{slug}','TemaArtigoController@index')->name('tema');
-    Route::get('/show-perfil/{id}','HomeController@showPerfil')->name('showperfil');
-    Route::put('/perfil/{id}','HomeController@perfilUsuario')->name('perfil');  
-    Route::put('/fototemp-upload','HomeController@fotoTempUpload');
-    Route::delete('/delete-fototemp','HomeController@deleteFotoTemp');
-    Route::post('/salvar-comentario','ComentarioController@salvarComentario');
-    Route::delete('/delete-comentario/{id}','ComentarioController@deleteComentario');
+Route::namespace('page')->name('page.')->group(function(){
+    Route::get('/',[HomeController::class,'master'])->name('master');
+    Route::get('/artigo/{slug}',[HomeController::class,'detail'])->name('detail');
+    Route::get('/download-arquivo/{id}',[HomeController::class,'downloadArquivo'])->name('download');
+    Route::get('/tema/{slug}',[TemaArtigoController::class,'index'])->name('tema');
+    Route::get('/show-perfil/{id}',[HomeController::class,'showPerfil'])->name('showperfil');
+    Route::put('/perfil/{id}',[HomeController::class,'perfilUsuario'])->name('perfil');  
+    Route::put('/fototemp-upload',[HomeController::class,'fotoTempUpload']);
+    Route::delete('/delete-fototemp',[HomeController::class,'deleteFotoTemp']);
+    Route::post('/salvar-comentario',[ComentarioController::class,'salvarComentario']);
+    Route::delete('/delete-comentario/{id}',[ComentarioController::class,'deleteComentario']);
     //agenda
-    Route::get('/minhaagenda/{cpf}','AgendaPacienteController@index')->name('minhaagenda');
-    Route::delete('/minhaagenda/delete/{id}','AgendaPacienteController@delete');
-    Route::get('/minhaagenda/edit/{id}','AgendaPacienteController@edit');
-    Route::put('/minhaagenda/update/{id}','AgendaPacienteController@update');
-    Route::put('/minhaagenda/store','AgendaPacienteController@store');
-    Route::get('/minhaagenda/medicoxtratamento/{medico_id}','AgendaPacienteController@medicoxtratamento');
+    Route::get('/minhaagenda',[AgendaPacienteController::class,'index'])->name('minhaagenda');
+    Route::get('/minhaagenda/create',[AgendaPacienteController::class,'create'])->name('minhaagenda.create');
+    Route::delete('/minhaagenda/delete/{id}',[AgendaPacienteController::class,'delete']);
+    Route::get('/minhaagenda/edit/{id}',[AgendaPacienteController::class,'edit']);
+    Route::put('/minhaagenda/update/{id}',[AgendaPacienteController::class,'update']);
+    Route::put('/minhaagenda/store',[AgendaPacienteController::class,'store']);
+    Route::get('/minhaagenda/medicoxtratamento/{medico_id}',[AgendaPacienteController::class,'medicoxtratamento']);
     //fim agenda
   });
 

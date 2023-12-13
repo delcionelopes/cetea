@@ -29,12 +29,13 @@ class AgendaPacienteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($cpf)
+    public function index()
     {
         date_default_timezone_set('America/Sao_Paulo');
-        $paciente = $this->paciente->whereCpf($cpf)->first();
+        $user = auth()->user();
+        $paciente = $this->paciente->whereCpf($user->cpf)->first();        
         $medicosterapeutas = $this->medicoterapeuta->orderByDesc('id')->get();
-        $tratamentos = $this->tratamento->orderBy('id')->get();
+        $tratamentos = $this->tratamento->orderBy('id')->get();        
         $query = $this->atendimento->where('paciente_id','=',$paciente->id)
                                    ->where(function($query){
                                     $query->whereDate('data_retorno','>=',date("Y-m-d"))
@@ -44,11 +45,7 @@ class AgendaPacienteController extends Controller
                                    });
         $atendimentos = $query->orderBy('data_atendimento')->paginate(2);
 
-        if($paciente){
-            $ispaciente = true;
-        }else{
-            $ispaciente = false;
-        }
+        $ispaciente = true;        
 
         return view('page.agenda.index',[
             'atendimentos' => $atendimentos,
@@ -65,8 +62,37 @@ class AgendaPacienteController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        //
+    {        
+        date_default_timezone_set('America/Sao_Paulo');
+        
+        $medicosterapeutas = $this->medicoterapeuta->orderByDesc('id')->get();
+        $tratamentos = $this->tratamento->orderBy('id')->get();
+
+        $user = auth()->user();        
+        $paciente = $this->paciente->whereCpf($user->cpf)->first();
+
+        $query = $this->atendimento->where('paciente_id','=',$paciente->id)
+                                   ->where(function($query){
+                                    $query->whereDate('data_retorno','>=',date("Y-m-d"))
+                                          ->orwhereDate('data_encaminhamento','>=',date("Y-m-d"))
+                                          ->orwhereDate('data_agonline','>=',date("Y-m-d"))
+                                          ->orwhereDate('data_agendamento','>=',date("Y-m-d"));                                          
+                                   });
+        $atendimentos = $query->orderBy('data_atendimento')->get();
+        $ispaciente = true;
+        if($atendimentos->count()){
+            return response()->json([
+                'status' => 400,
+                'message' => 'Este paciente já possui compromisso de atendimento!',
+            ]);
+        }
+        return view('page.agenda.create',[
+            'status' => 200,
+            'paciente' => $paciente,
+            'medicosterapeutas' => $medicosterapeutas,
+            'tratamentos' => $tratamentos,
+            'ispaciente' => $ispaciente,
+        ]);
     }
 
     /**
@@ -77,8 +103,7 @@ class AgendaPacienteController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(),[
-            'tipo_atendimento' => ['required'],
+        $validator = Validator::make($request->all(),[            
             'terapeuta' => ['required'],
             'tratamento' => ['required'],
             'paciente' => ['required'],
@@ -93,7 +118,7 @@ class AgendaPacienteController extends Controller
                 $id = $this->maxId();
                 $yesterday = \Carbon\Carbon::yesterday(); 
                 $data['id'] = $id;
-                $data['tipo_atendimento_id'] = $request->input('tipo_atendimento');
+                $data['tipo_atendimento_id'] = 5;
                 $data['medico_terapeuta_id'] = $request->input('terapeuta');
                 $data['tratamento_id'] = $request->input('tratamento');
                 $data['paciente_id'] = $request->input('paciente');
@@ -139,16 +164,20 @@ class AgendaPacienteController extends Controller
      */
     public function edit(int $id)
     {
+        date_default_timezone_set('America/Sao_Paulo');
         $atendimento = $this->atendimento->find($id);
         $paciente = $this->paciente->find($atendimento->paciente_id);
         $medicosterapeutas = $this->medicoterapeuta->orderByDesc('id')->get();        
         $tratamentos = $this->tratamento->orderBy('id')->get();
-        return view('cetea.atendimento.edit',[
+        $ispaciente = true;
+        
+        return view('page.agenda.edit',[
             'status' => 200,
             'atendimento' => $atendimento,
             'paciente' => $paciente,
             'medicosterapeutas' => $medicosterapeutas,            
             'tratamentos' => $tratamentos,
+            'ispaciente' => $ispaciente,
         ]);
     }
 
@@ -161,8 +190,7 @@ class AgendaPacienteController extends Controller
      */
     public function update(Request $request, int $id)
     {
-        $validator = Validator::make($request->all(),[            
-            'tipo_atendimento' => ['required'],
+        $validator = Validator::make($request->all(),[                        
             'terapeuta' => ['required'],
             'tratamento' => ['required'],            
         ]);
@@ -175,7 +203,7 @@ class AgendaPacienteController extends Controller
             $atendimento = $this->atendimento->find($id);            
             $user = auth()->user();       
             $yesterday = \Carbon\Carbon::yesterday();                  
-            $data['tipo_atendimento_id'] = $request->input('tipo_atendimento');
+            $data['tipo_atendimento_id'] = 5;
             $data['paciente_id'] = $request->input('paciente');
             $paciente = $this->paciente->find($request->input('paciente'));
             $data['paciente'] = $paciente->nome;

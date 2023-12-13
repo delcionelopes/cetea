@@ -158,6 +158,7 @@ class AtendimentoController extends Controller
      */
     public function edit(int $id, $color)
     {
+        date_default_timezone_set('America/Sao_Paulo');
         $atendimento = $this->atendimento->find($id);
         $pacientes = $this->paciente->orderByDesc('id')->get();
         $medicosterapeutas = $this->medicoterapeuta->orderByDesc('id')->get();
