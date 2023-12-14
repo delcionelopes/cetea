@@ -119,7 +119,7 @@
     
 @stop
 
-@section('js')
+@section('scripts')
 
 <script type="text/javascript">
 
@@ -144,7 +144,7 @@ $(document).ready(function(){
             data.append('_method','PUT');              
 
         $.ajax({
-            url: '/page/minhaagenda/update/'+id,
+            url: '/pagina/minhaagenda/update/'+id,
             type: 'POST',
             dataType: 'json',
             data: data,
@@ -162,7 +162,7 @@ $(document).ready(function(){
                 } else{
                     $('#saveform_errList').replaceWith('<ul id="saveform_errList"></ul>');  
                     loading.hide();
-                    location.replace('/page/minhaagenda');
+                    location.replace('/pagina/minhaagenda/index');
                 }  
             }  
         });
@@ -174,7 +174,7 @@ $(document).ready(function(){
     
     $(document).on('click','.cancelar_btn',function(e){
         e.preventDefault();        
-        location.replace('/page/minhaagenda');
+        location.replace('/pagina/minhaagenda/index');
     });
 
 
@@ -191,7 +191,7 @@ $(document).ready(function(){
          $.ajax({ 
                 type: 'GET',             
                 dataType: 'json',                                    
-                url: '/page/minhaagenda/medicoxtratamento/'+medicoid,
+                url: '/pagina/minhaagenda/medicoxtratamento/'+medicoid,
                 success: function(response){           
                     if(response.status==200){                       
                         $('#idtratamento').html('');

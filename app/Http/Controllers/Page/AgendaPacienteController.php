@@ -45,6 +45,12 @@ class AgendaPacienteController extends Controller
                                    });
         $atendimentos = $query->orderBy('data_atendimento')->paginate(2);
 
+        if($atendimentos->count()){
+            $iscreate = false;
+        }else{
+            $iscreate = true;
+        }
+
         $ispaciente = true;        
 
         return view('page.agenda.index',[
@@ -53,6 +59,7 @@ class AgendaPacienteController extends Controller
             'medicosterapeutas' => $medicosterapeutas,
             'tratamentos' => $tratamentos,
             'ispaciente' => $ispaciente,
+            'iscreate' => $iscreate,
         ]);
     }
 
@@ -71,28 +78,15 @@ class AgendaPacienteController extends Controller
         $user = auth()->user();        
         $paciente = $this->paciente->whereCpf($user->cpf)->first();
 
-        $query = $this->atendimento->where('paciente_id','=',$paciente->id)
-                                   ->where(function($query){
-                                    $query->whereDate('data_retorno','>=',date("Y-m-d"))
-                                          ->orwhereDate('data_encaminhamento','>=',date("Y-m-d"))
-                                          ->orwhereDate('data_agonline','>=',date("Y-m-d"))
-                                          ->orwhereDate('data_agendamento','>=',date("Y-m-d"));                                          
-                                   });
-        $atendimentos = $query->orderBy('data_atendimento')->get();
-        $ispaciente = true;
-        if($atendimentos->count()){
-            return response()->json([
-                'status' => 400,
-                'message' => 'Este paciente já possui compromisso de atendimento!',
+        $ispaciente = true;                
+            return view('page.agenda.create',[
+                'status' => 200,
+                'paciente' => $paciente,
+                'medicosterapeutas' => $medicosterapeutas,
+                'tratamentos' => $tratamentos,
+                'ispaciente' => $ispaciente,
             ]);
-        }
-        return view('page.agenda.create',[
-            'status' => 200,
-            'paciente' => $paciente,
-            'medicosterapeutas' => $medicosterapeutas,
-            'tratamentos' => $tratamentos,
-            'ispaciente' => $ispaciente,
-        ]);
+        
     }
 
     /**
@@ -163,7 +157,8 @@ class AgendaPacienteController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(int $id)
-    {
+    {        
+        dd("cheguei aqui!");
         date_default_timezone_set('America/Sao_Paulo');
         $atendimento = $this->atendimento->find($id);
         $paciente = $this->paciente->find($atendimento->paciente_id);
@@ -238,7 +233,7 @@ class AgendaPacienteController extends Controller
      */
     public function destroy(int $id)
     {
-        $atendimento = $this->atendimento->find($id);
+        $atendimento = $this->atendimento->find($id);        
         $atendimento->delete();
         return response()->json([
             'status' => 200,
@@ -256,7 +251,7 @@ class AgendaPacienteController extends Controller
         return $codigo + 1;
     }
 
-        public function medicoxtratamento(int $id){
+        public function medicoxtratamento(int $id){        
         $medicoterapeuta = $this->medicoterapeuta->find($id);        
         $tratamentos = $medicoterapeuta->tratamentos;        
         return response()->json([

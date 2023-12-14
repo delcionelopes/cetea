@@ -55,7 +55,7 @@
                 <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{route('ceteaadmin.cetea.index')}}">AdminCETEA</a></li>
                 @endif
                 @if((auth()->user()->sistema) && (auth()->user()->inativo!=1) && ($ispaciente))
-                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{route('page.minhaagenda')}}">Minha Agenda</a></li>
+                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{route('pagina.minhaagenda.index')}}">Minha Agenda</a></li>
                 @endif   
                 @if(auth()->user()->inativo!=1)                     
                 <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{route('page.showperfil',['id' => auth()->user()->id])}}">{{auth()->user()->name}}</a></li>
@@ -72,10 +72,10 @@
         </nav>         
             @yield('content')
         <!--jQuery-->
-        <script src="{{asset('jquery/jquery-3.6.0.js')}}"></script>
-        <script src="{{asset('https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js')}}"></script>
+        <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
+        <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
         <script src="{{asset('js/scripts.js')}}"></script>
-        <script src="{{asset('https://cdn.jsdelivr.net/npm/sweetalert2@11')}}"></script>  <!-- 'https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.6.0/sweetalert2.min.js' -->
+        <script src="{{asset('https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.6.0/sweetalert2.min.js')}}"></script>
         <script src="{{asset('https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js')}}"></script>
       @yield('scripts')
     </body>

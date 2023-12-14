@@ -68,7 +68,7 @@
                     @endforeach
                     <!-- Paginação-->
                     <div class="d-flex justify-content-center mb-4">
-                    {{$artigos->links("pagination::bootstrap-4")}}
+                    {{$artigos->links()}}
                     </div>
                 </div>      
             </div>

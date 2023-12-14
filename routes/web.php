@@ -220,7 +220,8 @@ Route::prefix('admin')->name('admin.')->group(function(){
 }); //fim do escopo do middleware auth
 
 ///parte do site front-page
-Route::namespace('page')->name('page.')->group(function(){
+
+Route::namespace('Page')->name('page.')->group(function(){    
     Route::get('/',[HomeController::class,'master'])->name('master');
     Route::get('/artigo/{slug}',[HomeController::class,'detail'])->name('detail');
     Route::get('/download-arquivo/{id}',[HomeController::class,'downloadArquivo'])->name('download');
@@ -231,15 +232,23 @@ Route::namespace('page')->name('page.')->group(function(){
     Route::delete('/delete-fototemp',[HomeController::class,'deleteFotoTemp']);
     Route::post('/salvar-comentario',[ComentarioController::class,'salvarComentario']);
     Route::delete('/delete-comentario/{id}',[ComentarioController::class,'deleteComentario']);
+
+});
+    
+  Route::group(['middleware' => ['auth']],function(){
     //agenda
-    Route::get('/minhaagenda',[AgendaPacienteController::class,'index'])->name('minhaagenda');
-    Route::get('/minhaagenda/create',[AgendaPacienteController::class,'create'])->name('minhaagenda.create');
-    Route::delete('/minhaagenda/delete/{id}',[AgendaPacienteController::class,'delete']);
-    Route::get('/minhaagenda/edit/{id}',[AgendaPacienteController::class,'edit']);
-    Route::put('/minhaagenda/update/{id}',[AgendaPacienteController::class,'update']);
-    Route::put('/minhaagenda/store',[AgendaPacienteController::class,'store']);
-    Route::get('/minhaagenda/medicoxtratamento/{medico_id}',[AgendaPacienteController::class,'medicoxtratamento']);
+  Route::prefix('pagina')->name('pagina.')->group(function(){
+    Route::prefix('minhaagenda')->name('minhaagenda.')->group(function(){
+      Route::get('/index',[AgendaPacienteController::class,'index'])->name('index');
+      Route::get('/create',[AgendaPacienteController::class,'create'])->name('create');
+      Route::delete('/delete/{id}',[AgendaPacienteController::class,'destroy']);
+      Route::get('/edit/{id}',[AgendaPacienteController::class,'edit'])->name('edit');
+      Route::put('/update/{id}',[AgendaPacienteController::class,'update']);
+      Route::put('/store',[AgendaPacienteController::class,'store']);
+      Route::get('/medicoxtratamento/{medico_id}',[AgendaPacienteController::class,'medicoxtratamento']);
+    });
     //fim agenda
+    });
   });
 
   

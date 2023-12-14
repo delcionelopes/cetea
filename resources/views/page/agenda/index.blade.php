@@ -27,13 +27,23 @@
 <div class="container px-4 px-lg-5">
     <div class="container-fluid py-5">
         <div id="success_message"></div>
+        @if($iscreate)
         <section class="border p-4 mb-4 d-flex align-items-left">
             <div class="col-sm-12">
             <div class="input-group rounded">
-                <a href="{{route('page.minhaagenda.create')}}" type="button" class="addAgendamentoModal_Btn btn btn-default" style="background: transparent;border: none; white-space: nowrap;" data-html="true" data-placement="top" data-toggle="popover" title="Marcação de atendimento"><i class="fas fa-plus"></i> Novo Agendamento</a>
+                <a href="{{route('pagina.minhaagenda.create')}}" type="button" class="addAgendamentoModal_Btn btn btn-default" style="background: transparent;border: none; white-space: nowrap;" data-html="true" data-placement="top" data-toggle="popover" title="Marcação de atendimento"><i class="fas fa-plus"></i> Novo Agendamento</a>
             </div>            
             </div>
         </section>
+        @else
+        <section class="border p-4 mb-4 d-flex align-items-left">
+            <div class="col-sm-12">
+            <div class="input-group rounded">
+                <button type="button" class="addAgendamentoModal_Btn btn btn-default" style="background: transparent;border: none; white-space: nowrap;" data-html="true" data-placement="top" data-toggle="popover" title="Não pode criar novo agendamento"><i class="fas fa-lock"></i> Já tem agendamento</button>
+            </div>            
+            </div>
+        </section>
+        @endif
         <div class="card">
             <div class="card-body">
                 <table class="table table-hover">
@@ -50,23 +60,23 @@
                         @forelse($atendimentos as $atendimento)
                         <tr id="atendimento{{$atendimento->id}}">
                             @if($atendimento->tipo_atendimento_id==2) <!--retorno -->
-                            <th scope="row">{{$atendimento->data_retorno}}</th>
+                            <th scope="row">{{date('d/m/Y', strtotime($atendimento->data_retorno))}}</th>
                             @endif
                             @if($atendimento->tipo_atendimento_id==3) <!--encaminhamento -->
-                            <th scope="row">{{$atendimento->data_encaminhamento}}</th>
+                            <th scope="row">{{date('d/m/Y', strtotime($atendimento->data_encaminhamento))}}</th>
                             @endif
                             @if($atendimento->tipo_atendimento_id==4) <!--agendamento -->
-                            <th scope="row">{{$atendimento->data_agendamento}}</th>
+                            <th scope="row">{{date('d/m/Y', strtotime($atendimento->data_agendamento))}}</th>
                             @endif
                             @if($atendimento->tipo_atendimento_id==5) <!--agenda online -->
-                            <th scope="row">{{$atendimento->data_agonline}}</th>
+                            <th scope="row">{{date('d/m/Y', strtotime($atendimento->data_agonline))}}</th>
                             @endif
                             <td>{{$atendimento->medico_terapeuta->nome}}</td>
                             <td>{{$atendimento->tipo_atendimento->nome}}</td>
                             @if($atendimento->tipo_atendimento_id==5)
                             <td>
                                 <div class="btn-group">
-                                    <a type="button" href="{{route('page.minhaagenda.edit',['id'=>$atendimento->id])}}" data-id="{{$atendimento->id}}" data-nome="{{$atendimento->medico_terapeuta->nome}}" class="edit_agendamento fas fa-edit" style="background:transparent;border:none; white-space: nowrap;" data-html="true" data-placement="left" data-toggle="popover" title="Editar"></a>
+                                    <a href="{{route('pagina.minhaagenda.edit',['id'=>$atendimento->id])}}" type="button" data-id="{{$atendimento->id}}" class="edit_agendamento fas fa-edit" style="color: black; background:transparent;border:none; white-space: nowrap;" data-html="true" data-placement="left" data-toggle="popover" title="Editar"></a>
                                     <button type="button" data-id="{{$atendimento->id}}" data-nome="{{$atendimento->medico_terapeuta->nome}}" class="delete_agendamento_btn fas fa-trash" style="background:transparent;border:none; white-space: nowrap;" data-html="true" data-placement="right" data-toggle="popover" title="Excluir"></button>
                                 </div>
                             </td>
@@ -76,7 +86,7 @@
                         </tr>
                         @empty
                         <tr id="nadaencontrado">
-                            <td colspan="4">Nenhuma agenda foi registrada!</td>
+                            <td colspan="4">Agenda livre!</td>
                         </tr>
                         @endforelse
                     </tbody>
@@ -107,7 +117,7 @@
 </footer>     
 <!-- fim Rodapé-->
 
-@endsection
+@stop
 
 @section('scripts')
 
@@ -141,7 +151,7 @@ $(document).ready(function(){
              }).then((result)=>{
              if(result.isConfirmed){             
                 $.ajax({
-                    url: '/page/minhaagenda/delete/'+id,
+                    url: '/pagina/minhaagenda/delete/'+id,
                     type: 'POST',
                     dataType: 'json',
                     data:{
@@ -155,7 +165,8 @@ $(document).ready(function(){
                             $("#atendimento"+id).remove();     
                             $("#success_message").replaceWith('<div id="success_message"></div>');                       
                             $("#success_message").addClass('alert alert-success');
-                            $("#success_message").text(response.message);         
+                            $("#success_message").text(response.message);  
+                            location.replace('/pagina/minhaagenda/index');
                         }else{
                             //Não pôde excluir por causa dos relacionamentos    
                             $("#success_message").replaceWith('<div id="success_message"></div>');                        
@@ -168,35 +179,7 @@ $(document).ready(function(){
         });   
       
         });  ///fim delete
-
-        ///Cria agendamento
-
-        /* $(document).on('click','.addAgendamentoModal_Btn',function(e){
-            e.preventDefault();            
-                $.ajaxSetup({
-                    headers:{
-                        'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
-                    }
-                });
-
-                $.ajax({ 
-                type: 'get',             
-                dataType: 'json',                                    
-                url: '/page/minhaagenda/create',                                
-                success: function(response){           
-                    if(response.status==400){                           
-                         $("#success_message").replaceWith('<div id="success_message"></div>');                        
-                         $("#success_message").addClass('alert alert-danger');
-                         $("#success_message").text(response.message);
-                    }else{
-                        console.log('cheguei aqui!');
-                    }
-                }
-
-        });
-
-    });
- */
+ 
 
         //fim cria agendamento
    
@@ -213,4 +196,4 @@ $(document).ready(function(){
 
 </script>
 
-@endsection
+@stop
