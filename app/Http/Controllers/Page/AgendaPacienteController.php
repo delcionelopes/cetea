@@ -7,6 +7,7 @@ use App\Models\Atendimento;
 use App\Models\Medico_Terapeuta;
 use App\Models\Paciente;
 use App\Models\Tratamento;
+use Carbon\CarbonPeriod;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -37,6 +38,7 @@ class AgendaPacienteController extends Controller
         $medicosterapeutas = $this->medicoterapeuta->orderByDesc('id')->get();
         $tratamentos = $this->tratamento->orderBy('id')->get();        
         $query = $this->atendimento->where('paciente_id','=',$paciente->id)
+                                   ->where('atendido','=',0)     
                                    ->where(function($query){
                                     $query->whereDate('data_retorno','>=',date("Y-m-d"))
                                           ->orwhereDate('data_encaminhamento','>=',date("Y-m-d"))
@@ -157,8 +159,7 @@ class AgendaPacienteController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(int $id)
-    {        
-        dd("cheguei aqui!");
+    {           
         date_default_timezone_set('America/Sao_Paulo');
         $atendimento = $this->atendimento->find($id);
         $paciente = $this->paciente->find($atendimento->paciente_id);
@@ -201,8 +202,7 @@ class AgendaPacienteController extends Controller
             $data['tipo_atendimento_id'] = 5;
             $data['paciente_id'] = $request->input('paciente');
             $paciente = $this->paciente->find($request->input('paciente'));
-            $data['paciente'] = $paciente->nome;
-            $data['atendido'] = 0;
+            $data['paciente'] = $paciente->nome;            
             $data['medico_terapeuta_id'] = $request->input('terapeuta');
             $data['tratamento_id'] = $request->input('tratamento');            
             $data['responsavel_do_paciente'] = strtoupper($request->input('responsavel'));
@@ -259,6 +259,31 @@ class AgendaPacienteController extends Controller
             'tratamentos' => $tratamentos,
         ]);
     }
+
+
+    public function diasColorir(){
+        $dataInicio = date('Y-m-d');
+        $dataFim = date('Y-m-d',strtotime('+20 days'));        
+        $periodo = CarbonPeriod::create($dataInicio,$dataFim);
+        $datas = $periodo->toArray();
+        $i = 0;
+        foreach($datas as $date){
+            $query = $this->atendimento->where('atendido','=',0)     
+                                       ->where('data_agonline','=',$date);
+            $atendimento = $query->get();
+            $contaAtendimento = $atendimento->count();
+
+            $data[$i]['data'] = $date->format('Y-m-d');
+            $data[$i]['n_atendimentos'] = $contaAtendimento;
+            
+            $i++;
+        }
+        return response()->json([
+            'status' => 200,
+            'data' => $data,
+        ]);
+    }
+
 
     
 }

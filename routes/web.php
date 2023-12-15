@@ -246,6 +246,7 @@ Route::namespace('Page')->name('page.')->group(function(){
       Route::put('/update/{id}',[AgendaPacienteController::class,'update']);
       Route::put('/store',[AgendaPacienteController::class,'store']);
       Route::get('/medicoxtratamento/{medico_id}',[AgendaPacienteController::class,'medicoxtratamento']);
+      Route::get('/diascolorir',[AgendaPacienteController::class,'diasColorir'])->name('colorir');
     });
     //fim agenda
     });

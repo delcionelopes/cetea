@@ -88,7 +88,7 @@
                 </fieldset>                               
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="modal-footer">
+                        <div class="modal-footer">                            
                             <button type="button" class="cancelar_btn btn btn-default">Cancelar</button>
                             <button  class="salvar_btn btn btn-success" type="button"><img id="imgadd" src="{{asset('storage/ajax-loader.gif')}}" style="display: none;" class="rounded-circle" width="20"> Salvar</button>
                         </div>
@@ -122,7 +122,8 @@
 
 <script type="text/javascript">
 
-$(document).ready(function(){    
+$(document).ready(function(){   
+    
 
     $(document).on('click','.salvar_btn',function(e){
         e.preventDefault();
@@ -203,6 +204,39 @@ $(document).ready(function(){
             });
        
     });
+
+    //colorindo o datepicker
+
+    $(document).on('click','#adddata',function(e){
+        e.preventDefault;        
+
+        var dateStr = new Array();
+
+        $.ajaxSetup({
+                    headers:{
+                        'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+                    }                    
+                });
+
+        $.ajax({
+            type: 'get',
+            dataType: 'json',
+            url : '/pagina/minhaagenda/diascolorir',
+            async: false,
+            cache: false,
+            data: {},
+            success: function(response){                
+                $.each(response.data,function(key,value){
+                    dateStr.push(value.data,value.n_atendimentos);
+                });
+                console.log(dateStr);
+            }
+        });
+    });    
+   
+    
+
+    //fim colorindo o datepicker
 
 
     //formatação str para date

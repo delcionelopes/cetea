@@ -75,9 +75,9 @@
                             <td>{{$atendimento->tipo_atendimento->nome}}</td>
                             @if($atendimento->tipo_atendimento_id==5)
                             <td>
-                                <div class="btn-group">
-                                    <a href="{{route('pagina.minhaagenda.edit',['id'=>$atendimento->id])}}" type="button" data-id="{{$atendimento->id}}" class="edit_agendamento fas fa-edit" style="color: black; background:transparent;border:none; white-space: nowrap;" data-html="true" data-placement="left" data-toggle="popover" title="Editar"></a>
-                                    <button type="button" data-id="{{$atendimento->id}}" data-nome="{{$atendimento->medico_terapeuta->nome}}" class="delete_agendamento_btn fas fa-trash" style="background:transparent;border:none; white-space: nowrap;" data-html="true" data-placement="right" data-toggle="popover" title="Excluir"></button>
+                                <div class="btn-group">                                    
+                                    <a href="{{route('pagina.minhaagenda.edit',['id'=>$atendimento->id])}}" type="button" style="background: transparent;border: none; white-space: nowrap;" data-html="true" data-placement="top" data-toggle="popover" title="Editar"><i class="fas fa-edit"></i></a>
+                                    <button type="button" data-id="{{$atendimento->id}}" data-nome="{{$atendimento->medico_terapeuta->nome}}" class="delete_agendamento_btn" style="background:transparent;border:none; white-space: nowrap;" data-html="true" data-placement="right" data-toggle="popover" title="Excluir"><i class="fas fa-trash"></i></button>
                                 </div>
                             </td>
                             @else
@@ -116,6 +116,12 @@
             </div>
 </footer>     
 <!-- fim Rodapé-->
+
+@stop
+
+@section('css')
+
+<link href="{{asset('css/styles.css')}}" rel="stylesheet" />
 
 @stop
 
