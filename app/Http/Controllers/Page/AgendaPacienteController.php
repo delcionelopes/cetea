@@ -99,7 +99,8 @@ class AgendaPacienteController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(),[            
+        $validator = Validator::make($request->all(),[
+            'data' => ['required','date'],
             'terapeuta' => ['required'],
             'tratamento' => ['required'],
             'paciente' => ['required'],
@@ -109,10 +110,38 @@ class AgendaPacienteController extends Controller
                 'status' => 400,
                 'errors' => $validator->errors()->getMessages(),
             ]);
-        }else{
+        }else{            
+
+                if(date('w',strtotime($request->input('data')))==0 || date('w',strtotime($request->input('data')))==6){
+                    return response()->json([
+                        'status' => 401,
+                        'message' => 'O agendamento não pode ser em fim de semana! Não tem expediente.',
+                    ]);
+                }
+
+                if(strtotime($request->input('data'))<strtotime(date('Y-m-d'))){
+                    return response()->json([
+                        'status' => 401,
+                        'message' => 'O agendamento não pode ser anterior à data de hoje!',
+                    ]);
+                }
+
+                 $query = $this->atendimento->where('atendido','=',0)     
+                                       ->where('data_agonline','=',$request->input('data'));
+                 $atendimento = $query->get();
+                 $contaAtendimento = $atendimento->count();
+
+                 if($contaAtendimento==4){
+                    return response()->json([
+                        'status' => 401,
+                        'message' => 'Nesta data o agendamento on-line atingiu o limite! Escolha uma data verde.',
+                    ]);
+                 }    
+
+
                 $user = auth()->user();
                 $id = $this->maxId();
-                $yesterday = \Carbon\Carbon::yesterday(); 
+                $yesterday = \Carbon\Carbon::yesterday(); //armazena a data de ontem porque agendamento online não pode aparecer no expediente de hoje
                 $data['id'] = $id;
                 $data['tipo_atendimento_id'] = 5;
                 $data['medico_terapeuta_id'] = $request->input('terapeuta');
@@ -263,7 +292,7 @@ class AgendaPacienteController extends Controller
 
     public function diasColorir(){
         $dataInicio = date('Y-m-d');
-        $dataFim = date('Y-m-d',strtotime('+20 days'));        
+        $dataFim = date('Y-m-d',strtotime('+30 days'));        
         $periodo = CarbonPeriod::create($dataInicio,$dataFim);
         $datas = $periodo->toArray();
         $i = 0;
@@ -280,10 +309,9 @@ class AgendaPacienteController extends Controller
         }
         return response()->json([
             'status' => 200,
-            'data' => $data,
+            'datas' => $data,
         ]);
-    }
-
+    }    
 
     
 }

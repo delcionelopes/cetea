@@ -1,6 +1,21 @@
 @extends('layouts.page')
 @section('content')
 
+<style>
+.indisponivel .ui-state-default{
+			background: red !important;
+			border-color: red !important;
+			color: white !important;
+		}
+.disponivel .ui-state-default{
+			background: green !important;
+			border-color: green !important;
+			color: white !important;
+		}
+
+</style>
+
+
 <!-- Cabeçalho-->
 <header class="masthead" style="background-image: url('/assets/img/home-bg.jpg')">
             <div class="container position-relative px-4 px-lg-5">
@@ -41,7 +56,8 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="adddata" style="color: green">Para quando?</label>
-                                <input type="date" name="adddata" id="adddata" class="addata form-control" required pattern="\d{4}-\d{2}-\d{2}" autocomplete="on" value="{{date('Y-m-d')}}"/>
+                                {{-- <input type="date" name="adddata" id="adddata" class="addata form-control" required pattern="\d{4}-\d{2}-\d{2}" autocomplete="on" value="{{date('Y-m-d')}}"/> --}}
+                                <input type="text" name="adddata" id="adddata" class="addata form-control" data-format="00/00/0000"  placeholder="dd/mm/yyyy" value="{{date('d/m/Y')}}"/>
                             </div>
                         </div>    
                     </div>
@@ -122,8 +138,32 @@
 
 <script type="text/javascript">
 
-$(document).ready(function(){   
-    
+$(document).ready(function(){    
+    //convertendo o datepicker para o português
+    $(function(){
+    $.datepicker.regional['pt-BR'] = {
+                closeText: 'Fechar',
+                prevText: '&#x3c;Anterior',
+                nextText: 'Pr&oacute;ximo&#x3e;',
+                currentText: 'Hoje',
+                monthNames: ['Janeiro','Fevereiro','Mar&ccedil;o','Abril','Maio','Junho',
+                'Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+                monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun',
+                'Jul','Ago','Set','Out','Nov','Dez'],
+                dayNames: ['Domingo','Segunda-feira','Ter&ccedil;a-feira','Quarta-feira','Quinta-feira','Sexta-feira','Sabado'],
+                dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sab'],
+                dayNamesMin: ['Dom','Seg','Ter','Qua','Qui','Sex','Sab'],
+                weekHeader: 'Sm',
+                dateFormat: 'dd/mm/yy',
+                firstDay: 0,
+                isRTL: false,
+                showMonthAfterYear: false,
+                yearSuffix: ''        
+        };
+        $.datepicker.setDefaults($.datepicker.regional['pt-BR']);  
+    });    
+
+    //fim convertendo o datepicker para o português
 
     $(document).on('click','.salvar_btn',function(e){
         e.preventDefault();
@@ -158,7 +198,13 @@ $(document).ready(function(){
                         $.each(response.errors,function(key,err_values){
                             $('#saveform_errList').append('<li>'+err_values+'</li>');
                         });
-                } else{
+                        loading.hide();
+                }else if(response.status==401){
+                      $('#saveform_errList').replaceWith('<ul id="saveform_errList"></ul>');
+                      $('#saveform_errList').addClass('alert alert-danger');
+                      $('#saveform_errList').text(response.message);
+                      loading.hide();
+                }else{
                     $('#saveform_errList').replaceWith('<ul id="saveform_errList"></ul>');  
                     loading.hide();
                     location.replace('/pagina/minhaagenda/index');
@@ -205,12 +251,12 @@ $(document).ready(function(){
        
     });
 
-    //colorindo o datepicker
+    //colorindo o input date
 
-    $(document).on('click','#adddata',function(e){
+     $(document).on('click','#adddata',function(e){
         e.preventDefault;        
 
-        var dateStr = new Array();
+        var dateArray = new Array();
 
         $.ajaxSetup({
                     headers:{
@@ -226,17 +272,29 @@ $(document).ready(function(){
             cache: false,
             data: {},
             success: function(response){                
-                $.each(response.data,function(key,value){
-                    dateStr.push(value.data,value.n_atendimentos);
+                 $.each(response.datas,function(key,value){
+                    dateArray.push(value.data);
                 });
-                console.log(dateStr);
+
+                $('#adddata').datepicker({
+                    beforeShowDay: function(date) {
+                        var day = date.getDay();
+                        var index;
+                        if (day==0|day==6) { //sábados e domingos
+                            return [true,"indisponivel"];
+                        }else{                            
+                             var formataData = jQuery.datepicker.formatDate("yy-mm-dd",date);                             
+                             return [true,(dateArray.indexOf(formataData)==-1)?"":(response.datas.findIndex(x=>x.data == dateArray.indexOf(formataData))?(response.datas.n_atendimento==4)?"indisponivel":"disponivel":"indisponivel")];
+                        }
+
+                    }                
+                });
             }
         });
-    });    
-   
+    }); 
     
-
-    //fim colorindo o datepicker
+ 
+    //fim colorindo o input date
 
 
     //formatação str para date
