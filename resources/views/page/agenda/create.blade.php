@@ -138,7 +138,8 @@
 
 <script type="text/javascript">
 
-$(document).ready(function(){    
+$(document).ready(function(){  
+
     //convertendo o datepicker para o português
     $(function(){
     $.datepicker.regional['pt-BR'] = {
@@ -224,7 +225,8 @@ $(document).ready(function(){
     });
 
 
-    $(document).on('change','#idmedicoterapeuta',function(){   ///master-detail entre o select medico e o select tratamentos
+    ///master-detail entre o select medico e o select tratamentos
+    $(document).on('change','#idmedicoterapeuta',function(){   
 
         var medicoid = $(this).val();
 
@@ -257,6 +259,7 @@ $(document).ready(function(){
         e.preventDefault;        
 
         var dateArray = new Array();
+        var arr = new Array();        
 
         $.ajaxSetup({
                     headers:{
@@ -271,20 +274,20 @@ $(document).ready(function(){
             async: false,
             cache: false,
             data: {},
-            success: function(response){                
-                 $.each(response.datas,function(key,value){
-                    dateArray.push(value.data);
+            success: function(response){                            
+                $.each(response.datas,function(key,value){
+                    dateArray.push(value.data);                    
                 });
 
                 $('#adddata').datepicker({
                     beforeShowDay: function(date) {
                         var day = date.getDay();
-                        var index;
+                        
                         if (day==0|day==6) { //sábados e domingos
-                            return [true,"indisponivel"];
-                        }else{                            
-                             var formataData = jQuery.datepicker.formatDate("yy-mm-dd",date);                             
-                             return [true,(dateArray.indexOf(formataData)==-1)?"":(response.datas.findIndex(x=>x.data == dateArray.indexOf(formataData))?(response.datas.n_atendimento==4)?"indisponivel":"disponivel":"indisponivel")];
+                            return [true,"indisponivel","indisponível"];
+                        }else{                                                        
+                             var formataData = jQuery.datepicker.formatDate("yy-mm-dd",date);                                                          
+                             return [true,(dateArray.indexOf(formataData)==-1)?"":(response.datas.findIndex((x)=>x.data == dateArray.indexOf(formataData))?(response.datas.find(el=>el.data == formataData).n_atendimentos == response.tipo_atendimento.vagas_limite)?"indisponivel":"disponivel":"indisponivel")];                             
                         }
 
                     }                

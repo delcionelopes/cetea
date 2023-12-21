@@ -56,7 +56,7 @@
                 @if((auth()->user()->sistema) && (auth()->user()->inativo!=1))
                 <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{route('ceteaadmin.cetea.index')}}">AdminCETEA</a></li>
                 @endif
-                @if((auth()->user()->sistema) && (auth()->user()->inativo!=1) && ($ispaciente))
+                @if((auth()->user()->inativo!=1) && ($ispaciente))
                 <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{route('pagina.minhaagenda.index')}}">Minha Agenda</a></li>
                 @endif   
                 @if(auth()->user()->inativo!=1)                     

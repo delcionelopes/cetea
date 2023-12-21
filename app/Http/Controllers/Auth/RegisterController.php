@@ -71,6 +71,7 @@ class RegisterController extends Controller
             'funcao_id' => 2,
             'perfil_id' => 2,
             'setor_id' => 2,
+            'inativo' => false,
         ]);
     }
 }

@@ -28,9 +28,13 @@
                     <label for="addnome">Nome</label>
                     <input type="text" id="addnome" class="nome form-control">
                 </div>
-                    <div class="form-group mb-3">
+                <div class="form-group mb-3">
                     <label for="adddescricao">Descrição</label>
                     <input type="text" id="adddescricao" class="descricao form-control">
+                </div>
+                <div class="form-group mb-3">
+                    <label for="addvagas">Limite de vagas por dia</label>
+                    <input type="text" id="addvagas" class="vagas form-control" placeholder="00" data-mask="00" data-mask-reverse="true">
                 </div>
             </form>            
             </div>
@@ -66,6 +70,10 @@
                 <div class="form-group mb-3">
                     <label for="edit_descricao">Descrição</label>
                     <input type="text" id="edit_descricao" class="descricao form-control">
+                </div>
+                <div class="form-group mb-3">
+                    <label for="edit_vagas">Limite de vagas por dia</label>
+                    <input type="text" id="edit_vagas" class="vagas form-control" placeholder="00" data-mask="00" data-mask-reverse="true">
                 </div>
             </form>
             </div>
@@ -233,6 +241,7 @@ $(document).ready(function(){
                     if(response.status==200){                           
                         $(".nome").val(response.tipoatendimento.nome);
                         $(".descricao").val(response.tipoatendimento.descricao);
+                        $(".vagas").val(response.tipoatendimento.vagas_limite);
                         $("#edit_tipoatendimento_id").val(response.tipoatendimento.id);                                                                                                       
                     }      
                 }
@@ -251,6 +260,7 @@ $(document).ready(function(){
             var data = {
                 'nome' : $("#edit_nome").val(),
                 'descricao' : $("#edit_descricao").val(),
+                'vagas' : $("#edit_vagas").val(),
                 '_method':'PUT',
                 '_token':CSRF_TOKEN,
             }
@@ -331,6 +341,7 @@ $(document).ready(function(){
             var data = {
                 'nome': $(".nome").val(),
                 'descricao' : $(".descricao").val(),
+                'vagas' : $(".vagas").val(),
                 '_method':'PUT',
                 '_token':CSRF_TOKEN,
             } 

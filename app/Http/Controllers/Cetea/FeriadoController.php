@@ -3,17 +3,17 @@
 namespace App\Http\Controllers\Cetea;
 
 use App\Http\Controllers\Controller;
-use App\Models\Tipo_Atendimento;
+use App\Models\Feriado;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
-class TipoAtendimentoController extends Controller
+class FeriadoController extends Controller
 {
-    private $tipoatendimento;
+    private $feriado;
 
-    public function __construct(Tipo_Atendimento $tipoatendimento)
+    public function __construct(Feriado $feriado)
     {
-        $this->tipoatendimento = $tipoatendimento;
+        $this->feriado = $feriado;
     }
     /**
      * Display a listing of the resource.
@@ -22,15 +22,15 @@ class TipoAtendimentoController extends Controller
      */
     public function index(Request $request, $color)
     {
-        if(is_null($request->pesquisa)){
-            $tiposatendimentos = $this->tipoatendimento->orderByDesc('id')->paginate(6);
+        if(is_null($request->presquisa)){
+            $feriados = $this->feriado->orderByDesc('id')->paginate(6);
         }else{
-            $query = $this->tipoatendimento->query()
-                          ->where('nome','LIKE','%'.strtoupper($request->pesquisa).'%');
-            $tiposatendimentos = $query->orderByDesc('id')->paginate(6);
+            $query = $this->feriado->query()
+                                   ->where('descricao','LIKE','%'.strtoupper($request->pesquisa).'%');
+            $feriados = $query->orderByDesc('id')->paginate(6);
         }
-        return view('cetea.tipoatendimento.index',[
-            'tiposatendimentos' => $tiposatendimentos,
+        return view('cetea.feriado.index',[
+            'feriados' => $feriados,
             'color' => $color,
         ]);
     }
@@ -54,8 +54,9 @@ class TipoAtendimentoController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(),[
-            'nome' => ['required','max:20'],
-            'descricao' => ['required','max:50'],
+            'dia' => ['required'],
+            'mes' => ['required'],
+            'descricao' => ['required','max:20'],
         ]);
         if($validator->fails()){
             return response()->json([
@@ -64,20 +65,21 @@ class TipoAtendimentoController extends Controller
             ]);
         }else{
             $user = auth()->user();
-            $id = $this->maxId();
-            $data['id'] = $id;
-            $data['nome'] = strtoupper($request->input('nome'));
+            $data['id'] = $this->maxId();
+            $data['dia'] = $request->input('dia');
+            $data['mes'] = $request->input('mes');
             $data['descricao'] = strtoupper($request->input('descricao'));
-            $data['vagas_limite'] = intval($request->input('vagas'));
             $data['created_at'] = now();
             $data['updated_at'] = null;
             $data['creater_user'] = $user->id;
             $data['updater_user'] = null;
-            $tipoatendimento = $this->tipoatendimento->create($data);
+
+            $feriado = $this->feriado->create($data);
+
             return response()->json([
                 'status' => 200,
-                'tipoatendimento' => $tipoatendimento,
-                'message' => 'Tipo de atendimento criado com sucesso!',
+                'feriado' => $feriado,
+                'message' => 'Feriado criado com sucesso!',
             ]);
         }
     }
@@ -101,10 +103,10 @@ class TipoAtendimentoController extends Controller
      */
     public function edit(int $id)
     {
-        $tipoatendimento = $this->tipoatendimento->find($id);
+        $feriado = $this->feriado->find($id);
         return response()->json([
             'status' => 200,
-            'tipoatendimento' => $tipoatendimento,
+            'feriado' => $feriado,
         ]);
     }
 
@@ -118,8 +120,9 @@ class TipoAtendimentoController extends Controller
     public function update(Request $request, int $id)
     {
         $validator = Validator::make($request->all(),[
-            'nome' => ['required','max:20'],
-            'descricao' => ['required','max:50'],
+            'dia' => ['required'],
+            'mes' => ['required'],
+            'descricao' => ['required','max:20'],
         ]);
         if($validator->fails()){
             return response()->json([
@@ -127,28 +130,33 @@ class TipoAtendimentoController extends Controller
                 'errors' => $validator->errors()->getMessages(),
             ]);
         }else{
-            $tipoatendimento = $this->tipoatendimento->find($id);
-            if($tipoatendimento){
+            $feriado = $this->feriado->find($id);
+            if($feriado){
+
+            $user = auth()->user();
+            
             $user = auth()->user();            
-            $data['nome'] = strtoupper($request->input('nome'));
-            $data['descricao'] = strtoupper($request->input('descricao'));
-            $data['vagas_limite'] = intval($request->input('vagas'));
+            $data['dia'] = $request->input('dia');
+            $data['mes'] = $request->input('mes');
+            $data['descricao'] = strtoupper($request->input('descricao'));            
             $data['updated_at'] = now();            
             $data['updater_user'] = $user->id;
-            $tipoatendimento->update($data);
-            $tipo = Tipo_Atendimento::find($id);
+
+            $feriado->update($data);
+            $f = Feriado::find($id);
+
             return response()->json([
                 'status' => 200,
-                'tipoatendimento' => $tipo,
-                'message' => 'Tipo de atendimento alterado com sucesso!',
+                'feriado' => $f,
+                'message' => 'Feriado atualizado com sucesso!',
             ]);
         }else{
             return response()->json([
-                'status' => 404,
-                'message' => 'Tipo de atendimento não localizado!',
+                'status' => 404,                
+                'message' => 'Feriado não localizado!',
             ]);
         }
-        }
+    }
     }
 
     /**
@@ -159,29 +167,21 @@ class TipoAtendimentoController extends Controller
      */
     public function destroy(int $id)
     {
-        $tipoatendimento = $this->tipoatendimento->find($id);
-        $atendimentos = $tipoatendimento->atendimentos->count();
-        if($atendimentos){
-            return response()->json([
-                'status' => 400,
-                'errors' => 'Este tipo de atendimento não pode ser excluído. Pois há outros que dependem dele.',
-            ]);
-        }
-
-        $tipoatendimento->delete();
+        $feriado = $this->feriado->find($id);
+        $feriado->delete();
         return response()->json([
             'status' => 200,
-            'message' => 'Tipo de atendimento excluído com sucesso!',
+            'message' => 'Feriado excluído com sucesso!',
         ]);
     }
 
     protected function maxId(){
-        $tipoatendimento = $this->tipoatendimento->orderByDesc('id')->first();
-        if($tipoatendimento){
-            $codigo = $tipoatendimento->id;
+        $feriado = $this->feriado->orderByDesc('id')->first();
+        if($feriado){
+            $codigo = $feriado->id;
         }else{
             $codigo = 0;
         }
-        return $codigo + 1;
+        return $codigo+1;
     }
 }

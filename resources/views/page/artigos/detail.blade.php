@@ -214,7 +214,7 @@ $(document).ready(function(){ //INÍCIO ESCOPO GERAL
                 }
             });
             $.ajax({
-                url:'/page/salvar-comentario',
+                url:'/salvar-comentario',
                 type:'POST',
                 dataType:'json',
                 data:data,
@@ -283,7 +283,7 @@ var datacriacao = new Date(response.comentario.created_at);
                 }
             });            
             $.ajax({
-                url:'/page/delete-comentario/'+id,
+                url:'/delete-comentario/'+id,
                 type:'POST',
                 dataType:'json',
                 data:{

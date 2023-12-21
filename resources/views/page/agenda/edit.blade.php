@@ -1,6 +1,21 @@
 @extends('layouts.page')
 @section('content')
 
+<style>
+.indisponivel .ui-state-default{
+			background: red !important;
+			border-color: red !important;
+			color: white !important;
+		}
+.disponivel .ui-state-default{
+			background: green !important;
+			border-color: green !important;
+			color: white !important;
+		}
+
+</style>
+
+
 <!-- Cabeçalho-->
 <header class="masthead" style="background-image: url('/assets/img/home-bg.jpg')">
             <div class="container position-relative px-4 px-lg-5">
@@ -41,7 +56,8 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="adddata" style="color: green">Para quando?</label>
-                                <input type="date" name="adddata" id="adddata" class="addata form-control" required pattern="\d{4}-\d{2}-\d{2}" autocomplete="on" value="{{date('Y-m-d', strtotime($atendimento->data_atendimento))}}"/>
+                                <input type="text" name="adddata" id="adddata" class="addata form-control" data-format="00/00/0000"  placeholder="dd/mm/yyyy" value="{{date('d/m/Y', strtotime($atendimento->data_agonline))}}"/>
+                                {{-- <input type="date" name="adddata" id="adddata" class="addata form-control" required pattern="\d{4}-\d{2}-\d{2}" autocomplete="on" value="{{date('Y-m-d', strtotime($atendimento->data_atendimento))}}"/> --}}                                
                             </div>
                         </div>    
                     </div>
@@ -124,6 +140,32 @@
 <script type="text/javascript">
 
 $(document).ready(function(){
+
+    //convertendo o datepicker para o português
+    $(function(){
+    $.datepicker.regional['pt-BR'] = {
+                closeText: 'Fechar',
+                prevText: '&#x3c;Anterior',
+                nextText: 'Pr&oacute;ximo&#x3e;',
+                currentText: 'Hoje',
+                monthNames: ['Janeiro','Fevereiro','Mar&ccedil;o','Abril','Maio','Junho',
+                'Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+                monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun',
+                'Jul','Ago','Set','Out','Nov','Dez'],
+                dayNames: ['Domingo','Segunda-feira','Ter&ccedil;a-feira','Quarta-feira','Quinta-feira','Sexta-feira','Sabado'],
+                dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sab'],
+                dayNamesMin: ['Dom','Seg','Ter','Qua','Qui','Sex','Sab'],
+                weekHeader: 'Sm',
+                dateFormat: 'dd/mm/yy',
+                firstDay: 0,
+                isRTL: false,
+                showMonthAfterYear: false,
+                yearSuffix: ''        
+        };
+        $.datepicker.setDefaults($.datepicker.regional['pt-BR']);  
+    });    
+
+    //fim convertendo o datepicker para o português
     
     $(document).on('click','.salvar_btn',function(e){
         e.preventDefault();
@@ -159,7 +201,13 @@ $(document).ready(function(){
                         $.each(response.errors,function(key,err_values){
                             $('#saveform_errList').append('<li>'+err_values+'</li>');
                         });
-                } else{
+                        loading.hide();
+                }else if(response.status==401){
+                      $('#saveform_errList').replaceWith('<ul id="saveform_errList"></ul>');
+                      $('#saveform_errList').addClass('alert alert-danger');
+                      $('#saveform_errList').text(response.message);
+                      loading.hide();
+                }else{
                     $('#saveform_errList').replaceWith('<ul id="saveform_errList"></ul>');  
                     loading.hide();
                     location.replace('/pagina/minhaagenda/index');
@@ -178,7 +226,8 @@ $(document).ready(function(){
     });
 
 
-    $(document).on('change','#idmedicoterapeuta',function(){   ///master-detail entre o select medico e o select tratamentos    
+    ///master-detail entre o select medico e o select tratamentos    
+    $(document).on('change','#idmedicoterapeuta',function(){   
 
         var medicoid = $('#idmedicoterapeuta').val();        
 
@@ -204,6 +253,53 @@ $(document).ready(function(){
             });
        
     });
+
+
+    //colorindo o input date
+
+     $(document).on('click','#adddata',function(e){
+        e.preventDefault;        
+
+        var dateArray = new Array();
+        var arr = new Array();        
+
+        $.ajaxSetup({
+                    headers:{
+                        'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+                    }                    
+                });
+
+        $.ajax({
+            type: 'get',
+            dataType: 'json',
+            url : '/pagina/minhaagenda/diascolorir',
+            async: false,
+            cache: false,
+            data: {},
+            success: function(response){                            
+                $.each(response.datas,function(key,value){
+                    dateArray.push(value.data);                    
+                });
+
+                $('#adddata').datepicker({
+                    beforeShowDay: function(date) {
+                        var day = date.getDay();
+                        
+                        if (day==0|day==6) { //sábados e domingos
+                            return [true,"indisponivel","indisponível"];
+                        }else{                                                        
+                             var formataData = jQuery.datepicker.formatDate("yy-mm-dd",date);                                                          
+                             return [true,(dateArray.indexOf(formataData)==-1)?"":(response.datas.findIndex((x)=>x.data == dateArray.indexOf(formataData))?(response.datas.find(el=>el.data == formataData).n_atendimentos == response.tipo_atendimento.vagas_limite)?"indisponivel":"disponivel":"indisponivel")];                             
+                        }
+
+                    }                
+                });
+            }
+        });
+    }); 
+    
+ 
+    //fim colorindo o input date
 
 
     //formatação str para date

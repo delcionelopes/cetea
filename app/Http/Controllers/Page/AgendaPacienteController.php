@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Atendimento;
 use App\Models\Medico_Terapeuta;
 use App\Models\Paciente;
+use App\Models\Tipo_Atendimento;
 use App\Models\Tratamento;
 use Carbon\CarbonPeriod;
 use Illuminate\Http\Request;
@@ -17,13 +18,15 @@ class AgendaPacienteController extends Controller
     private $atendimento;
     private $medicoterapeuta;
     private $tratamento;
+    private $tipo_atendimento;
 
-    public function __construct(Paciente $paciente, Atendimento $atendimento, Medico_Terapeuta $medicoterapeuta, Tratamento $tratamento)
+    public function __construct(Paciente $paciente, Atendimento $atendimento, Medico_Terapeuta $medicoterapeuta, Tratamento $tratamento, Tipo_Atendimento $tipo_atendimento)
     {
         $this->paciente = $paciente;
         $this->atendimento = $atendimento;
         $this->medicoterapeuta = $medicoterapeuta;
         $this->tratamento = $tratamento;
+        $this->tipo_atendimento = $tipo_atendimento;
     }
     /**
      * Display a listing of the resource.
@@ -102,8 +105,7 @@ class AgendaPacienteController extends Controller
         $validator = Validator::make($request->all(),[
             'data' => ['required','date'],
             'terapeuta' => ['required'],
-            'tratamento' => ['required'],
-            'paciente' => ['required'],
+            'tratamento' => ['required'],            
         ]);
         if($validator->fails()){
             return response()->json([
@@ -126,22 +128,24 @@ class AgendaPacienteController extends Controller
                     ]);
                 }
 
+                 $tipo_atendimento = $this->tipo_atendimento->find(5);
+
                  $query = $this->atendimento->where('atendido','=',0)     
                                        ->where('data_agonline','=',$request->input('data'));
                  $atendimento = $query->get();
                  $contaAtendimento = $atendimento->count();
 
-                 if($contaAtendimento==4){
+                 if($contaAtendimento==$tipo_atendimento->vagas_limite){
                     return response()->json([
                         'status' => 401,
-                        'message' => 'Nesta data o agendamento on-line atingiu o limite! Escolha uma data verde.',
+                        'message' => 'Para esta data o agendamento on-line atingiu o limite! Escolha uma data VERDE.',
                     ]);
                  }    
 
 
                 $user = auth()->user();
                 $id = $this->maxId();
-                $yesterday = \Carbon\Carbon::yesterday(); //armazena a data de ontem porque agendamento online não pode aparecer no expediente de hoje
+                $yesterday = \Carbon\Carbon::yesterday(); //armazena a data de ontem porque agendamento online não pode aparecer no expediente da data atual
                 $data['id'] = $id;
                 $data['tipo_atendimento_id'] = 5;
                 $data['medico_terapeuta_id'] = $request->input('terapeuta');
@@ -216,6 +220,7 @@ class AgendaPacienteController extends Controller
     public function update(Request $request, int $id)
     {
         $validator = Validator::make($request->all(),[                        
+            'data' => ['required','date'],
             'terapeuta' => ['required'],
             'tratamento' => ['required'],            
         ]);
@@ -225,6 +230,36 @@ class AgendaPacienteController extends Controller
                 'errors' => $validator->errors()->getMessages(),
             ]);
         }else{
+
+            if(date('w',strtotime($request->input('data')))==0 || date('w',strtotime($request->input('data')))==6){
+                    return response()->json([
+                        'status' => 401,
+                        'message' => 'O agendamento não pode ser em fim de semana! Não tem expediente.',
+                    ]);
+                }
+
+                if(strtotime($request->input('data'))<strtotime(date('Y-m-d'))){
+                    return response()->json([
+                        'status' => 401,
+                        'message' => 'O agendamento não pode ser anterior à data de hoje!',
+                    ]);
+                }
+
+                 $tipo_atendimento = $this->tipo_atendimento->find(5);
+
+                 $query = $this->atendimento->where('atendido','=',0)     
+                                       ->where('data_agonline','=',$request->input('data'));
+                 $atendimento = $query->get();
+                 $contaAtendimento = $atendimento->count();
+
+                 if($contaAtendimento==$tipo_atendimento->vagas_limite){
+                    return response()->json([
+                        'status' => 401,
+                        'message' => 'Para esta data o agendamento on-line atingiu o limite! Escolha uma data VERDE.',
+                    ]);
+                 }    
+
+
             $atendimento = $this->atendimento->find($id);            
             $user = auth()->user();       
             $yesterday = \Carbon\Carbon::yesterday();                  
@@ -298,7 +333,7 @@ class AgendaPacienteController extends Controller
         $i = 0;
         foreach($datas as $date){
             $query = $this->atendimento->where('atendido','=',0)     
-                                       ->where('data_agonline','=',$date);
+                                       ->where('data_agonline','=',$date->format('Y-m-d'));
             $atendimento = $query->get();
             $contaAtendimento = $atendimento->count();
 
@@ -306,10 +341,12 @@ class AgendaPacienteController extends Controller
             $data[$i]['n_atendimentos'] = $contaAtendimento;
             
             $i++;
-        }
+        }        
+        $tipo_atendimento = $this->tipo_atendimento->find(5);                
         return response()->json([
             'status' => 200,
             'datas' => $data,
+            'tipo_atendimento' => $tipo_atendimento,
         ]);
     }    
 

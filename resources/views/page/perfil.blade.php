@@ -184,7 +184,7 @@ $(document).on('click','.salvar_btn',function(e){
             data.append('_method','PUT');              
 
         $.ajax({
-            url: '/page/perfil/'+id,
+            url: '/perfil/'+id,
             type: 'POST',
             dataType: 'json',
             data: data,
@@ -227,7 +227,7 @@ $(document).on('click','.salvar_btn',function(e){
             
         $.ajax({                      
                 type: 'POST',                             
-                url:'/page/fototemp-upload',                
+                url:'/fototemp-upload',                
                 dataType: 'json',            
                 data: fd,
                 cache: false,
@@ -266,7 +266,7 @@ $(document).on('click','.salvar_btn',function(e){
             data.append('_method','delete');   
              $.ajax({                      
                 type: 'POST',                             
-                url:'/page/delete-fototemp',                
+                url:'/delete-fototemp',                
                 dataType: 'json',            
                 data: data,
                 cache: false,
