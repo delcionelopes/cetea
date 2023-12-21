@@ -11,6 +11,7 @@ use App\Http\Controllers\Caos\PrincipalController;
 use App\Http\Controllers\Caos\SegurancaController;
 use App\Http\Controllers\Caos\SetorController;
 use App\Http\Controllers\Cetea\AtendimentoController;
+use App\Http\Controllers\Cetea\FeriadoController;
 use App\Http\Controllers\Cetea\MedicoTerapeutaController;
 use App\Http\Controllers\Cetea\PacienteController;
 use App\Http\Controllers\Cetea\TerapiaController;
@@ -212,6 +213,14 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::put('/store_anamnesehistpregressa',[TerapiaController::class,'storeAnamneseHistPregressa']);
         Route::get('/edit_anamnesehistpregressa/{id}',[TerapiaController::class,'editAnamneseHistPregressa']);
         Route::put('/update_anamnesehistpregressa/{id}',[TerapiaController::class,'updateAnamneseHistPregressa']);
+      });
+
+      Route::prefix('feriado')->name('feriado.')->group(function(){
+        Route::get('/index/{color}',[FeriadoController::class,'index'])->name('index');        
+        Route::delete('/delete/{id}',[FeriadoController::class,'destroy']);
+        Route::get('/edit/{id}',[FeriadoController::class,'edit'])->name('edit');
+        Route::put('/update/{id}',[FeriadoController::class,'update']);
+        Route::put('/store',[FeriadoController::class,'store']);
       });
 
 

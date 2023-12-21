@@ -127,7 +127,8 @@ $(document).ready(function(){
       break;
       case 9: location.replace('/ceteaadmin/terapia/index/'+color); //atendimento da terapia
       break;
-          
+      case 10: location.replace('/ceteaadmin/feriado/index/'+color); //cadastro de feriado
+      break;    
       default:
         break;
     }

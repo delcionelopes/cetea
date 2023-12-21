@@ -12,7 +12,11 @@
 			border-color: green !important;
 			color: white !important;
 		}
-
+.feriado .ui-state-default{
+			background: blue !important;
+			border-color: blue !important;
+			color: white !important;
+		}
 </style>
 
 
@@ -259,7 +263,7 @@ $(document).ready(function(){
         e.preventDefault;        
 
         var dateArray = new Array();
-        var arr = new Array();        
+        var feriados = new Array();        
 
         $.ajaxSetup({
                     headers:{
@@ -281,12 +285,19 @@ $(document).ready(function(){
 
                 $('#adddata').datepicker({
                     beforeShowDay: function(date) {
-                        var day = date.getDay();
+                       var day = date.getDay();
+                        var formataData = jQuery.datepicker.formatDate("yy-mm-dd",date);
+
+                        var ano = date.getFullYear();
+                        $.each(response.feriados,function(key,value){
+                            feriados.push(ano+'-'+value.mes.toString().padStart(2,0)+'-'+value.dia.toString().padStart(2,0));  //formata para dois dígitos dia e mes
+                        });                
                         
                         if (day==0|day==6) { //sábados e domingos
                             return [true,"indisponivel","indisponível"];
-                        }else{                                                        
-                             var formataData = jQuery.datepicker.formatDate("yy-mm-dd",date);                                                          
+                        }else if(feriados.find((el)=>el == formataData)){ //feriados                        
+                            return [true,"feriado","feriado"];
+                        }else{ //critica se na data tem vaga disponível ou não para o agendamento on-line
                              return [true,(dateArray.indexOf(formataData)==-1)?"":(response.datas.findIndex((x)=>x.data == dateArray.indexOf(formataData))?(response.datas.find(el=>el.data == formataData).n_atendimentos == response.tipo_atendimento.vagas_limite)?"indisponivel":"disponivel":"indisponivel")];                             
                         }
 

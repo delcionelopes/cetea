@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Page;
 
 use App\Http\Controllers\Controller;
 use App\Models\Atendimento;
+use App\Models\Feriado;
 use App\Models\Medico_Terapeuta;
 use App\Models\Paciente;
 use App\Models\Tipo_Atendimento;
@@ -19,14 +20,17 @@ class AgendaPacienteController extends Controller
     private $medicoterapeuta;
     private $tratamento;
     private $tipo_atendimento;
+    private $feriado;
 
-    public function __construct(Paciente $paciente, Atendimento $atendimento, Medico_Terapeuta $medicoterapeuta, Tratamento $tratamento, Tipo_Atendimento $tipo_atendimento)
+    public function __construct(Paciente $paciente, Atendimento $atendimento, Medico_Terapeuta $medicoterapeuta, 
+                                Tratamento $tratamento, Tipo_Atendimento $tipo_atendimento, Feriado $feriado)
     {
         $this->paciente = $paciente;
         $this->atendimento = $atendimento;
         $this->medicoterapeuta = $medicoterapeuta;
         $this->tratamento = $tratamento;
         $this->tipo_atendimento = $tipo_atendimento;
+        $this->feriado = $feriado;
     }
     /**
      * Display a listing of the resource.
@@ -343,10 +347,12 @@ class AgendaPacienteController extends Controller
             $i++;
         }        
         $tipo_atendimento = $this->tipo_atendimento->find(5);                
+        $feriados = $this->feriado->all();        
         return response()->json([
             'status' => 200,
             'datas' => $data,
             'tipo_atendimento' => $tipo_atendimento,
+            'feriados' => $feriados,
         ]);
     }    
 
