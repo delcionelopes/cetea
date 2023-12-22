@@ -116,7 +116,25 @@ class AgendaPacienteController extends Controller
                 'status' => 400,
                 'errors' => $validator->errors()->getMessages(),
             ]);
-        }else{            
+        }else{  
+
+                $date = strtotime($request->input('data'));
+                $dia = date('d',$date);
+                $mes = date('m',$date);
+                $ano = date('y',$date);
+
+                $query = $this->feriado->query()
+                                       ->where('dia','=',$dia)
+                                       ->where('mes','=',$mes);
+                $feriado = $query->first();
+                $descricao = $feriado->descricao;
+                
+                if($feriado){
+                    return response()->json([
+                        'status' => 401,
+                        'message' => 'Nesta data não tem expediente! '.$dia.'/'.$mes.'/'.$ano.' - '.$descricao.'.',
+                    ]);
+                }          
 
                 if(date('w',strtotime($request->input('data')))==0 || date('w',strtotime($request->input('data')))==6){
                     return response()->json([
@@ -234,8 +252,26 @@ class AgendaPacienteController extends Controller
                 'errors' => $validator->errors()->getMessages(),
             ]);
         }else{
+               
+                $date = strtotime($request->input('data'));
+                $dia = date('d',$date);
+                $mes = date('m',$date);
+                $ano = date('y',$date);
 
-            if(date('w',strtotime($request->input('data')))==0 || date('w',strtotime($request->input('data')))==6){
+                $query = $this->feriado->query()
+                                       ->where('dia','=',$dia)
+                                       ->where('mes','=',$mes);
+                $feriado = $query->first();
+                $descricao = $feriado->descricao;
+                
+                if($feriado){
+                    return response()->json([
+                        'status' => 401,
+                        'message' => 'Nesta data não tem expediente! '.$dia.'/'.$mes.'/'.$ano.' - '.$descricao.'.',
+                    ]);
+                }        
+
+                if(date('w',strtotime($request->input('data')))==0 || date('w',strtotime($request->input('data')))==6){
                     return response()->json([
                         'status' => 401,
                         'message' => 'O agendamento não pode ser em fim de semana! Não tem expediente.',
