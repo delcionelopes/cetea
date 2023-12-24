@@ -24,7 +24,7 @@
         <link href="{{asset('css/menu_estilo.css')}}" rel="stylesheet"/>
 
         <link rel="stylesheet" href="{{asset('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css')}}">
-        <link rel="stylesheet" href="{{asset('//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css')}}">
+        <link rel="stylesheet" href="{{asset('jquery-ui-1.13.2.custom/jquery-ui.css')}}">
 
 
     </head>
@@ -79,7 +79,7 @@
         <script src="{{asset('js/scripts.js')}}"></script>
         <script src="{{asset('https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.6.0/sweetalert2.min.js')}}"></script>
         <script src="{{asset('https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js')}}"></script>
-        <script src="{{asset('//code.jquery.com/ui/1.10.3/jquery-ui.js')}}"></script>
+        <script src="{{asset('jquery-ui-1.13.2.custom/jquery-ui.js')}}"></script>
         
       @yield('scripts')
     </body>

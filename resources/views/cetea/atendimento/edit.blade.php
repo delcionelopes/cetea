@@ -4,6 +4,30 @@
 
 @section('content')
 
+<style type="text/css">
+.indisponivel .ui-state-default{
+			background: red !important;
+			border-color: red !important;
+			color: white !important;
+		}
+.disponivel .ui-state-default{
+			background: green !important;
+			border-color: green !important;
+			color: white !important;
+		}
+.feriado .ui-state-default{
+			background: blue !important;
+			border-color: blue !important;
+			color: white !important;
+		}
+
+
+.ui-datepicker-trigger { 
+            max-height: 28px;
+        }    
+
+</style>
+
 <form role="form" method="POST">
     @csrf
     @method('PUT')
@@ -48,7 +72,7 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="adddata">Data</label>
-                                <input type="date" name="adddata" id="adddata" class="addata form-control" required pattern="\d{4}-\d{2}-\d{2}" autocomplete="on" value="{{date('Y-m-d', strtotime($atendimento->data_atendimento))}}"/>
+                                <input type="text" maxLength="10" name="adddata" id="adddata" class="addata form-control" data-format="00/00/0000"  placeholder="dd/mm/yyyy" value="{{date('d/m/Y', strtotime($atendimento->data_atendimento))}}"/>
                             </div>
                         </div>    
                     </div>
@@ -120,6 +144,45 @@
 
 $(document).ready(function(){
 
+    //convertendo o datepicker para o português
+    $(function(){    
+    var linklogo = "{{asset('storage')}}";    
+    $.datepicker.regional['pt-BR'] = {
+               autoclose: true,
+               buttonImageOnly: true,
+               showAnim: 'slideDown',
+               duration: 'fast',
+               buttonText: "Calendário",
+               showOn: "button",
+               changeMonth: true,
+               changeYear: true,
+               buttonImage: linklogo+"/icons8-calendar-48.png",
+               clearBtn: true,
+               highlightWeek: true,
+               mandatory: true,
+                closeText: 'Fechar',
+                prevText: '&#x3c;Anterior',
+                nextText: 'Pr&oacute;ximo&#x3e;',
+                currentText: 'Hoje',
+                monthNames: ['Janeiro','Fevereiro','Mar&ccedil;o','Abril','Maio','Junho',
+                'Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+                monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun',
+                'Jul','Ago','Set','Out','Nov','Dez'],
+                dayNames: ['Domingo','Segunda-feira','Ter&ccedil;a-feira','Quarta-feira','Quinta-feira','Sexta-feira','Sabado'],
+                dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sab'],
+                dayNamesMin: ['Dom','Seg','Ter','Qua','Qui','Sex','Sab'],
+                weekHeader: 'Sm',
+                dateFormat: 'dd/mm/yy',
+                firstDay: 0,
+                isRTL: false,
+                showMonthAfterYear: false,
+                yearSuffix: ''        
+        };
+        $.datepicker.setDefaults($.datepicker.regional['pt-BR']);  
+    });    
+
+    //fim convertendo o datepicker para o português
+
     //$("#idpaciente").val('');
     $(".idpaciente").select2({        
         theme:"boostrap",        
@@ -168,7 +231,12 @@ $(document).ready(function(){
                         $.each(response.errors,function(key,err_values){
                             $('#saveform_errList').append('<li>'+err_values+'</li>');
                         });
-                } else{
+                 }else if(response.status==401){
+                      $('#saveform_errList').replaceWith('<ul id="saveform_errList"></ul>');
+                      $('#saveform_errList').addClass('alert alert-danger');
+                      $('#saveform_errList').text(response.message);
+                      loading.hide();
+                }else{
                     $('#saveform_errList').replaceWith('<ul id="saveform_errList"></ul>');  
                     loading.hide();
                     location.replace('/ceteaadmin/atendimento/index/'+color);
@@ -215,6 +283,58 @@ $(document).ready(function(){
        
     });
 
+     //colorindo o input datepicker
+
+     $(document).on('click','#adddata',function(e){
+        e.preventDefault;        
+
+        var dateArray = new Array();
+        var feriados = new Array();        
+
+        $.ajaxSetup({
+                    headers:{
+                        'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+                    }                    
+                });
+
+        $.ajax({
+            type: 'get',
+            dataType: 'json',
+            url : '/ceteaadmin/atendimento/diascolorir',
+            async: false,
+            cache: false,
+            data: {},
+            success: function(response){                            
+                $.each(response.datas,function(key,value){
+                    dateArray.push(value.data);                    
+                });
+
+                $('#adddata').datepicker({
+                    beforeShowDay: function(date) {
+                       var day = date.getDay();
+                        var formataData = jQuery.datepicker.formatDate("yy-mm-dd",date);
+
+                        var ano = date.getFullYear();
+                        $.each(response.feriados,function(key,value){
+                            feriados.push(ano+'-'+value.mes.toString().padStart(2,0)+'-'+value.dia.toString().padStart(2,0));  //formata para dois dígitos dia e mes
+                        });                
+                        
+                        if (day==0|day==6) { //sábados e domingos
+                            return [true,"indisponivel","indisponível"];
+                        }else if(feriados.find((el)=>el == formataData)){ //feriados                        
+                            return [true,"feriado","feriado"];
+                        }else{ //critica se na data tem vaga disponível ou não para o agendamento on-line
+                             return [true,(dateArray.indexOf(formataData)==-1)?"":(response.datas.findIndex((x)=>x.data == dateArray.indexOf(formataData))?(response.datas.find(el=>el.data == formataData).n_atendimentos == response.tipo_atendimento.vagas_limite)?"indisponivel":"disponivel":"indisponivel")];                             
+                        }
+
+                    }                
+                });
+            }
+        });
+    }); 
+    
+ 
+    //fim colorindo o datepicker
 
     //formatação str para date
         function formatDate(data, formato) {

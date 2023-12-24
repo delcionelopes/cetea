@@ -126,10 +126,10 @@ class AgendaPacienteController extends Controller
                 $query = $this->feriado->query()
                                        ->where('dia','=',$dia)
                                        ->where('mes','=',$mes);
-                $feriado = $query->first();
-                $descricao = $feriado->descricao;
+                $feriado = $query->first();                
                 
                 if($feriado){
+                    $descricao = $feriado->descricao;
                     return response()->json([
                         'status' => 401,
                         'message' => 'Nesta data não tem expediente! '.$dia.'/'.$mes.'/'.$ano.' - '.$descricao.'.',
@@ -261,10 +261,10 @@ class AgendaPacienteController extends Controller
                 $query = $this->feriado->query()
                                        ->where('dia','=',$dia)
                                        ->where('mes','=',$mes);
-                $feriado = $query->first();
-                $descricao = $feriado->descricao;
+                $feriado = $query->first();               
                 
                 if($feriado){
+                    $descricao = $feriado->descricao;
                     return response()->json([
                         'status' => 401,
                         'message' => 'Nesta data não tem expediente! '.$dia.'/'.$mes.'/'.$ano.' - '.$descricao.'.',

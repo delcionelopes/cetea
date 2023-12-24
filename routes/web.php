@@ -197,6 +197,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::get('/abrir-doc/{id}',[AtendimentoController::class,'abrirDoc']);        
         Route::get('/medicoxtratamento/{medico_id}',[AtendimentoController::class,'medicoxtratamento']);
         Route::put('/cria-atendimento/{id}',[AtendimentoController::class,'criaAtendimento']);
+        Route::get('/diascolorir',[AtendimentoController::class,'diasColorir'])->name('colorir');
       });
       
       Route::prefix('terapia')->name('terapia.')->group(function(){

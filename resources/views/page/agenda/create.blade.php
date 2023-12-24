@@ -1,7 +1,7 @@
 @extends('layouts.page')
 @section('content')
 
-<style>
+<style type="text/css">
 .indisponivel .ui-state-default{
 			background: red !important;
 			border-color: red !important;
@@ -17,6 +17,12 @@
 			border-color: blue !important;
 			color: white !important;
 		}
+
+
+.ui-datepicker-trigger { 
+            max-height: 28px;
+        }    
+
 </style>
 
 
@@ -57,11 +63,10 @@
                                 <label for="">Agendamento On-line</label>
                             </div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <div class="form-group">
-                                <label for="adddata" style="color: green">Para quando?</label>
-                                {{-- <input type="date" name="adddata" id="adddata" class="addata form-control" required pattern="\d{4}-\d{2}-\d{2}" autocomplete="on" value="{{date('Y-m-d')}}"/> --}}
-                                <input type="text" name="adddata" id="adddata" class="addata form-control" data-format="00/00/0000"  placeholder="dd/mm/yyyy" value="{{date('d/m/Y')}}"/>
+                                 <label for="adddata" style="color: green">Para quando?</label> 
+                                 <input type="text" maxLength="10" name="adddata" id="adddata" class="adddata form-control" data-format="00/00/0000"  placeholder="dd/mm/yyyy" value="{{date('d/m/Y')}}"/> 
                             </div>
                         </div>    
                     </div>
@@ -144,9 +149,22 @@
 
 $(document).ready(function(){  
 
-    //convertendo o datepicker para o português
+    //convertendo o datepicker para o português   
     $(function(){
+    var linklogo = "{{asset('storage')}}";    
     $.datepicker.regional['pt-BR'] = {
+               autoclose: true,
+               buttonImageOnly: true,
+               showAnim: 'slideDown',
+               duration: 'fast',
+               buttonText: "Calendário",
+               showOn: "button",
+               changeMonth: true,
+               changeYear: true,
+               buttonImage: linklogo+"/icons8-calendar-48.png",
+               clearBtn: true,
+               highlightWeek: true,
+               mandatory: true,
                 closeText: 'Fechar',
                 prevText: '&#x3c;Anterior',
                 nextText: 'Pr&oacute;ximo&#x3e;',
@@ -166,7 +184,7 @@ $(document).ready(function(){
                 yearSuffix: ''        
         };
         $.datepicker.setDefaults($.datepicker.regional['pt-BR']);  
-    });    
+    });
 
     //fim convertendo o datepicker para o português
 

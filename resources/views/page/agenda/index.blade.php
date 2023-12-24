@@ -132,30 +132,15 @@
 $(document).ready(function(){
 
     $(document).on('click','.delete_agendamento_btn',function(e){   ///inicio delete
-            e.preventDefault();          
-            var linklogo = "{{asset('storage')}}";
+            e.preventDefault();                      
             var CSRF_TOKEN  = document.querySelector('meta[name="csrf-token"]').getAttribute('content');   
             var id = $(this).data("id");            
-            var nome = $(this).data("nome");
-            
-            Swal.fire({
-                showClass: {
-                    popup: 'animate__animated animate__fadeInDown'
-                },
-                hideClass: {
-                    popup: 'animate__animated animate__fadeOutUp'
-                },
-                title:nome,
-                text: "Deseja excluir?",
-                imageUrl: linklogo+'/logoprodap.jpg',
-                imageWidth: 400,
-                imageHeight: 200,
-                imageAlt: 'imagem do sistema',
-                showCancelButton: true,
-                confirmButtonText: 'Sim, prossiga!',                
-                cancelButtonText: 'Não, cancelar!',                                 
-             }).then((result)=>{
-             if(result.isConfirmed){             
+            var nome = $(this).data("nome");            
+
+            var resposta = confirm('Excluindo agendamento com terapeuta '+nome+'. Deseja prosseguir?');
+
+            if(resposta==true){
+                     
                 $.ajax({
                     url: '/pagina/minhaagenda/delete/'+id,
                     type: 'POST',
@@ -180,10 +165,8 @@ $(document).ready(function(){
                             $("#success_message").text(response.errors);
                         }
                     }
-                }); 
-            } 
-        });   
-      
+                });
+            }      
         });  ///fim delete
  
 

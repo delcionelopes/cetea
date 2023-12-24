@@ -5,11 +5,13 @@ namespace App\Http\Controllers\Cetea;
 use App\Http\Controllers\Controller;
 use App\Models\Atendimento;
 use App\Models\Atendimento_Docs;
+use App\Models\Feriado;
 use App\Models\HistDes_Anexo3_R18_Docs;
 use App\Models\Medico_Terapeuta;
 use App\Models\Paciente;
 use App\Models\Tipo_Atendimento;
 use App\Models\Tratamento;
+use Carbon\CarbonPeriod;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -22,10 +24,12 @@ class AtendimentoController extends Controller
     private $paciente;
     private $arquivoatendimento;
     private $histdes_anexo3_docs;
+    private $feriado;
 
     public function __construct(Atendimento $atendimento, Medico_Terapeuta $medicoterapeuta,
                                 Tipo_Atendimento $tipoatendimento, Tratamento $tratamento, Paciente $paciente,
-                                Atendimento_Docs $arquivoatendimento, HistDes_Anexo3_R18_Docs $histdes_anexo3_docs)
+                                Atendimento_Docs $arquivoatendimento, HistDes_Anexo3_R18_Docs $histdes_anexo3_docs,
+                                Feriado $feriado)
     {
         $this->atendimento = $atendimento;
         $this->medicoterapeuta = $medicoterapeuta;
@@ -34,6 +38,7 @@ class AtendimentoController extends Controller
         $this->paciente = $paciente;
         $this->arquivoatendimento = $arquivoatendimento;
         $this->histdes_anexo3_docs = $histdes_anexo3_docs;
+        $this->feriado = $feriado;
     }
     /**
      * Display a listing of the resource.
@@ -42,6 +47,7 @@ class AtendimentoController extends Controller
      */
     public function index(Request $request, $color)
     {        
+        date_default_timezone_set('America/Sao_Paulo');
         if(is_null($request->pesquisa)){           
             $query = $this->atendimento->where('atendido','=',0)
                                        ->where(function($query){
@@ -97,7 +103,7 @@ class AtendimentoController extends Controller
      */
     public function store(Request $request)
     {        
-        $validator = Validator::make($request->all(),[
+        $validator = Validator::make($request->all(),[            
             'tipo_atendimento' => ['required'],
             'terapeuta' => ['required'],
             'tratamento' => ['required'],
@@ -109,6 +115,57 @@ class AtendimentoController extends Controller
                 'errors' => $validator->errors()->getMessages(),
             ]);
         }else{
+
+            if($request->input('tipo_atendimento')==4){
+            $date = strtotime($request->input('data'));
+                $dia = date('d',$date);
+                $mes = date('m',$date);
+                $ano = date('y',$date);
+
+                $query = $this->feriado->query()
+                                       ->where('dia','=',$dia)
+                                       ->where('mes','=',$mes);
+                $feriado = $query->first();                
+                
+                if($feriado){
+                    $descricao = $feriado->descricao;
+                    return response()->json([
+                        'status' => 401,
+                        'message' => 'Nesta data não tem expediente! '.$dia.'/'.$mes.'/'.$ano.' - '.$descricao.'.',
+                    ]);
+                }          
+
+                if(date('w',strtotime($request->input('data')))==0 || date('w',strtotime($request->input('data')))==6){
+                    return response()->json([
+                        'status' => 401,
+                        'message' => 'O agendamento não pode ser em fim de semana! Não tem expediente.',
+                    ]);
+                }
+
+                if(strtotime($request->input('data'))<strtotime(date('Y-m-d'))){
+                    return response()->json([
+                        'status' => 401,
+                        'message' => 'O agendamento não pode ser anterior à data de hoje!',
+                    ]);
+                }
+
+                $tipoatendimento = $this->tipoatendimento->find(4);
+
+                 $query = $this->atendimento->where('atendido','=',0)     
+                                       ->where('data_agendamento','=',$request->input('data'));
+                 $atendimento = $query->get();
+                 $contaAtendimento = $atendimento->count();
+
+                 if($contaAtendimento==$tipoatendimento->vagas_limite){
+                    return response()->json([
+                        'status' => 401,
+                        'message' => 'Para esta data o agendamento atingiu o limite! Escolha uma data VERDE.',
+                    ]);
+                }
+
+            }
+
+
             $user = auth()->user();
             $id = $this->maxId();
             $data['id'] = $id;
@@ -196,6 +253,55 @@ class AtendimentoController extends Controller
                 'errors' => $validator->errors()->getMessages(),
             ]);
         }else{
+
+            if($request->input('tipo_atendimento')==4){
+            $date = strtotime($request->input('data'));
+                $dia = date('d',$date);
+                $mes = date('m',$date);
+                $ano = date('y',$date);
+
+                $query = $this->feriado->query()
+                                       ->where('dia','=',$dia)
+                                       ->where('mes','=',$mes);
+                $feriado = $query->first();                
+                
+                if($feriado){
+                    $descricao = $feriado->descricao;
+                    return response()->json([
+                        'status' => 401,
+                        'message' => 'Nesta data não tem expediente! '.$dia.'/'.$mes.'/'.$ano.' - '.$descricao.'.',
+                    ]);
+                }          
+
+                if(date('w',strtotime($request->input('data')))==0 || date('w',strtotime($request->input('data')))==6){
+                    return response()->json([
+                        'status' => 401,
+                        'message' => 'O agendamento não pode ser em fim de semana! Não tem expediente.',
+                    ]);
+                }
+
+                if(strtotime($request->input('data'))<strtotime(date('Y-m-d'))){
+                    return response()->json([
+                        'status' => 401,
+                        'message' => 'O agendamento não pode ser anterior à data de hoje!',
+                    ]);
+                }
+
+                $tipoatendimento = $this->tipoatendimento->find(4);
+
+                 $query = $this->atendimento->where('atendido','=',0)     
+                                       ->where('data_agendamento','=',$request->input('data'));
+                 $atendimento = $query->get();
+                 $contaAtendimento = $atendimento->count();
+
+                 if($contaAtendimento==$tipoatendimento->vagas_limite){
+                    return response()->json([
+                        'status' => 401,
+                        'message' => 'Para esta data o agendamento atingiu o limite! Escolha uma data VERDE.',
+                    ]);
+                }
+
+            }
             $atendimento = $this->atendimento->find($id);
             if($atendimento){
             $user = auth()->user();                        
@@ -508,6 +614,35 @@ class AtendimentoController extends Controller
             'status' => 200,
         ]);
     }
+
+
+    public function diasColorir(){
+        $dataInicio = date('Y-m-d');
+        $dataFim = date('Y-m-d',strtotime('+30 days'));        
+        $periodo = CarbonPeriod::create($dataInicio,$dataFim);
+        $datas = $periodo->toArray();
+        $i = 0;
+        foreach($datas as $date){
+            $query = $this->atendimento->where('atendido','=',0)     
+                                       ->where('data_agendamento','=',$date->format('Y-m-d'));
+            $atendimento = $query->get();
+            $contaAtendimento = $atendimento->count();
+
+            $data[$i]['data'] = $date->format('Y-m-d');
+            $data[$i]['n_atendimentos'] = $contaAtendimento;
+            
+            $i++;
+        }        
+        $tipoatendimento = $this->tipoatendimento->find(4);
+        $feriados = $this->feriado->all();        
+        return response()->json([
+            'status' => 200,
+            'datas' => $data,
+            'tipo_atendimento' => $tipoatendimento,
+            'feriados' => $feriados,
+        ]);
+    }    
+
 
 
 }
