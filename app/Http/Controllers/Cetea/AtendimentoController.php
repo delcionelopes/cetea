@@ -116,6 +116,21 @@ class AtendimentoController extends Controller
             ]);
         }else{
 
+            if($request->input('tipo_atendimento')==1){                
+                if(strtotime($request->input('data'))>strtotime(date('Y-m-d'))){
+                    return response()->json([
+                        'status' => 401,
+                        'message' => 'O atendimento não pode ter a data maior do que de hoje!',
+                    ]);
+                }
+                if(strtotime($request->input('data'))<strtotime(date('Y-m-d'))){
+                    return response()->json([
+                        'status' => 401,
+                        'message' => 'O atendimento não pode ter a data menor do que de hoje!',
+                    ]);
+                }
+            }
+
             if($request->input('tipo_atendimento')==4){
             $date = strtotime($request->input('data'));
                 $dia = date('d',$date);
@@ -163,6 +178,43 @@ class AtendimentoController extends Controller
                     ]);
                 }
 
+            }
+            
+            //verifica se o paciente já tem algum tipo de agendamento
+            $query = $this->atendimento->where('paciente_id','=',$request->input('paciente'))
+                                   ->where('atendido','=',0)     
+                                   ->where(function($query){
+                                    $query->whereDate('data_retorno','>=',date("Y-m-d"))
+                                          ->orwhereDate('data_encaminhamento','>=',date("Y-m-d"))
+                                          ->orwhereDate('data_agonline','>=',date("Y-m-d"))
+                                          ->orwhereDate('data_agendamento','>=',date("Y-m-d"));
+                                   });
+            $atendimentoverificado = $query->first();            
+            if($atendimentoverificado){            
+            $atendimento = $this->atendimento->find($atendimentoverificado->id);
+            $paciente = $this->paciente->find($atendimento->paciente_id);
+            $tipoatendimento = $this->tipoatendimento->find($atendimento->tipo_atendimento_id);
+
+                if($atendimento->tipo_atendimento_id==2){ //retorno
+                    $dataprevista = strtotime($atendimento->data_retorno);
+                }
+                if($atendimento->tipo_atendimento_id==3){ //encaminhamento
+                    $dataprevista = strtotime($atendimento->data_encaminhamento);
+                }
+                if($atendimento->tipo_atendimento_id==4){ //agendamento presencial
+                    $dataprevista = strtotime($atendimento->data_agendamento);
+                }
+                if($atendimento->tipo_atendimento_id==5){ //agenda on-line
+                    $dataprevista = strtotime($atendimento->data_agonline);
+                }
+                $dia = date('d',$dataprevista);
+                $mes = date('m',$dataprevista);
+                $ano = date('y',$dataprevista);
+                $dataprevista_formatada = $dia.'/'.$mes.'/'.$ano;                
+                return response()->json([
+                    'status' => 401,
+                    'message' => 'Paciente: '.$paciente->nome.' já possui agendamento do tipo '.$tipoatendimento->nome.' para '.$dataprevista_formatada.', por esse motivo deve aguardar conforme a agenda. Agradecemos a compreensão.',
+                ]);
             }
 
 
@@ -254,6 +306,21 @@ class AtendimentoController extends Controller
             ]);
         }else{
 
+            if($request->input('tipo_atendimento')==1){                
+                if(strtotime($request->input('data'))>strtotime(date('Y-m-d'))){
+                    return response()->json([
+                        'status' => 401,
+                        'message' => 'O atendimento não pode ter a data maior do que de hoje!',
+                    ]);                    
+                }
+                 if(strtotime($request->input('data'))<strtotime(date('Y-m-d'))){
+                    return response()->json([
+                        'status' => 401,
+                        'message' => 'O atendimento não pode ter a data menor do que de hoje!',
+                    ]);
+                }
+            }
+
             if($request->input('tipo_atendimento')==4){
             $date = strtotime($request->input('data'));
                 $dia = date('d',$date);
@@ -300,8 +367,45 @@ class AtendimentoController extends Controller
                         'message' => 'Para esta data o agendamento atingiu o limite! Escolha uma data VERDE.',
                     ]);
                 }
-
             }
+
+            //verifica se o paciente já tem algum tipo de agendamento
+            $query = $this->atendimento->where('paciente_id','=',$request->input('paciente'))
+                                   ->where('atendido','=',0)     
+                                   ->where(function($query){
+                                    $query->whereDate('data_retorno','>=',date("Y-m-d"))
+                                          ->orwhereDate('data_encaminhamento','>=',date("Y-m-d"))
+                                          ->orwhereDate('data_agonline','>=',date("Y-m-d"))
+                                          ->orwhereDate('data_agendamento','>=',date("Y-m-d"));
+                                   });
+            $atendimentoverificado = $query->first();            
+            if($atendimentoverificado){            
+            $atendimento = $this->atendimento->find($atendimentoverificado->id);
+            $paciente = $this->paciente->find($atendimento->paciente_id);
+            $tipoatendimento = $this->tipoatendimento->find($atendimento->tipo_atendimento_id);
+
+                if($atendimento->tipo_atendimento_id==2){ //retorno
+                    $dataprevista = strtotime($atendimento->data_retorno);
+                }
+                if($atendimento->tipo_atendimento_id==3){ //encaminhamento
+                    $dataprevista = strtotime($atendimento->data_encaminhamento);
+                }
+                if($atendimento->tipo_atendimento_id==4){ //agendamento presencial
+                    $dataprevista = strtotime($atendimento->data_agendamento);
+                }
+                if($atendimento->tipo_atendimento_id==5){ //agenda on-line
+                    $dataprevista = strtotime($atendimento->data_agonline);
+                }
+                $dia = date('d',$dataprevista);
+                $mes = date('m',$dataprevista);
+                $ano = date('y',$dataprevista);
+                $dataprevista_formatada = $dia.'/'.$mes.'/'.$ano;                
+                return response()->json([
+                    'status' => 401,
+                    'message' => 'Paciente: '.$paciente->nome.' já possui agendamento do tipo '.$tipoatendimento->nome.' para '.$dataprevista_formatada.', por esse motivo deve aguardar conforme a agenda. Agradecemos a compreensão.',
+                ]);
+            }
+
             $atendimento = $this->atendimento->find($id);
             if($atendimento){
             $user = auth()->user();                        
