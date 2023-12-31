@@ -72,7 +72,7 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="adddata">Data</label>
-                                <input type="text" maxLength="10" name="adddata" id="adddata" class="addata form-control" data-format="00/00/0000"  placeholder="dd/mm/yyyy" value="{{date('d/m/Y', strtotime($atendimento->data_atendimento))}}"/>
+                                <input type="text" maxLength="10" name="adddata" id="adddata" class="adddata form-control" data-format="00/00/0000"  placeholder="dd/mm/yyyy" value="{{date('d/m/Y', strtotime($atendimento->data_atendimento))}}"/>
                             </div>
                         </div>    
                     </div>

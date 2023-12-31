@@ -9,6 +9,7 @@ use App\Models\Anamnese_Inicial;
 use App\Models\Atendimento;
 use App\Models\Atendimento_Docs;
 use App\Models\Evolucao;
+use App\Models\Feriado;
 use App\Models\HistDes_Anexo1_RotAlim;
 use App\Models\HistDes_Anexo2_HistMedico;
 use App\Models\HistDes_Anexo3_InfoSensoriais;
@@ -26,6 +27,7 @@ use App\Models\Medico_Terapeuta;
 use App\Models\Paciente;
 use App\Models\Tipo_Atendimento;
 use App\Models\Tratamento;
+use Carbon\CarbonPeriod;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -57,6 +59,8 @@ class TerapiaController extends Controller
     private $histdes_anexo3_infosensoriais;
     private $evolucao;
 
+    private $feriado;
+
 
     public function __construct(Atendimento $atendimento, Medico_Terapeuta $medicoterapeuta,
                                 Tipo_Atendimento $tipoatendimento, Tratamento $tratamento, Paciente $paciente,
@@ -68,7 +72,7 @@ class TerapiaController extends Controller
                                 HistDes_VersaoPais_Independencia $histdes_versaopais_independencia, HistDes_VersaoPais_DesenvMotor $histdes_versaopais_desenvmotor,
                                 HistDes_VersaoPais_HistEscolar $histdes_versaopais_histescolar, HistDes_VersaoPais_CompCasa $histdes_versaopais_compcasa,
                                 HistDes_Anexo1_RotAlim $histdes_anexo1_rotalim, HistDes_Anexo2_HistMedico $histdes_anexo2_histmedico,
-                                HistDes_Anexo3_InfoSensoriais $histdes_anexo3_infosensoriais, Evolucao $evolucao)
+                                HistDes_Anexo3_InfoSensoriais $histdes_anexo3_infosensoriais, Evolucao $evolucao, Feriado $feriado)
     {
         $this->atendimento = $atendimento;
         $this->medicoterapeuta = $medicoterapeuta;
@@ -94,6 +98,8 @@ class TerapiaController extends Controller
         $this->histdes_anexo2_histmedico = $histdes_anexo2_histmedico;
         $this->histdes_anexo3_infosensoriais = $histdes_anexo3_infosensoriais;
         $this->evolucao = $evolucao;
+
+        $this->feriado = $feriado;
     }
     /**
      * Display a listing of the resource.
@@ -240,6 +246,76 @@ class TerapiaController extends Controller
         }else{
             $atendimento = $this->atendimento->find($id);
             if($atendimento){
+            
+            $tipoatendimento = $this->tipoatendimento->find($request->input('tipo_atendimento'));
+
+            if($request->input('tipo_atendimento')==2 || $request->input('tipo_atendimento')==3){
+                $date = strtotime($request->input('data'));
+                $dia = date('d',$date);
+                $mes = date('m',$date);
+                $ano = date('y',$date);
+
+                $query = $this->feriado->query()
+                                       ->where('dia','=',$dia)
+                                       ->where('mes','=',$mes);
+                $feriado = $query->first();                
+                
+                if($feriado){
+                    $descricao = $feriado->descricao;
+                    return response()->json([
+                        'status' => 401,
+                        'message' => 'Nesta data não tem expediente! '.$dia.'/'.$mes.'/'.$ano.' - '.$descricao.'.',
+                    ]);
+                }          
+
+                if(date('w',strtotime($request->input('data')))==0 || date('w',strtotime($request->input('data')))==6){
+                    return response()->json([
+                        'status' => 401,
+                        'message' => 'Este '.$tipoatendimento->nome.' não pode ser em fim de semana! Não tem expediente.',
+                    ]);
+                }
+
+                if(strtotime($request->input('data'))<strtotime(date('Y-m-d'))){
+                    return response()->json([
+                        'status' => 401,
+                        'message' => 'Este '.$tipoatendimento->nome.' não pode ser anterior à data de hoje!',
+                    ]);
+                }                
+
+                if($request->input('tipo_atendimento')==2){ //retorno
+                    $query = $this->atendimento->where('atendido','=',0)
+                                        ->where('tipo_atendimento_id','=',$request->input('tipo_atendimento'))
+                                        ->where('data_retorno','=',$request->input('data'));
+                    $atendimento = $query->get();
+                    $contaAtendimento = $atendimento->count();
+
+                    if($contaAtendimento==$tipoatendimento->vagas_limite){
+                        return response()->json([
+                            'status' => 401,
+                            'message' => 'Para esta data o '.$tipoatendimento->nome.' atingiu o limite! Escolha uma data VERDE.',
+                        ]);
+                    }
+
+                }else{ //encaminhamento
+                    $query = $this->atendimento->where('atendido','=',0)
+                                        ->where('tipo_atendimento_id','=',$request->input('tipo_atendimento'))
+                                        ->where('data_encaminhamento','=',$request->input('data'));
+                    $atendimento = $query->get();
+                    $contaAtendimento = $atendimento->count();
+
+                    if($contaAtendimento==$tipoatendimento->vagas_limite){
+                        return response()->json([
+                            'status' => 401,
+                            'message' => 'Para esta data o '.$tipoatendimento->nome.' atingiu o limite! Escolha uma data VERDE.',
+                        ]);
+                    }
+
+
+                }
+
+            }
+            
+            
             $user = auth()->user();                        
             $data['tipo_atendimento_id'] = $request->input('tipo_atendimento');
             $data['paciente_id'] = $request->input('paciente');
@@ -412,7 +488,7 @@ class TerapiaController extends Controller
         return $codigo+1;
     }
 
-    public function editAnamneseInicial($id){
+    public function editAnamneseInicial(int $id){
         $anamnese_inicial = $this->anamnese_inicial->wherePaciente_id($id)->first();
         return response()->json([
             'status' => 200,
@@ -420,7 +496,7 @@ class TerapiaController extends Controller
         ]);
     }
 
-    public function updateAnamneseInicial(Request $request, $id){
+    public function updateAnamneseInicial(Request $request, int $id){
         $validator = Validator::make($request->all(),[
             'atendimento' => ['required'],
             'paciente' => ['required'],
@@ -507,7 +583,7 @@ class TerapiaController extends Controller
         return $codigo+1;
     }
 
-    public function editAnamneseHistPregressa($id){
+    public function editAnamneseHistPregressa(int $id){
         $anamnese_hist_pregressa = $this->anamnese_hist_pregressa->wherePaciente_id($id)->first();
         return response()->json([
             'status' => 200,
@@ -515,7 +591,7 @@ class TerapiaController extends Controller
         ]);
     }
 
-    public function updateAnamneseHistPregressa(Request $request, $id){
+    public function updateAnamneseHistPregressa(Request $request, int $id){
         $validator = Validator::make($request->all(),[
             'atendimento' => ['required'],
             'paciente' => ['required'],            
@@ -556,6 +632,50 @@ class TerapiaController extends Controller
     }
     }
     
+public function diasColorir(int $id){
+        $dataInicio = date('Y-m-d');
+        $dataFim = date('Y-m-d',strtotime('+30 days'));        
+        $periodo = CarbonPeriod::create($dataInicio,$dataFim);
+        $datas = $periodo->toArray();
+        $i = 0;
+        if($id==2){ //retorno
+            foreach($datas as $date){
+            $query = $this->atendimento->where('atendido','=',0)     
+                                       ->where('tipo_atendimento_id','=',$id) 
+                                       ->where('data_retorno','=',$date->format('Y-m-d'));
+            $atendimento = $query->get();
+            $contaAtendimento = $atendimento->count();
+
+            $data[$i]['data'] = $date->format('Y-m-d');
+            $data[$i]['n_atendimentos'] = $contaAtendimento;
+            
+            $i++;
+        }        
+
+        }else{ //encaminhamento
+            foreach($datas as $date){
+            $query = $this->atendimento->where('atendido','=',0)     
+                                       ->where('tipo_atendimento_id','=',$id) 
+                                       ->where('data_encaminhamento','=',$date->format('Y-m-d'));
+            $atendimento = $query->get();
+            $contaAtendimento = $atendimento->count();
+
+            $data[$i]['data'] = $date->format('Y-m-d');
+            $data[$i]['n_atendimentos'] = $contaAtendimento;
+            
+            $i++;
+        }   
+        }
+        
+        $tipoatendimento = $this->tipoatendimento->find($id);
+        $feriados = $this->feriado->all();        
+        return response()->json([
+            'status' => 200,
+            'datas' => $data,
+            'tipo_atendimento' => $tipoatendimento,
+            'feriados' => $feriados,
+        ]);
+    }    
 
 
 }
