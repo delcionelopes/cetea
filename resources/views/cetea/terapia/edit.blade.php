@@ -28,100 +28,661 @@
 
 </style>
 
-<!-- Inicio AddAnamnese_inicialModal -->
-<div class="modal fade animate__animated animate__bounce animate__faster bd-example-modal-xl" id="AddAnamnese_inicialModal" tabindex="-1" role="dialog" aria-labelledby="AddmyExtraLargeModalLabel" aria-hidden="true">
+<!-- Inicio AddAnamnese_Desenvolvimento -->
+<div class="modal fade animate__animated animate__bounce animate__faster bd-example-modal-xl" id="AddAnamnese_Desenvolvimento" tabindex="-1" role="dialog" aria-labelledby="AddmyExtraLargeModalLabel_Desenvolvimento" aria-hidden="true">
   <div class="modal-dialog modal-xl" role="document">
     <div class="modal-content">
         <div class="modal-header bg-{{$color}}">
-            <h5 class="modal-title" id="AddmyExtraLargeModalLabel" style="color: white;">Anamnese Inicial</h5>
+            <h5 class="modal-title" id="AddmyExtraLargeModalLabel_Desenvolvimento" style="color: white;">Anamnese Desenvolvimento</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="close">
                 <span aria-hidden="true" style="color: white.">&times;</span>
             </button>
         </div>      
         <div class="modal-body form-horizontal" role="form">
-            <form id="addform_anamnese_inicial" class="form-horizontal" role="form">
-                <input type="hidden" id="addpacienteid">
-                <input type="hidden" id="addatendimentoid">
-                <ul id="saveform_errlist_anamnese_inicial"></ul>
+            <form id="addform_desenvolvimento" class="form-horizontal" role="form">
+                <input type="hidden" id="addpacienteid_desenvolvimento">
+                <input type="hidden" id="addatendimentoid_desenvolvimento">
+                <ul id="saveform_errlist_desenvolvimento"></ul>
                 <fieldset>
-                    <legend>Composição Familiar: nome, idade, estado civil, grau de parentesco, instrução, local de trabalho, renda familiar. </legend>
-                    <span class="addcomposicao_familiar_caracteres"></span>
-                    <textarea name="addcomposicao_familiar" id="addcomposicao_familiar" cols="30" rows="10" class="composicao_familiar form-control"></textarea>
+                    <legend>Alimentação: como foi o aleitamento desde o nascimento até o desmame? E as reações à instrodução de outros tipos de alimentos?</legend>                                 
+                    <span class="addalimentacao_aleitamento_reacoes"></span>
+                    <textarea name="addalimentacao_aleitamento_reacoes" id="addalimentacao_aleitamento_reacoes" cols="30" rows="10" class="alimentacao_aleitamento_reacoes form-control"></textarea>
                 </fieldset>
                 <fieldset>
-                    <legend>Queixa ou motivo do encaminhamento?</legend>
-                    <span class="addqueixa_motivo_encaminhamento_caracteres"></span>
-                    <textarea name="addqueixa_motivo_encaminhamento" id="addqueixa_motivo_encaminhamento" cols="30" rows="10" class="queixa_motivo_encaminhamento form-control"></textarea>
+                    <legend>Teve ou tem problema para mastigar e/ou engolir?</legend>
+                    <span class="addproblema_para_mastigar"></span>
+                    <textarea name="addproblema_para_mastigar" id="addproblema_para_mastigar" cols="30" rows="5" class="problema_para_mastigar form-control"></textarea>
                 </fieldset>
                 <fieldset>
-                    <legend>Idade em que foi constatado o problema?</legend>                    
+                    <legend>Hábitos alimentares da criança (quantas refeições por dia, o que come, o que prefere, come muito, come pouco, foi ou é forçado a comer?)</legend>                                        
+                    <span class="addhabitos_alimentares"></span>
+                    <textarea name="addhabitos_alimentares" id="addhabitos_alimentares" cols="30" rows="5" class="habitos_alimentares form-control"></textarea>                    
+                </fieldset>
+                <fieldset>
+                    <legend>Idade em que sustentou a cabeça?</legend>                    
                     <div class="col-md-4">
-                    <span class="addidade_constatado_problema_caracteres"></span>
-                    <input type="text" name="addidade_constatado_problema" id="addidade_constatado_problema" class="idade_constatado_problema form-control" size="10" maxlength="10">
+                    <span class="addidade_sust_cabeca"></span>
+                    <input type="text" name="addidade_sust_cabeca" id="addidade_sust_cabeca" class="idade_sust_cabeca form-control" size="10" maxlength="10">
                     </div>
                 </fieldset>
                 <fieldset>
-                    <legend>Providências tomadas na ocasião?</legend>
-                    <span class="addprovidencias_tomadas_caracteres"></span>
-                    <textarea name="addprovidencias_tomadas" id="addprovidencias_tomadas" cols="30" rows="10" class="providencias_tomadas form-control"></textarea>
+                    <legend>Quando sentou sozinha? (idade)</legend>
+                    <div class="col-md-4">
+                    <span class="addqdo_sentou_sozinha"></span>
+                    <input type="text" name="addqdo_sentou_sozinha" id="addqdo_sentou_sozinha" class="qdo_sentou_sozinha form-control" size="10" maxlength="10">
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Engatinhou? Quando? (idade)</legend>                    
+                    <div class="col-md-4">
+                    <span class="addengatinhou_quando"></span>
+                    <input type="text" name="addengatinhou_quando" id="addengatinhou_quando" class="engatinhou_quando form-control" size="10" maxlength="10">
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Quando andou? (idade)</legend>
+                    <div class="col-md-4">
+                    <span class="addquando_andou"></span>
+                    <input type="text" name="addquando_andou" id="addquando_andou" class="quando_andou form-control" size="10" maxlength="10">
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Anda adequadamente?</legend>
+                    <div class="col-md-4">
+                    <span class="addanda_adequadamente"></span>
+                    <input type="text" name="addanda_adequadamente" id="addanda_adequadamente" class="anda_adequadamente form-control" size="20" maxlength="20">
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Quando controlou os esfíncteres?</legend>
+                    <div class="col-md-4">
+                    <span class="addqdo_controlou_os_esfincteres"></span>
+                    <input type="text" name="addqdo_controlou_os_esfincteres" id="addqdo_controlou_os_esfincteres" class="qdo_controlou_os_esfincteres form-control" size="50" maxlength="50">
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Caía muito quando pequena?</legend>
+                    <div class="col-md-4">
+                    <span class="addcaiamuito_qdopequena"></span>
+                    <input type="text" name="addcaiamuito_qdopequena" id="addcaiamuito_qdopequena" class="caiamuito_qdopequena form-control" size="50" maxlength="50">
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Em que idade se deu o balbucio? (idade)</legend>
+                    <div class="col-md-4">
+                    <span class="addque_idade_se_deu_balbucio"></span>
+                    <input type="text" name="addque_idade_se_deu_balbucio" id="addque_idade_se_deu_balbucio" class="que_idade_se_deu_balbucio form-control" size="10" maxlength="10">
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Quando falou as primeiras palavras? (idade)</legend>
+                    <div class="col-md-4">
+                    <span class="addqdo_falou_primpalavras"></span>
+                    <input type="text" name="addqdo_falou_primpalavras" id="addqdo_falou_primpalavras" class="qdo_falou_primpalavras form-control" size="10" maxlength="10">
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Apresenta algum problema de linguagem?</legend>
+                    <div class="col-md-4">
+                    <span class="addapres_prob_linguagem"></span>
+                    <input type="text" name="addapres_prob_linguagem" id="addapres_prob_linguagem" class="apres_prob_linguagem form-control" size="30" maxlength="30">
+                    </div>
+                </fieldset>
+                 <fieldset>
+                    <legend>Apresenta gagueira?</legend>
+                    <span class="addapres_gagueira"></span>
+                    <textarea name="addapres_gagueira" id="addapres_gagueira" cols="30" rows="5" class="apres_gagueira form-control"></textarea>                    
+                </fieldset>
+                <fieldset>
+                    <legend>Como é o sono?</legend>
+                    <div class="form-group">
+                                <label for="addcalmo">
+                                <input type="checkbox" class="calmo checkbox" name="addcalmo" id="addcalmo"> Calmo.</label>
+                    </div>                
+                    <div class="form-group">
+                                <label for="addsua_qd_dorme">
+                                <input type="checkbox" class="sua_qd_dorme checkbox" name="addsua_qd_dorme" id="addsua_qd_dorme"> Sua quando dorme.</label>
+                    </div>                                   
+                    <div class="form-group">
+                                <label for="addsonambulismo">
+                                <input type="checkbox" class="sonambulismo checkbox" name="addsonambulismo" id="addsonambulismo"> Sonambulismo.</label>
+                    </div>                
+                    <div class="form-group">
+                                <label for="addagitado">
+                                <input type="checkbox" class="agitado checkbox" name="addagitado" id="addagitado"> Agitado.</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="addfala_dormindo">
+                                <input type="checkbox" class="fala_dormindo checkbox" name="addfala_dormindo" id="addfala_dormindo"> Fala dormindo.</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="addrange_os_dentes">
+                                <input type="checkbox" class="range_os_dentes checkbox" name="addrange_os_dentes" id="addrange_os_dentes"> Range os dentes.</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="addbaba_qdo_dorme">
+                                <input type="checkbox" class="baba_qdo_dorme checkbox" name="addbaba_qdo_dorme" id="addbaba_qdo_dorme"> Baba quando dorme.</label>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>A que horas costuma dormir à noite?</legend>
+                    <div class="col-md-4">
+                    <span class="adda_que_h_cost_dormir_a_noite"></span>
+                    <input type="text" name="adda_que_h_cost_dormir_a_noite" id="adda_que_h_cost_dormir_a_noite" class="a_que_h_cost_dormir_a_noite form-control" size="20" maxlength="20">
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Dorme durante o dia?</legend>
+                    <div class="col-md-4">
+                    <span class="adddorme_durante_o_dia"></span>
+                    <input type="text" name="adddorme_durante_o_dia" id="adddorme_durante_o_dia" class="dorme_durante_o_dia form-control" size="20" maxlength="20">
+                    </div>
+                </fieldset>
+                <fieldset>                     
+                    <legend>Usou chupeta?</legend>
+                    <div class="form-group">
+                                <label for="addusos_chupeta">
+                                <input type="checkbox" class="usos_chupeta checkbox" name="addusos_chupeta" id="addusos_chupeta"> Sim.</label>
+                    <div class="col-md-4">
+                    <span class="addusos_chupeta_ate_quando"></span>
+                    <label for="addusos_chupeta_ate_quando">Até quando? (idade)</label>
+                    <input type="text" name="addusos_chupeta_ate_quando" id="addusos_chupeta_ate_quando" class="usos_chupeta_ate_quando form-control" size="20" maxlength="20">
+                    </div>
+                    </div>  
+                </fieldset>
+                <fieldset>                     
+                    <legend>Chupou dedo?</legend>
+                    <div class="form-group">
+                                <label for="addchupou_dedo">
+                                <input type="checkbox" class="chupou_dedo checkbox" name="addchupou_dedo" id="addchupou_dedo"> Sim.</label>
+                    <div class="col-md-4">
+                    <span class="addchupou_dedo_ate_quando"></span>
+                    <label for="addchupou_dedo_ate_quando">Até quando? (idade)</label>
+                    <input type="text" name="addchupou_dedo_ate_quando" id="addchupou_dedo_ate_quando" class="chupou_dedo_ate_quando form-control" size="20" maxlength="20">
+                    </div>
+                    </div>  
+                </fieldset>
+                <fieldset>                     
+                    <legend>Roeu unha?</legend>
+                    <div class="form-group">
+                                <label for="addroeu_unha">
+                                <input type="checkbox" class="roeu_unha checkbox" name="addroeu_unha" id="addroeu_unha"> Sim.</label>
+                    <div class="col-md-4">
+                    <span class="addroeu_unha_ate_quando"></span>
+                    <label for="addroeu_unha_ate_quando">Até quando? (idade)</label>
+                    <input type="text" name="addroeu_unha_ate_quando" id="addroeu_unha_ate_quando" class="roeu_unha_ate_quando form-control" size="20" maxlength="20">
+                    </div>
+                    </div>  
+                </fieldset>
+                <fieldset>                     
+                    <legend>Teve ou tem tiques?</legend>
+                    <div class="form-group">
+                                <label for="addteveoutem_tiques">
+                                <input type="checkbox" class="teveoutem_tiques checkbox" name="addteveoutem_tiques" id="addteveoutem_tiques"> Sim.</label>
+                    <div class="col-md-4">
+                    <span class="addteveoutem_tiques_quais"></span>
+                    <label for="addteveoutem_tiques_quais">Quais?</label>
+                    <input type="text" name="addteveoutem_tiques_quais" id="addteveoutem_tiques_quais" class="teveoutem_tiques_quais form-control" size="30" maxlength="30">
+                    </div>
+                    </div>  
+                </fieldset>
+                <fieldset>
+                    <legend>Relacionamento familiar</legend>
+                    <div class="col-md-4">
+                    <span class="addrelacionamento_familiar"></span>
+                    <input type="text" name="addrelacionamento_familiar" id="addrelacionamento_familiar" class="relacionamento_familiar form-control" size="50" maxlength="50">
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Com quem e onde fica a criança?</legend>
+                    <div class="col-md-4">
+                    <span class="addcom_quem_e_ondeficacrianca"></span>
+                    <input type="text" name="addcom_quem_e_ondeficacrianca" id="addcom_quem_e_ondeficacrianca" class="com_quem_e_ondeficacrianca form-control" size="50" maxlength="50">
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Tem amigos?</legend>
+                    <div class="col-md-4">
+                    <span class="addtem_amigos"></span>
+                    <input type="text" name="addtem_amigos" id="addtem_amigos" class="tem_amigos form-control" size="50" maxlength="50">
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Assiste TV? (posição, tempo, programação)</legend>
+                    <div class="col-md-4">
+                    <span class="addassiste_tv"></span>
+                    <input type="text" name="addassiste_tv" id="addassiste_tv" class="assiste_tv form-control" size="50" maxlength="50">
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Gosta de música? (preferências)</legend>
+                    <div class="col-md-4">
+                    <span class="addgosta_de_musica"></span>
+                    <input type="text" name="addgosta_de_musica" id="addgosta_de_musica" class="gosta_de_musica form-control" size="50" maxlength="50">
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Passeios, locais que frequenta.</legend>
+                    <div class="col-md-4">
+                    <span class="addpasseios_locais_freq"></span>
+                    <input type="text" name="addpasseios_locais_freq" id="addpasseios_locais_freq" class="passeios_locais_freq form-control" size="50" maxlength="50">
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Brincar (como, posição, nível de atenção, brinquedos preferidos)</legend>
+                    <span class="addbrincar"></span>
+                    <textarea name="addbrincar" id="addbrincar" cols="30" rows="4" class="brincar form-control"></textarea> 
+                </fieldset>
+                <fieldset>
+                    <legend>Comportamento (humor, birras, medos)</legend>
+                    <span class="addcomportamento"></span>
+                    <textarea name="addcomportamento" id="addcomportamento" cols="30" rows="4" class="comportamento form-control"></textarea> 
+                </fieldset>
+                <fieldset>
+                    <legend>Higiene</legend>
+                    <span class="addhigiene"></span>
+                    <textarea name="addhigiene" id="addhigiene" cols="30" rows="4" class="higiene form-control"></textarea> 
+                </fieldset>
+                <fieldset>
+                    <legend>Banho</legend>
+                    <span class="addbanho"></span>
+                    <textarea name="addbanho" id="addbanho" cols="30" rows="4" class="banho form-control"></textarea> 
+                </fieldset>
+                <fieldset>
+                    <legend>Vestir e despir</legend>
+                    <span class="addvestir_e_despir"></span>
+                    <textarea name="addvestir_e_despir" id="addvestir_e_despir" cols="30" rows="4" class="vestir_e_despir form-control"></textarea> 
+                </fieldset>
+                <fieldset>
+                    <legend>Escolaridade: nome, horário e série</legend>
+                    <span class="addnome_horario_serie"></span>
+                    <textarea name="addnome_horario_serie" id="addnome_horario_serie" cols="30" rows="2" class="nome_horario_serie form-control"></textarea> 
+                </fieldset>
+                <fieldset>
+                    <legend>Histórico escolar</legend>
+                    <span class="addhistorico_escolar"></span>
+                    <textarea name="addhistorico_escolar" id="addhistorico_escolar" cols="30" rows="4" class="historico_escolar form-control"></textarea> 
+                </fieldset>
+                <fieldset>
+                    <legend>Queixa principal da escola</legend>
+                    <span class="addqueixa_principal_da_escola"></span>
+                    <textarea name="addqueixa_principal_da_escola" id="addqueixa_principal_da_escola" cols="30" rows="4" class="queixa_principal_da_escola form-control"></textarea> 
+                </fieldset>
+                <fieldset>
+                    <legend>Gosta da professora?</legend>
+                    <span class="addgosta_da_professora"></span>
+                    <textarea name="addgosta_da_professora" id="addgosta_da_professora" cols="30" rows="2" class="gosta_da_professora form-control"></textarea> 
+                </fieldset>
+                <fieldset>
+                    <legend>Quem ajuda nas tarefas de casa?</legend>
+                    <span class="addquem_ajuda_tar_casa"></span>
+                    <textarea name="addquem_ajuda_tar_casa" id="addquem_ajuda_tar_casa" cols="30" rows="4" class="quem_ajuda_tar_casa form-control"></textarea> 
+                </fieldset>
+                <fieldset>
+                    <legend>Como se comporta na sala?</legend>
+                    <span class="addcomo_se_comporta_na_sala"></span>
+                    <textarea name="addcomo_se_comporta_na_sala" id="addcomo_se_comporta_na_sala" cols="30" rows="4" class="como_se_comporta_na_sala form-control"></textarea> 
+                </fieldset>
+                <fieldset>
+                    <legend>O que a família pensa da escola?</legend>
+                    <span class="addoque_familia_pensa_da_escola"></span>
+                    <textarea name="addoque_familia_pensa_da_escola" id="addoque_familia_pensa_da_escola" cols="30" rows="4" class="oque_familia_pensa_da_escola form-control"></textarea> 
+                </fieldset>
+                <fieldset>
+                    <legend>O que a família pensa da professora?</legend>
+                    <span class="addoque_familia_pensa_da_professora"></span>
+                    <textarea name="addoque_familia_pensa_da_professora" id="addoque_familia_pensa_da_professora" cols="30" rows="4" class="oque_familia_pensa_da_professora form-control"></textarea> 
+                </fieldset>
+                <fieldset>
+                    <legend>Outras informações</legend>
+                    <span class="addoutras_informacoes"></span>
+                    <textarea name="addoutras_informacoes" id="addoutras_informacoes" cols="30" rows="10" class="outras_informacoes form-control"></textarea> 
+                </fieldset>
+                 <fieldset>
+                    <legend>Entrevistador</legend>
+                    <div class="col-md-4">
+                    <span class="addentrevistador"></span>
+                    <input type="text" name="addentrevistador" id="addentrevistador" class="entrevistador form-control" size="50" maxlength="50">
+                    </div>
                 </fieldset>
             </form>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-            <button data-color="{{$color}}" class="btn btn-{{$color}} add_anamnese_inicial_btn"><img id="imgaddanamnese_inicial" src="{{asset('storage/ajax-loader.gif')}}" style="display: none;" class="rounded-circle" width="20"> Salvar</button>
+            <button data-color="{{$color}}" class="btn btn-{{$color}} add_anamnese_desenvolvimento_btn"><img id="imgaddanamnese_desenvolvimento" src="{{asset('storage/ajax-loader.gif')}}" style="display: none;" class="rounded-circle" width="20"> Salvar</button>
         </div>
     </div>
   </div>
 </div>
-<!-- Fim AddAnamnese_inicialModal -->
-<!-- Inicio EditAnamnese_inicialModal -->
-<div class="modal fade animate__animated animate__bounce animate__faster bd-example-modal-xl" id="EditAnamnese_inicialModal" tabindex="-1" role="dialog" aria-labelledby="EditmyExtraLargeModalLabel" aria-hidden="true">
+<!-- Fim AddAnamnese_Desenvolvimento -->
+
+<!-- Inicio EditAnamnese_Desenvolvimento -->
+<div class="modal fade animate__animated animate__bounce animate__faster bd-example-modal-xl" id="EditAnamnese_Desenvolvimento" tabindex="-1" role="dialog" aria-labelledby="EditmyExtraLargeModalLabel_histpregressamodal" aria-hidden="true">
   <div class="modal-dialog modal-xl" role="document">
     <div class="modal-content">
-        <div class="modal-header nav-dark bg-{{$color}}">
-            <h5 class="modal-title" id="EditmyExtraLargeModalLabel" style="color: white;">Anamnese Inicial</h5>
+        <div class="modal-header bg-{{$color}}">
+            <h5 class="modal-title" id="EditmyExtraLargeModalLabel_histpregressamodal" style="color: white;">Anamnese Desenvolvimento</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="close">
                 <span aria-hidden="true" style="color: white.">&times;</span>
             </button>
         </div>      
         <div class="modal-body form-horizontal" role="form">
-            <form id="editform_anamnese_inicial" class="form-horizontal" role="form">
-                <input type="hidden" id="editpacienteid">
-                <input type="hidden" id="editatendimentoid">
-                <ul id="updateform_errlist_anamnese_inicial"></ul>
+            <form id="editform_desenvolvimentomodal" class="form-horizontal" role="form">
+                <input type="hidden" id="editpacienteid_desenvolvimento">
+                <input type="hidden" id="editatendimentoid_desenvolvimento">
+                <ul id="updateform_errlist_desenvolvimento"></ul>
                 <fieldset>
-                    <legend>Composição Familiar: nome, idade, estado civil, grau de parentesco, instrução, local de trabalho, renda familiar. </legend>
-                    <span class="editcomposicao_familiar_caracteres"></span>
-                    <textarea name="editcomposicao_familiar" id="editcomposicao_familiar" cols="30" rows="10" class="composicao_familiar form-control"></textarea>
+                    <legend>Alimentação: como foi o aleitamento desde o nascimento até o desmame? E as reações à instrodução de outros tipos de alimentos?</legend>                                 
+                    <span class="editalimentacao_aleitamento_reacoes"></span>
+                    <textarea name="editalimentacao_aleitamento_reacoes" id="editalimentacao_aleitamento_reacoes" cols="30" rows="10" class="alimentacao_aleitamento_reacoes form-control"></textarea>
                 </fieldset>
                 <fieldset>
-                    <legend>Queixa ou motivo do encaminhamento?</legend>
-                    <span class="editqueixa_motivo_encaminhamento_caracteres"></span>
-                    <textarea name="editqueixa_motivo_encaminhamento" id="editqueixa_motivo_encaminhamento" cols="30" rows="10" class="queixa_motivo_encaminhamento form-control"></textarea>
+                    <legend>Teve ou tem problema para mastigar e/ou engolir?</legend>
+                    <span class="editproblema_para_mastigar"></span>
+                    <textarea name="editproblema_para_mastigar" id="editproblema_para_mastigar" cols="30" rows="5" class="problema_para_mastigar form-control"></textarea>
                 </fieldset>
                 <fieldset>
-                    <legend>Idade em que foi constatado o problema?</legend>
+                    <legend>Hábitos alimentares da criança (quantas refeições por dia, o que come, o que prefere, come muito, come pouco, foi ou é forçado a comer?)</legend>                                        
+                    <span class="edithabitos_alimentares"></span>
+                    <textarea name="edithabitos_alimentares" id="edithabitos_alimentares" cols="30" rows="5" class="habitos_alimentares form-control"></textarea>                    
+                </fieldset>
+                <fieldset>
+                    <legend>Idade em que sustentou a cabeça?</legend>                    
                     <div class="col-md-4">
-                    <span class="editidade_constatado_problema_caracteres"></span>
-                    <input type="text" name="editidade_constatado_problema" id="editidade_constatado_problema" class="idade_constatado_problema form-control" size="10" maxlength="10">
+                    <span class="editidade_sust_cabeca"></span>
+                    <input type="text" name="editidade_sust_cabeca" id="editidade_sust_cabeca" class="idade_sust_cabeca form-control" size="10" maxlength="10">
                     </div>
                 </fieldset>
                 <fieldset>
-                    <legend>Providências tomadas na ocasião?</legend>
-                    <span class="editprovidencias_tomadas_caracteres"></span>
-                    <textarea name="editprovidencias_tomadas" id="editprovidencias_tomadas" cols="30" rows="10" class="providencias_tomadas form-control"></textarea>
+                    <legend>Quando sentou sozinha? (idade)</legend>
+                    <div class="col-md-4">
+                    <span class="editqdo_sentou_sozinha"></span>
+                    <input type="text" name="editqdo_sentou_sozinha" id="editqdo_sentou_sozinha" class="qdo_sentou_sozinha form-control" size="10" maxlength="10">
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Engatinhou? Quando? (idade)</legend>                    
+                    <div class="col-md-4">
+                    <span class="editengatinhou_quando"></span>
+                    <input type="text" name="editengatinhou_quando" id="editengatinhou_quando" class="engatinhou_quando form-control" size="10" maxlength="10">
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Quando andou? (idade)</legend>
+                    <div class="col-md-4">
+                    <span class="editquando_andou"></span>
+                    <input type="text" name="editquando_andou" id="editquando_andou" class="quando_andou form-control" size="10" maxlength="10">
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Anda adequadamente?</legend>
+                    <div class="col-md-4">
+                    <span class="editanda_adequadamente"></span>
+                    <input type="text" name="editanda_adequadamente" id="editanda_adequadamente" class="anda_adequadamente form-control" size="20" maxlength="20">
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Quando controlou os esfíncteres?</legend>
+                    <div class="col-md-4">
+                    <span class="editqdo_controlou_os_esfincteres"></span>
+                    <input type="text" name="editqdo_controlou_os_esfincteres" id="editqdo_controlou_os_esfincteres" class="qdo_controlou_os_esfincteres form-control" size="50" maxlength="50">
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Caía muito quando pequena?</legend>
+                    <div class="col-md-4">
+                    <span class="editcaiamuito_qdopequena"></span>
+                    <input type="text" name="editcaiamuito_qdopequena" id="editcaiamuito_qdopequena" class="caiamuito_qdopequena form-control" size="50" maxlength="50">
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Em que idade se deu o balbucio? (idade)</legend>
+                    <div class="col-md-4">
+                    <span class="editque_idade_se_deu_balbucio"></span>
+                    <input type="text" name="editque_idade_se_deu_balbucio" id="editque_idade_se_deu_balbucio" class="que_idade_se_deu_balbucio form-control" size="10" maxlength="10">
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Quando falou as primeiras palavras? (idade)</legend>
+                    <div class="col-md-4">
+                    <span class="editqdo_falou_primpalavras"></span>
+                    <input type="text" name="editqdo_falou_primpalavras" id="editqdo_falou_primpalavras" class="qdo_falou_primpalavras form-control" size="10" maxlength="10">
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Apresenta algum problema de linguagem?</legend>
+                    <div class="col-md-4">
+                    <span class="editapres_prob_linguagem"></span>
+                    <input type="text" name="editapres_prob_linguagem" id="editapres_prob_linguagem" class="apres_prob_linguagem form-control" size="30" maxlength="30">
+                    </div>
+                </fieldset>
+                 <fieldset>
+                    <legend>Apresenta gagueira?</legend>
+                    <span class="editapres_gagueira"></span>
+                    <textarea name="editapres_gagueira" id="editapres_gagueira" cols="30" rows="5" class="apres_gagueira form-control"></textarea>                    
+                </fieldset>
+                <fieldset>
+                    <legend>Como é o sono?</legend>
+                    <div class="form-group">
+                                <label for="editcalmo">
+                                <input type="checkbox" class="calmo checkbox" name="editcalmo" id="editcalmo"> Calmo.</label>
+                    </div>                
+                    <div class="form-group">
+                                <label for="editsua_qd_dorme">
+                                <input type="checkbox" class="sua_qd_dorme checkbox" name="editsua_qd_dorme" id="editsua_qd_dorme"> Sua quando dorme.</label>
+                    </div>                                   
+                    <div class="form-group">
+                                <label for="editsonambulismo">
+                                <input type="checkbox" class="sonambulismo checkbox" name="editsonambulismo" id="editsonambulismo"> Sonambulismo.</label>
+                    </div>                
+                    <div class="form-group">
+                                <label for="editagitado">
+                                <input type="checkbox" class="agitado checkbox" name="editagitado" id="editagitado"> Agitado.</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="editfala_dormindo">
+                                <input type="checkbox" class="fala_dormindo checkbox" name="editfala_dormindo" id="editfala_dormindo"> Fala dormindo.</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="editrange_os_dentes">
+                                <input type="checkbox" class="range_os_dentes checkbox" name="editrange_os_dentes" id="editrange_os_dentes"> Range os dentes.</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="editbaba_qdo_dorme">
+                                <input type="checkbox" class="baba_qdo_dorme checkbox" name="editbaba_qdo_dorme" id="editbaba_qdo_dorme"> Baba quando dorme.</label>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>A que horas costuma dormir à noite?</legend>
+                    <div class="col-md-4">
+                    <span class="edita_que_h_cost_dormir_a_noite"></span>
+                    <input type="text" name="edita_que_h_cost_dormir_a_noite" id="edita_que_h_cost_dormir_a_noite" class="a_que_h_cost_dormir_a_noite form-control" size="20" maxlength="20">
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Dorme durante o dia?</legend>
+                    <div class="col-md-4">
+                    <span class="editdorme_durante_o_dia"></span>
+                    <input type="text" name="editdorme_durante_o_dia" id="editdorme_durante_o_dia" class="dorme_durante_o_dia form-control" size="20" maxlength="20">
+                    </div>
+                </fieldset>
+                <fieldset>                     
+                    <legend>Usou chupeta?</legend>
+                    <div class="form-group">
+                                <label for="editusos_chupeta">
+                                <input type="checkbox" class="usos_chupeta checkbox" name="editusos_chupeta" id="editusos_chupeta"> Sim.</label>
+                    <div class="col-md-4">
+                    <span class="editusos_chupeta_ate_quando"></span>
+                    <label for="editusos_chupeta_ate_quando">Até quando? (idade)</label>
+                    <input type="text" name="editusos_chupeta_ate_quando" id="editusos_chupeta_ate_quando" class="usos_chupeta_ate_quando form-control" size="20" maxlength="20">
+                    </div>
+                    </div>  
+                </fieldset>
+                <fieldset>                     
+                    <legend>Chupou dedo?</legend>
+                    <div class="form-group">
+                                <label for="editchupou_dedo">
+                                <input type="checkbox" class="chupou_dedo checkbox" name="editchupou_dedo" id="editchupou_dedo"> Sim.</label>
+                    <div class="col-md-4">
+                    <span class="editchupou_dedo_ate_quando"></span>
+                    <label for="editchupou_dedo_ate_quando">Até quando? (idade)</label>
+                    <input type="text" name="editchupou_dedo_ate_quando" id="editchupou_dedo_ate_quando" class="chupou_dedo_ate_quando form-control" size="20" maxlength="20">
+                    </div>
+                    </div>  
+                </fieldset>
+                <fieldset>                     
+                    <legend>Roeu unha?</legend>
+                    <div class="form-group">
+                                <label for="editroeu_unha">
+                                <input type="checkbox" class="roeu_unha checkbox" name="editroeu_unha" id="editroeu_unha"> Sim.</label>
+                    <div class="col-md-4">
+                    <span class="editroeu_unha_ate_quando"></span>
+                    <label for="editroeu_unha_ate_quando">Até quando? (idade)</label>
+                    <input type="text" name="editroeu_unha_ate_quando" id="editroeu_unha_ate_quando" class="roeu_unha_ate_quando form-control" size="20" maxlength="20">
+                    </div>
+                    </div>  
+                </fieldset>
+                <fieldset>                     
+                    <legend>Teve ou tem tiques?</legend>
+                    <div class="form-group">
+                                <label for="editteveoutem_tiques">
+                                <input type="checkbox" class="teveoutem_tiques checkbox" name="editteveoutem_tiques" id="editteveoutem_tiques"> Sim.</label>
+                    <div class="col-md-4">
+                    <span class="editteveoutem_tiques_quais"></span>
+                    <label for="editteveoutem_tiques_quais">Quais?</label>
+                    <input type="text" name="editteveoutem_tiques_quais" id="editteveoutem_tiques_quais" class="teveoutem_tiques_quais form-control" size="30" maxlength="30">
+                    </div>
+                    </div>  
+                </fieldset>
+                <fieldset>
+                    <legend>Relacionamento familiar</legend>
+                    <div class="col-md-4">
+                    <span class="editrelacionamento_familiar"></span>
+                    <input type="text" name="editrelacionamento_familiar" id="editrelacionamento_familiar" class="relacionamento_familiar form-control" size="50" maxlength="50">
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Com quem e onde fica a criança?</legend>
+                    <div class="col-md-4">
+                    <span class="editcom_quem_e_ondeficacrianca"></span>
+                    <input type="text" name="editcom_quem_e_ondeficacrianca" id="editcom_quem_e_ondeficacrianca" class="com_quem_e_ondeficacrianca form-control" size="50" maxlength="50">
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Tem amigos?</legend>
+                    <div class="col-md-4">
+                    <span class="edittem_amigos"></span>
+                    <input type="text" name="edittem_amigos" id="edittem_amigos" class="tem_amigos form-control" size="50" maxlength="50">
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Assiste TV? (posição, tempo, programação)</legend>
+                    <div class="col-md-4">
+                    <span class="editassiste_tv"></span>
+                    <input type="text" name="editassiste_tv" id="editassiste_tv" class="assiste_tv form-control" size="50" maxlength="50">
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Gosta de música? (preferências)</legend>
+                    <div class="col-md-4">
+                    <span class="editgosta_de_musica"></span>
+                    <input type="text" name="editgosta_de_musica" id="editgosta_de_musica" class="gosta_de_musica form-control" size="50" maxlength="50">
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Passeios, locais que frequenta.</legend>
+                    <div class="col-md-4">
+                    <span class="editpasseios_locais_freq"></span>
+                    <input type="text" name="editpasseios_locais_freq" id="editpasseios_locais_freq" class="passeios_locais_freq form-control" size="50" maxlength="50">
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Brincar (como, posição, nível de atenção, brinquedos preferidos)</legend>
+                    <span class="addbrincar"></span>
+                    <textarea name="editbrincar" id="editbrincar" cols="30" rows="4" class="brincar form-control"></textarea> 
+                </fieldset>
+                <fieldset>
+                    <legend>Comportamento (humor, birras, medos)</legend>
+                    <span class="editcomportamento"></span>
+                    <textarea name="editcomportamento" id="editcomportamento" cols="30" rows="4" class="comportamento form-control"></textarea> 
+                </fieldset>
+                <fieldset>
+                    <legend>Higiene</legend>
+                    <span class="edithigiene"></span>
+                    <textarea name="edithigiene" id="edithigiene" cols="30" rows="4" class="higiene form-control"></textarea> 
+                </fieldset>
+                <fieldset>
+                    <legend>Banho</legend>
+                    <span class="editbanho"></span>
+                    <textarea name="editbanho" id="editbanho" cols="30" rows="4" class="banho form-control"></textarea> 
+                </fieldset>
+                <fieldset>
+                    <legend>Vestir e despir</legend>
+                    <span class="editvestir_e_despir"></span>
+                    <textarea name="editvestir_e_despir" id="editvestir_e_despir" cols="30" rows="4" class="vestir_e_despir form-control"></textarea> 
+                </fieldset>
+                <fieldset>
+                    <legend>Escolaridade: nome, horário e série</legend>
+                    <span class="editnome_horario_serie"></span>
+                    <textarea name="editnome_horario_serie" id="editnome_horario_serie" cols="30" rows="2" class="nome_horario_serie form-control"></textarea> 
+                </fieldset>
+                <fieldset>
+                    <legend>Histórico escolar</legend>
+                    <span class="edithistorico_escolar"></span>
+                    <textarea name="edithistorico_escolar" id="edithistorico_escolar" cols="30" rows="4" class="historico_escolar form-control"></textarea> 
+                </fieldset>
+                <fieldset>
+                    <legend>Queixa principal da escola</legend>
+                    <span class="editqueixa_principal_da_escola"></span>
+                    <textarea name="editqueixa_principal_da_escola" id="editqueixa_principal_da_escola" cols="30" rows="4" class="queixa_principal_da_escola form-control"></textarea> 
+                </fieldset>
+                <fieldset>
+                    <legend>Gosta da professora?</legend>
+                    <span class="editgosta_da_professora"></span>
+                    <textarea name="editgosta_da_professora" id="editgosta_da_professora" cols="30" rows="2" class="gosta_da_professora form-control"></textarea> 
+                </fieldset>
+                <fieldset>
+                    <legend>Quem ajuda nas tarefas de casa?</legend>
+                    <span class="editquem_ajuda_tar_casa"></span>
+                    <textarea name="editquem_ajuda_tar_casa" id="editquem_ajuda_tar_casa" cols="30" rows="4" class="quem_ajuda_tar_casa form-control"></textarea> 
+                </fieldset>
+                <fieldset>
+                    <legend>Como se comporta na sala?</legend>
+                    <span class="editcomo_se_comporta_na_sala"></span>
+                    <textarea name="editcomo_se_comporta_na_sala" id="editcomo_se_comporta_na_sala" cols="30" rows="4" class="como_se_comporta_na_sala form-control"></textarea> 
+                </fieldset>
+                <fieldset>
+                    <legend>O que a família pensa da escola?</legend>
+                    <span class="editoque_familia_pensa_da_escola"></span>
+                    <textarea name="editoque_familia_pensa_da_escola" id="editoque_familia_pensa_da_escola" cols="30" rows="4" class="oque_familia_pensa_da_escola form-control"></textarea> 
+                </fieldset>
+                <fieldset>
+                    <legend>O que a família pensa da professora?</legend>
+                    <span class="editoque_familia_pensa_da_professora"></span>
+                    <textarea name="editoque_familia_pensa_da_professora" id="editoque_familia_pensa_da_professora" cols="30" rows="4" class="oque_familia_pensa_da_professora form-control"></textarea> 
+                </fieldset>
+                <fieldset>
+                    <legend>Outras informações</legend>
+                    <span class="editoutras_informacoes"></span>
+                    <textarea name="editoutras_informacoes" id="editoutras_informacoes" cols="30" rows="10" class="outras_informacoes form-control"></textarea> 
+                </fieldset>
+                 <fieldset>
+                    <legend>Entrevistador</legend>
+                    <div class="col-md-4">
+                    <span class="editentrevistador"></span>
+                    <input type="text" name="editentrevistador" id="editentrevistador" class="entrevistador form-control" size="50" maxlength="50">
+                    </div>
                 </fieldset>
             </form>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-            <button type="button" data-color="{{$color}}" class="btn btn-{{$color}} update_anamnese_inicial_btn"><img id="imgeditanamnese_inicial" src="{{asset('storage/ajax-loader.gif')}}" style="display: none;" class="rounded-circle" width="20"> Salvar</button>
+            <button data-color="{{$color}}" class="btn btn-{{$color}} update_anamnese_desenvolvimento_btn"><img id="imgeditanamnese_desenvolvimento" src="{{asset('storage/ajax-loader.gif')}}" style="display: none;" class="rounded-circle" width="20"> Salvar</button>
         </div>
     </div>
   </div>
 </div>
-<!-- Fim EditAnamnese_inicialModal -->
+<!-- Fim EditAnamnese_Desenvolvimento -->
 
 <!-- Inicio AddAnamnese_HistPregressaModal -->
 <div class="modal fade animate__animated animate__bounce animate__faster bd-example-modal-xl" id="AddAnamnese_HistPregressaModal" tabindex="-1" role="dialog" aria-labelledby="AddmyExtraLargeModalLabel_histpregressamodal" aria-hidden="true">
@@ -259,6 +820,101 @@
 </div>
 <!-- Fim EditAnamnese_HistPregressaModal -->
 
+
+<!-- Inicio AddAnamnese_inicialModal -->
+<div class="modal fade animate__animated animate__bounce animate__faster bd-example-modal-xl" id="AddAnamnese_inicialModal" tabindex="-1" role="dialog" aria-labelledby="AddmyExtraLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+        <div class="modal-header bg-{{$color}}">
+            <h5 class="modal-title" id="AddmyExtraLargeModalLabel" style="color: white;">Anamnese Inicial</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                <span aria-hidden="true" style="color: white.">&times;</span>
+            </button>
+        </div>      
+        <div class="modal-body form-horizontal" role="form">
+            <form id="addform_anamnese_inicial" class="form-horizontal" role="form">
+                <input type="hidden" id="addpacienteid">
+                <input type="hidden" id="addatendimentoid">
+                <ul id="saveform_errlist_anamnese_inicial"></ul>
+                <fieldset>
+                    <legend>Composição Familiar: nome, idade, estado civil, grau de parentesco, instrução, local de trabalho, renda familiar. </legend>
+                    <span class="addcomposicao_familiar_caracteres"></span>
+                    <textarea name="addcomposicao_familiar" id="addcomposicao_familiar" cols="30" rows="10" class="composicao_familiar form-control"></textarea>
+                </fieldset>
+                <fieldset>
+                    <legend>Queixa ou motivo do encaminhamento?</legend>
+                    <span class="addqueixa_motivo_encaminhamento_caracteres"></span>
+                    <textarea name="addqueixa_motivo_encaminhamento" id="addqueixa_motivo_encaminhamento" cols="30" rows="10" class="queixa_motivo_encaminhamento form-control"></textarea>
+                </fieldset>
+                <fieldset>
+                    <legend>Idade em que foi constatado o problema?</legend>                    
+                    <div class="col-md-4">
+                    <span class="addidade_constatado_problema_caracteres"></span>
+                    <input type="text" name="addidade_constatado_problema" id="addidade_constatado_problema" class="idade_constatado_problema form-control" size="10" maxlength="10">
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Providências tomadas na ocasião?</legend>
+                    <span class="addprovidencias_tomadas_caracteres"></span>
+                    <textarea name="addprovidencias_tomadas" id="addprovidencias_tomadas" cols="30" rows="10" class="providencias_tomadas form-control"></textarea>
+                </fieldset>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            <button data-color="{{$color}}" class="btn btn-{{$color}} add_anamnese_inicial_btn"><img id="imgaddanamnese_inicial" src="{{asset('storage/ajax-loader.gif')}}" style="display: none;" class="rounded-circle" width="20"> Salvar</button>
+        </div>
+    </div>
+  </div>
+</div>
+<!-- Fim AddAnamnese_inicialModal -->
+<!-- Inicio EditAnamnese_inicialModal -->
+<div class="modal fade animate__animated animate__bounce animate__faster bd-example-modal-xl" id="EditAnamnese_inicialModal" tabindex="-1" role="dialog" aria-labelledby="EditmyExtraLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+        <div class="modal-header nav-dark bg-{{$color}}">
+            <h5 class="modal-title" id="EditmyExtraLargeModalLabel" style="color: white;">Anamnese Inicial</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                <span aria-hidden="true" style="color: white.">&times;</span>
+            </button>
+        </div>      
+        <div class="modal-body form-horizontal" role="form">
+            <form id="editform_anamnese_inicial" class="form-horizontal" role="form">
+                <input type="hidden" id="editpacienteid">
+                <input type="hidden" id="editatendimentoid">
+                <ul id="updateform_errlist_anamnese_inicial"></ul>
+                <fieldset>
+                    <legend>Composição Familiar: nome, idade, estado civil, grau de parentesco, instrução, local de trabalho, renda familiar. </legend>
+                    <span class="editcomposicao_familiar_caracteres"></span>
+                    <textarea name="editcomposicao_familiar" id="editcomposicao_familiar" cols="30" rows="10" class="composicao_familiar form-control"></textarea>
+                </fieldset>
+                <fieldset>
+                    <legend>Queixa ou motivo do encaminhamento?</legend>
+                    <span class="editqueixa_motivo_encaminhamento_caracteres"></span>
+                    <textarea name="editqueixa_motivo_encaminhamento" id="editqueixa_motivo_encaminhamento" cols="30" rows="10" class="queixa_motivo_encaminhamento form-control"></textarea>
+                </fieldset>
+                <fieldset>
+                    <legend>Idade em que foi constatado o problema?</legend>
+                    <div class="col-md-4">
+                    <span class="editidade_constatado_problema_caracteres"></span>
+                    <input type="text" name="editidade_constatado_problema" id="editidade_constatado_problema" class="idade_constatado_problema form-control" size="10" maxlength="10">
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Providências tomadas na ocasião?</legend>
+                    <span class="editprovidencias_tomadas_caracteres"></span>
+                    <textarea name="editprovidencias_tomadas" id="editprovidencias_tomadas" cols="30" rows="10" class="providencias_tomadas form-control"></textarea>
+                </fieldset>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            <button type="button" data-color="{{$color}}" class="btn btn-{{$color}} update_anamnese_inicial_btn"><img id="imgeditanamnese_inicial" src="{{asset('storage/ajax-loader.gif')}}" style="display: none;" class="rounded-circle" width="20"> Salvar</button>
+        </div>
+    </div>
+  </div>
+</div>
+<!-- Fim EditAnamnese_inicialModal -->
 
 <!-- Inicio Edit Form Atendimento -->
 <form role="form" method="POST">
