@@ -28,6 +28,183 @@
 
 </style>
 
+<!-- Inicio AddHistDesVersaoPaisInicial -->
+<div class="modal fade animate__animated animate__bounce animate__faster bd-example-modal-xl" id="AddHistDesVersaoPaisInicial" tabindex="-1" role="dialog" aria-labelledby="AddmyExtraLargeModalLabel_HistDesVersaoPaisInicial" aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+        <div class="modal-header bg-{{$color}}">
+            <h5 class="modal-title" id="AddmyExtraLargeModalLabel_HistDesVersaoPaisInicial" style="color: white;">Histórico do Desenvolvimento Versão Pais - Inicial</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                <span aria-hidden="true" style="color: white.">&times;</span>
+            </button>
+        </div>      
+        <div class="modal-body form-horizontal" role="form">
+            <form id="addform_hisdesversaopaisinicial" class="form-horizontal" role="form" method="POST">
+                <input type="hidden" id="addpacienteid_histdesversaopaisinicial">
+                <input type="hidden" id="addatendimentoid_histdesversaopaisinicial">
+                <ul id="saveform_errlist_histdesversaopaisinicial"></ul>
+                <fieldset>
+                    <legend>Responsável pelo preechimento:</legend>
+                    <div class="col-md-12">
+                    <span class="addresponsavelpreench"></span>
+                    <input type="text" name="addresponsavelpreench" id="addresponsavelpreench" class="responsavelpreench form-control" size="50" maxlength="50">
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Descreva as principais queixas ou dificuldades ralacionadas ao comportamento do seu filho.</legend>
+                    <span class="addprinc_queixas_comport_filho"></span>
+                    <textarea name="addprinc_queixas_comport_filho" id="addprinc_queixas_comport_filho" cols="30" rows="5" class="princ_queixas_comport_filho form-control"></textarea>
+                </fieldset>
+                <fieldset>
+                    <legend>Quem vive com a criança? Quem toma conta na ausência dos responsáveis?</legend>
+                    <span class="addquem_tomaconta_crianca"></span>
+                    <textarea name="addquem_tomaconta_crianca" id="addquem_tomaconta_crianca" cols="30" rows="5" class="quem_tomaconta_crianca form-control"></textarea>
+                </fieldset>
+                <fieldset>
+                    <legend>Mencione a idade em que notaram os primeiros sinais, sintomas ou que surgiram as primeiras preocupações com o desenvolvimento da criança. Quais foram os sinais preocupantes?</legend>                    
+                    <span class="addidade_primeiros_sinais_preocupacoes"></span>
+                    <textarea name="addidade_primeiros_sinais_preocupacoes" id="addidade_primeiros_sinais_preocupacoes" cols="30" rows="5" class="idade_primeiros_sinais_preocupacoes form-control"></textarea>
+                </fieldset>                
+                <fieldset>
+                    <legend>Áreas de preocupação atual:</legend>
+                    <div class="form-group">
+                                <label for="adddesenv_motor">
+                                <input type="checkbox" class="desenv_motor checkbox" name="adddesenv_motor" id="adddesenv_motor"> Desenvolvimento motor</label>
+                    </div>                
+                    <div class="form-group">
+                                <label for="adddesenv_linguagem">
+                                <input type="checkbox" class="desenv_linguagem checkbox" name="adddesenv_linguagem" id="adddesenv_linguagem"> Desenvolvimento da linguagem</label>
+                    </div>                                   
+                    <div class="form-group">
+                                <label for="addproblemas_sono">
+                                <input type="checkbox" class="problemas_sono checkbox" name="addproblemas_sono" id="addproblemas_sono"> Problemas com o sono</label>
+                    </div>                
+                    <div class="form-group">
+                                <label for="addproblemas_conduta">
+                                <input type="checkbox" class="problemas_conduta checkbox" name="addproblemas_conduta" id="addproblemas_conduta"> Problemas de conduta (agressividade, hiperatividade ou outros)</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="addtiques_esteotipias_manias">
+                                <input type="checkbox" class="tiques_esteotipias_manias checkbox" name="addtiques_esteotipias_manias" id="addtiques_esteotipias_manias"> Tiques, esteotipias, manias ou rituais</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="addprobl_comport_social">
+                                <input type="checkbox" class="probl_comport_social checkbox" name="addprobl_comport_social" id="addprobl_comport_social"> Problemas de comportamento social (falta de interesse ou afastamento das pessoas)</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="addproblemas_c_alimentacao">
+                                <input type="checkbox" class="problemas_c_alimentacao checkbox" name="addproblemas_c_alimentacao" id="addproblemas_c_alimentacao"> Problemas com alimentação</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="addbrincar_incompativel_c_idade">
+                                <input type="checkbox" class="brincar_incompativel_c_idade checkbox" name="addbrincar_incompativel_c_idade" id="addbrincar_incompativel_c_idade"> Brincar incompatível com a idade</label>
+                    </div>                    
+                </fieldset>                
+                <fieldset>
+                    <legend>Outras preocupações:</legend>
+                    <span class="addoutras_preocupacoes"></span>
+                    <textarea name="addoutras_preocupacoes" id="addoutras_preocupacoes" cols="30" rows="4" class="outras_preocupacoes form-control"></textarea> 
+                </fieldset>                
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            <button data-color="{{$color}}" class="btn btn-{{$color}} add_histdesversaopais_inicial_btn"><img id="imgaddanamnese_histdesversaopaisinicial" src="{{asset('storage/ajax-loader.gif')}}" style="display: none;" class="rounded-circle" width="20"> Salvar</button>
+        </div>
+    </div>
+  </div>
+</div>
+<!-- Fim AddHistDesVersaoPaisInicial -->
+
+<!-- Inicio EditHistDesVersaoPaisInicial -->
+<div class="modal fade animate__animated animate__bounce animate__faster bd-example-modal-xl" id="EditHistDesVersaoPaisInicial" tabindex="-1" role="dialog" aria-labelledby="EditmyExtraLargeModalLabel_histdesversaopaisinicial" aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+        <div class="modal-header bg-{{$color}}">
+            <h5 class="modal-title" id="EditmyExtraLargeModalLabel_histdesversaopaisinicial" style="color: white;">Histórico do Desenvolvimento Versão Pais - Inicial</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                <span aria-hidden="true" style="color: white.">&times;</span>
+            </button>
+        </div>      
+        <div class="modal-body form-horizontal" role="form">
+            <form id="editform_histdesversaopaisinicial" class="form-horizontal" role="form" method="POST">
+                <input type="hidden" id="editpacienteid_histdesversaopaisinicial">
+                <input type="hidden" id="editatendimentoid_histdesversaopaisinicial">
+                <ul id="updateform_errlist_histdesversaopaisinicial"></ul>
+                <fieldset>
+                    <legend>Responsável pelo preechimento:</legend>
+                    <div class="col-md-12">
+                    <span class="editresponsavelpreench"></span>
+                    <input type="text" name="editresponsavelpreench" id="editresponsavelpreench" class="responsavelpreench form-control" size="50" maxlength="50">
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Descreva as principais queixas ou dificuldades ralacionadas ao comportamento do seu filho.</legend>
+                    <span class="editprinc_queixas_comport_filho"></span>
+                    <textarea name="editprinc_queixas_comport_filho" id="editprinc_queixas_comport_filho" cols="30" rows="5" class="princ_queixas_comport_filho form-control"></textarea>
+                </fieldset>
+                <fieldset>
+                    <legend>Quem vive com a criança? Quem toma conta na ausência dos responsáveis?</legend>
+                    <span class="editquem_tomaconta_crianca"></span>
+                    <textarea name="editquem_tomaconta_crianca" id="editquem_tomaconta_crianca" cols="30" rows="5" class="quem_tomaconta_crianca form-control"></textarea>
+                </fieldset>
+                <fieldset>
+                    <legend>Mencione a idade em que notaram os primeiros sinais, sintomas ou que surgiram as primeiras preocupações com o desenvolvimento da criança. Quais foram os sinais preocupantes?</legend>                    
+                    <span class="editidade_primeiros_sinais_preocupacoes"></span>
+                    <textarea name="editidade_primeiros_sinais_preocupacoes" id="editidade_primeiros_sinais_preocupacoes" cols="30" rows="5" class="idade_primeiros_sinais_preocupacoes form-control"></textarea>
+                </fieldset>                
+                <fieldset>
+                    <legend>Áreas de preocupação atual:</legend>
+                    <div class="form-group">
+                                <label for="editdesenv_motor">
+                                <input type="checkbox" class="desenv_motor checkbox" name="editdesenv_motor" id="editdesenv_motor"> Desenvolvimento motor</label>
+                    </div>                
+                    <div class="form-group">
+                                <label for="editdesenv_linguagem">
+                                <input type="checkbox" class="desenv_linguagem checkbox" name="editdesenv_linguagem" id="editdesenv_linguagem"> Desenvolvimento da linguagem</label>
+                    </div>                                   
+                    <div class="form-group">
+                                <label for="editproblemas_sono">
+                                <input type="checkbox" class="problemas_sono checkbox" name="editproblemas_sono" id="editproblemas_sono"> Problemas com o sono</label>
+                    </div>                
+                    <div class="form-group">
+                                <label for="editproblemas_conduta">
+                                <input type="checkbox" class="problemas_conduta checkbox" name="editproblemas_conduta" id="editproblemas_conduta"> Problemas de conduta (agressividade, hiperatividade ou outros)</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="edittiques_esteotipias_manias">
+                                <input type="checkbox" class="tiques_esteotipias_manias checkbox" name="edittiques_esteotipias_manias" id="edittiques_esteotipias_manias"> Tiques, esteotipias, manias ou rituais</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="editprobl_comport_social">
+                                <input type="checkbox" class="probl_comport_social checkbox" name="editprobl_comport_social" id="editprobl_comport_social"> Problemas de comportamento social (falta de interesse ou afastamento das pessoas)</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="editproblemas_c_alimentacao">
+                                <input type="checkbox" class="problemas_c_alimentacao checkbox" name="editproblemas_c_alimentacao" id="editproblemas_c_alimentacao"> Problemas com alimentação</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="editbrincar_incompativel_c_idade">
+                                <input type="checkbox" class="brincar_incompativel_c_idade checkbox" name="editbrincar_incompativel_c_idade" id="editbrincar_incompativel_c_idade"> Brincar incompatível com a idade</label>
+                    </div>                    
+                </fieldset>                
+                <fieldset>
+                    <legend>Outras preocupações:</legend>
+                    <span class="editoutras_preocupacoes"></span>
+                    <textarea name="editoutras_preocupacoes" id="editoutras_preocupacoes" cols="30" rows="4" class="outras_preocupacoes form-control"></textarea> 
+                </fieldset>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            <button data-color="{{$color}}" class="btn btn-{{$color}} update_histdesversaopaisinicial_btn"><img id="imgeditanamnese_histdesversaopaisinicial" src="{{asset('storage/ajax-loader.gif')}}" style="display: none;" class="rounded-circle" width="20"> Salvar</button>
+        </div>
+    </div>
+  </div>
+</div>
+<!-- Fim EditHistDesVersaoPaisInicial -->
+
+
 <!-- Inicio AddAnamnese_Desenvolvimento -->
 <div class="modal fade animate__animated animate__bounce animate__faster bd-example-modal-xl" id="AddAnamnese_Desenvolvimento" tabindex="-1" role="dialog" aria-labelledby="AddmyExtraLargeModalLabel_Desenvolvimento" aria-hidden="true">
   <div class="modal-dialog modal-xl" role="document">
