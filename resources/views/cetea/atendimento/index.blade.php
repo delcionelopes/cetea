@@ -196,7 +196,7 @@ $(document).ready(function(){
                             //Não pôde excluir por causa dos relacionamentos    
                             $('#success_message').replaceWith('<div id="success_message"></div>');                                                    
                             $('#success_message').addClass('alert alert-danger');
-                            $('#success_message').text(response.errors);         
+                            $('#success_message').text(response.message);         
                         }
                     }
                 }); 

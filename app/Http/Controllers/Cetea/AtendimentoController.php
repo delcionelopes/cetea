@@ -3,10 +3,14 @@
 namespace App\Http\Controllers\Cetea;
 
 use App\Http\Controllers\Controller;
+use App\Models\Anamnese_Desenvolvimento;
+use App\Models\Anamnese_Hist_Pregressa;
+use App\Models\Anamnese_Inicial;
 use App\Models\Atendimento;
 use App\Models\Atendimento_Docs;
 use App\Models\Feriado;
 use App\Models\HistDes_Anexo3_R18_Docs;
+use App\Models\HistDes_VersaoPais_Inicial;
 use App\Models\Medico_Terapeuta;
 use App\Models\Paciente;
 use App\Models\Tipo_Atendimento;
@@ -22,9 +26,11 @@ class AtendimentoController extends Controller
     private $tipoatendimento;
     private $tratamento;
     private $paciente;
-    private $arquivoatendimento;
+    private $arquivoatendimento;    
+    private $feriado;    
+    
     private $histdes_anexo3_docs;
-    private $feriado;
+
 
     public function __construct(Atendimento $atendimento, Medico_Terapeuta $medicoterapeuta,
                                 Tipo_Atendimento $tipoatendimento, Tratamento $tratamento, Paciente $paciente,
@@ -468,110 +474,7 @@ class AtendimentoController extends Controller
         $evolucao = $atendimento->evolucao->count();
         $mchat = $atendimento->mchat->count();
         $atendimentoarqs = $atendimento->arquivos_atendimento->count();
-
-        if($atendimento->tipo_atendimento_id==1){
-            if($anamnese_inicial){
-                $anam_ini = $atendimento->anamnese_inicial; 
-                $atendimento->anamnese_inicial()->detach($anam_ini);
-            }
-            if($anamnese_hist_pregressa){
-                $anam_hist_preg = $atendimento->anamnese_hist_pregressa; 
-                $atendimento->anamnese_hist_pregressa()->detach($anam_hist_preg);
-            }
-            if($anamnese_desenvolvimento){
-                $anam_desenv = $atendimento->anamnese_desenvolvimento; 
-                $atendimento->anamnese_desenvolvimento()->detach($anam_desenv);
-            }
-            if($histdes_versaopais_inicial){
-                $histdes_vpais_inicial = $atendimento->histdes_versaopais_inicial; 
-                $atendimento->histdes_versaopais_inicial()->detach($histdes_vpais_inicial);
-            }
-            if($histdes_versaopais_linguagem){
-                $histdes_vpais_ling = $atendimento->histdes_versaopais_linguagem; 
-                $atendimento->histdes_versaopais_linguagem()->detach($histdes_vpais_ling);
-            }
-            if($histdes_versaopais_desenvsocial){
-                $histdes_vpais_dessocial = $atendimento->histdes_versaopais_desenvsocial; 
-                $atendimento->histdes_versaopais_desenvsocial()->detach($histdes_vpais_dessocial);
-            }
-            if($histdes_versaopais_brincadeiras){
-                $histdes_vpais_brinc = $atendimento->histdes_versaopais_brincadeiras; 
-                $atendimento->histdes_versaopais_brincadeiras()->detach($histdes_vpais_brinc);
-            }
-            if($histdes_versaopais_comportamentos){
-                $histdes_vpais_comp = $atendimento->histdes_versaopais_comportamentos; 
-                $atendimento->histdes_versaopais_comportamentos()->detach($histdes_vpais_comp);
-            }
-            if($histdes_versaopais_independencia){
-                $histdes_vpais_indep = $atendimento->histdes_versaopais_independencia; 
-                $atendimento->histdes_versaopais_independencia()->detach($histdes_vpais_indep);
-            }
-            if($histdes_versaopais_desenvmotor){
-                $histdes_vpais_desmotor = $atendimento->histdes_versaopais_desenvmotor; 
-                $atendimento->histdes_versaopais_desenvmotor()->detach($histdes_vpais_desmotor);
-            }
-            if($histdes_versaopais_histescolar){
-                $histdes_vpais_histesc = $atendimento->histdes_versaopais_histescolar; 
-                $atendimento->histdes_versaopais_histescolar()->detach($histdes_vpais_histesc);
-            }
-            if($histdes_versaopais_compcasa){
-                $histdes_vpais_comcasa = $atendimento->histdes_versaopais_compcasa; 
-                $atendimento->histdes_versaopais_compcasa()->detach($histdes_vpais_comcasa);
-            }
-            if($histdes_anexo1_rotalim){
-                $histdes_anexo1_ralim = $atendimento->histdes_anexo1_rotalim; 
-                $atendimento->histdes_anexo1_rotalim()->detach($histdes_anexo1_ralim);
-            }
-            if($histdes_anexo2_histmedico){
-                $histdes_anexo2_hmed = $atendimento->histdes_anexo2_histmedico; 
-                $atendimento->histdes_anexo2_histmedico()->detach($histdes_anexo2_hmed);
-            }
-            if($histdes_anexo3_infosensoriais){
-                $histdes_anexo3_docs = $this->histdes_anexo3_docs->where('hisdes_anexo3_infosensoriais_id','=', $atendimento->histdes_anexo3_infosensoriais->id)->get();
-                foreach ($histdes_anexo3_docs as $doc) {
-                    //deleção do arquivo na pasta /storage/arquivos_histdesanexo3/
-                    if($doc){            
-                    $arquivoPath = public_path('/storage/'.$doc->path);
-                    if(file_exists($arquivoPath)){
-                        unlink($arquivoPath);
-                    }    
-                    //exclui o registro
-                    $arq = HistDes_Anexo3_R18_Docs::find($doc->id);
-                    $arq->delete();
-                }  
-                }              
-                $histdes_anexo3_infsens = $atendimento->histdes_anexo3_inforsensoriais; 
-                $atendimento->histdes_anexo3_infosensoriais()->detach($histdes_anexo3_infsens);
-            }
-            if($evolucao){
-                $ev = $atendimento->evolucao; 
-                $atendimento->evolucao()->detach($ev);
-            }
-            if($mchat){
-                $m = $atendimento->mchat; 
-                $atendimento->mchat()->detach($m);
-            }
-            if($atendimentoarqs){
-                $arqs = $atendimento->arquivos_atendimento;
-                foreach ($arqs as $arq) {
-                //deleção do arquivo na pasta /storage/arquivos_atendimento/
-                if($arq){            
-                $arquivoPath = public_path('/storage/'.$arq->path);
-                if(file_exists($arquivoPath)){
-                    unlink($arquivoPath);
-                }    
-                //exclui o registro
-                    $a = Atendimento_Docs::find($arq->id);
-                    $a->delete();
-                }
-                }
-            }
-            $atendimento->delete();
-            return response()->json([
-            'status' => 200,
-            'message' => 'Registro excluído com sucesso!',
-            ]);
-        }else{
+      
         if($anamnese_inicial || $anamnese_hist_pregressa || $anamnese_desenvolvimento ||
            $histdes_versaopais_inicial || $histdes_versaopais_linguagem || $histdes_versaopais_desenvsocial ||
            $histdes_versaopais_brincadeiras || $histdes_versaopais_comportamentos || $histdes_versaopais_independencia ||
@@ -580,7 +483,7 @@ class AtendimentoController extends Controller
            $evolucao || $mchat || $atendimentoarqs){
             return response()->json([
                 'status' => 400,
-                'erros' => 'Este registro não pode ser excluído! Pois há outros que dependem dele.',
+                'message' => 'Este registro não pode ser excluído! Pois há outros que dependem dele.',
             ]);
            }else{
             $atendimento->delete();
@@ -589,8 +492,7 @@ class AtendimentoController extends Controller
             'message' => 'Registro excluído com sucesso!',
             ]);
            }           
-        }
-
+       
 
         
         

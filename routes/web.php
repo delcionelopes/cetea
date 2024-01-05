@@ -215,6 +215,9 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::get('/edit_anamnesehistpregressa/{id}',[TerapiaController::class,'editAnamneseHistPregressa']);
         Route::put('/update_anamnesehistpregressa/{id}',[TerapiaController::class,'updateAnamneseHistPregressa']);
         Route::get('/diascolorir/{id}',[TerapiaController::class,'diasColorir'])->name('colorir');
+        Route::put('/store_anamnese_desenvolvimento',[TerapiaController::class,'storeAnamneseDesenvolvimento']);
+        Route::get('/edit_anamnese_desenvolvimento/{id}',[TerapiaController::class,'editAnamneseDesenvolvimento']);
+        Route::put('/update_anamnese_desenvolvimento/{id}',[TerapiaController::class,'updateAnamneseDesenvolvimento']);
       });
 
       Route::prefix('feriado')->name('feriado.')->group(function(){

@@ -30,7 +30,7 @@ use App\Models\Tratamento;
 use Carbon\CarbonPeriod;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-
+use JeroenNoten\LaravelAdminLte\View\Components\Form\Input;
 
 class TerapiaController extends Controller
 {
@@ -675,7 +675,266 @@ public function diasColorir(int $id){
             'tipo_atendimento' => $tipoatendimento,
             'feriados' => $feriados,
         ]);
+    }
+    
+
+    public function storeAnamneseDesenvolvimento(Request $request){
+        $validator = Validator::make($request->all(),[
+            'alimentacao_aleitamento_reacoes' => ['required','max:400'],
+            'problema_para_mastigar' => ['required','max:200'],            
+            'habitos_alimentares' => ['required','max:200'],
+            'idade_sust_cabeca' => ['required','max:20'],
+            'qdo_sentou_sozinha' => ['required','max:20'],
+            'engatinhou_quando' => ['required','max:20'],
+            'quando_andou' => ['required','max:20'],
+            'anda_adequadamente' => ['required','max:20'],
+            'qdo_controlou_os_esfincteres' => ['required','max:50'],
+            'caiamuito_qdopequena' => ['required','max:50'],
+            'que_idade_se_deu_balbucio' => ['required','max:20'],
+            'qdo_falou_primpalavras' => ['required','max:20'],
+            'qdo_falou_primfrases' => ['required','max:20'],
+            'apres_prob_linguagem' => ['required','max:30'],
+            'apres_gagueira' => ['required','max:200'],
+            'a_que_h_cost_dormir_a_noite' => ['required','max:20'],
+            'dorme_durante_o_dia' => ['required','max:20'],
+            'tem_hab_dif_antes_dormir' => ['required','max:20'],
+            'dorme_cama_sep' => ['required','max:50'],
+            'relacionamento_familiar' => ['required','max:50'],
+            'com_quem_e_ondeficacrianca' => ['required','max:50'],
+            'tem_amigos' => ['required','max:50'],
+            'assiste_tv' => ['required','max:50'],
+            'gosta_de_musica' => ['required','max:50'],
+            'passeios_locais_freq' => ['required','max:50'],
+            'brincar' => ['required','max:200'],
+            'comportamento' => ['required','max:200'],
+            'higiene' => ['required','max:200'],
+            'banho' => ['required','max:200'],
+            'vestir_e_despir' => ['required','max:200'],
+            'nome_horario_serie' => ['required','max:100'],
+            'historico_escolar' => ['required','max:200'],
+            'queixa_principal_da_escola' => ['required','max:200'],
+            'gosta_da_professora' => ['required','max:100'],
+            'quem_ajuda_tar_casa' => ['required','max:100'],
+            'como_se_comporta_na_sala' => ['required','max:200'],
+            'oque_familia_pensa_da_escola' => ['required','max:200'],
+            'oque_familia_pensa_da_professora' => ['required','max:200'],
+            'outras_informacoes' => ['required','max:600'],
+            'entrevistador' => ['required','max:50'],
+        ]);
+        if($validator->fails()){
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->errors()->getMessages(),
+            ]);
+        }else{
+            $user = auth()->user();
+            $data['id'] = $this->maxId_AnamneseDesenvolvimento();
+            $data['atendimento_id'] = $request->input('atendimento');
+            $data['paciente_id'] = $request->input('paciente');
+            $data['a1_alimen_aleitamento_reacoes'] = $request->input('alimentacao_aleitamento_reacoes');
+            $data['a2_problema_para_mastigar'] = $request->input('problema_para_mastigar');
+            $data['a3_habitos_alimentares'] = $request->input('habitos_alimentares');
+            $data['b1_idade_sust_cabeca'] = $request->input('idade_sust_cabeca');
+            $data['b2_qdo_sentou_sozinha'] = $request->input('qdo_sentou_sozinha');
+            $data['b3_engatinhou_quando'] = $request->input('engatinhou_quando');
+            $data['b4_quando_andou'] = $request->input('quando_andou');
+            $data['b4_anda_adequadamente'] = $request->input('anda_adequadamente');
+            $data['b5_qdo_controlou_os_esfincteres'] = $request->input('qdo_controlou_os_esfincteres');
+            $data['b6_caiamuito_qdopequena'] = $request->input('caiamuito_qdopequena');
+            $data['c1_que_idade_se_deu_balbucio'] = $request->input('que_idade_se_deu_balbucio');
+            $data['c2_qdo_falou_primpalavras'] = $request->input('qdo_falou_primpalavras');
+            $data['c2_qdo_falou_primfrases'] = $request->input('qdo_falou_primfrases');
+            $data['c3_apres_prob_linguagem'] = $request->input('apres_prob_linguagem');
+            $data['c4_apres_gagueira'] = $request->input('apres_gagueira');
+            $data['d1_calmo'] = $request->input('calmo');
+            $data['d1_sua_qd_dorme'] = $request->input('sua_qd_dorme');
+            $data['d1_sonambulismo'] = $request->input('sonambulismo');
+            $data['d1_agitado'] = $request->input('agitado');
+            $data['d1_fala_dormindo'] = $request->input('fala_dormindo');
+            $data['d1_range_os_dentes'] = $request->input('range_os_dentes');
+            $data['d1_baba_qdo_dorme'] = $request->input('baba_qdo_dorme');
+            $data['d2_a_que_h_cost_dormir_a_noite'] = $request->input('a_que_h_cost_dormir_a_noite');
+            $data['d3_dorme_durante_o_dia'] = $request->input('dorme_durante_o_dia');
+            $data['d4_tem_hab_dif_antes_dormir'] = $request->input('tem_hab_dif_antes_dormir');
+            $data['d5_dorme_cama_sep'] = $request->input('dorme_cama_sep');
+            $data['e1_usos_chupeta'] = $request->input('usos_chupeta');
+            $data['e1_ate_quando'] = $request->input('usos_chupeta_ate_quando');
+            $data['e2_chupou_dedo'] = $request->input('chupou_dedo');
+            $data['e2_ate_quando'] = $request->input('chupou_dedo_ate_quando');
+            $data['e3_roeu_unha'] = $request->input('roeu_unha');
+            $data['e3_ate_quando'] = $request->input('roeu_unha_ate_quando');
+            $data['e4_teveoutem_tiques'] = $request->input('teveoutem_tiques');
+            $data['e4_quais'] = $request->input('teveoutem_tiques_quais');
+            $data['f1_relacionamento_familiar'] = $request->input('relacionamento_familiar');
+            $data['f2_com_quem_e_ondeficacrianca'] = $request->input('com_quem_e_ondeficacrianca');
+            $data['f3_tem_amigos'] = $request->input('tem_amigos');
+            $data['f4_assiste_tv'] = $request->input('assiste_tv');
+            $data['f5_gosta_de_musica'] = $request->input('gosta_de_musica');
+            $data['f6_passeios_locais_freq'] = $request->input('passeios_locais_freq');
+            $data['f7_brincar'] = $request->input('brincar');
+            $data['h1_comportamento'] = $request->input('comportamento');
+            $data['h2_higiene'] = $request->input('higiene');
+            $data['h3_banho'] = $request->input('banho');
+            $data['h4_vestir_e_despir'] = $request->input('vestir_e_despir');
+            $data['i1_nome_horario_serie'] = $request->input('nome_horario_serie');
+            $data['i2_historico_escolar'] = $request->input('historico_escolar');
+            $data['i3_queixa_principal_da_escola'] = $request->input('queixa_principal_da_escola');
+            $data['i4_gosta_da_professora'] = $request->input('gosta_da_professora');
+            $data['i5_quem_ajuda_tar_casa'] = $request->input('quem_ajuda_tar_casa');
+            $data['i6_como_se_comporta_na_sala'] = $request->input('como_se_comporta_na_sala');
+            $data['i7_oque_familia_pensa_da_escola'] = $request->input('oque_familia_pensa_da_escola');
+            $data['i8_oque_familia_pensa_professora'] = $request->input('oque_familia_pensa_da_professora');
+            $data['j1_outras_informacoes'] = $request->input('outras_informacoes');
+            $data['entrevistador'] = $request->input('entrevistador');
+            $data['created_at'] = now();
+            $data['updated_at'] = null;
+            $data['creater_user'] = $user->id;
+            $data['updater_user'] = null;
+            $anamnese_desenvolvimento = $this->anamnese_desenvolvimento->create($data);
+
+            return response()->json([
+                'status' => 200,
+            ]);
+
+        }
     }    
+
+    protected function maxId_AnamneseDesenvolvimento(){
+        $anamnese_desenvolvimento = $this->anamnese_desenvolvimento->orderByDesc('id')->first();
+        if($anamnese_desenvolvimento){
+            $codigo = $anamnese_desenvolvimento->id;
+        }else{
+            $codigo = 0;
+        }
+        return $codigo+1;
+    }
+
+    public function editAnamneseDesenvolvimento(int $id){
+        $anamnese_desenvolvimento = $this->anamnese_desenvolvimento->wherePaciente_id($id)->first();
+        return response()->json([
+            'status' => 200,
+            'anamnese_desenvolvimento' => $anamnese_desenvolvimento,
+        ]);
+    }
+
+    public function updateAnamneseDesenvolvimento(Request $request, int $id){
+        $validator = Validator::make($request->all(),[
+            'alimentacao_aleitamento_reacoes' => ['required','max:400'],
+            'problema_para_mastigar' => ['required','max:200'],            
+            'habitos_alimentares' => ['required','max:200'],
+            'idade_sust_cabeca' => ['required','max:20'],
+            'qdo_sentou_sozinha' => ['required','max:20'],
+            'engatinhou_quando' => ['required','max:20'],
+            'quando_andou' => ['required','max:20'],
+            'anda_adequadamente' => ['required','max:20'],
+            'qdo_controlou_os_esfincteres' => ['required','max:50'],
+            'caiamuito_qdopequena' => ['required','max:50'],
+            'que_idade_se_deu_balbucio' => ['required','max:20'],
+            'qdo_falou_primpalavras' => ['required','max:20'],
+            'qdo_falou_primfrases' => ['required','max:20'],
+            'apres_prob_linguagem' => ['required','max:30'],
+            'apres_gagueira' => ['required','max:200'],
+            'a_que_h_cost_dormir_a_noite' => ['required','max:20'],
+            'dorme_durante_o_dia' => ['required','max:20'],
+            'tem_hab_dif_antes_dormir' => ['required','max:20'],
+            'dorme_cama_sep' => ['required','max:50'],
+            'relacionamento_familiar' => ['required','max:50'],
+            'com_quem_e_ondeficacrianca' => ['required','max:50'],
+            'tem_amigos' => ['required','max:50'],
+            'assiste_tv' => ['required','max:50'],
+            'gosta_de_musica' => ['required','max:50'],
+            'passeios_locais_freq' => ['required','max:50'],
+            'brincar' => ['required','max:200'],
+            'comportamento' => ['required','max:200'],
+            'higiene' => ['required','max:200'],
+            'banho' => ['required','max:200'],
+            'vestir_e_despir' => ['required','max:200'],
+            'nome_horario_serie' => ['required','max:100'],
+            'historico_escolar' => ['required','max:200'],
+            'queixa_principal_da_escola' => ['required','max:200'],
+            'gosta_da_professora' => ['required','max:100'],
+            'quem_ajuda_tar_casa' => ['required','max:100'],
+            'como_se_comporta_na_sala' => ['required','max:200'],
+            'oque_familia_pensa_da_escola' => ['required','max:200'],
+            'oque_familia_pensa_da_professora' => ['required','max:200'],
+            'outras_informacoes' => ['required','max:600'],
+            'entrevistador' => ['required','max:50'],
+        ]);
+        if($validator->fails()){
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->errors()->getMessages(),
+            ]);
+        }else{
+            $desenvolvimento = $this->anamnese_desenvolvimento->wherePaciente_id($id)->first();            
+            $anamnese_desenvolvimento = $this->anamnese_desenvolvimento->find($desenvolvimento->id);
+            $user = auth()->user();
+            $data['atendimento_id'] = $request->input('atendimento');
+            $data['paciente_id'] = $request->input('paciente');
+            $data['a1_alimen_aleitamento_reacoes'] = $request->input('alimentacao_aleitamento_reacoes');
+            $data['a2_problema_para_mastigar'] = $request->input('problema_para_mastigar');
+            $data['a3_habitos_alimentares'] = $request->input('habitos_alimentares');
+            $data['b1_idade_sust_cabeca'] = $request->input('idade_sust_cabeca');
+            $data['b2_qdo_sentou_sozinha'] = $request->input('qdo_sentou_sozinha');
+            $data['b3_engatinhou_quando'] = $request->input('engatinhou_quando');
+            $data['b4_quando_andou'] = $request->input('quando_andou');
+            $data['b4_anda_adequadamente'] = $request->input('anda_adequadamente');
+            $data['b5_qdo_controlou_os_esfincteres'] = $request->input('qdo_controlou_os_esfincteres');
+            $data['b6_caiamuito_qdopequena'] = $request->input('caiamuito_qdopequena');
+            $data['c1_que_idade_se_deu_balbucio'] = $request->input('que_idade_se_deu_balbucio');
+            $data['c2_qdo_falou_primpalavras'] = $request->input('qdo_falou_primpalavras');
+            $data['c2_qdo_falou_primfrases'] = $request->input('qdo_falou_primfrases');
+            $data['c3_apres_prob_linguagem'] = $request->input('apres_prob_linguagem');
+            $data['c4_apres_gagueira'] = $request->input('apres_gagueira');
+            $data['d1_calmo'] = $request->input('calmo');
+            $data['d1_sua_qd_dorme'] = $request->input('sua_qd_dorme');
+            $data['d1_sonambulismo'] = $request->input('sonambulismo');
+            $data['d1_agitado'] = $request->input('agitado');
+            $data['d1_fala_dormindo'] = $request->input('fala_dormindo');
+            $data['d1_range_os_dentes'] = $request->input('range_os_dentes');
+            $data['d1_baba_qdo_dorme'] = $request->input('baba_qdo_dorme');
+            $data['d2_a_que_h_cost_dormir_a_noite'] = $request->input('a_que_h_cost_dormir_a_noite');
+            $data['d3_dorme_durante_o_dia'] = $request->input('dorme_durante_o_dia');
+            $data['d4_tem_hab_dif_antes_dormir'] = $request->input('tem_hab_dif_antes_dormir');
+            $data['d5_dorme_cama_sep'] = $request->input('dorme_cama_sep');
+            $data['e1_usos_chupeta'] = $request->input('usos_chupeta');
+            $data['e1_ate_quando'] = $request->input('usos_chupeta_ate_quando');
+            $data['e2_chupou_dedo'] = $request->input('chupou_dedo');
+            $data['e2_ate_quando'] = $request->input('chupou_dedo_ate_quando');
+            $data['e3_roeu_unha'] = $request->input('roeu_unha');
+            $data['e3_ate_quando'] = $request->input('roeu_unha_ate_quando');
+            $data['e4_teveoutem_tiques'] = $request->input('teveoutem_tiques');
+            $data['e4_quais'] = $request->input('teveoutem_tiques_quais');
+            $data['f1_relacionamento_familiar'] = $request->input('relacionamento_familiar');
+            $data['f2_com_quem_e_ondeficacrianca'] = $request->input('com_quem_e_ondeficacrianca');
+            $data['f3_tem_amigos'] = $request->input('tem_amigos');
+            $data['f4_assiste_tv'] = $request->input('assiste_tv');
+            $data['f5_gosta_de_musica'] = $request->input('gosta_de_musica');
+            $data['f6_passeios_locais_freq'] = $request->input('passeios_locais_freq');
+            $data['f7_brincar'] = $request->input('brincar');
+            $data['h1_comportamento'] = $request->input('comportamento');
+            $data['h2_higiene'] = $request->input('higiene');
+            $data['h3_banho'] = $request->input('banho');
+            $data['h4_vestir_e_despir'] = $request->input('vestir_e_despir');
+            $data['i1_nome_horario_serie'] = $request->input('nome_horario_serie');
+            $data['i2_historico_escolar'] = $request->input('historico_escolar');
+            $data['i3_queixa_principal_da_escola'] = $request->input('queixa_principal_da_escola');
+            $data['i4_gosta_da_professora'] = $request->input('gosta_da_professora');
+            $data['i5_quem_ajuda_tar_casa'] = $request->input('quem_ajuda_tar_casa');
+            $data['i6_como_se_comporta_na_sala'] = $request->input('como_se_comporta_na_sala');
+            $data['i7_oque_familia_pensa_da_escola'] = $request->input('oque_familia_pensa_da_escola');
+            $data['i8_oque_familia_pensa_professora'] = $request->input('oque_familia_pensa_da_professora');
+            $data['j1_outras_informacoes'] = $request->input('outras_informacoes');
+            $data['entrevistador'] = $request->input('entrevistador');
+            $data['updated_at'] = now();
+            $data['updater_user'] = $user->id;
+            $anamnese_desenvolvimento->update($data);            
+
+            return response()->json([
+                'status' => 200,                
+            ]);        
+    }
+    }
 
 
 
