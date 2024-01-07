@@ -218,6 +218,9 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::put('/store_anamnese_desenvolvimento',[TerapiaController::class,'storeAnamneseDesenvolvimento']);
         Route::get('/edit_anamnese_desenvolvimento/{id}',[TerapiaController::class,'editAnamneseDesenvolvimento']);
         Route::put('/update_anamnese_desenvolvimento/{id}',[TerapiaController::class,'updateAnamneseDesenvolvimento']);
+        Route::put('/store_histdesversaopaisinicial',[TerapiaController::class,'storeHistDesVersaoPaisInicial']);
+        Route::get('/edit_histdesversaopaisinicial/{id}',[TerapiaController::class,'editHistDesVersaoPaisInicial']);
+        Route::put('/update_histdesversaopaisinicial/{id}',[TerapiaController::class,'updateHistDesVersaoPaisInicial']);
       });
 
       Route::prefix('feriado')->name('feriado.')->group(function(){

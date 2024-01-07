@@ -1170,7 +1170,7 @@
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-none dropdown-toggle bg-light" data-toggle="dropdown" aria-expanded="false">História do desenvolvimento</button>
                                     <ul class="dropdown-menu">
-                                        <li class="dropdown-item bg-light"><a href="#" class="dropdown-item" data-id="{{$atendimento->paciente_id}}">
+                                        <li class="dropdown-item bg-light"><a href="#" class="histdes_versaopais_inicial dropdown-item" data-pacienteid="{{$atendimento->paciente_id}}" data-atendimentoid="{{$atendimento->id}}">
                                             @if($count_histdes_versaopais_inicial)<i data-id="1" id="histdes_versaopais_inicial{{$atendimento->id}}" class="fas fa-check" style="color: green"></i>@else<i data-id="0" id="histdes_versaopais_inicial{{$atendimento->id}}"></i>@endif Inicial</a></li>
                                         <li class="dropdown-item bg-light"><a href="#" class="dropdown-item" data-id="{{$atendimento->paciente_id}}">
                                             @if($count_histdes_versaopais_linguagem)<i data-id="1" id="histdes_versaopais_linguagem{{$atendimento->id}}" class="fas fa-check" style="color: green"></i>@else<i data-id="0" id="histdes_versaopais_linguagem{{$atendimento->id}}"></i>@endif Linguagem</a></li>
@@ -2196,7 +2196,7 @@ $("#AddAnamnese_Desenvolvimento").on('shown.bs.modal',function(){
             $(".alimentacao_aleitamento_reacoes").focus();
     });
 
-//inicio conta caracteres dos textarea anamnese_histpregressa
+//inicio conta caracteres dos textarea anamnese_desenvolvimento
 
     //add
 
@@ -3822,6 +3822,343 @@ $(document).on('click','.anamnese_desenvolvimento',function(e){
     });
 
 //fim anamnese do desenvolvimento
+
+//inicio histdes_versaopais_inicial
+
+$("#AddAHistDesVersaoPaisInicial").on('shown.bs.modal',function(){
+            $(".responsavelpreench").focus();
+    });
+
+$("#EditHistDesVersaoPaisInicial").on('shown.bs.modal',function(){
+            $(".responsavelpreench").focus();
+    });
+
+//inicio conta caracteres dos textarea HistDesVersaoPaisInicial
+
+    //add
+
+    $(document).on('input','#addresponsavelpreench',function(){
+        var limite = 50;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var responsavelpreench = $('input[name="addresponsavelpreench"]').val();
+            $('input[name="addresponsavelpreench"]').val(responsavelpreench.substr(0,limite));
+            $(".addresponsavelpreench").text("0" + " " + informativo);
+        }else{
+            $(".addresponsavelpreench").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addprinc_queixas_comport_filho',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var princ_queixas_comport_filho = $('textarea[name="addprinc_queixas_comport_filho"]').val();
+            $('textarea[name="addprinc_queixas_comport_filho"]').val(princ_queixas_comport_filho.substr(0,limite));
+            $(".addprinc_queixas_comport_filho").text("0" + " " + informativo);
+        }else{
+            $(".addprinc_queixas_comport_filho").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addquem_tomaconta_crianca',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var quem_tomaconta_crianca = $('textarea[name="addquem_tomaconta_crianca"]').val();
+            $('textarea[name="addquem_tomaconta_crianca"]').val(quem_tomaconta_crianca.substr(0,limite));
+            $(".addquem_tomaconta_crianca").text("0" + " " + informativo);
+        }else{
+            $(".addquem_tomaconta_crianca").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addidade_primeiros_sinais_preocupacoes',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var idade_primeiros_sinais_preocupacoes = $('textarea[name="addidade_primeiros_sinais_preocupacoes"]').val();
+            $('textarea[name="addidade_primeiros_sinais_preocupacoes"]').val(idade_primeiros_sinais_preocupacoes.substr(0,limite));
+            $(".addidade_primeiros_sinais_preocupacoes").text("0" + " " + informativo);
+        }else{
+            $(".addidade_primeiros_sinais_preocupacoes").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addoutras_preocupacoes',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var outras_preocupacoes = $('textarea[name="addoutras_preocupacoes"]').val();
+            $('textarea[name="addoutras_preocupacoes"]').val(outras_preocupacoes.substr(0,limite));
+            $(".addoutras_preocupacoes").text("0" + " " + informativo);
+        }else{
+            $(".addoutras_preocupacoes").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+//edit
+
+    $(document).on('input','#editresponsavelpreench',function(){
+        var limite = 50;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var responsavelpreench = $('input[name="editresponsavelpreench"]').val();
+            $('input[name="editresponsavelpreench"]').val(responsavelpreench.substr(0,limite));
+            $(".editresponsavelpreench").text("0" + " " + informativo);
+        }else{
+            $(".editresponsavelpreench").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editprinc_queixas_comport_filho',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var princ_queixas_comport_filho = $('textarea[name="editprinc_queixas_comport_filho"]').val();
+            $('textarea[name="editprinc_queixas_comport_filho"]').val(princ_queixas_comport_filho.substr(0,limite));
+            $(".editprinc_queixas_comport_filho").text("0" + " " + informativo);
+        }else{
+            $(".editprinc_queixas_comport_filho").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editquem_tomaconta_crianca',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var quem_tomaconta_crianca = $('textarea[name="editquem_tomaconta_crianca"]').val();
+            $('textarea[name="editquem_tomaconta_crianca"]').val(quem_tomaconta_crianca.substr(0,limite));
+            $(".editquem_tomaconta_crianca").text("0" + " " + informativo);
+        }else{
+            $(".editquem_tomaconta_crianca").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editidade_primeiros_sinais_preocupacoes',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var idade_primeiros_sinais_preocupacoes = $('textarea[name="editidade_primeiros_sinais_preocupacoes"]').val();
+            $('textarea[name="editidade_primeiros_sinais_preocupacoes"]').val(idade_primeiros_sinais_preocupacoes.substr(0,limite));
+            $(".editidade_primeiros_sinais_preocupacoes").text("0" + " " + informativo);
+        }else{
+            $(".editidade_primeiros_sinais_preocupacoes").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editoutras_preocupacoes',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var outras_preocupacoes = $('textarea[name="editoutras_preocupacoes"]').val();
+            $('textarea[name="editoutras_preocupacoes"]').val(outras_preocupacoes.substr(0,limite));
+            $(".editoutras_preocupacoes").text("0" + " " + informativo);
+        }else{
+            $(".editoutras_preocupacoes").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+
+$(document).on('click','.histdes_versaopais_inicial',function(e){
+        e.preventDefault();
+        var pacienteid = $(this).data("pacienteid");
+        var atendimentoid = $(this).data("atendimentoid");
+        var opcao_form_histdes_versaopais_inicial = $("#histdes_versaopais_inicial"+atendimentoid).data("id");
+
+        if(opcao_form_histdes_versaopais_inicial==0){
+                $("#addpacienteid_histdesversaopaisinicial").val(pacienteid);
+                $("#addatendimentoid_histdesversaopaisinicial").val(atendimentoid);
+                $("#addform_histdesversaopaisinicial").trigger('reset');
+                $("#AddHistDesVersaoPaisInicial").modal('show'); 
+                $("#saveform_errList_histdesversaopaisinicial").replaceWith('<ul id="saveform_errList_histdesversaopaisinicial"></ul>');
+        }else{            
+                $("#editpacienteid_histdesversaopaisinicial").val(pacienteid);
+                $("#editatendimentoid_histdesversaopaisinicial").val(atendimentoid);
+                $("#editform_histdesversaopaisinicial").trigger('reset');
+                $("#EditHistDesVersaoPaisInicial").modal('show'); 
+                $("#updateform_errList_histdesversaopaisinicial").replaceWith('<ul id="updateform_errList_histdesversaopaisinicial"></ul>');
+
+                 $.ajaxSetup({
+                    headers:{
+                        'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+    
+    
+                $.ajax({ 
+                    type: 'GET',             
+                    dataType: 'json',                                    
+                    url: '/ceteaadmin/terapia/edit_histdesversaopaisinicial/'+pacienteid,                                
+                    success: function(response){           
+                        if(response.status==200){                                               
+                            $(".responsavelpreench").val(response.histdesversaopaisinicial.responsavel_preench);
+                            $(".princ_queixas_comport_filho").val(response.histdesversaopaisinicial.princ_queixas_comport_filho);
+                            $(".quem_tomaconta_crianca").val(response.histdesversaopaisinicial.quem_tomaconta_crianca);
+                            $(".idade_primeiros_sinais_preocupacoes").val(response.histdesversaopaisinicial.idade_primeiros_sinais_preocupacoes);
+                            $(".desenv_motor").attr("checked",response.histdesversaopaisinicial.desenv_motor);
+                            $(".desenv_linguagem").attr("checked",response.histdesversaopaisinicial.desenv_linguagem);
+                            $(".problemas_sono").attr("checked",response.histdesversaopaisinicial.problemas_sono);
+                            $(".problemas_conduta").attr("checked",response.histdesversaopaisinicial.problemas_conduta);
+                            $(".tiques_esteotipias_manias").attr("checked",response.histdesversaopaisinicial.tiques_esteotipias_manias);
+                            $(".probl_comport_social").attr("checked",response.histdesversaopaisinicial.probl_comport_social);
+                            $(".problemas_c_alimentacao").attr("checked",response.histdesversaopaisinicial.problemas_c_alimentacao);
+                            $(".brincar_incompativel_c_idade").attr("checked",response.histdesversaopaisinicial.brincar_incompativel_c_idade);
+                            $(".outras_preocupacoes").val(response.histdesversaopaisinicial.outras_preocupacoes);
+                        }      
+                    }
+                });
+        }
+    });
+
+
+    $(document).on('click','.add_histdesversaopais_inicial_btn',function(e){
+        e.preventDefault();
+        var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+        var pacienteid = $("#addpacienteid_histdesversaopaisinicial").val();
+        var atendimentoid = $("#addatendimentoid_histdesversaopaisinicial").val();
+
+        var loading = $("#imgaddanamnese_histdesversaopaisinicial");
+            loading.show();
+
+        var data = new FormData();
+
+        data.append('atendimento',atendimentoid);
+        data.append('paciente',pacienteid);        
+        data.append('responsavel_preenchimento',$(".responsavelpreench").val());
+        data.append('princ_queixas_comport_filho',$(".princ_queixas_comport_filho").val());
+        data.append('quem_tomaconta_crianca',$(".quem_tomaconta_crianca").val());
+        data.append('idade_primeiros_sinais_preocupacoes',$(".idade_primeiros_sinais_preocupacoes").val());
+        data.append('desenv_motor',$(".desenv_motor").is(":checked")?'true':'false');
+        data.append('desenv_linguagem',$(".desenv_linguagem").is(":checked")?'true':'false');
+        data.append('problemas_sono',$(".problemas_sono").is(":checked")?'true':'false');
+        data.append('problemas_conduta',$(".problemas_conduta").is(":checked")?'true':'false');
+        data.append('tiques_esteotipias_manias',$(".tiques_esteotipias_manias").is(":checked")?'true':'false');
+        data.append('probl_comport_social',$(".probl_comport_social").is(":checked")?'true':'false');
+        data.append('problemas_c_alimentacao',$(".problemas_c_alimentacao").is(":checked")?'true':'false');
+        data.append('brincar_incompativel_c_idade',$(".brincar_incompativel_c_idade").is(":checked")?'true':'false');
+        data.append('outras_preocupacoes',$(".outras_preocupacoes").val());
+        data.append('_token',CSRF_TOKEN);
+        data.append('_method','PUT');        
+
+        $.ajax({
+            url:'/ceteaadmin/terapia/store_histdesversaopaisinicial',
+            type: 'POST',
+            dataType: 'json',
+            data: data,
+            cache: false,
+            processData: false,
+            contentType: false,
+            async:true,
+            success:function(response){
+                if(response.status==400){
+                    $("#saveform_errlist_histdesversaopaisinicial").replaceWith('<ul id="saveform_errList_histdesversaopaisinicial"></ul>');
+                    $("#saveform_errlist_histdesversaopaisinicial").addClass("alert alert-danger");
+                    $.each(response.errors,function(key,err_values){
+                        $("#saveform_errlist_histdesversaopaisinicial").append('<li>'+err_values+'</li>')
+                    });
+                    loading.hide();
+                }else{
+                    loading.hide();
+                    $("#saveform_errlist_histdesversaopaisinicial").replaceWith('<ul id="saveform_errList_histdesversaopaisinicial"></ul>');
+                    $("#anamnese_histdesversaopaisinicial"+atendimentoid).replaceWith('<i data-id="1" id="anamnese_histdesversaopaisinicial'+atendimentoid+'" class="fas fa-check" style="color: green"></i>');
+                    $("#addform_histdesversaopaisinicial").trigger('reset');
+                    $("#AddHistDesVersaoPaisInicial").modal('hide');                     
+                }
+            }
+
+        });
+
+    });
+
+
+    $(document).on('click','.update_histdesversaopaisinicial_btn',function(e){
+        var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+        var atendimentoid = $("#editatendimentoid_histdesversaopaisinicial").val();
+        var pacienteid = $("#editpacienteid_histdesversaopaisinicial").val();
+
+        var loading = $("#imgeditanamnese_histdesversaopaisinicial");
+            loading.show();
+
+        var data = new FormData();
+
+        data.append('atendimento',atendimentoid);
+        data.append('paciente',pacienteid);        
+        data.append('responsavel_preenchimento',$("#editresponsavelpreench").val());
+        data.append('princ_queixas_comport_filho',$("#editprinc_queixas_comport_filho").val());
+        data.append('quem_tomaconta_crianca',$("#editquem_tomaconta_crianca").val());
+        data.append('idade_primeiros_sinais_preocupacoes',$("#editidade_primeiros_sinais_preocupacoes").val());
+        data.append('desenv_motor',$("#editdesenv_motor").is(":checked")?'true':'false');
+        data.append('desenv_linguagem',$("#editdesenv_linguagem").is(":checked")?'true':'false');
+        data.append('problemas_sono',$("#editproblemas_sono").is(":checked")?'true':'false');
+        data.append('problemas_conduta',$("#editproblemas_conduta").is(":checked")?'true':'false');
+        data.append('tiques_esteotipias_manias',$("#edittiques_esteotipias_manias").is(":checked")?'true':'false');
+        data.append('probl_comport_social',$("#editprobl_comport_social").is(":checked")?'true':'false');
+        data.append('problemas_c_alimentacao',$("#editproblemas_c_alimentacao").is(":checked")?'true':'false');
+        data.append('brincar_incompativel_c_idade',$("#editbrincar_incompativel_c_idade").is(":checked")?'true':'false');
+        data.append('outras_preocupacoes',$("#editoutras_preocupacoes").val());
+        data.append('_token',CSRF_TOKEN);
+        data.append('_method','PUT');   
+
+        $.ajax({
+            url:'/ceteaadmin/terapia/update_histdesversaopaisinicial/'+pacienteid,
+            type:'POST',
+            contentType: 'json',
+            data: data,
+            cache: false,
+            processData: false,
+            contentType: false,
+            async:true,
+            success:function(response){
+                if(response.status==400){
+                    $("#updateform_errList_histdesversaopaisinicial").replaceWith('<ul id="updateform_errList_histdesversaopaisinicial"></ul>');
+                    $("#updateform_errlist_histdesversaopaisinicial").addClass('alert alert-danger');
+                    $.each(response.errors,function(key,err_values){
+                        $("#updateform_errlist_histdesversaopaisinicial").append('<li>'+err_values+'</li>');
+                    });
+                    loading.hide();
+                }else{
+                    loading.hide();
+                    $("#updateform_errlist_histdesversaopaisinicial").replaceWith('<ul id="updateform_errList_histdesversaopaisinicial"></ul>');
+                    $("#anamnese_histdesversaopaisinicial"+atendimentoid).replaceWith('<i data-id="1" id="anamnese_histdesversaopaisinicial'+atendimentoid+'" class="fas fa-check" style="color: green"></i>');
+                    $("#editform_histdesversaopaisinicial").trigger('reset');
+                    $("#EditAnamnese_HistDesVersaoPaisInicial").modal('hide');    
+                }
+            }
+        });
+    });
+
+//fim histdes_versaopais_inicial
 
 
 

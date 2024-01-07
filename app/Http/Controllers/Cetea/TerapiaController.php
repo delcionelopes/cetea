@@ -286,8 +286,8 @@ class TerapiaController extends Controller
                     $query = $this->atendimento->where('atendido','=',0)
                                         ->where('tipo_atendimento_id','=',$request->input('tipo_atendimento'))
                                         ->where('data_retorno','=',$request->input('data'));
-                    $atendimento = $query->get();
-                    $contaAtendimento = $atendimento->count();
+                    $att = $query->get();
+                    $contaAtendimento = $att->count();
 
                     if($contaAtendimento==$tipoatendimento->vagas_limite){
                         return response()->json([
@@ -300,8 +300,8 @@ class TerapiaController extends Controller
                     $query = $this->atendimento->where('atendido','=',0)
                                         ->where('tipo_atendimento_id','=',$request->input('tipo_atendimento'))
                                         ->where('data_encaminhamento','=',$request->input('data'));
-                    $atendimento = $query->get();
-                    $contaAtendimento = $atendimento->count();
+                    $att = $query->get();
+                    $contaAtendimento = $att->count();
 
                     if($contaAtendimento==$tipoatendimento->vagas_limite){
                         return response()->json([
@@ -334,6 +334,7 @@ class TerapiaController extends Controller
             }
             $data['updated_at'] = now();            
             $data['updater_user'] = $user->id;
+
             $atendimento->update($data);
             return response()->json([
                 'status' => 200,                
@@ -929,6 +930,115 @@ public function diasColorir(int $id){
             $data['updated_at'] = now();
             $data['updater_user'] = $user->id;
             $anamnese_desenvolvimento->update($data);            
+
+            return response()->json([
+                'status' => 200,                
+            ]);        
+    }
+    }
+
+
+public function storeHistDesVersaoPaisInicial(Request $request){
+        $validator = Validator::make($request->all(),[
+            'atendimento' => ['required'],
+            'paciente' => ['required'],            
+            'responsavel_preenchimento' => ['required','max:50'],
+            'princ_queixas_comport_filho' => ['required','max:400'],
+            'quem_tomaconta_crianca' => ['required','max:400'],
+            'idade_primeiros_sinais_preocupacoes' => ['required','max:400'],
+            'outras_preocupacoes' => ['required','max:400'],            
+        ]);
+        if($validator->fails()){
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->errors()->getMessages(),
+            ]);
+        }else{
+            $user = auth()->user();
+            $data['id'] = $this->maxId_HistDesVersaoPaisInicial();
+            $data['atendimento_id'] = $request->input('atendimento');
+            $data['paciente_id'] = $request->input('paciente');
+            $data['responsavel_preench'] = $request->input('responsavel_preenchimento');
+            $data['princ_queixas_comport_filho'] = $request->input('princ_queixas_comport_filho');
+            $data['quem_tomaconta_crianca'] = $request->input('quem_tomaconta_crianca');
+            $data['idade_primeiros_sinais_preocupacoes'] = $request->input('idade_primeiros_sinais_preocupacoes');
+            $data['desenv_motor'] = $request->input('desenv_motor');
+            $data['desenv_linguagem'] = $request->input('desenv_linguagem');
+            $data['problemas_sono'] = $request->input('problemas_sono');
+            $data['problemas_conduta'] = $request->input('problemas_conduta');
+            $data['tiques_esteotipias_manias'] = $request->input('tiques_esteotipias_manias');
+            $data['probl_comport_social'] = $request->input('probl_comport_social');
+            $data['problemas_c_alimentacao'] = $request->input('problemas_c_alimentacao');
+            $data['brincar_incompativel_c_idade'] = $request->input('brincar_incompativel_c_idade');
+            $data['outras_preocupacoes'] = $request->input('outras_preocupacoes');            
+            $data['created_at'] = now();
+            $data['updated_at'] = null;
+            $data['creater_user'] = $user->id;
+            $data['updater_user'] = null;
+            $this->histdes_versaopais_inicial->create($data);
+
+            return response()->json([
+                'status' => 200,
+            ]);
+
+        }
+    }    
+
+    protected function maxId_HistDesVersaoPaisInicial(){
+        $histdes_versaopais_inicial = $this->histdes_versaopais_inicial->orderByDesc('id')->first();
+        if($histdes_versaopais_inicial){
+            $codigo = $histdes_versaopais_inicial->id;
+        }else{
+            $codigo = 0;
+        }
+        return $codigo+1;
+    }
+
+    public function editHistDesVersaoPaisInicial(int $id){
+        $histdes_versaopais_inicial = $this->histdes_versaopais_inicial->wherePaciente_id($id)->first();
+        return response()->json([
+            'status' => 200,
+            'histdesversaopaisinicial' => $histdes_versaopais_inicial,
+        ]);
+    }
+
+    public function updateHistDesVersaoPaisInicial(Request $request, int $id){
+        $validator = Validator::make($request->all(),[
+            'atendimento' => ['required'],
+            'paciente' => ['required'],            
+            'responsavel_preenchimento' => ['required','max:50'],
+            'princ_queixas_comport_filho' => ['required','max:400'],
+            'quem_tomaconta_crianca' => ['required','max:400'],
+            'idade_primeiros_sinais_preocupacoes' => ['required','max:400'],
+            'outras_preocupacoes' => ['required','max:400'],            
+        ]);
+        if($validator->fails()){
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->errors()->getMessages(),
+            ]);
+        }else{
+            $busca_pelo_paciente = $this->histdes_versaopais_inicial->wherePaciente_id($id)->first();            
+            $histdes_versaopais_inicial = $this->histdes_versaopais_inicial->find($busca_pelo_paciente->id);
+            $user = auth()->user();            
+            $data['atendimento_id'] = $request->input('atendimento');
+            $data['paciente_id'] = $request->input('paciente');
+            $data['responsavel_preench'] = $request->input('responsavel_preenchimento');
+            $data['princ_queixas_comport_filho'] = $request->input('princ_queixas_comport_filho');
+            $data['quem_tomaconta_crianca'] = $request->input('quem_tomaconta_crianca');
+            $data['idade_primeiros_sinais_preocupacoes'] = $request->input('idade_primeiros_sinais_preocupacoes');
+            $data['desenv_motor'] = $request->input('desenv_motor');
+            $data['desenv_linguagem'] = $request->input('desenv_linguagem');
+            $data['problemas_sono'] = $request->input('problemas_sono');
+            $data['problemas_conduta'] = $request->input('problemas_conduta');
+            $data['tiques_esteotipias_manias'] = $request->input('tiques_esteotipias_manias');
+            $data['probl_comport_social'] = $request->input('probl_comport_social');
+            $data['problemas_c_alimentacao'] = $request->input('problemas_c_alimentacao');
+            $data['brincar_incompativel_c_idade'] = $request->input('brincar_incompativel_c_idade');
+            $data['outras_preocupacoes'] = $request->input('outras_preocupacoes');            
+            $data['updated_at'] = now();
+            $data['updater_user'] = $user->id;
+            $histdes_versaopais_inicial->update($data);            
 
             return response()->json([
                 'status' => 200,                
