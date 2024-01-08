@@ -28,6 +28,422 @@
 
 </style>
 
+<!-- Inicio AddHistDesVersaoPaisLinguagem -->
+<div class="modal fade animate__animated animate__bounce animate__faster bd-example-modal-xl" id="AddHistDesVersaoPaisLinguagem" tabindex="-1" role="dialog" aria-labelledby="AddmyExtraLargeModalLabel_HistDesVersaoPaisLinguagem" aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+        <div class="modal-header bg-{{$color}}">
+            <h5 class="modal-title" id="AddmyExtraLargeModalLabel_HistDesVersaoPaisLinguagem" style="color: white;">Histórico do Desenvolvimento Versão Pais - Linguagem</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                <span aria-hidden="true" style="color: white.">&times;</span>
+            </button>
+        </div>      
+        <div class="modal-body form-horizontal" role="form">
+            <form id="addform_hisdesversaopaislinguagem" class="form-horizontal" role="form" method="POST">
+                <input type="hidden" id="addpacienteid_histdesversaopaislinguagem">
+                <input type="hidden" id="addatendimentoid_histdesversaopaislinguagem">
+                <ul id="saveform_errlist_histdesversaopaislinguagem"></ul>
+                <fieldset>
+                    <legend>Idade das primeiras vocalizações:</legend>
+                    <div class="col-md-4">
+                    <span class="adde1_idade_prim_vocalizacoes"></span>
+                    <input type="text" name="adde1idade_prim_vocalizacoes" id="adde1idade_prim_vocalizacoes" class="e1idade_prim_vocalizacoes form-control" size="10" maxlength="10">
+                    </div>
+                    <div class="form-group">
+                      <label for="adde1naoapresentou">
+                      <input type="checkbox" class="e1naoapresentou checkbox" name="adde1naoapresentou" id="adde1naoapresentou"> Não apresentou</label>
+                    </div>
+                    <div class="col-md-12">
+                    <span class="adde1quais"></span>
+                    <input type="text" name="adde1quais" id="adde1quais" class="e1quais form-control" size="50" maxlength="50">
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Idade das primeiras palavras:</legend>
+                    <div class="col-md-4">
+                    <span class="adde2_idade_prim_palavras"></span>
+                    <input type="text" name="adde2idade_prim_palavras" id="adde2idade_prim_palavras" class="e2idade_prim_palavras form-control" size="10" maxlength="10">
+                    </div>
+                    <div class="form-group">
+                      <label for="adde2naoapresentou">
+                      <input type="checkbox" class="e2naoapresentou checkbox" name="adde2naoapresentou" id="adde2naoapresentou"> Não apresentou</label>
+                    </div>
+                    <div class="col-md-12">
+                    <span class="adde2quais"></span>
+                    <input type="text" name="adde2quais" id="adde2quais" class="e2quais form-control" size="50" maxlength="50">
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Idade das primeiras frases:</legend>
+                    <div class="col-md-4">
+                    <span class="adde3_idade_prim_frases"></span>
+                    <input type="text" name="adde3idade_prim_palavras" id="adde3idade_prim_palavras" class="e3idade_prim_palavras form-control" size="10" maxlength="10">
+                    </div>
+                    <div class="form-group">
+                      <label for="adde3naoapresentou">
+                      <input type="checkbox" class="e3naoapresentou checkbox" name="adde3naoapresentou" id="adde3naoapresentou"> Não apresentou</label>
+                    </div>
+                    <div class="col-md-12">
+                    <span class="adde3quais"></span>
+                    <input type="text" name="adde3quais" id="adde3quais" class="e3quais form-control" size="50" maxlength="50">
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Você considera que há algum atraso?</legend>
+                    <span class="addconsidera_que_ha_alg_atraso"></span>
+                    <textarea name="addconsidera_que_ha_alg_atraso" id="addconsidera_que_ha_alg_atraso" cols="30" rows="4" class="considera_que_ha_alg_atraso form-control"></textarea>
+                </fieldset>
+                <fieldset>                    
+                    <div class="form-group">
+                                <label for="addaponta_para_pedir_algo">
+                                <input type="checkbox" class="aponta_para_pedir_algo checkbox" name="addaponta_para_pedir_algo" id="addaponta_para_pedir_algo"> Aponta com o dedo indicador para pedir algo?</label>
+                    </div>                
+                    <div class="form-group">
+                                <label for="addaponta_para_compartilhar">
+                                <input type="checkbox" class="aponta_para_compartilhar checkbox" name="addaponta_para_compartilhar" id="addaponta_para_compartilhar"> Aponta com o dedo para compartilhar?</label>
+                    </div>                                   
+                    <div class="form-group">
+                                <label for="addsim_assentindo_c_cabeca">
+                                <input type="checkbox" class="sim_assentindo_c_cabeca checkbox" name="addsim_assentindo_c_cabeca" id="addsim_assentindo_c_cabeca"> Sim assentindo com a cabeça.</label>
+                    </div>                
+                    <div class="form-group">
+                                <label for="addmandar_beijos">
+                                <input type="checkbox" class="mandar_beijos checkbox" name="addmandar_beijos" id="addmandar_beijos"> Mandar beijos.</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="addda_tchau">
+                                <input type="checkbox" class="da_tchau checkbox" name="addda_tchau" id="addda_tchau"> Dá tchau.</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="addnega_c_cabeca">
+                                <input type="checkbox" class="nega_c_cabeca checkbox" name="addnega_c_cabeca" id="addnega_c_cabeca"> Negação com a cabeça.</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="addbate_palmas">
+                                <input type="checkbox" class="bate_palmas checkbox" name="addbate_palmas" id="addbate_palmas"> Bate palmas.</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="addeleva_bracos_pedcolo">
+                                <input type="checkbox" class="eleva_bracos_pedcolo checkbox" name="addeleva_bracos_pedcolo" id="addeleva_bracos_pedcolo"> Eleva os braços para pedir colo?</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="addsacode_indicador_pdizer_nao">
+                                <input type="checkbox" class="sacode_indicador_pdizer_nao checkbox" name="addsacode_indicador_pdizer_nao" id="addsacode_indicador_pdizer_nao"> Sacode o dedo indicador para dizer não?</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="addpuxvcpela_mao_paraabpg_coisas">
+                                <input type="checkbox" class="puxvcpela_mao_paraabpg_coisas checkbox" name="addpuxvcpela_mao_paraabpg_coisas" id="addpuxvcpela_mao_paraabpg_coisas"> Puxa você pela mão para abrir ou pegar coisas?</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="addvcjapensou_qseufilho_surdo">
+                                <input type="checkbox" class="vcjapensou_qseufilho_surdo checkbox" name="addvcjapensou_qseufilho_surdo" id="addvcjapensou_qseufilho_surdo"> Você já pensou que seu filho(a) pudesse ser surdo(a)?</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="addimita_gracinhas">
+                                <input type="checkbox" class="imita_gracinhas checkbox" name="addimita_gracinhas" id="addimita_gracinhas"> Imita gracinhas?</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="addseg_seurosto_polhar_palgdirecao">
+                                <input type="checkbox" class="seg_seurosto_polhar_palgdirecao checkbox" name="addseg_seurosto_polhar_palgdirecao" id="addseg_seurosto_polhar_palgdirecao"> Segura o seu rosto para olhar para alguma direção?</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="addatend_champnome">
+                                <input type="checkbox" class="atend_champnome checkbox" name="addatend_champnome" id="addatend_champnome"> Atende quando chamado pelo nome?</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="addsomente_c_insistencia">
+                                <input type="checkbox" class="somente_c_insistencia checkbox" name="addsomente_c_insistencia" id="addsomente_c_insistencia"> Somente com insistência.</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="addpessestranhas_compseufilho_fala">
+                                <input type="checkbox" class="pessestranhas_compseufilho_fala checkbox" name="addpessestranhas_compseufilho_fala" id="addpessestranhas_compseufilho_fala"> As pessoas estranhas compreendem o que seu filho(a) fala?</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="addseufilho_costrepultpal_ouvida">
+                                <input type="checkbox" class="seufilho_costrepultpal_ouvida checkbox" name="addseufilho_costrepultpal_ouvida" id="addseufilho_costrepultpal_ouvida"> Seu filho(a) costuma repetir a última palavra ou frase imediatamente ouvida?</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="addg16seufilho_costrepultpal_ouvida">
+                                <input type="checkbox" class="g16seufilho_costrepultpal_ouvida checkbox" name="addg16seufilho_costrepultpal_ouvida" id="addg16seufilho_costrepultpal_ouvida"> Seu filho(a) costuma repetir a última palavra ou frase imediatamente ouvida?</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="addg16as_vezes">
+                                <input type="checkbox" class="g16as_vezes" name="addg16as_vezes" id="addg16as_vezes"> Às vezes.</label>
+                    </div>
+                </fieldset>                
+                <fieldset>
+                    <legend>Como você avalia a fala do seu filho(a)?</legend>
+                    <div class="form-group">
+                                <label for="addfala_baixa">
+                                <input type="checkbox" class="fala_baixa" name="addfala_baixa" id="addfala_baixa"> Fala baixa.</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="addfala_monotona">
+                                <input type="checkbox" class="fala_monotona" name="addfala_monotona" id="addfala_monotona"> Fala monótona.</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="addfala_alta">
+                                <input type="checkbox" class="fala_alta" name="addfala_alta" id="addfala_alta"> Fala alta.</label>
+                    </div>                    
+                </fieldset>
+                <fieldset>                    
+                    <div class="form-group">
+                                <label for="addg18cost_rep_frases_ouvidas">
+                                <input type="checkbox" class="g18cost_rep_frases_ouvidas" name="addg18cost_rep_frases_ouvidas" id="addg18cost_rep_frases_ouvidas"> Seu filho(a) costuma repetir frases ouvidas?</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="addg18as_vezes">
+                                <input type="checkbox" class="g18as_vezes" name="addg18as_vezes" id="addg18as_vezes"> Às vezes.</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="addg19comb_palaforma_estranha">
+                                <input type="checkbox" class="g19comb_palaforma_estranha" name="addg19comb_palaforma_estranha" id="addg19comb_palaforma_estranha"> Seu filho(a) combina palavras de forma estranha?</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="addg19as_vezes">
+                                <input type="checkbox" class="g19as_vezes" name="addg19as_vezes" id="addg19as_vezes"> Às vezes.</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="addg20cost_insist_pvc_dizer_palavras">
+                                <input type="checkbox" class="g20cost_insist_pvc_dizer_palavras" name="addg20cost_insist_pvc_dizer_palavras" id="addg20cost_insist_pvc_dizer_palavras"> Seu filho(a) costuma insistir para você dizer palavras?</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="addg20as_vezes">
+                                <input type="checkbox" class="g20as_vezes" name="addg20as_vezes" id="addg20as_vezes"> Às vezes.</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="addg21cost_comen_inapropriado">
+                                <input type="checkbox" class="g21cost_comen_inapropriado" name="addg21cost_comen_inapropriado" id="addg21cost_comen_inapropriado"> Seu filho(a) costuma fazer comentários inapropriados?</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="addg21as_vezes">
+                                <input type="checkbox" class="g21as_vezes" name="addg21as_vezes" id="addg21as_vezes"> Às vezes.</label>
+                    </div>
+                </fieldset>    
+                <fieldset>
+                    <legend>Dê exemplos:</legend>
+                    <span class="addg21_de_exemplos"></span>
+                    <textarea name="addg21_de_exemplos" id="addg21_de_exemplos" cols="30" rows="4" class="g21_de_exemplos form-control"></textarea>
+                </fieldset>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            <button data-color="{{$color}}" class="btn btn-{{$color}} add_histdesversaopais_linguagem_btn"><img id="imgaddanamnese_histdesversaopaislinguagem" src="{{asset('storage/ajax-loader.gif')}}" style="display: none;" class="rounded-circle" width="20"> Salvar</button>
+        </div>
+    </div>
+  </div>
+</div>
+<!-- Fim AddHistDesVersaoPaisLinguagem -->
+
+<!-- Inicio EditHistDesVersaoPaisLinguagem -->
+<div class="modal fade animate__animated animate__bounce animate__faster bd-example-modal-xl" id="EditHistDesVersaoPaisLinguagem" tabindex="-1" role="dialog" aria-labelledby="EditmyExtraLargeModalLabel_histdesversaopaislinguagem" aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+        <div class="modal-header bg-{{$color}}">
+            <h5 class="modal-title" id="EditmyExtraLargeModalLabel_histdesversaopaislinguagem" style="color: white;">Histórico do Desenvolvimento Versão Pais - Linguagem</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                <span aria-hidden="true" style="color: white.">&times;</span>
+            </button>
+        </div>      
+        <div class="modal-body form-horizontal" role="form">
+            <form id="editform_histdesversaopaislinguagem" class="form-horizontal" role="form" method="POST">
+                <input type="hidden" id="editpacienteid_histdesversaopaislinguagem">
+                <input type="hidden" id="editatendimentoid_histdesversaopaislinguagem">
+                <ul id="updateform_errlist_histdesversaopaislinguagem"></ul>
+                  <fieldset>
+                    <legend>Idade das primeiras vocalizações:</legend>
+                    <div class="col-md-4">
+                    <span class="edite1_idade_prim_vocalizacoes"></span>
+                    <input type="text" name="edite1idade_prim_vocalizacoes" id="edite1idade_prim_vocalizacoes" class="e1idade_prim_vocalizacoes form-control" size="10" maxlength="10">
+                    </div>
+                    <div class="form-group">
+                      <label for="edite1naoapresentou">
+                      <input type="checkbox" class="e1naoapresentou checkbox" name="edite1naoapresentou" id="edite1naoapresentou"> Não apresentou</label>
+                    </div>
+                    <div class="col-md-12">
+                    <span class="edite1quais"></span>
+                    <input type="text" name="edite1quais" id="edite1quais" class="e1quais form-control" size="50" maxlength="50">
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Idade das primeiras palavras:</legend>
+                    <div class="col-md-4">
+                    <span class="edite2_idade_prim_palavras"></span>
+                    <input type="text" name="edite2idade_prim_palavras" id="edite2idade_prim_palavras" class="e2idade_prim_palavras form-control" size="10" maxlength="10">
+                    </div>
+                    <div class="form-group">
+                      <label for="edite2naoapresentou">
+                      <input type="checkbox" class="e2naoapresentou checkbox" name="edite2naoapresentou" id="edite2naoapresentou"> Não apresentou</label>
+                    </div>
+                    <div class="col-md-12">
+                    <span class="edite2quais"></span>
+                    <input type="text" name="edite2quais" id="edite2quais" class="e2quais form-control" size="50" maxlength="50">
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Idade das primeiras frases:</legend>
+                    <div class="col-md-4">
+                    <span class="edite3_idade_prim_frases"></span>
+                    <input type="text" name="edite3idade_prim_palavras" id="edite3idade_prim_palavras" class="e3idade_prim_palavras form-control" size="10" maxlength="10">
+                    </div>
+                    <div class="form-group">
+                      <label for="edite3naoapresentou">
+                      <input type="checkbox" class="e3naoapresentou checkbox" name="edite3naoapresentou" id="edite3naoapresentou"> Não apresentou</label>
+                    </div>
+                    <div class="col-md-12">
+                    <span class="edite3quais"></span>
+                    <input type="text" name="edite3quais" id="edite3quais" class="e3quais form-control" size="50" maxlength="50">
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Você considera que há algum atraso?</legend>
+                    <span class="editconsidera_que_ha_alg_atraso"></span>
+                    <textarea name="editconsidera_que_ha_alg_atraso" id="editconsidera_que_ha_alg_atraso" cols="30" rows="4" class="considera_que_ha_alg_atraso form-control"></textarea>
+                </fieldset>
+                <fieldset>                    
+                    <div class="form-group">
+                                <label for="editaponta_para_pedir_algo">
+                                <input type="checkbox" class="aponta_para_pedir_algo checkbox" name="editaponta_para_pedir_algo" id="editaponta_para_pedir_algo"> Aponta com o dedo indicador para pedir algo?</label>
+                    </div>                
+                    <div class="form-group">
+                                <label for="editaponta_para_compartilhar">
+                                <input type="checkbox" class="aponta_para_compartilhar checkbox" name="editaponta_para_compartilhar" id="editaponta_para_compartilhar"> Aponta com o dedo para compartilhar?</label>
+                    </div>                                   
+                    <div class="form-group">
+                                <label for="editsim_assentindo_c_cabeca">
+                                <input type="checkbox" class="sim_assentindo_c_cabeca checkbox" name="editsim_assentindo_c_cabeca" id="editsim_assentindo_c_cabeca"> Sim assentindo com a cabeça.</label>
+                    </div>                
+                    <div class="form-group">
+                                <label for="editmandar_beijos">
+                                <input type="checkbox" class="mandar_beijos checkbox" name="editmandar_beijos" id="editmandar_beijos"> Mandar beijos.</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="editda_tchau">
+                                <input type="checkbox" class="da_tchau checkbox" name="editda_tchau" id="editda_tchau"> Dá tchau.</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="editnega_c_cabeca">
+                                <input type="checkbox" class="nega_c_cabeca checkbox" name="editnega_c_cabeca" id="editnega_c_cabeca"> Negação com a cabeça.</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="editbate_palmas">
+                                <input type="checkbox" class="bate_palmas checkbox" name="editbate_palmas" id="editbate_palmas"> Bate palmas.</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="editeleva_bracos_pedcolo">
+                                <input type="checkbox" class="eleva_bracos_pedcolo checkbox" name="editeleva_bracos_pedcolo" id="editeleva_bracos_pedcolo"> Eleva os braços para pedir colo?</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="editsacode_indicador_pdizer_nao">
+                                <input type="checkbox" class="sacode_indicador_pdizer_nao checkbox" name="editsacode_indicador_pdizer_nao" id="editsacode_indicador_pdizer_nao"> Sacode o dedo indicador para dizer não?</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="editpuxvcpela_mao_paraabpg_coisas">
+                                <input type="checkbox" class="puxvcpela_mao_paraabpg_coisas checkbox" name="editpuxvcpela_mao_paraabpg_coisas" id="editpuxvcpela_mao_paraabpg_coisas"> Puxa você pela mão para abrir ou pegar coisas?</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="editvcjapensou_qseufilho_surdo">
+                                <input type="checkbox" class="vcjapensou_qseufilho_surdo checkbox" name="editvcjapensou_qseufilho_surdo" id="editvcjapensou_qseufilho_surdo"> Você já pensou que seu filho(a) pudesse ser surdo(a)?</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="editimita_gracinhas">
+                                <input type="checkbox" class="imita_gracinhas checkbox" name="editimita_gracinhas" id="editimita_gracinhas"> Imita gracinhas?</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="editseg_seurosto_polhar_palgdirecao">
+                                <input type="checkbox" class="seg_seurosto_polhar_palgdirecao checkbox" name="editseg_seurosto_polhar_palgdirecao" id="editseg_seurosto_polhar_palgdirecao"> Segura o seu rosto para olhar para alguma direção?</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="editatend_champnome">
+                                <input type="checkbox" class="atend_champnome checkbox" name="editatend_champnome" id="editatend_champnome"> Atende quando chamado pelo nome?</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="editsomente_c_insistencia">
+                                <input type="checkbox" class="somente_c_insistencia checkbox" name="editsomente_c_insistencia" id="editsomente_c_insistencia"> Somente com insistência.</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="editpessestranhas_compseufilho_fala">
+                                <input type="checkbox" class="pessestranhas_compseufilho_fala checkbox" name="editpessestranhas_compseufilho_fala" id="editpessestranhas_compseufilho_fala"> As pessoas estranhas compreendem o que seu filho(a) fala?</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="editseufilho_costrepultpal_ouvida">
+                                <input type="checkbox" class="seufilho_costrepultpal_ouvida checkbox" name="editseufilho_costrepultpal_ouvida" id="editseufilho_costrepultpal_ouvida"> Seu filho(a) costuma repetir a última palavra ou frase imediatamente ouvida?</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="editg16seufilho_costrepultpal_ouvida">
+                                <input type="checkbox" class="g16seufilho_costrepultpal_ouvida checkbox" name="editg16seufilho_costrepultpal_ouvida" id="editg16seufilho_costrepultpal_ouvida"> Seu filho(a) costuma repetir a última palavra ou frase imediatamente ouvida?</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="editg16as_vezes">
+                                <input type="checkbox" class="g16as_vezes" name="editg16as_vezes" id="editg16as_vezes"> Às vezes.</label>
+                    </div>
+                </fieldset>                
+                <fieldset>
+                    <legend>Como você avalia a fala do seu filho(a)?</legend>
+                    <div class="form-group">
+                                <label for="editfala_baixa">
+                                <input type="checkbox" class="fala_baixa" name="editfala_baixa" id="editfala_baixa"> Fala baixa.</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="editfala_monotona">
+                                <input type="checkbox" class="fala_monotona" name="editfala_monotona" id="editfala_monotona"> Fala monótona.</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="editfala_alta">
+                                <input type="checkbox" class="fala_alta" name="editfala_alta" id="editfala_alta"> Fala alta.</label>
+                    </div>                    
+                </fieldset>
+                <fieldset>                    
+                    <div class="form-group">
+                                <label for="editg18cost_rep_frases_ouvidas">
+                                <input type="checkbox" class="g18cost_rep_frases_ouvidas" name="editg18cost_rep_frases_ouvidas" id="editg18cost_rep_frases_ouvidas"> Seu filho(a) costuma repetir frases ouvidas?</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="editg18as_vezes">
+                                <input type="checkbox" class="g18as_vezes" name="editg18as_vezes" id="editg18as_vezes"> Às vezes.</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="editg19comb_palaforma_estranha">
+                                <input type="checkbox" class="g19comb_palaforma_estranha" name="editg19comb_palaforma_estranha" id="editg19comb_palaforma_estranha"> Seu filho(a) combina palavras de forma estranha?</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="editg19as_vezes">
+                                <input type="checkbox" class="g19as_vezes" name="editg19as_vezes" id="editg19as_vezes"> Às vezes.</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="editg20cost_insist_pvc_dizer_palavras">
+                                <input type="checkbox" class="g20cost_insist_pvc_dizer_palavras" name="editg20cost_insist_pvc_dizer_palavras" id="editg20cost_insist_pvc_dizer_palavras"> Seu filho(a) costuma insistir para você dizer palavras?</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="editg20as_vezes">
+                                <input type="checkbox" class="g20as_vezes" name="editg20as_vezes" id="editg20as_vezes"> Às vezes.</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="editg21cost_comen_inapropriado">
+                                <input type="checkbox" class="g21cost_comen_inapropriado" name="editg21cost_comen_inapropriado" id="editg21cost_comen_inapropriado"> Seu filho(a) costuma fazer comentários inapropriados?</label>
+                    </div>
+                    <div class="form-group">
+                                <label for="editg21as_vezes">
+                                <input type="checkbox" class="g21as_vezes" name="editg21as_vezes" id="editg21as_vezes"> Às vezes.</label>
+                    </div>
+                </fieldset>    
+                <fieldset>
+                    <legend>Dê exemplos:</legend>
+                    <span class="editg21_de_exemplos"></span>
+                    <textarea name="editg21_de_exemplos" id="editg21_de_exemplos" cols="30" rows="4" class="g21_de_exemplos form-control"></textarea>
+                </fieldset>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            <button data-color="{{$color}}" class="btn btn-{{$color}} update_histdesversaopaislinguagem_btn"><img id="imgeditanamnese_histdesversaopaislinguagem" src="{{asset('storage/ajax-loader.gif')}}" style="display: none;" class="rounded-circle" width="20"> Salvar</button>
+        </div>
+    </div>
+  </div>
+</div>
+<!-- Fim EditHistDesVersaoPaisLinguagem -->
+
 <!-- Inicio AddHistDesVersaoPaisInicial -->
 <div class="modal fade animate__animated animate__bounce animate__faster bd-example-modal-xl" id="AddHistDesVersaoPaisInicial" tabindex="-1" role="dialog" aria-labelledby="AddmyExtraLargeModalLabel_HistDesVersaoPaisInicial" aria-hidden="true">
   <div class="modal-dialog modal-xl" role="document">
@@ -2061,11 +2477,7 @@ $(document).on('click','.anamnese_histpregressa',function(e){
                     url: '/ceteaadmin/terapia/edit_anamnesehistpregressa/'+pacienteid,                                
                     success: function(response){           
                         if(response.status==200){                           
-                            if(response.anamnese_hist_pregressa.gestacao_planejada){
-                                $(".gestacao_planejada").attr('checked','true');
-                            }else{
-                                $(".gestacao_planejada").attr('checked','false');
-                            }
+                            $(".gestacao_planejada").attr('checked',response.anamnese_hist_pregressa.gestacao_planejada);                            
                             $(".detalhe_gestacao").val(response.anamnese_hist_pregressa.detalhe_gestacao);
                             $(".parto_nascimento").val(response.anamnese_hist_pregressa.parto_nascimento);
                             $(".periodo_neonatal").val(response.anamnese_hist_pregressa.periodo_neonatal);
@@ -2102,7 +2514,7 @@ $(document).on('click','.anamnese_histpregressa',function(e){
         data.append('vacinas',$(".vacinas").val());
         data.append('antecedentes_alergicos',$(".antecedentes_alergicos").val());
         data.append('_token',CSRF_TOKEN);
-        data.append('_method','put');        
+        data.append('_method','PUT');        
 
         $.ajax({
             url:'/ceteaadmin/terapia/store_anamnesehistpregressa',
