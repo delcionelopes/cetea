@@ -1126,7 +1126,8 @@ public function storeHistDesVersaoPaisLinguagem(Request $request){
     }
 
     public function editHistDesVersaoPaisLinguagem(int $id){
-        $histdes_versaopais_linguagem = $this->histdes_versaopais_linguagem->wherePaciente_id($id)->first();        
+        $busca_pelo_paciente = $this->histdes_versaopais_linguagem->wherePaciente_id($id)->first();        
+        $histdes_versaopais_linguagem = $this->histdes_versaopais_linguagem->find($busca_pelo_paciente->id);        
         return response()->json([
             'status' => 200,
             'histdesversaopaislinguagem' => $histdes_versaopais_linguagem,
@@ -1145,7 +1146,7 @@ public function storeHistDesVersaoPaisLinguagem(Request $request){
             ]);
         }else{
             $busca_pelo_paciente = $this->histdes_versaopais_linguagem->wherePaciente_id($id)->first();
-            $histdes_versaopais_linguagem = $this->histdes_versaopais_linguagem->find($busca_pelo_paciente->id);
+            $linguagem = $this->histdes_versaopais_linguagem->find($busca_pelo_paciente->id);
             $user = auth()->user();            
             $data['atendimento_id'] = $request->input('atendimento');
             $data['paciente_id'] = $request->input('paciente');
@@ -1191,7 +1192,7 @@ public function storeHistDesVersaoPaisLinguagem(Request $request){
             $data['g21_de_exemplos'] = $request->input('g21_de_exemplos');            
             $data['updated_at'] = now();
             $data['updater_user'] = $user->id;
-            $histdes_versaopais_linguagem->update($data);            
+            $linguagem->update($data);            
 
             return response()->json([
                 'status' => 200,                

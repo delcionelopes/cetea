@@ -4835,7 +4835,7 @@ $(document).on('click','.histdes_versaopais_linguagem',function(e){
                     dataType: 'json',                                    
                     url: '/ceteaadmin/terapia/edit_histdesversaopaislinguagem/'+pacienteid,                                
                     success: function(response){           
-                        if(response.status==200){                                               
+                        if(response.status==200){                            
                             $(".e1idade_prim_vocalizacoes").val(response.histdesversaopaislinguagem.e1_idade_prim_vocalizacoes);                            
                             $(".e1naoapresentou").attr('checked',response.histdesversaopaislinguagem.e1_naoapresentou);
                             $(".e1quais").val(response.histdesversaopaislinguagem.e1_quais);
@@ -4870,8 +4870,8 @@ $(document).on('click','.histdes_versaopais_linguagem',function(e){
                             $(".g18cost_rep_frases_ouvidas").attr('checked',response.histdesversaopaislinguagem.g18_cost_rep_frases_ouvidas);
                             $(".g18as_vezes").attr('checked',response.histdesversaopaislinguagem.g18_as_vezes);
                             $(".g19comb_palaforma_estranha").attr('checked',response.histdesversaopaislinguagem.g19_comb_palaforma_estranha);
-                            $(".g19as_vezes").attr('checked'.response.histdesversaopaislinguagem.g19_as_vezes);
-                            $(".g20cost_insist_pvc_dizer_palavras").attr('checked',response.histdesversaopaislinguagem.g20_cost_insist_pvc_dizer_palavras);
+                            $(".g19as_vezes").attr('checked',response.histdesversaopaislinguagem.g19_as_vezes);
+                            $(".g20cost_insist_pvc_dizer_palavras").attr('checked',response.histdesversaopaislinguagem.g20_cost_insis_pvc_dizer_palavras);
                             $(".g20as_vezes").attr('checked',response.histdesversaopaislinguagem.g20_as_vezes);
                             $(".g21cost_comen_inapropriado").attr('checked',response.histdesversaopaislinguagem.g21_cost_comen_inapropriado);
                             $(".g21as_vezes").attr('checked',response.histdesversaopaislinguagem.g21_as_vezes);
@@ -4975,7 +4975,7 @@ $(document).on('click','.histdes_versaopais_linguagem',function(e){
         var atendimentoid = $("#editatendimentoid_histdesversaopaislinguagem").val();
         var pacienteid = $("#editpacienteid_histdesversaopaislinguagem").val();
 
-        var loading = $("#imgeditanamnese_histdesversaopaislinguagem");
+        var loading = $("#imgeditanamnese_histdesversaopaislinguagem");                          
             loading.show();
 
         var data = new FormData();
@@ -4984,13 +4984,13 @@ $(document).on('click','.histdes_versaopais_linguagem',function(e){
         data.append('paciente',pacienteid);        
         data.append('idade_primeiras_vocalizacoes',$("#edite1idade_prim_vocalizacoes").val());
         data.append('prim_vocalizacoes_naoapresentou',$("#edite1naoapresentou").is(":checked"?'true':'false'));
-        data.append('quais_prim_vocalizacoes',$("#edite1quais").is(":checked")?'true':'false');
-        data.append('idade_primeiras_palavras',$(".#edite2idade_prim_palavras").val());
+        data.append('quais_prim_vocalizacoes',$("#edite1quais").val());
+        data.append('idade_primeiras_palavras',$("#edite2idade_prim_palavras").val());
         data.append('prim_palavras_naoapresentou',$("#edite2naoapresentou").is(":checked")?'true':'false');
-        data.append('quais_prim_palavras',$("#edite2quais").is(":checked")?'true':'false');
+        data.append('quais_prim_palavras',$("#edite2quais").val());
         data.append('idade_primeiras_frases',$("#edite3idade_prim_frases").val());
         data.append('prim_frases_naoapresentou',$("#edite3naoapresentou").is(":checked")?'true':'false');
-        data.append('quais_prim_frases',$("#edite3quais").is(":checked")?'true':'false');
+        data.append('quais_prim_frases',$("#edite3quais").val());
         data.append('considera_que_ha_alg_atraso',$("#editconsidera_que_ha_alg_atraso").val());
         data.append('aponta_para_pedir_algo',$("#editaponta_para_pedir_algo").is(":checked")?'true':'false');
         data.append('aponta_para_compartilhar',$("#editaponta_para_compartilhar").is(":checked")?'true':'false');
@@ -5047,7 +5047,7 @@ $(document).on('click','.histdes_versaopais_linguagem',function(e){
                     $("#updateform_errlist_histdesversaopaislinguagem").replaceWith('<ul id="updateform_errList_histdesversaopaislinguagem"></ul>');
                     $("#histdes_versaopais_linguagem"+atendimentoid).replaceWith('<i data-id="1" id="histdes_versaopais_linguagem'+atendimentoid+'" class="fas fa-check" style="color: green"></i>');
                     $("#editform_histdesversaopaislinguagem").trigger('reset');
-                    $("#EditAnamnese_HistDesVersaoPaisLinguagem").modal('hide');    
+                    $("#EditHistDesVersaoPaisLinguagem").modal('hide');    
                 }
             }
         });
