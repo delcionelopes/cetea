@@ -221,6 +221,9 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::put('/store_histdesversaopaisinicial',[TerapiaController::class,'storeHistDesVersaoPaisInicial']);
         Route::get('/edit_histdesversaopaisinicial/{id}',[TerapiaController::class,'editHistDesVersaoPaisInicial']);
         Route::put('/update_histdesversaopaisinicial/{id}',[TerapiaController::class,'updateHistDesVersaoPaisInicial']);
+        Route::put('/store_histdesversaopaislinguagem',[TerapiaController::class,'storeHistDesVersaoPaisLinguagem']);
+        Route::get('/edit_histdesversaopaislinguagem/{id}',[TerapiaController::class,'editHistDesVersaoPaisLinguagem']);
+        Route::put('/update_histdesversaopaislinguagem/{id}',[TerapiaController::class,'updateHistDesVersaoPaisLinguagem']);
       });
 
       Route::prefix('feriado')->name('feriado.')->group(function(){

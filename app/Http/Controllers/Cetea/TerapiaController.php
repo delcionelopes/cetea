@@ -1047,5 +1047,158 @@ public function storeHistDesVersaoPaisInicial(Request $request){
     }
 
 
+public function storeHistDesVersaoPaisLinguagem(Request $request){
+        $validator = Validator::make($request->all(),[
+            'atendimento' => ['required'],
+            'paciente' => ['required'],                    
+        ]);
+        if($validator->fails()){
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->errors()->getMessages(),
+            ]);
+        }else{
+            $user = auth()->user();
+            $data['id'] = $this->maxId_HistDesVersaoPaisInicial();
+            $data['atendimento_id'] = $request->input('atendimento');
+            $data['paciente_id'] = $request->input('paciente');
+            $data['e1_idade_prim_vocalizacoes'] = $request->input('idade_primeiras_vocalizacoes');
+            $data['e1_naoapresentou'] = $request->input('prim_vocalizacoes_naoapresentou');
+            $data['e1_quais'] = $request->input('quais_prim_vocalizacoes');
+            $data['e2_idade_prim_palavras'] = $request->input('idade_primeiras_palavras');
+            $data['e2_naoapresentou'] = $request->input('prim_palavras_naoapresentou');
+            $data['e2_quais'] = $request->input('quais_prim_palavras');
+            $data['e3_idade_prim_frases'] = $request->input('idade_primeiras_frases');
+            $data['e3_naoapresentou'] = $request->input('prim_frases_naoapresentou');
+            $data['e3_quais'] = $request->input('quais_prim_frases');
+            $data['f_considera_que_ha_alg_atraso'] = $request->input('considera_que_ha_alg_atraso');
+            $data['g1_aponta_para_pedir_algo'] = $request->input('aponta_para_pedir_algo');
+            $data['g2_aponta_para_compartilhar'] = $request->input('aponta_para_compartilhar');
+            $data['g3_sim_assentindo_c_cabeca'] = $request->input('sim_assentindo_c_cabeca');
+            $data['g4_mandar_beijos'] = $request->input('mandar_beijos');
+            $data['g5_da_tchau'] = $request->input('da_tchau');
+            $data['g6_nega_c_cabeca'] = $request->input('nega_c_cabeca');
+            $data['g7_bate_palmas'] = $request->input('bate_palmas');
+            $data['g8_eleva_bracos_pedcolo'] = $request->input('eleva_bracos_pedcolo');
+            $data['g9_sacode_indicador_pdizer_nao'] = $request->input('sacode_indicador_pdizer_nao');
+            $data['g10_puxvcpela_mao_paraabpg_coisas'] = $request->input('puxvcpela_mao_paraabpg_coisas');
+            $data['g11_vcjapensou_qseufilho_surdo'] = $request->input('vcjapensou_qseufilho_surdo');
+            $data['g12_imita_gracinhas'] = $request->input('imita_gracinhas');
+            $data['g13_seg_seurosto_polhar_palgdirecao'] = $request->input('seg_seurosto_polhar_palgdirecao');
+            $data['g14_atend_champnome'] = $request->input('atend_champnome');
+            $data['g14_somente_c_insistencia'] = $request->input('somente_c_insistencia');
+            $data['g15_pessestranhas_compseufilho_fala'] = $request->input('pessestranhas_compseufilho_fala');
+            $data['g16_seufilho_costrepeultpal_ouvida'] = $request->input('g16seufilho_costrepultpal_ouvida');
+            $data['g16_as_vezes'] = $request->input('g16as_vezes');
+            $data['g17_fala_baixa'] = $request->input('fala_baixa');
+            $data['g17_fala_monotona'] = $request->input('fala_monotona');
+            $data['g17_fala_alta'] = $request->input('fala_alta');
+            $data['g18_cost_rep_frases_ouvidas'] = $request->input('g18cost_rep_frases_ouvidas');
+            $data['g18_as_vezes'] = $request->input('g18as_vezes');
+            $data['g19_comb_palaforma_estranha'] = $request->input('g19comb_palaforma_estranha');
+            $data['g19_as_vezes'] = $request->input('g19as_vezes');
+            $data['g20_cost_insis_pvc_dizer_palavras'] = $request->input('g20cost_insist_pvc_dizer_palavras');
+            $data['g20_as_vezes'] = $request->input('g20as_vezes');
+            $data['g21_cost_comen_inapropriado'] = $request->input('g21cost_comen_inapropriado');
+            $data['g21_as_vezes'] = $request->input('g21as_vezes');
+            $data['g21_de_exemplos'] = $request->input('g21_de_exemplos');
+            $data['created_at'] = now();
+            $data['updated_at'] = null;
+            $data['creater_user'] = $user->id;
+            $data['updater_user'] = null;
+            $this->histdes_versaopais_linguagem->create($data);
+
+            return response()->json([
+                'status' => 200,
+            ]);
+
+        }
+    }    
+
+    protected function maxId_HistDesVersaoPaisLinguagem(){
+        $histdes_versaopais_linguagem = $this->histdes_versaopais_linguagem->orderByDesc('id')->first();
+        if($histdes_versaopais_linguagem){
+            $codigo = $histdes_versaopais_linguagem->id;
+        }else{
+            $codigo = 0;
+        }
+        return $codigo+1;
+    }
+
+    public function editHistDesVersaoPaisLinguagem(int $id){
+        $histdes_versaopais_linguagem = $this->histdes_versaopais_linguagem->wherePaciente_id($id)->first();        
+        return response()->json([
+            'status' => 200,
+            'histdesversaopaislinguagem' => $histdes_versaopais_linguagem,
+        ]);
+    }
+
+    public function updateHistDesVersaoPaisLinguagem(Request $request, int $id){
+        $validator = Validator::make($request->all(),[
+            'atendimento' => ['required'],
+            'paciente' => ['required'],                        
+        ]);
+        if($validator->fails()){
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->errors()->getMessages(),
+            ]);
+        }else{
+            $busca_pelo_paciente = $this->histdes_versaopais_linguagem->wherePaciente_id($id)->first();
+            $histdes_versaopais_linguagem = $this->histdes_versaopais_linguagem->find($busca_pelo_paciente->id);
+            $user = auth()->user();            
+            $data['atendimento_id'] = $request->input('atendimento');
+            $data['paciente_id'] = $request->input('paciente');
+            $data['e1_idade_prim_vocalizacoes'] = $request->input('idade_primeiras_vocalizacoes');
+            $data['e1_naoapresentou'] = $request->input('prim_vocalizacoes_naoapresentou');
+            $data['e1_quais'] = $request->input('quais_prim_vocalizacoes');
+            $data['e2_idade_prim_palavras'] = $request->input('idade_primeiras_palavras');
+            $data['e2_naoapresentou'] = $request->input('prim_palavras_naoapresentou');
+            $data['e2_quais'] = $request->input('quais_prim_palavras');
+            $data['e3_idade_prim_frases'] = $request->input('idade_primeiras_frases');
+            $data['e3_naoapresentou'] = $request->input('prim_frases_naoapresentou');
+            $data['e3_quais'] = $request->input('quais_prim_frases');
+            $data['f_considera_que_ha_alg_atraso'] = $request->input('considera_que_ha_alg_atraso');
+            $data['g1_aponta_para_pedir_algo'] = $request->input('aponta_para_pedir_algo');
+            $data['g2_aponta_para_compartilhar'] = $request->input('aponta_para_compartilhar');
+            $data['g3_sim_assentindo_c_cabeca'] = $request->input('sim_assentindo_c_cabeca');
+            $data['g4_mandar_beijos'] = $request->input('mandar_beijos');
+            $data['g5_da_tchau'] = $request->input('da_tchau');
+            $data['g6_nega_c_cabeca'] = $request->input('nega_c_cabeca');
+            $data['g7_bate_palmas'] = $request->input('bate_palmas');
+            $data['g8_eleva_bracos_pedcolo'] = $request->input('eleva_bracos_pedcolo');
+            $data['g9_sacode_indicador_pdizer_nao'] = $request->input('sacode_indicador_pdizer_nao');
+            $data['g10_puxvcpela_mao_paraabpg_coisas'] = $request->input('puxvcpela_mao_paraabpg_coisas');
+            $data['g11_vcjapensou_qseufilho_surdo'] = $request->input('vcjapensou_qseufilho_surdo');
+            $data['g12_imita_gracinhas'] = $request->input('imita_gracinhas');
+            $data['g13_seg_seurosto_polhar_palgdirecao'] = $request->input('seg_seurosto_polhar_palgdirecao');
+            $data['g14_atend_champnome'] = $request->input('atend_champnome');
+            $data['g14_somente_c_insistencia'] = $request->input('somente_c_insistencia');
+            $data['g15_pessestranhas_compseufilho_fala'] = $request->input('pessestranhas_compseufilho_fala');
+            $data['g16_seufilho_costrepeultpal_ouvida'] = $request->input('g16seufilho_costrepultpal_ouvida');
+            $data['g16_as_vezes'] = $request->input('g16as_vezes');
+            $data['g17_fala_baixa'] = $request->input('fala_baixa');
+            $data['g17_fala_monotona'] = $request->input('fala_monotona');
+            $data['g17_fala_alta'] = $request->input('fala_alta');
+            $data['g18_cost_rep_frases_ouvidas'] = $request->input('g18cost_rep_frases_ouvidas');
+            $data['g18_as_vezes'] = $request->input('g18as_vezes');
+            $data['g19_comb_palaforma_estranha'] = $request->input('g19comb_palaforma_estranha');
+            $data['g19_as_vezes'] = $request->input('g19as_vezes');
+            $data['g20_cost_insis_pvc_dizer_palavras'] = $request->input('g20cost_insist_pvc_dizer_palavras');
+            $data['g20_as_vezes'] = $request->input('g20as_vezes');
+            $data['g21_cost_comen_inapropriado'] = $request->input('g21cost_comen_inapropriado');
+            $data['g21_as_vezes'] = $request->input('g21as_vezes');
+            $data['g21_de_exemplos'] = $request->input('g21_de_exemplos');            
+            $data['updated_at'] = now();
+            $data['updater_user'] = $user->id;
+            $histdes_versaopais_linguagem->update($data);            
+
+            return response()->json([
+                'status' => 200,                
+            ]);        
+    }
+    }
+
+
 
 }

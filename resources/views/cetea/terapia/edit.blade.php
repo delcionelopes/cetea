@@ -46,14 +46,15 @@
                 <fieldset>
                     <legend>Idade das primeiras vocalizações:</legend>
                     <div class="col-md-4">
-                    <span class="adde1_idade_prim_vocalizacoes"></span>
+                    <span class="adde1idade_prim_vocalizacoes"></span>
                     <input type="text" name="adde1idade_prim_vocalizacoes" id="adde1idade_prim_vocalizacoes" class="e1idade_prim_vocalizacoes form-control" size="10" maxlength="10">
                     </div>
                     <div class="form-group">
                       <label for="adde1naoapresentou">
                       <input type="checkbox" class="e1naoapresentou checkbox" name="adde1naoapresentou" id="adde1naoapresentou"> Não apresentou</label>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-10">
+                    <label for="adde1quais">Quais?</label>
                     <span class="adde1quais"></span>
                     <input type="text" name="adde1quais" id="adde1quais" class="e1quais form-control" size="50" maxlength="50">
                     </div>
@@ -61,14 +62,15 @@
                 <fieldset>
                     <legend>Idade das primeiras palavras:</legend>
                     <div class="col-md-4">
-                    <span class="adde2_idade_prim_palavras"></span>
+                    <span class="adde2idade_prim_palavras"></span>
                     <input type="text" name="adde2idade_prim_palavras" id="adde2idade_prim_palavras" class="e2idade_prim_palavras form-control" size="10" maxlength="10">
                     </div>
                     <div class="form-group">
                       <label for="adde2naoapresentou">
                       <input type="checkbox" class="e2naoapresentou checkbox" name="adde2naoapresentou" id="adde2naoapresentou"> Não apresentou</label>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-10">
+                    <label for="adde2quais">Quais?</label>
                     <span class="adde2quais"></span>
                     <input type="text" name="adde2quais" id="adde2quais" class="e2quais form-control" size="50" maxlength="50">
                     </div>
@@ -76,14 +78,15 @@
                 <fieldset>
                     <legend>Idade das primeiras frases:</legend>
                     <div class="col-md-4">
-                    <span class="adde3_idade_prim_frases"></span>
-                    <input type="text" name="adde3idade_prim_palavras" id="adde3idade_prim_palavras" class="e3idade_prim_palavras form-control" size="10" maxlength="10">
+                    <span class="adde3idade_prim_frases"></span>
+                    <input type="text" name="adde3idade_prim_frases" id="adde3idade_prim_frases" class="e3idade_prim_frases form-control" size="10" maxlength="10">
                     </div>
                     <div class="form-group">
                       <label for="adde3naoapresentou">
                       <input type="checkbox" class="e3naoapresentou checkbox" name="adde3naoapresentou" id="adde3naoapresentou"> Não apresentou</label>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-10">
+                    <label for="adde3quais">Quais?</label>
                     <span class="adde3quais"></span>
                     <input type="text" name="adde3quais" id="adde3quais" class="e3quais form-control" size="50" maxlength="50">
                     </div>
@@ -148,28 +151,20 @@
                     </div>
                     <div class="form-group">
                                 <label for="addatend_champnome">
-                                <input type="checkbox" class="atend_champnome checkbox" name="addatend_champnome" id="addatend_champnome"> Atende quando chamado pelo nome?</label>
-                    </div>
-                    <div class="form-group">
+                                <input type="checkbox" class="atend_champnome checkbox" name="addatend_champnome" id="addatend_champnome"> Atende quando chamado pelo nome?    </label>
                                 <label for="addsomente_c_insistencia">
                                 <input type="checkbox" class="somente_c_insistencia checkbox" name="addsomente_c_insistencia" id="addsomente_c_insistencia"> Somente com insistência.</label>
-                    </div>
+                    </div>                    
                     <div class="form-group">
                                 <label for="addpessestranhas_compseufilho_fala">
                                 <input type="checkbox" class="pessestranhas_compseufilho_fala checkbox" name="addpessestranhas_compseufilho_fala" id="addpessestranhas_compseufilho_fala"> As pessoas estranhas compreendem o que seu filho(a) fala?</label>
-                    </div>
-                    <div class="form-group">
-                                <label for="addseufilho_costrepultpal_ouvida">
-                                <input type="checkbox" class="seufilho_costrepultpal_ouvida checkbox" name="addseufilho_costrepultpal_ouvida" id="addseufilho_costrepultpal_ouvida"> Seu filho(a) costuma repetir a última palavra ou frase imediatamente ouvida?</label>
-                    </div>
+                    </div>                    
                     <div class="form-group">
                                 <label for="addg16seufilho_costrepultpal_ouvida">
-                                <input type="checkbox" class="g16seufilho_costrepultpal_ouvida checkbox" name="addg16seufilho_costrepultpal_ouvida" id="addg16seufilho_costrepultpal_ouvida"> Seu filho(a) costuma repetir a última palavra ou frase imediatamente ouvida?</label>
-                    </div>
-                    <div class="form-group">
+                                <input type="checkbox" class="g16seufilho_costrepultpal_ouvida checkbox" name="addg16seufilho_costrepultpal_ouvida" id="addg16seufilho_costrepultpal_ouvida"> Seu filho(a) costuma repetir a última palavra ou frase imediatamente ouvida?   </label>
                                 <label for="addg16as_vezes">
                                 <input type="checkbox" class="g16as_vezes" name="addg16as_vezes" id="addg16as_vezes"> Às vezes.</label>
-                    </div>
+                    </div>                    
                 </fieldset>                
                 <fieldset>
                     <legend>Como você avalia a fala do seu filho(a)?</legend>
@@ -189,36 +184,28 @@
                 <fieldset>                    
                     <div class="form-group">
                                 <label for="addg18cost_rep_frases_ouvidas">
-                                <input type="checkbox" class="g18cost_rep_frases_ouvidas" name="addg18cost_rep_frases_ouvidas" id="addg18cost_rep_frases_ouvidas"> Seu filho(a) costuma repetir frases ouvidas?</label>
-                    </div>
-                    <div class="form-group">
+                                <input type="checkbox" class="g18cost_rep_frases_ouvidas" name="addg18cost_rep_frases_ouvidas" id="addg18cost_rep_frases_ouvidas"> Seu filho(a) costuma repetir frases ouvidas?   </label>
                                 <label for="addg18as_vezes">
                                 <input type="checkbox" class="g18as_vezes" name="addg18as_vezes" id="addg18as_vezes"> Às vezes.</label>
-                    </div>
+                    </div>                    
                     <div class="form-group">
                                 <label for="addg19comb_palaforma_estranha">
-                                <input type="checkbox" class="g19comb_palaforma_estranha" name="addg19comb_palaforma_estranha" id="addg19comb_palaforma_estranha"> Seu filho(a) combina palavras de forma estranha?</label>
-                    </div>
-                    <div class="form-group">
+                                <input type="checkbox" class="g19comb_palaforma_estranha" name="addg19comb_palaforma_estranha" id="addg19comb_palaforma_estranha"> Seu filho(a) combina palavras de forma estranha?   </label>
                                 <label for="addg19as_vezes">
                                 <input type="checkbox" class="g19as_vezes" name="addg19as_vezes" id="addg19as_vezes"> Às vezes.</label>
-                    </div>
+                    </div>                    
                     <div class="form-group">
                                 <label for="addg20cost_insist_pvc_dizer_palavras">
-                                <input type="checkbox" class="g20cost_insist_pvc_dizer_palavras" name="addg20cost_insist_pvc_dizer_palavras" id="addg20cost_insist_pvc_dizer_palavras"> Seu filho(a) costuma insistir para você dizer palavras?</label>
-                    </div>
-                    <div class="form-group">
+                                <input type="checkbox" class="g20cost_insist_pvc_dizer_palavras" name="addg20cost_insist_pvc_dizer_palavras" id="addg20cost_insist_pvc_dizer_palavras"> Seu filho(a) costuma insistir para você dizer palavras?   </label>
                                 <label for="addg20as_vezes">
                                 <input type="checkbox" class="g20as_vezes" name="addg20as_vezes" id="addg20as_vezes"> Às vezes.</label>
-                    </div>
+                    </div>                    
                     <div class="form-group">
                                 <label for="addg21cost_comen_inapropriado">
-                                <input type="checkbox" class="g21cost_comen_inapropriado" name="addg21cost_comen_inapropriado" id="addg21cost_comen_inapropriado"> Seu filho(a) costuma fazer comentários inapropriados?</label>
-                    </div>
-                    <div class="form-group">
+                                <input type="checkbox" class="g21cost_comen_inapropriado" name="addg21cost_comen_inapropriado" id="addg21cost_comen_inapropriado"> Seu filho(a) costuma fazer comentários inapropriados?   </label>
                                 <label for="addg21as_vezes">
                                 <input type="checkbox" class="g21as_vezes" name="addg21as_vezes" id="addg21as_vezes"> Às vezes.</label>
-                    </div>
+                    </div>                    
                 </fieldset>    
                 <fieldset>
                     <legend>Dê exemplos:</legend>
@@ -254,14 +241,15 @@
                   <fieldset>
                     <legend>Idade das primeiras vocalizações:</legend>
                     <div class="col-md-4">
-                    <span class="edite1_idade_prim_vocalizacoes"></span>
+                    <span class="edite1idade_prim_vocalizacoes"></span>
                     <input type="text" name="edite1idade_prim_vocalizacoes" id="edite1idade_prim_vocalizacoes" class="e1idade_prim_vocalizacoes form-control" size="10" maxlength="10">
                     </div>
                     <div class="form-group">
                       <label for="edite1naoapresentou">
                       <input type="checkbox" class="e1naoapresentou checkbox" name="edite1naoapresentou" id="edite1naoapresentou"> Não apresentou</label>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-10">
+                    <label for="edite1quais">Quais?</label>
                     <span class="edite1quais"></span>
                     <input type="text" name="edite1quais" id="edite1quais" class="e1quais form-control" size="50" maxlength="50">
                     </div>
@@ -269,14 +257,15 @@
                 <fieldset>
                     <legend>Idade das primeiras palavras:</legend>
                     <div class="col-md-4">
-                    <span class="edite2_idade_prim_palavras"></span>
+                    <span class="edite2idade_prim_palavras"></span>
                     <input type="text" name="edite2idade_prim_palavras" id="edite2idade_prim_palavras" class="e2idade_prim_palavras form-control" size="10" maxlength="10">
                     </div>
                     <div class="form-group">
                       <label for="edite2naoapresentou">
                       <input type="checkbox" class="e2naoapresentou checkbox" name="edite2naoapresentou" id="edite2naoapresentou"> Não apresentou</label>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-10">
+                    <label for="edite2quais">Quais?</label>
                     <span class="edite2quais"></span>
                     <input type="text" name="edite2quais" id="edite2quais" class="e2quais form-control" size="50" maxlength="50">
                     </div>
@@ -284,14 +273,15 @@
                 <fieldset>
                     <legend>Idade das primeiras frases:</legend>
                     <div class="col-md-4">
-                    <span class="edite3_idade_prim_frases"></span>
-                    <input type="text" name="edite3idade_prim_palavras" id="edite3idade_prim_palavras" class="e3idade_prim_palavras form-control" size="10" maxlength="10">
+                    <span class="edite3idade_prim_frases"></span>
+                    <input type="text" name="edite3idade_prim_frases" id="edite3idade_prim_frases" class="e3idade_prim_frases form-control" size="10" maxlength="10">
                     </div>
                     <div class="form-group">
                       <label for="edite3naoapresentou">
                       <input type="checkbox" class="e3naoapresentou checkbox" name="edite3naoapresentou" id="edite3naoapresentou"> Não apresentou</label>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-10">
+                    <label for="edite3quais">Quais?</label>
                     <span class="edite3quais"></span>
                     <input type="text" name="edite3quais" id="edite3quais" class="e3quais form-control" size="50" maxlength="50">
                     </div>
@@ -312,7 +302,7 @@
                     </div>                                   
                     <div class="form-group">
                                 <label for="editsim_assentindo_c_cabeca">
-                                <input type="checkbox" class="sim_assentindo_c_cabeca checkbox" name="editsim_assentindo_c_cabeca" id="editsim_assentindo_c_cabeca"> Sim assentindo com a cabeça.</label>
+                                <input type="checkbox" class="sim_assentindo_c_cabeca checkbox" name="editsim_assentindo_c_cabeca" id="editsim_assentindo_c_cabeca"> SIM assentindo com a cabeça.</label>
                     </div>                
                     <div class="form-group">
                                 <label for="editmandar_beijos">
@@ -356,28 +346,20 @@
                     </div>
                     <div class="form-group">
                                 <label for="editatend_champnome">
-                                <input type="checkbox" class="atend_champnome checkbox" name="editatend_champnome" id="editatend_champnome"> Atende quando chamado pelo nome?</label>
-                    </div>
-                    <div class="form-group">
+                                <input type="checkbox" class="atend_champnome checkbox" name="editatend_champnome" id="editatend_champnome"> Atende quando chamado pelo nome?    </label>
                                 <label for="editsomente_c_insistencia">
                                 <input type="checkbox" class="somente_c_insistencia checkbox" name="editsomente_c_insistencia" id="editsomente_c_insistencia"> Somente com insistência.</label>
-                    </div>
+                    </div>                    
                     <div class="form-group">
                                 <label for="editpessestranhas_compseufilho_fala">
                                 <input type="checkbox" class="pessestranhas_compseufilho_fala checkbox" name="editpessestranhas_compseufilho_fala" id="editpessestranhas_compseufilho_fala"> As pessoas estranhas compreendem o que seu filho(a) fala?</label>
-                    </div>
-                    <div class="form-group">
-                                <label for="editseufilho_costrepultpal_ouvida">
-                                <input type="checkbox" class="seufilho_costrepultpal_ouvida checkbox" name="editseufilho_costrepultpal_ouvida" id="editseufilho_costrepultpal_ouvida"> Seu filho(a) costuma repetir a última palavra ou frase imediatamente ouvida?</label>
-                    </div>
+                    </div>                    
                     <div class="form-group">
                                 <label for="editg16seufilho_costrepultpal_ouvida">
-                                <input type="checkbox" class="g16seufilho_costrepultpal_ouvida checkbox" name="editg16seufilho_costrepultpal_ouvida" id="editg16seufilho_costrepultpal_ouvida"> Seu filho(a) costuma repetir a última palavra ou frase imediatamente ouvida?</label>
-                    </div>
-                    <div class="form-group">
+                                <input type="checkbox" class="g16seufilho_costrepultpal_ouvida checkbox" name="editg16seufilho_costrepultpal_ouvida" id="editg16seufilho_costrepultpal_ouvida"> Seu filho(a) costuma repetir a última palavra ou frase imediatamente ouvida?   </label>
                                 <label for="editg16as_vezes">
                                 <input type="checkbox" class="g16as_vezes" name="editg16as_vezes" id="editg16as_vezes"> Às vezes.</label>
-                    </div>
+                    </div>                    
                 </fieldset>                
                 <fieldset>
                     <legend>Como você avalia a fala do seu filho(a)?</legend>
@@ -397,36 +379,28 @@
                 <fieldset>                    
                     <div class="form-group">
                                 <label for="editg18cost_rep_frases_ouvidas">
-                                <input type="checkbox" class="g18cost_rep_frases_ouvidas" name="editg18cost_rep_frases_ouvidas" id="editg18cost_rep_frases_ouvidas"> Seu filho(a) costuma repetir frases ouvidas?</label>
-                    </div>
-                    <div class="form-group">
+                                <input type="checkbox" class="g18cost_rep_frases_ouvidas" name="editg18cost_rep_frases_ouvidas" id="editg18cost_rep_frases_ouvidas"> Seu filho(a) costuma repetir frases ouvidas?   </label>
                                 <label for="editg18as_vezes">
                                 <input type="checkbox" class="g18as_vezes" name="editg18as_vezes" id="editg18as_vezes"> Às vezes.</label>
-                    </div>
+                    </div>                    
                     <div class="form-group">
                                 <label for="editg19comb_palaforma_estranha">
-                                <input type="checkbox" class="g19comb_palaforma_estranha" name="editg19comb_palaforma_estranha" id="editg19comb_palaforma_estranha"> Seu filho(a) combina palavras de forma estranha?</label>
-                    </div>
-                    <div class="form-group">
+                                <input type="checkbox" class="g19comb_palaforma_estranha" name="editg19comb_palaforma_estranha" id="editg19comb_palaforma_estranha"> Seu filho(a) combina palavras de forma estranha?   </label>
                                 <label for="editg19as_vezes">
                                 <input type="checkbox" class="g19as_vezes" name="editg19as_vezes" id="editg19as_vezes"> Às vezes.</label>
-                    </div>
+                    </div>                    
                     <div class="form-group">
                                 <label for="editg20cost_insist_pvc_dizer_palavras">
-                                <input type="checkbox" class="g20cost_insist_pvc_dizer_palavras" name="editg20cost_insist_pvc_dizer_palavras" id="editg20cost_insist_pvc_dizer_palavras"> Seu filho(a) costuma insistir para você dizer palavras?</label>
-                    </div>
-                    <div class="form-group">
+                                <input type="checkbox" class="g20cost_insist_pvc_dizer_palavras" name="editg20cost_insist_pvc_dizer_palavras" id="editg20cost_insist_pvc_dizer_palavras"> Seu filho(a) costuma insistir para você dizer palavras?   </label>
                                 <label for="editg20as_vezes">
                                 <input type="checkbox" class="g20as_vezes" name="editg20as_vezes" id="editg20as_vezes"> Às vezes.</label>
-                    </div>
+                    </div>                    
                     <div class="form-group">
                                 <label for="editg21cost_comen_inapropriado">
-                                <input type="checkbox" class="g21cost_comen_inapropriado" name="editg21cost_comen_inapropriado" id="editg21cost_comen_inapropriado"> Seu filho(a) costuma fazer comentários inapropriados?</label>
-                    </div>
-                    <div class="form-group">
+                                <input type="checkbox" class="g21cost_comen_inapropriado" name="editg21cost_comen_inapropriado" id="editg21cost_comen_inapropriado"> Seu filho(a) costuma fazer comentários inapropriados?   </label>
                                 <label for="editg21as_vezes">
                                 <input type="checkbox" class="g21as_vezes" name="editg21as_vezes" id="editg21as_vezes"> Às vezes.</label>
-                    </div>
+                    </div>                    
                 </fieldset>    
                 <fieldset>
                     <legend>Dê exemplos:</legend>
@@ -1588,7 +1562,7 @@
                                     <ul class="dropdown-menu">
                                         <li class="dropdown-item bg-light"><a href="#" class="histdes_versaopais_inicial dropdown-item" data-pacienteid="{{$atendimento->paciente_id}}" data-atendimentoid="{{$atendimento->id}}">
                                             @if($count_histdes_versaopais_inicial)<i data-id="1" id="histdes_versaopais_inicial{{$atendimento->id}}" class="fas fa-check" style="color: green"></i>@else<i data-id="0" id="histdes_versaopais_inicial{{$atendimento->id}}"></i>@endif Inicial</a></li>
-                                        <li class="dropdown-item bg-light"><a href="#" class="dropdown-item" data-id="{{$atendimento->paciente_id}}">
+                                        <li class="dropdown-item bg-light"><a href="#" class="histdes_versaopais_linguagem dropdown-item" data-pacienteid="{{$atendimento->paciente_id}}" data-atendimentoid="{{$atendimento->id}}">
                                             @if($count_histdes_versaopais_linguagem)<i data-id="1" id="histdes_versaopais_linguagem{{$atendimento->id}}" class="fas fa-check" style="color: green"></i>@else<i data-id="0" id="histdes_versaopais_linguagem{{$atendimento->id}}"></i>@endif Linguagem</a></li>
                                         <li class="dropdown-item bg-light"><a href="#" class="dropdown-item" data-id="{{$atendimento->paciente_id}}">
                                             @if($count_histdes_versaopais_desenvsocial)<i data-id="1" id="histdes_versaopais_desenvsocial{{$atendimento->id}}" class="fas fa-check" style="color: green"></i>@else<i data-id="0" id="histdes_versaopais_desenvsocial{{$atendimento->id}}"></i>@endif Desenvolvimento Social</a></li>
@@ -4572,7 +4546,514 @@ $(document).on('click','.histdes_versaopais_inicial',function(e){
 
 //fim histdes_versaopais_inicial
 
+//início histdes_versaopais_linguagem
 
+$("#AddAHistDesVersaoPaisLinguagem").on('shown.bs.modal',function(){
+            $(".e1idade_prim_vocalizacoes").focus();
+    });
+
+$("#EditHistDesVersaoPaisLinguagem").on('shown.bs.modal',function(){
+            $(".e1idade_prim_vocalizacoes").focus();
+    });
+
+//inicio conta caracteres dos textarea HistDesVersaoPaisLinguagem
+
+    //add
+
+    $(document).on('input','#adde1idade_prim_vocalizacoes',function(){
+        var limite = 10;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var idade_prim_vocalizacoes = $('input[name="adde1idade_prim_vocalizacoes"]').val();
+            $('input[name="adde1idade_prim_vocalizacoes"]').val(idade_prim_vocalizacoes.substr(0,limite));
+            $(".adde1idade_prim_vocalizacoes").text("0" + " " + informativo);
+        }else{
+            $(".adde1idade_prim_vocalizacoes").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#adde1quais',function(){
+        var limite = 50;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var e1quais = $('input[name="adde1quais"]').val();
+            $('input[name="adde1quais"]').val(e1quais.substr(0,limite));
+            $(".adde1quais").text("0" + " " + informativo);
+        }else{
+            $(".adde1quais").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#adde2idade_prim_palavras',function(){
+        var limite = 10;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var e2idade_prim_palavras = $('input[name="adde2idade_prim_palavras"]').val();
+            $('input[name="adde2idade_prim_palavras"]').val(e2idade_prim_palavras.substr(0,limite));
+            $(".adde2idade_prim_palavras").text("0" + " " + informativo);
+        }else{
+            $(".adde2idade_prim_palavras").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#adde2quais',function(){
+        var limite = 50;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var e2quais = $('input[name="adde2quais"]').val();
+            $('input[name="adde2quais"]').val(e2quais.substr(0,limite));
+            $(".adde2quais").text("0" + " " + informativo);
+        }else{
+            $(".adde2quais").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#adde3idade_prim_frases',function(){
+        var limite = 10;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var e3idade_prim_frases = $('input[name="adde3idade_prim_frases"]').val();
+            $('input[name="adde3idade_prim_frases"]').val(e3idade_prim_frases.substr(0,limite));
+            $(".adde3idade_prim_frases").text("0" + " " + informativo);
+        }else{
+            $(".adde3idade_prim_frases").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#adde3quais',function(){
+        var limite = 50;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var e3quais = $('input[name="adde3quais"]').val();
+            $('input[name="adde3quais"]').val(e3quais.substr(0,limite));
+            $(".adde3quais").text("0" + " " + informativo);
+        }else{
+            $(".adde3quais").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addconsidera_que_ha_alg_atraso',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var considera_que_ha_alg_atraso = $('textarea[name="addconsidera_que_ha_alg_atraso"]').val();
+            $('textarea[name="addconsidera_que_ha_alg_atraso"]').val(considera_que_ha_alg_atraso.substr(0,limite));
+            $(".addconsidera_que_ha_alg_atraso").text("0" + " " + informativo);
+        }else{
+            $(".addconsidera_que_ha_alg_atraso").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addg21_de_exemplos',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var g21_de_exemplos = $('textarea[name="addg21_de_exemplos"]').val();
+            $('textarea[name="addg21_de_exemplos"]').val(g21_de_exemplos.substr(0,limite));
+            $(".addg21_de_exemplos").text("0" + " " + informativo);
+        }else{
+            $(".addg21_de_exemplos").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+//edit
+
+  $(document).on('input','#edite1idade_prim_vocalizacoes',function(){
+        var limite = 10;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var idade_prim_vocalizacoes = $('input[name="edite1idade_prim_vocalizacoes"]').val();
+            $('input[name="edite1idade_prim_vocalizacoes"]').val(idade_prim_vocalizacoes.substr(0,limite));
+            $(".edite1idade_prim_vocalizacoes").text("0" + " " + informativo);
+        }else{
+            $(".edite1idade_prim_vocalizacoes").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#edite1quais',function(){
+        var limite = 50;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var e1quais = $('input[name="edite1quais"]').val();
+            $('input[name="edite1quais"]').val(e1quais.substr(0,limite));
+            $(".edite1quais").text("0" + " " + informativo);
+        }else{
+            $(".edite1quais").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#edite2idade_prim_palavras',function(){
+        var limite = 10;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var e2idade_prim_palavras = $('input[name="edite2idade_prim_palavras"]').val();
+            $('input[name="edite2idade_prim_palavras"]').val(e2idade_prim_palavras.substr(0,limite));
+            $(".edite2idade_prim_palavras").text("0" + " " + informativo);
+        }else{
+            $(".edite2idade_prim_palavras").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#edite2quais',function(){
+        var limite = 50;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var e2quais = $('input[name="edite2quais"]').val();
+            $('input[name="edite2quais"]').val(e2quais.substr(0,limite));
+            $(".edite2quais").text("0" + " " + informativo);
+        }else{
+            $(".edite2quais").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#edite3idade_prim_frases',function(){
+        var limite = 10;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var e3idade_prim_frases = $('input[name="edite3idade_prim_frases"]').val();
+            $('input[name="edite3idade_prim_frases"]').val(e3idade_prim_frases.substr(0,limite));
+            $(".edite3idade_prim_frases").text("0" + " " + informativo);
+        }else{
+            $(".edite3idade_prim_frases").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#edite3quais',function(){
+        var limite = 50;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var e3quais = $('input[name="edite3quais"]').val();
+            $('input[name="edite3quais"]').val(e3quais.substr(0,limite));
+            $(".edite3quais").text("0" + " " + informativo);
+        }else{
+            $(".edite3quais").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editconsidera_que_ha_alg_atraso',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var considera_que_ha_alg_atraso = $('textarea[name="editconsidera_que_ha_alg_atraso"]').val();
+            $('textarea[name="editconsidera_que_ha_alg_atraso"]').val(considera_que_ha_alg_atraso.substr(0,limite));
+            $(".editconsidera_que_ha_alg_atraso").text("0" + " " + informativo);
+        }else{
+            $(".editconsidera_que_ha_alg_atraso").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editg21_de_exemplos',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var g21_de_exemplos = $('textarea[name="editg21_de_exemplos"]').val();
+            $('textarea[name="editg21_de_exemplos"]').val(g21_de_exemplos.substr(0,limite));
+            $(".editg21_de_exemplos").text("0" + " " + informativo);
+        }else{
+            $(".editg21_de_exemplos").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+
+
+$(document).on('click','.histdes_versaopais_linguagem',function(e){
+        e.preventDefault();
+        var pacienteid = $(this).data("pacienteid");
+        var atendimentoid = $(this).data("atendimentoid");
+        var opcao_form_histdes_versaopais_linguagem = $("#histdes_versaopais_linguagem"+atendimentoid).data("id");
+
+        if(opcao_form_histdes_versaopais_linguagem==0){
+                $("#addpacienteid_histdesversaopaislinguagem").val(pacienteid);
+                $("#addatendimentoid_histdesversaopaislinguagem").val(atendimentoid);
+                $("#addform_histdesversaopaislinguagem").trigger('reset');
+                $("#AddHistDesVersaoPaisLinguagem").modal('show'); 
+                $("#saveform_errList_histdesversaopaislinguagem").replaceWith('<ul id="saveform_errList_histdesversaopaislinguagem"></ul>');
+        }else{            
+                $("#editpacienteid_histdesversaopaislinguagem").val(pacienteid);
+                $("#editatendimentoid_histdesversaopaislinguagem").val(atendimentoid);
+                $("#editform_histdesversaopaislinguagem").trigger('reset');
+                $("#EditHistDesVersaoPaisLinguagem").modal('show'); 
+                $("#updateform_errList_histdesversaopaislinguagem").replaceWith('<ul id="updateform_errList_histdesversaopaislinguagem"></ul>');
+
+                 $.ajaxSetup({
+                    headers:{
+                        'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+    
+    
+                $.ajax({ 
+                    type: 'GET',             
+                    dataType: 'json',                                    
+                    url: '/ceteaadmin/terapia/edit_histdesversaopaislinguagem/'+pacienteid,                                
+                    success: function(response){           
+                        if(response.status==200){                                               
+                            $(".e1idade_prim_vocalizacoes").val(response.histdesversaopaislinguagem.e1_idade_prim_vocalizacoes);                            
+                            $(".e1naoapresentou").attr('checked',response.histdesversaopaislinguagem.e1_naoapresentou);
+                            $(".e1quais").val(response.histdesversaopaislinguagem.e1_quais);
+                            $(".e2idade_prim_palavras").val(response.histdesversaopaislinguagem.e2_idade_prim_palavras);
+                            $(".e2naoapresentou").attr('checked',response.histdesversaopaislinguagem.e2_naoapresentou);
+                            $(".e2quais").val(response.histdesversaopaislinguagem.e2_quais);
+                            $(".e3idade_prim_frases").val(response.histdesversaopaislinguagem.e3_idade_prim_frases);
+                            $(".e3naoapresentou").attr('checked',response.histdesversaopaislinguagem.e3_naoapresentou);
+                            $(".e3quais").val(response.histdesversaopaislinguagem.e3_quais);
+                            $(".considera_que_ha_alg_atraso").val(response.histdesversaopaislinguagem.f_considera_que_ha_alg_atraso);
+                            $(".aponta_para_pedir_algo").attr('checked',response.histdesversaopaislinguagem.g1_aponta_para_pedir_algo);
+                            $(".aponta_para_compartilhar").attr('checked',response.histdesversaopaislinguagem.g2_aponta_para_compartilhar);
+                            $(".sim_assentindo_c_cabeca").attr('checked',response.histdesversaopaislinguagem.g3_sim_assentindo_c_cabeca);
+                            $(".mandar_beijos").attr('checked',response.histdesversaopaislinguagem.g4_mandar_beijos);
+                            $(".da_tchau").attr('checked',response.histdesversaopaislinguagem.g5_da_tchau);
+                            $(".nega_c_cabeca").attr('checked',response.histdesversaopaislinguagem.g6_nega_c_cabeca);
+                            $(".bate_palmas").attr('checked',response.histdesversaopaislinguagem.g7_bate_palmas);
+                            $(".eleva_bracos_pedcolo").attr('checked',response.histdesversaopaislinguagem.g8_eleva_bracos_pedcolo);
+                            $(".sacode_indicador_pdizer_nao").attr('checked',response.histdesversaopaislinguagem.g9_sacode_indicador_pdizer_nao);
+                            $(".puxvcpela_mao_paraabpg_coisas").attr('checked',response.histdesversaopaislinguagem.g10_puxvcpela_mao_paraabpg_coisas);
+                            $(".vcjapensou_qseufilho_surdo").attr('checked',response.histdesversaopaislinguagem.g11_vcjapensou_qseufilho_surdo);
+                            $(".imita_gracinhas").attr('checked',response.histdesversaopaislinguagem.g12_imita_gracinhas);
+                            $(".seg_seurosto_polhar_palgdirecao").attr('checked',response.histdesversaopaislinguagem.g13_seg_seurosto_polhar_palgdirecao);
+                            $(".atend_champnome").attr('checked',response.histdesversaopaislinguagem.g14_atend_champnome);
+                            $(".somente_c_insistencia").attr('checked',response.histdesversaopaislinguagem.g14_somente_c_insistencia);
+                            $(".pessestranhas_compseufilho_fala").attr('checked',response.histdesversaopaislinguagem.g15_pessestranhas_compseufilho_fala);
+                            $(".g16seufilho_costrepultpal_ouvida").attr('checked',response.histdesversaopaislinguagem.g16_seufilho_costrepultpal_ouvida);
+                            $(".g16as_vezes").attr('checked',response.histdesversaopaislinguagem.g16_as_vezes);
+                            $(".fala_baixa").attr('checked',response.histdesversaopaislinguagem.g17_fala_baixa);
+                            $(".fala_monotona").attr('checked',response.histdesversaopaislinguagem.g17_fala_monotona);
+                            $(".fala_alta").attr('checked',response.histdesversaopaislinguagem.g17_fala_alta);
+                            $(".g18cost_rep_frases_ouvidas").attr('checked',response.histdesversaopaislinguagem.g18_cost_rep_frases_ouvidas);
+                            $(".g18as_vezes").attr('checked',response.histdesversaopaislinguagem.g18_as_vezes);
+                            $(".g19comb_palaforma_estranha").attr('checked',response.histdesversaopaislinguagem.g19_comb_palaforma_estranha);
+                            $(".g19as_vezes").attr('checked'.response.histdesversaopaislinguagem.g19_as_vezes);
+                            $(".g20cost_insist_pvc_dizer_palavras").attr('checked',response.histdesversaopaislinguagem.g20_cost_insist_pvc_dizer_palavras);
+                            $(".g20as_vezes").attr('checked',response.histdesversaopaislinguagem.g20_as_vezes);
+                            $(".g21cost_comen_inapropriado").attr('checked',response.histdesversaopaislinguagem.g21_cost_comen_inapropriado);
+                            $(".g21as_vezes").attr('checked',response.histdesversaopaislinguagem.g21_as_vezes);
+                            $(".g21_de_exemplos").val(response.histdesversaopaislinguagem.g21_de_exemplos);
+                        }      
+                    }
+                });
+        }
+    });
+
+
+    $(document).on('click','.add_histdesversaopais_linguagem_btn',function(e){
+        e.preventDefault();
+        var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+        var pacienteid = $("#addpacienteid_histdesversaopaislinguagem").val();
+        var atendimentoid = $("#addatendimentoid_histdesversaopaislinguagem").val();
+
+        var loading = $("#imgaddanamnese_histdesversaopaislinguagem");
+            loading.show();
+
+        var data = new FormData();
+
+        data.append('atendimento',atendimentoid);
+        data.append('paciente',pacienteid);        
+        data.append('idade_primeiras_vocalizacoes',$(".e1idade_prim_vocalizacoes").val());
+        data.append('prim_vocalizacoes_naoapresentou',$(".e1naoapresentou").is(":checked"?'true':'false'));
+        data.append('quais_prim_vocalizacoes',$(".e1quais").val());
+        data.append('idade_primeiras_palavras',$(".e2idade_prim_palavras").val());
+        data.append('prim_palavras_naoapresentou',$(".e2naoapresentou").is(":checked")?'true':'false');
+        data.append('quais_prim_palavras',$(".e2quais").val());
+        data.append('idade_primeiras_frases',$(".e3idade_prim_frases").val());
+        data.append('prim_frases_naoapresentou',$(".e3naoapresentou").is(":checked")?'true':'false');
+        data.append('quais_prim_frases',$(".e3quais").val());
+        data.append('considera_que_ha_alg_atraso',$(".considera_que_ha_alg_atraso").val());
+        data.append('aponta_para_pedir_algo',$(".aponta_para_pedir_algo").is(":checked")?'true':'false');
+        data.append('aponta_para_compartilhar',$(".aponta_para_compartilhar").is(":checked")?'true':'false');
+        data.append('sim_assentindo_c_cabeca',$(".sim_assentindo_c_cabeca").is(":checked")?'true':'false');
+        data.append('mandar_beijos',$(".mandar_beijos").is(":checked")?'true':'false');
+        data.append('da_tchau',$(".da_tchau").is(":checked")?'true':'false');
+        data.append('nega_c_cabeca',$(".nega_c_cabeca").is(":checked")?'true':'false');
+        data.append('bate_palmas',$(".bate_palmas").is(":checked")?'true':'false');
+        data.append('eleva_bracos_pedcolo',$(".eleva_bracos_pedcolo").is(":checked")?'true':'false');
+        data.append('sacode_indicador_pdizer_nao',$(".sacode_indicador_pdizer_nao").is(":checked")?'true':'false');
+        data.append('puxvcpela_mao_paraabpg_coisas',$(".puxvcpela_mao_paraabpg_coisas").is(":checked")?'true':'false');
+        data.append('vcjapensou_qseufilho_surdo',$(".vcjapensou_qseufilho_surdo").is(".checked")?'true':'false');
+        data.append('imita_gracinhas',$(".imita_gracinhas").is(":checked")?'true':'false');
+        data.append('seg_seurosto_polhar_palgdirecao',$(".seg_seurosto_polhar_palgdirecao").is(":checked")?'true':'false');
+        data.append('atend_champnome',$(".atend_champnome").is(":checked")?'true':'false');
+        data.append('somente_c_insistencia',$(".somente_c_insistencia").is(":checked")?'true':'false');
+        data.append('pessestranhas_compseufilho_fala',$(".pessestranhas_compseufilho_fala").is(":checked")?'true':'false');
+        data.append('g16seufilho_costrepultpal_ouvida',$(".g16seufilho_costrepultpal_ouvida").is(":checked")?'true':'false');
+        data.append('g16as_vezes',$(".g16as_vezes").is(":checked")?'true':'false');
+        data.append('fala_baixa',$(".fala_baixa").is(":checked")?'true':'false');
+        data.append('fala_monotona',$(".fala_monotona").is(":checked")?'true':'false');
+        data.append('fala_alta',$(".fala_alta").is(":checked")?'true':'false');
+        data.append('g18cost_rep_frases_ouvidas',$(".g18cost_rep_frases_ouvidas").is(":checked")?'true':'false');
+        data.append('g18as_vezes',$(".g18as_vezes").is(":checked")?'true':'false');
+        data.append('g19comb_palaforma_estranha',$(".g19comb_palaforma_estranha").is(":checked")?'true':'false');
+        data.append('g19as_vezes',$(".g19as_vezes").is(":checked")?'true':'false');
+        data.append('g20cost_insist_pvc_dizer_palavras',$(".g20cost_insist_pvc_dizer_palavras").is(":checked")?'true':'false');
+        data.append('g20as_vezes',$(".g20as_vezes").is(":checked")?'true':'false');
+        data.append('g21cost_comen_inapropriado',$(".g21cost_comen_inapropriado").is(":checked")?'true':'false');
+        data.append('g21as_vezes',$(".g21as_vezes").is(":checked")?'true':'false');
+        data.append('g21_de_exemplos',$(".g21_de_exemplos").val());
+        data.append('_token',CSRF_TOKEN);
+        data.append('_method','PUT');        
+
+        $.ajax({
+            url:'/ceteaadmin/terapia/store_histdesversaopaislinguagem',
+            type: 'POST',
+            dataType: 'json',
+            data: data,
+            cache: false,
+            processData: false,
+            contentType: false,
+            async:true,
+            success:function(response){
+                if(response.status==400){
+                    $("#saveform_errlist_histdesversaopaislinguagem").replaceWith('<ul id="saveform_errList_histdesversaopaislinguagem"></ul>');
+                    $("#saveform_errlist_histdesversaopaislinguagem").addClass("alert alert-danger");
+                    $.each(response.errors,function(key,err_values){
+                        $("#saveform_errlist_histdesversaopaislinguagem").append('<li>'+err_values+'</li>')
+                    });
+                    loading.hide();
+                }else{
+                    loading.hide();
+                    $("#saveform_errlist_histdesversaopaislinguagem").replaceWith('<ul id="saveform_errList_histdesversaopaislinguagem"></ul>');
+                    $("#histdes_versaopais_linguagem"+atendimentoid).replaceWith('<i data-id="1" id="histdes_versaopais_linguagem'+atendimentoid+'" class="fas fa-check" style="color: green"></i>');
+                    $("#addform_histdesversaopaislinguagem").trigger('reset');
+                    $("#AddHistDesVersaoPaisLinguagem").modal('hide');                     
+                }
+            }
+
+        });
+
+    });
+
+
+    $(document).on('click','.update_histdesversaopaislinguagem_btn',function(e){
+        var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+        var atendimentoid = $("#editatendimentoid_histdesversaopaislinguagem").val();
+        var pacienteid = $("#editpacienteid_histdesversaopaislinguagem").val();
+
+        var loading = $("#imgeditanamnese_histdesversaopaislinguagem");
+            loading.show();
+
+        var data = new FormData();
+
+        data.append('atendimento',atendimentoid);
+        data.append('paciente',pacienteid);        
+        data.append('idade_primeiras_vocalizacoes',$("#edite1idade_prim_vocalizacoes").val());
+        data.append('prim_vocalizacoes_naoapresentou',$("#edite1naoapresentou").is(":checked"?'true':'false'));
+        data.append('quais_prim_vocalizacoes',$("#edite1quais").is(":checked")?'true':'false');
+        data.append('idade_primeiras_palavras',$(".#edite2idade_prim_palavras").val());
+        data.append('prim_palavras_naoapresentou',$("#edite2naoapresentou").is(":checked")?'true':'false');
+        data.append('quais_prim_palavras',$("#edite2quais").is(":checked")?'true':'false');
+        data.append('idade_primeiras_frases',$("#edite3idade_prim_frases").val());
+        data.append('prim_frases_naoapresentou',$("#edite3naoapresentou").is(":checked")?'true':'false');
+        data.append('quais_prim_frases',$("#edite3quais").is(":checked")?'true':'false');
+        data.append('considera_que_ha_alg_atraso',$("#editconsidera_que_ha_alg_atraso").val());
+        data.append('aponta_para_pedir_algo',$("#editaponta_para_pedir_algo").is(":checked")?'true':'false');
+        data.append('aponta_para_compartilhar',$("#editaponta_para_compartilhar").is(":checked")?'true':'false');
+        data.append('sim_assentindo_c_cabeca',$("#editsim_assentindo_c_cabeca").is(":checked")?'true':'false');
+        data.append('mandar_beijos',$("#editmandar_beijos").is(":checked")?'true':'false');
+        data.append('da_tchau',$("#editda_tchau").is(":checked")?'true':'false');
+        data.append('nega_c_cabeca',$("#editnega_c_cabeca").is(":checked")?'true':'false');
+        data.append('bate_palmas',$("#editbate_palmas").is(":checked")?'true':'false');
+        data.append('eleva_bracos_pedcolo',$("#editeleva_bracos_pedcolo").is(":checked")?'true':'false');
+        data.append('sacode_indicador_pdizer_nao',$("#editsacode_indicador_pdizer_nao").is(":checked")?'true':'false');
+        data.append('puxvcpela_mao_paraabpg_coisas',$("#editpuxvcpela_mao_paraabpg_coisas").is(":checked")?'true':'false');
+        data.append('vcjapensou_qseufilho_surdo',$("#editvcjapensou_qseufilho_surdo").is(".checked")?'true':'false');
+        data.append('imita_gracinhas',$("#editimita_gracinhas").is(":checked")?'true':'false');
+        data.append('seg_seurosto_polhar_palgdirecao',$("#editseg_seurosto_polhar_palgdirecao").is(":checked")?'true':'false');
+        data.append('atend_champnome',$("#editatend_champnome").is(":checked")?'true':'false');
+        data.append('somente_c_insistencia',$("#editsomente_c_insistencia").is(":checked")?'true':'false');
+        data.append('pessestranhas_compseufilho_fala',$("#editpessestranhas_compseufilho_fala").is(":checked")?'true':'false');
+        data.append('g16seufilho_costrepultpal_ouvida',$("#editg16seufilho_costrepultpal_ouvida").is(":checked")?'true':'false');
+        data.append('g16as_vezes',$("#editg16as_vezes").is(":checked")?'true':'false');
+        data.append('fala_baixa',$("#editfala_baixa").is(":checked")?'true':'false');
+        data.append('fala_monotona',$("#editfala_monotona").is(":checked")?'true':'false');
+        data.append('fala_alta',$("#editfala_alta").is(":checked")?'true':'false');
+        data.append('g18cost_rep_frases_ouvidas',$("#editg18cost_rep_frases_ouvidas").is(":checked")?'true':'false');
+        data.append('g18as_vezes',$("#editg18as_vezes").is(":checked")?'true':'false');
+        data.append('g19comb_palaforma_estranha',$("#editg19comb_palaforma_estranha").is(":checked")?'true':'false');
+        data.append('g19as_vezes',$("#editg19as_vezes").is(":checked")?'true':'false');
+        data.append('g20cost_insist_pvc_dizer_palavras',$("#editg20cost_insist_pvc_dizer_palavras").is(":checked")?'true':'false');
+        data.append('g20as_vezes',$("#editg20as_vezes").is(":checked")?'true':'false');
+        data.append('g21cost_comen_inapropriado',$("#editg21cost_comen_inapropriado").is(":checked")?'true':'false');
+        data.append('g21as_vezes',$("#editg21as_vezes").is(":checked")?'true':'false');
+        data.append('g21_de_exemplos',$("#editg21_de_exemplos").val());
+        data.append('_token',CSRF_TOKEN);
+        data.append('_method','PUT');   
+
+        $.ajax({
+            url:'/ceteaadmin/terapia/update_histdesversaopaislinguagem/'+pacienteid,
+            type:'POST',
+            contentType: 'json',
+            data: data,
+            cache: false,
+            processData: false,
+            contentType: false,
+            async:true,
+            success:function(response){
+                if(response.status==400){
+                    $("#updateform_errList_histdesversaopaislinguagem").replaceWith('<ul id="updateform_errList_histdesversaopaislinguagem"></ul>');
+                    $("#updateform_errlist_histdesversaopaislinguagem").addClass('alert alert-danger');
+                    $.each(response.errors,function(key,err_values){
+                        $("#updateform_errlist_histdesversaopaislinguagem").append('<li>'+err_values+'</li>');
+                    });
+                    loading.hide();
+                }else{
+                    loading.hide();
+                    $("#updateform_errlist_histdesversaopaislinguagem").replaceWith('<ul id="updateform_errList_histdesversaopaislinguagem"></ul>');
+                    $("#histdes_versaopais_linguagem"+atendimentoid).replaceWith('<i data-id="1" id="histdes_versaopais_linguagem'+atendimentoid+'" class="fas fa-check" style="color: green"></i>');
+                    $("#editform_histdesversaopaislinguagem").trigger('reset');
+                    $("#EditAnamnese_HistDesVersaoPaisLinguagem").modal('hide');    
+                }
+            }
+        });
+    });
+
+//fim histdes_versaopais_linguagem
 
 });
 
