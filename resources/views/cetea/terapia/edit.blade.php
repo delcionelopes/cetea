@@ -28,6 +28,426 @@
 
 </style>
 
+
+<!-- Inicio AddHistDesVersaoPaisDesenvSocial -->
+<div class="modal fade animate__animated animate__bounce animate__faster bd-example-modal-xl" id="AddHistDesVersaoPaisDesenvSocial" tabindex="-1" role="dialog" aria-labelledby="AddmyExtraLargeModalLabel_HistDesVersaoPaisDesenvSocial" aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+        <div class="modal-header bg-{{$color}}">
+            <h5 class="modal-title" id="AddmyExtraLargeModalLabel_HistDesVersaoPaisDesenvSocial" style="color: white;">Histórico do Desenvolvimento Versão Pais - Desenv. Social</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                <span aria-hidden="true" style="color: white.">&times;</span>
+            </button>
+        </div>      
+        <div class="modal-body form-horizontal" role="form">
+            <form id="addform_hisdesversaopaisdesenvsocial" class="form-horizontal" role="form" method="POST">
+                <input type="hidden" id="addpacienteid_histdesversaopaisdesenvsocial">
+                <input type="hidden" id="addatendimentoid_histdesversaopaisdesenvsocial">
+                <ul id="saveform_errlist_histdesversaopaisdesenvsocial"></ul>
+                <fieldset>
+                    <legend>DESENVOLVIMENTO SOCIAL (Assinale se o seu filho(a) faz ou fez quando menor. Caso perdeu a habilidade, mencione com observações)</legend>
+                </fieldset>
+                <fieldset>
+                    <legend>Em que idade começaram os primeiros sorrisos?</legend>
+                    <div class="col-md-4">
+                    <span class="addh1_idade_prim_sorrisos"></span>
+                    <input type="text" name="addh1_idade_prim_sorrisos" id="addh1_idade_prim_sorrisos" class="h1_idade_prim_sorrisos form-control" size="10" maxlength="10">
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addh2_olha_p_face_qdobrinca_c_ele">
+                      <input type="checkbox" class="h2_olha_p_face_qdobrinca_c_ele checkbox" name="addh2_olha_p_face_qdobrinca_c_ele" id="addh2_olha_p_face_qdobrinca_c_ele"> Virava a cabeça e os olhos para a face do adulto quando esse falava / brincava com ele(a)?</label>
+                      <label for="">Observações:</label>
+                      <span class="addh2_obs"></span>
+                      <textarea name="addh2_obs" id="addh2_obs" cols="30" rows="4" class="h2_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addh3_sorriso_esp_pess_familiares">
+                      <input type="checkbox" class="h3_sorriso_esp_pess_familiares" name="addh3_sorriso_esp_pess_familiares" id="addh3_sorriso_esp_pess_familiares"> Sorriso espontâneo às pessoas familiares?</label>
+                      <label for="">Observações:</label>
+                      <span class="addh3_obs"></span>
+                      <textarea name="addh3_obs" id="addh3_obs" cols="30" rows="4" class="h3_obs form-control"></textarea>
+                    </div>                                    
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addh4_sorriso_esp_pess_nfamiliares">
+                      <input type="checkbox" class="h4_sorriso_esp_pess_nfamiliares" name="addh4_sorriso_esp_pess_nfamiliares" id="addh4_sorriso_esp_pess_nfamiliares"> Sorriso espontâneo às pessoas não familiares?</label>
+                      <label for="">Observações:</label>
+                      <span class="addh4_obs"></span>
+                      <textarea name="addh4_obs" id="addh4_obs" cols="30" rows="4" class="h4_obs form-control"></textarea>
+                    </div>
+                </fieldset>                
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addh5_sorria_em_resp_sorriso">
+                      <input type="checkbox" class="h5_sorria_em_resp_sorriso" name="addh5_sorria_em_resp_sorriso" id="addh5_sorria_em_resp_sorriso"> Sorria em resposta ao sorriso de outras pessoas?</label>
+                      <label for="">Observações:</label>
+                      <span class="addh5_obs"></span>
+                      <textarea name="addh5_obs" id="addh5_obs" cols="30" rows="4" class="h5_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>                    
+                    <div class="form-group">
+                      <label for="addh6_vc_conseg_ident_exp_faciais_nfilho">
+                      <input type="checkbox" class="h6_vc_conseg_ident_exp_faciais_nfilho" name="addh6_vc_conseg_ident_exp_faciais_nfilho" id="addh6_vc_conseg_ident_exp_faciais_nfilho"> Você consegue identificar diversas expressões faciais em seu filho(a) (ex.: contentamento, surpresa, medo)?</label>
+                      <label for="">Observações:</label>
+                      <span class="addh6_obs"></span>
+                      <textarea name="addh6_obs" id="addh6_obs" cols="30" rows="4" class="h6_obs form-control"></textarea>
+                    </div>
+                </fieldset>    
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addh7_apres_expr_emo_contexto">
+                      <input type="checkbox" class="h7_apres_expr_emo_contexto" name="addh7_apres_expr_emo_contexto" id="addh7_apres_expr_emo_contexto"> Seu filho(a) apresenta expressões emocionais adequadas ao contexto?</label>
+                      <label for="">Observações:</label>
+                      <span class="addh7_obs"></span>
+                      <textarea name="addh7_obs" id="addh7_obs" cols="30" rows="4" class="h7_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addh8_compartilha_interesses">
+                      <input type="checkbox" class="h8_compartilha_interesses" name="addh8_compartilha_interesses" id="addh8_compartilha_interesses"> Compartilha interesses, atividades pazerosas com outras pessoas apenas por compartilhar?</label>
+                      <label for="">Observações:</label>
+                      <span class="addh8_obs"></span>
+                      <textarea name="addh8_obs" id="addh8_obs" cols="30" rows="4" class="h8_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addh9_dem_preoc_cpais">
+                      <input type="checkbox" class="h9_dem_preoc_cpais" name="addh9_dem_preoc_cpais" id="addh9_dem_preoc_cpais"> Seu filho(a) demonstra preocupações quando os pais estão doentes ou machucados? Dê um exemplo.</label>
+                      <label for="">Observações:</label>
+                      <span class="addh9_obs"></span>
+                      <textarea name="addh9_obs" id="addh9_obs" cols="30" rows="4" class="h9_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addh10_fazcoment_verbais_ou_gestos">
+                      <input type="checkbox" class="h10_fazcoment_verbais_ou_gestos" name="addh10_fazcoment_verbais_ou_gestos" id="addh10_fazcoment_verbais_ou_gestos"> Seu filho(a) faz comentários verbais ou através de gestos? Dê um exemplo.</label>
+                      <label for="">Observações:</label>
+                      <span class="addh10_obs"></span>
+                      <textarea name="addh10_obs" id="addh10_obs" cols="30" rows="4" class="h10_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addh11_olha_p_ondevc_olhando">
+                      <input type="checkbox" class="h11_olha_p_ondevc_olhando" name="addh11_olha_p_ondevc_olhando" id="addh11_olha_p_ondevc_olhando"> Seu filho(a) olha para onde você está olhando?</label>
+                      <label for="">Observações:</label>
+                      <span class="addh11_obs"></span>
+                      <textarea name="addh11_obs" id="addh11_obs" cols="30" rows="4" class="h11_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addh12_olha_p_ondevc_aponta">
+                      <input type="checkbox" class="h12_olha_p_ondevc_aponta" name="addh12_olha_p_ondevc_aponta" id="addh12_olha_p_ondevc_aponta"> Seu filho(a) Seu filho(a) olha para onde você aponta?</label>
+                      <label for="">Observações:</label>
+                      <span class="addh12_obs"></span>
+                      <textarea name="addh12_obs" id="addh12_obs" cols="30" rows="4" class="h12_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addh13_resp_conv_p_brincarcadultos">
+                      <input type="checkbox" class="h13_resp_conv_p_brincarcadultos" name="addh13_resp_conv_p_brincarcadultos" id="addh13_resp_conv_p_brincarcadultos"> Seu filho(a) responde aos convites para brincar (adultos)?</label>
+                    </div>
+                    <div class="form-group">
+                      <label for="addh13_apos_insistencia">
+                      <input type="checkbox" class="h13_apos_insistencia" name="addh13_apos_insistencia" id="addh13_apos_insistencia"> Após insistência.</label>
+                      <label for="">Observações:</label>
+                      <span class="addh13_obs"></span>
+                      <textarea name="addh13_obs" id="addh13_obs" cols="30" rows="4" class="h13_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addh14_resp_conv_p_brincarccriancas">
+                      <input type="checkbox" class="h14_resp_conv_p_brincarccriancas" name="addh14_resp_conv_p_brincarccriancas" id="addh14_resp_conv_p_brincarccriancas"> Seu filho(a) responde aos convites de outras crianças para brincar?</label>
+                    </div>
+                    <div class="form-group">
+                      <label for="addh14_apos_insistencia">
+                      <input type="checkbox" class="h14_apos_insistencia" name="addh14_apos_insistencia" id="addh14_apos_insistencia"> Após insistência.</label>
+                      <label for="">Observações:</label>
+                      <span class="addh14_obs"></span>
+                      <textarea name="addh14_obs" id="addh14_obs" cols="30" rows="4" class="h14_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addh15_busca_comp_out_criancas">
+                      <input type="checkbox" class="h15_busca_comp_out_criancas" name="addh15_busca_comp_out_criancas" id="addh15_busca_comp_out_criancas"> Seu filho(a) busca a companhia de outras crianças espontaneamente? Dê um exemplo.</label>
+                      <label for="">Observações:</label>
+                      <span class="addh15_obs"></span>
+                      <textarea name="addh15_obs" id="addh15_obs" cols="30" rows="4" class="h15_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">                      
+                      <label for="">Como seu filho(a) reage frente a crianças desconhecidas em uma festa ou casa de amigos?</label>
+                      <span class="addh16_cm_reag_a_criancasdesc_festa"></span>
+                      <textarea name="addh16_cm_reag_a_criancasdesc_festa" id="addh16_cm_reag_a_criancasdesc_festa" cols="30" rows="4" class="h16_cm_reag_a_criancasdesc_festa form-control"></textarea>
+                    </div>
+                    <div class="form-group">                      
+                      <label for="">Fica ansioso(a)?</label>
+                      <span class="addh16_fica_ansioso"></span>
+                      <textarea name="addh16_fica_ansioso" id="addh16_fica_ansioso" cols="30" rows="4" class="h16_fica_ansioso form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addh17_perm_som_algtipo_brinc">
+                      <input type="checkbox" class="h17_perm_som_algtipo_brinc" name="addh17_perm_som_algtipo_brinc" id="addh17_perm_som_algtipo_brinc"> Permanece somente em alguns tipos de brincadeiras? Dê um exemplo.</label>
+                      <label for="">Observações:</label>
+                      <span class="addh17_obs"></span>
+                      <textarea name="addh17_obs" id="addh17_obs" cols="30" rows="4" class="h17_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addh18_pref_brinc_par_nfc_vontemgr">
+                      <input type="checkbox" class="h18_pref_brinc_par_nfc_vontemgr" name="addh18_pref_brinc_par_nfc_vontemgr" id="addh18_pref_brinc_par_nfc_vontemgr"> Prefere brincadeiras de par, não fica à vontade em grupos? Dê um exemplo.</label>
+                      <label for="">Observações:</label>
+                      <span class="addh18_obs"></span>
+                      <textarea name="addh18_obs" id="addh18_obs" cols="30" rows="4" class="h18_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addh19_evita_ctt_c_pessoas">
+                      <input type="checkbox" class="h19_evita_ctt_c_pessoas" name="addh19_evita_ctt_c_pessoas" id="addh19_evita_ctt_c_pessoas"> Ignora / evita o contato com pessoas em geral? Dê um exemplo.</label>
+                      <label for="">Observações:</label>
+                      <span class="addh19_obs"></span>
+                      <textarea name="addh19_obs" id="addh19_obs" cols="30" rows="4" class="h19_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            <button data-color="{{$color}}" class="btn btn-{{$color}} add_histdesversaopais_desenvsocial_btn"><img id="imgadd_histdesversaopaisdesenvsocial" src="{{asset('storage/ajax-loader.gif')}}" style="display: none;" class="rounded-circle" width="20"> Salvar</button>
+        </div>
+    </div>
+  </div>
+</div>
+<!-- Fim AddHistDesVersaoPaisDesenvSocial -->
+
+<!-- Inicio EditHistDesVersaoPaisDesenvSocial -->
+<div class="modal fade animate__animated animate__bounce animate__faster bd-example-modal-xl" id="EditHistDesVersaoPaisDesenvSocial" tabindex="-1" role="dialog" aria-labelledby="EditmyExtraLargeModalLabel_histdesversaopaisdesenvsocial" aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+        <div class="modal-header bg-{{$color}}">
+            <h5 class="modal-title" id="EditmyExtraLargeModalLabel_histdesversaopaisdesenvsocial" style="color: white;">Histórico do Desenvolvimento Versão Pais - Desenv. Social</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                <span aria-hidden="true" style="color: white.">&times;</span>
+            </button>
+        </div>      
+        <div class="modal-body form-horizontal" role="form">
+            <form id="editform_histdesversaopaisdesenvsocial" class="form-horizontal" role="form" method="POST">
+                <input type="hidden" id="editpacienteid_histdesversaopaisdesenvsocial">
+                <input type="hidden" id="editatendimentoid_histdesversaopaisdesenvsocial">
+                <ul id="updateform_errlist_histdesversaopaisdesenvsocial"></ul>
+                <fieldset>
+                    <legend>DESENVOLVIMENTO SOCIAL (Assinale se o seu filho(a) faz ou fez quando menor. Caso perdeu a habilidade, mencione com observações)</legend>
+                </fieldset>
+                <fieldset>
+                    <legend>Em que idade começaram os primeiros sorrisos?</legend>
+                    <div class="col-md-4">
+                    <span class="edith1_idade_prim_sorrisos"></span>
+                    <input type="text" name="edith1_idade_prim_sorrisos" id="edith1_idade_prim_sorrisos" class="h1_idade_prim_sorrisos form-control" size="10" maxlength="10">
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="edith2_olha_p_face_qdobrinca_c_ele">
+                      <input type="checkbox" class="h2_olha_p_face_qdobrinca_c_ele checkbox" name="edith2_olha_p_face_qdobrinca_c_ele" id="edith2_olha_p_face_qdobrinca_c_ele"> Virava a cabeça e os olhos para a face do adulto quando esse falava / brincava com ele(a)?</label>
+                      <label for="">Observações:</label>
+                      <span class="edith2_obs"></span>
+                      <textarea name="edith2_obs" id="edith2_obs" cols="30" rows="4" class="h2_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="edith3_sorriso_esp_pess_familiares">
+                      <input type="checkbox" class="h3_sorriso_esp_pess_familiares" name="edith3_sorriso_esp_pess_familiares" id="edith3_sorriso_esp_pess_familiares"> Sorriso espontâneo às pessoas familiares?</label>
+                      <label for="">Observações:</label>
+                      <span class="edith3_obs"></span>
+                      <textarea name="edith3_obs" id="edith3_obs" cols="30" rows="4" class="h3_obs form-control"></textarea>
+                    </div>                                    
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="edith4_sorriso_esp_pess_nfamiliares">
+                      <input type="checkbox" class="h4_sorriso_esp_pess_nfamiliares" name="edith4_sorriso_esp_pess_nfamiliares" id="edith4_sorriso_esp_pess_nfamiliares"> Sorriso espontâneo às pessoas não familiares?</label>
+                      <label for="">Observações:</label>
+                      <span class="edith4_obs"></span>
+                      <textarea name="edith4_obs" id="edith4_obs" cols="30" rows="4" class="h4_obs form-control"></textarea>
+                    </div>
+                </fieldset>                
+                <fieldset>
+                    <div class="form-group">
+                      <label for="edith5_sorria_em_resp_sorriso">
+                      <input type="checkbox" class="h5_sorria_em_resp_sorriso" name="edith5_sorria_em_resp_sorriso" id="edith5_sorria_em_resp_sorriso"> Sorria em resposta ao sorriso de outras pessoas?</label>
+                      <label for="">Observações:</label>
+                      <span class="edith5_obs"></span>
+                      <textarea name="edith5_obs" id="edith5_obs" cols="30" rows="4" class="h5_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>                    
+                    <div class="form-group">
+                      <label for="edith6_vc_conseg_ident_exp_faciais_nfilho">
+                      <input type="checkbox" class="h6_vc_conseg_ident_exp_faciais_nfilho" name="edith6_vc_conseg_ident_exp_faciais_nfilho" id="edith6_vc_conseg_ident_exp_faciais_nfilho"> Você consegue identificar diversas expressões faciais em seu filho(a) (ex.: contentamento, surpresa, medo)?</label>
+                      <label for="">Observações:</label>
+                      <span class="edith6_obs"></span>
+                      <textarea name="edith6_obs" id="edith6_obs" cols="30" rows="4" class="h6_obs form-control"></textarea>
+                    </div>
+                </fieldset>    
+                <fieldset>
+                    <div class="form-group">
+                      <label for="edith7_apres_expr_emo_contexto">
+                      <input type="checkbox" class="h7_apres_expr_emo_contexto" name="edith7_apres_expr_emo_contexto" id="edith7_apres_expr_emo_contexto"> Seu filho(a) apresenta expressões emocionais adequadas ao contexto?</label>
+                      <label for="">Observações:</label>
+                      <span class="edith7_obs"></span>
+                      <textarea name="edith7_obs" id="edith7_obs" cols="30" rows="4" class="h7_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="edith8_compartilha_interesses">
+                      <input type="checkbox" class="h8_compartilha_interesses" name="edith8_compartilha_interesses" id="edith8_compartilha_interesses"> Compartilha interesses, atividades pazerosas com outras pessoas apenas por compartilhar?</label>
+                      <label for="">Observações:</label>
+                      <span class="edith8_obs"></span>
+                      <textarea name="edith8_obs" id="edith8_obs" cols="30" rows="4" class="h8_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="edith9_dem_preoc_cpais">
+                      <input type="checkbox" class="h9_dem_preoc_cpais" name="edith9_dem_preoc_cpais" id="edith9_dem_preoc_cpais"> Seu filho(a) demonstra preocupações quando os pais estão doentes ou machucados? Dê um exemplo.</label>
+                      <label for="">Observações:</label>
+                      <span class="edith9_obs"></span>
+                      <textarea name="edith9_obs" id="edith9_obs" cols="30" rows="4" class="h9_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="edith10_fazcoment_verbais_ou_gestos">
+                      <input type="checkbox" class="h10_fazcoment_verbais_ou_gestos" name="edith10_fazcoment_verbais_ou_gestos" id="edith10_fazcoment_verbais_ou_gestos"> Seu filho(a) faz comentários verbais ou através de gestos? Dê um exemplo.</label>
+                      <label for="">Observações:</label>
+                      <span class="edith10_obs"></span>
+                      <textarea name="edith10_obs" id="edith10_obs" cols="30" rows="4" class="h10_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="edith11_olha_p_ondevc_olhando">
+                      <input type="checkbox" class="h11_olha_p_ondevc_olhando" name="edith11_olha_p_ondevc_olhando" id="edith11_olha_p_ondevc_olhando"> Seu filho(a) olha para onde você está olhando?</label>
+                      <label for="">Observações:</label>
+                      <span class="edith11_obs"></span>
+                      <textarea name="edith11_obs" id="edith11_obs" cols="30" rows="4" class="h11_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="edith12_olha_p_ondevc_aponta">
+                      <input type="checkbox" class="h12_olha_p_ondevc_aponta" name="edith12_olha_p_ondevc_aponta" id="edith12_olha_p_ondevc_aponta"> Seu filho(a) Seu filho(a) olha para onde você aponta?</label>
+                      <label for="">Observações:</label>
+                      <span class="edith12_obs"></span>
+                      <textarea name="edith12_obs" id="edith12_obs" cols="30" rows="4" class="h12_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="edith13_resp_conv_p_brincarcadultos">
+                      <input type="checkbox" class="h13_resp_conv_p_brincarcadultos" name="edith13_resp_conv_p_brincarcadultos" id="edith13_resp_conv_p_brincarcadultos"> Seu filho(a) responde aos convites para brincar (adultos)?</label>
+                    </div>
+                    <div class="form-group">
+                      <label for="edith13_apos_insistencia">
+                      <input type="checkbox" class="h13_apos_insistencia" name="edith13_apos_insistencia" id="edith13_apos_insistencia"> Após insistência.</label>
+                      <label for="">Observações:</label>
+                      <span class="edith13_obs"></span>
+                      <textarea name="edith13_obs" id="edith13_obs" cols="30" rows="4" class="h13_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="edith14_resp_conv_p_brincarccriancas">
+                      <input type="checkbox" class="h14_resp_conv_p_brincarccriancas" name="edith14_resp_conv_p_brincarccriancas" id="edith14_resp_conv_p_brincarccriancas"> Seu filho(a) responde aos convites de outras crianças para brincar?</label>
+                    </div>
+                    <div class="form-group">
+                      <label for="edith14_apos_insistencia">
+                      <input type="checkbox" class="h14_apos_insistencia" name="edith14_apos_insistencia" id="edith14_apos_insistencia"> Após insistência.</label>
+                      <label for="">Observações:</label>
+                      <span class="edith14_obs"></span>
+                      <textarea name="edith14_obs" id="edith14_obs" cols="30" rows="4" class="h14_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="edith15_busca_comp_out_criancas">
+                      <input type="checkbox" class="h15_busca_comp_out_criancas" name="edith15_busca_comp_out_criancas" id="edith15_busca_comp_out_criancas"> Seu filho(a) busca a companhia de outras crianças espontaneamente? Dê um exemplo.</label>
+                      <label for="">Observações:</label>
+                      <span class="edith15_obs"></span>
+                      <textarea name="edith15_obs" id="edith15_obs" cols="30" rows="4" class="h15_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">                      
+                      <label for="">Como seu filho(a) reage frente a crianças desconhecidas em uma festa ou casa de amigos?</label>
+                      <span class="edith16_cm_reag_a_criancasdesc_festa"></span>
+                      <textarea name="edith16_cm_reag_a_criancasdesc_festa" id="edith16_cm_reag_a_criancasdesc_festa" cols="30" rows="4" class="h16_cm_reag_a_criancasdesc_festa form-control"></textarea>
+                    </div>
+                    <div class="form-group">                      
+                      <label for="">Fica ansioso(a)?</label>
+                      <span class="edith16_fica_ansioso"></span>
+                      <textarea name="edith16_fica_ansioso" id="edith16_fica_ansioso" cols="30" rows="4" class="h16_fica_ansioso form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="edith17_perm_som_algtipo_brinc">
+                      <input type="checkbox" class="h17_perm_som_algtipo_brinc" name="edith17_perm_som_algtipo_brinc" id="edith17_perm_som_algtipo_brinc"> Permanece somente em alguns tipos de brincadeiras? Dê um exemplo.</label>
+                      <label for="">Observações:</label>
+                      <span class="edith17_obs"></span>
+                      <textarea name="edith17_obs" id="edith17_obs" cols="30" rows="4" class="h17_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="edith18_pref_brinc_par_nfc_vontemgr">
+                      <input type="checkbox" class="h18_pref_brinc_par_nfc_vontemgr" name="edith18_pref_brinc_par_nfc_vontemgr" id="edith18_pref_brinc_par_nfc_vontemgr"> Prefere brincadeiras de par, não fica à vontade em grupos? Dê um exemplo.</label>
+                      <label for="">Observações:</label>
+                      <span class="edith18_obs"></span>
+                      <textarea name="edith18_obs" id="edith18_obs" cols="30" rows="4" class="h18_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="edith19_evita_ctt_c_pessoas">
+                      <input type="checkbox" class="h19_evita_ctt_c_pessoas" name="edith19_evita_ctt_c_pessoas" id="edith19_evita_ctt_c_pessoas"> Ignora / evita o contato com pessoas em geral? Dê um exemplo.</label>
+                      <label for="">Observações:</label>
+                      <span class="edith19_obs"></span>
+                      <textarea name="edith19_obs" id="edith19_obs" cols="30" rows="4" class="h19_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            <button data-color="{{$color}}" class="btn btn-{{$color}} update_histdesversaopaisdesenvsocial_btn"><img id="imgedit_histdesversaopaisdesenvsocial" src="{{asset('storage/ajax-loader.gif')}}" style="display: none;" class="rounded-circle" width="20"> Salvar</button>
+        </div>
+    </div>
+  </div>
+</div>
+<!-- Fim EditHistDesVersaoPaisDesenvSocial -->
+
+
 <!-- Inicio AddHistDesVersaoPaisLinguagem -->
 <div class="modal fade animate__animated animate__bounce animate__faster bd-example-modal-xl" id="AddHistDesVersaoPaisLinguagem" tabindex="-1" role="dialog" aria-labelledby="AddmyExtraLargeModalLabel_HistDesVersaoPaisLinguagem" aria-hidden="true">
   <div class="modal-dialog modal-xl" role="document">
@@ -4538,7 +4958,7 @@ $(document).on('click','.histdes_versaopais_inicial',function(e){
                     $("#updateform_errlist_histdesversaopaisinicial").replaceWith('<ul id="updateform_errList_histdesversaopaisinicial"></ul>');
                     $("#anamnese_histdesversaopaisinicial"+atendimentoid).replaceWith('<i data-id="1" id="anamnese_histdesversaopaisinicial'+atendimentoid+'" class="fas fa-check" style="color: green"></i>');
                     $("#editform_histdesversaopaisinicial").trigger('reset');
-                    $("#EditAnamnese_HistDesVersaoPaisInicial").modal('hide');    
+                    $("#EditHistDesVersaoPaisInicial").modal('hide');    
                 }
             }
         });
