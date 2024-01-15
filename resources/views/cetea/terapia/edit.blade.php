@@ -1984,7 +1984,7 @@
                                             @if($count_histdes_versaopais_inicial)<i data-id="1" id="histdes_versaopais_inicial{{$atendimento->id}}" class="fas fa-check" style="color: green"></i>@else<i data-id="0" id="histdes_versaopais_inicial{{$atendimento->id}}"></i>@endif Inicial</a></li>
                                         <li class="dropdown-item bg-light"><a href="#" class="histdes_versaopais_linguagem dropdown-item" data-pacienteid="{{$atendimento->paciente_id}}" data-atendimentoid="{{$atendimento->id}}">
                                             @if($count_histdes_versaopais_linguagem)<i data-id="1" id="histdes_versaopais_linguagem{{$atendimento->id}}" class="fas fa-check" style="color: green"></i>@else<i data-id="0" id="histdes_versaopais_linguagem{{$atendimento->id}}"></i>@endif Linguagem</a></li>
-                                        <li class="dropdown-item bg-light"><a href="#" class="dropdown-item" data-id="{{$atendimento->paciente_id}}">
+                                        <li class="dropdown-item bg-light"><a href="#" class="histdes_versaopais_desenvsocial dropdown-item" data-pacienteid="{{$atendimento->paciente_id}}" data-atendimentoid="{{$atendimento->id}}">
                                             @if($count_histdes_versaopais_desenvsocial)<i data-id="1" id="histdes_versaopais_desenvsocial{{$atendimento->id}}" class="fas fa-check" style="color: green"></i>@else<i data-id="0" id="histdes_versaopais_desenvsocial{{$atendimento->id}}"></i>@endif Desenvolvimento Social</a></li>
                                         <li class="dropdown-item bg-light"><a href="#" class="dropdown-item" data-id="{{$atendimento->paciente_id}}">
                                             @if($count_histdes_versaopais_brincadeiras)<i data-id="1" id="histdes_versaopais_brincadeiras{{$atendimento->id}}" class="fas fa-check" style="color: green"></i>@else<i data-id="0" id="histdes_versaopais_brincadeiras{{$atendimento->id}}"></i>@endif Brincadeiras</a></li>
@@ -5474,6 +5474,286 @@ $(document).on('click','.histdes_versaopais_linguagem',function(e){
     });
 
 //fim histdes_versaopais_linguagem
+
+/////////////////////////////////////////////////////
+//início histdes_versaopais_desenvsocial
+
+$("#AddAHistDesVersaoPaisDesenvSocial").on('shown.bs.modal',function(){
+            $(".h1_idade_prim_sorrisos").focus();
+    });
+
+$("#EditHistDesVersaoPaisDesenvSocial").on('shown.bs.modal',function(){
+            $(".h1_idade_prim_sorrisos").focus();
+    });
+
+//inicio conta caracteres dos textarea HistDesVersaoPaisDesenvSocial
+
+    //add
+/* 
+    $(document).on('input','#adde1idade_prim_vocalizacoes',function(){
+        var limite = 10;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var idade_prim_vocalizacoes = $('input[name="adde1idade_prim_vocalizacoes"]').val();
+            $('input[name="adde1idade_prim_vocalizacoes"]').val(idade_prim_vocalizacoes.substr(0,limite));
+            $(".adde1idade_prim_vocalizacoes").text("0" + " " + informativo);
+        }else{
+            $(".adde1idade_prim_vocalizacoes").text(caracteresRestantes + " " + informativo);
+        }
+    }); */   
+
+
+
+$(document).on('click','.histdes_versaopais_desenvsocial',function(e){
+        e.preventDefault();
+        var pacienteid = $(this).data("pacienteid");
+        var atendimentoid = $(this).data("atendimentoid");
+        var opcao_form_histdes_versaopais_desenvsocial = $("#histdes_versaopais_desenvsocial"+atendimentoid).data("id");
+
+        if(opcao_form_histdes_versaopais_desenvsocial==0){
+                $("#addpacienteid_histdesversaopaisdesenvsocial").val(pacienteid);
+                $("#addatendimentoid_histdesversaopaisdesenvsocial").val(atendimentoid);
+                $("#addform_histdesversaopaisdesenvsocial").trigger('reset');
+                $("#AddHistDesVersaoPaisDesenvSocial").modal('show'); 
+                $("#saveform_errList_histdesversaopaisdesenvsocial").replaceWith('<ul id="saveform_errList_histdesversaopaisdesenvsocial"></ul>');
+        }else{            
+                $("#editpacienteid_histdesversaopaisdesenvsocial").val(pacienteid);
+                $("#editatendimentoid_histdesversaopaisdesenvsocial").val(atendimentoid);
+                $("#editform_histdesversaopaisdesenvsocial").trigger('reset');
+                $("#EditHistDesVersaoPaisDesenvSocial").modal('show'); 
+                $("#updateform_errList_histdesversaopaisdesenvsocial").replaceWith('<ul id="updateform_errList_histdesversaopaisdesenvsocial"></ul>');
+
+                 $.ajaxSetup({
+                    headers:{
+                        'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+    
+    
+                $.ajax({ 
+                    type: 'GET',             
+                    dataType: 'json',                                    
+                    url: '/ceteaadmin/terapia/edit_histdesversaopaisdesenvsocial/'+pacienteid,
+                    success: function(response){           
+                        if(response.status==200){                            
+                            $(".h1_idade_prim_sorrisos").val(response.histdesversaopaisdesenvsocial.h1_idade_prim_sorrisos);
+                            $(".h2_olha_p_face_qdobrinca_c_ele").attr('checked',response.histdesversaopaisdesenvsocial.h2_olha_p_face_qdobrinca_c_ele);
+                            $(".h2_obs").val(response.histdesversaopaisdesenvsocial.h2_obs);
+                            $(".h3_sorriso_esp_pess_familiares").attr('checked',response.histdesversaopaisdesenvsocial.h3_sorriso_esp_pess_familiares);
+                            $(".h3_obs").val(response.histdesversaopaisdesenvsocial.h3_obs);
+                            $(".h4_sorriso_esp_pess_nfamiliares").attr('checked',response.histdesversaopaisdesenvsocial.h4_sorriso_esp_pess_nfamiliares);
+                            $(".h4_obs").val(response.histdesversaopaisdesenvsocial.h4_obs);
+                            $(".h5_sorria_em_resp_sorriso").attr('checked',response.histdesversaopaisdesenvsocial.h5_sorria_em_resp_sorriso);
+                            $(".h5_obs").val(response.histdesversaopaisdesenvsocial.h5_obs);
+                            $(".h6_vc_conseg_ident_exp_faciais_nfilho").attr('checked',response.histdesversaopaisdesenvsocial.h6_vc_conseg_ident_exp_faciais_nfilho);
+                            $(".h6_obs").val(response.histdesversaopaisdesenvsocial.h6_obs);
+                            $(".h7_apres_expr_emo_contexto").attr('checked',response.histdesversaopaisdesenvsocial.h7_apres_expr_emo_contexto);
+                            $(".h7_obs").val(response.histdesversaopaisdesenvsocial.h7_obs);
+                            $(".h8_compartilha_interesses").attr('checked',response.histdesversaopaisdesenvsocial.h8_compartilha_interesses);
+                            $(".h8_obs").val(response.histdesversaopaisdesenvsocial.h8_obs);
+                            $(".h9_dem_preoc_cpais").attr('checked',response.histdesversaopaisdesenvsocial.h9_dem_preoc_cpais);
+                            $(".h9_obs").val(response.histdesversaopaisdesenvsocial.h9_obs);
+                            $(".h10_fazcoment_verbais_ou_gestos").attr('checked',response.histdesversaopaisdesenvsocial.h10_fazcoment_verbais_ou_gestos);
+                            $(".h10_obs").val(response.histdesversaopaisdesenvsocial.h10_obs);
+                            $(".h11_olha_p_ondevc_olhando").attr('checked',response.histdesversaopaisdesenvsocial.h11_olha_p_ondevc_olhando);
+                            $(".h11_obs").val(response.histdesversaopaisdesenvsocial.h11_obs);
+                            $(".h12_olha_p_ondevc_aponta").attr('checked',response.histdesversaopaisdesenvsocial.h12_olha_p_ondevc_aponta);
+                            $(".h12_obs").val(response.histdesversaopaisdesenvsocial.h12_obs);
+                            $(".h13_resp_conv_p_brincarcadultos").attr('checked',response.histdesversaopaisdesenvsocial.h13_resp_conv_p_brincarcadultos);
+                            $(".h13_apos_insistencia").attr('checked',response.histdesversaopaisdesenvsocial.h13_apos_insistencia);
+                            $(".h13_obs").val(response.histdesversaopaisdesenvsocial.h13_obs);
+                            $(".h14_resp_conv_p_brincarccriancas").attr('checked',response.histdesversaopaisdesenvsocial.h14_resp_conv_p_brincarccriancas);
+                            $(".h14_apos_insistencia").attr('checked',response.histdesversaopaisdesenvsocial.h14_apos_insistencia);
+                            $(".h14_obs").val(response.histdesversaopaisdesenvsocial.h14_obs);
+                            $(".h15_busca_comp_out_criancas").attr('checked',response.histdesversaopaisdesenvsocial.h15_busca_comp_out_criancas);
+                            $(".h15_obs").val(response.histdesversaopaisdesenvsocial.h15_obs);
+                            $(".h16_cm_reag_a_criancasdesc_festa").val(response.histdesversaopaisdesenvsocial.h16_cm_reag_a_criancasdesc_festa);
+                            $(".h16_fica_ansioso").val(response.histdesversaopaisdesenvsocial.h16_fica_ansioso);
+                            $(".h17_perm_som_algtipo_brinc").attr('checked',response.histdesversaopaisdesenvsocial.h17_perm_som_algtipo_brinc);
+                            $(".h17_obs").val(response.histdesversaopaisdesenvsocial.h17_obs);
+                            $(".h18_pref_brinc_par_nfc_vontemgr").attr('checked',response.histdesversaopaisdesenvsocial.h18_pref_brinc_par_nfc_vontemgr);
+                            $(".h18_obs").val(response.histdesversaopaisdesenvsocial.h18_obs);
+                            $(".h19_evita_ctt_c_pessoas").attr('checked',response.histdesversaopaisdesenvsocial.h19_evita_ctt_c_pessoas);
+                            $(".h19_obs").val(response.histdesversaopaisdesenvsocial.h19_obs);
+                        }      
+                    }
+                });
+        }
+    });
+
+
+    $(document).on('click','.add_histdesversaopais_desenvsocial_btn',function(e){
+        e.preventDefault();
+        var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+        var pacienteid = $("#addpacienteid_histdesversaopaisdesenvsocial").val();
+        var atendimentoid = $("#addatendimentoid_histdesversaopaisdesenvsocial").val();
+
+        var loading = $("#imgadd_histdesversaopaisdesenvsocial");
+            loading.show();
+
+        var data = new FormData();
+
+        data.append('atendimento',atendimentoid);
+        data.append('paciente',pacienteid);
+        data.append('h1_idade_prim_sorrisos',$(".h1_idade_prim_sorrisos").val());
+        data.append('h2_olha_p_face_qdobrinca_c_ele',$(".h2_olha_p_face_qdobrinca_c_ele").is(":checked"?'true':'false'));
+        data.append('h2_obs',$(".h2_obs").val());
+        data.append('h3_sorriso_esp_pess_familiares',$(".h3_sorriso_esp_pess_familiares").is(":checked"?'true':'false'));
+        data.append('h3_obs',$(".h3_obs").val());
+        data.append('h4_sorriso_esp_pess_nfamiliares',$(".h4_sorriso_esp_pess_nfamiliares").is(":checked"?'true':'false'));
+        data.append('h4_obs',$(".h4_obs").val());
+        data.append('h5_sorria_em_resp_sorriso',$(".h5_sorria_em_resp_sorriso").is(":checked"?'true':'false'));
+        data.append('h5_obs',$(".h5_obs").val());
+        data.append('h6_vc_conseg_ident_exp_faciais_nfilho',$(".h6_vc_conseg_ident_exp_faciais_nfilho").is(":checked"?'true':'false'));
+        data.append('h6_obs',$(".h6_obs").val());
+        data.append('h7_apres_expr_emo_contexto',$(".h7_apres_expr_emo_contexto").is(":checked"?'true':'false'));
+        data.append('h7_obs',$(".h7_obs").val());
+        data.append('h8_compartilha_interesses',$(".h8_compartilha_interesses").is(":checked"?'true':'false'));
+        data.append('h8_obs',$(".h8_obs").val());
+        data.append('h9_dem_preoc_cpais',$(".h9_dem_preoc_cpais").is(":checked"?'true':'false'));
+        data.append('h9_obs',$(".h9_obs").val());
+        data.append('h10_fazcoment_verbais_ou_gestos',$(".h10_fazcoment_verbais_ou_gestos").is(":checked"?'true':'false'));
+        data.append('h10_obs',$(".h10_obs").val());
+        data.append('h11_olha_p_ondevc_olhando',$(".h11_olha_p_ondevc_olhando").is(":checked"?'true':'false'));
+        data.append('h11_obs',$(".h11_obs").val());
+        data.append('h12_olha_p_ondevc_aponta',$(".h12_olha_p_ondevc_aponta").is(":checked"?'true':'false'));
+        data.append('h12_obs',$(".h12_obs").val());
+        data.append('h13_resp_conv_p_brincarcadultos',$(".h13_resp_conv_p_brincarcadultos").is(":checked"?'true':'false'));
+        data.append('h13_apos_insistencia',$(".h13_apos_insistencia").is(":checked"?'true':'false'));
+        data.append('h13_obs',$(".h13_obs").val());
+        data.append('h14_resp_conv_p_brincarccriancas',$(".h14_resp_conv_p_brincarccriancas").is(":checked"?'true':'false'));
+        data.append('h14_apos_insistencia',$(".h14_apos_insistencia").is(":checked"?'true':'false'));
+        data.append('h14_obs',$(".h14_obs").val());
+        data.append('h15_busca_comp_out_criancas',$(".h15_busca_comp_out_criancas").is(":checked"?'true':'false'));
+        data.append('h15_obs',$(".h15_obs").val());
+        data.append('h16_cm_reag_a_criancasdesc_festa',$(".h16_cm_reag_a_criancasdesc_festa").val());
+        data.append('h16_fica_ansioso',$(".h16_fica_ansioso").val());
+        data.append('h17_perm_som_algtipo_brinc',$(".h17_perm_som_algtipo_brinc").is(":checked"?'true':'false'));
+        data.append('h17_obs',$(".h17_obs").val());
+        data.append('h18_pref_brinc_par_nfc_vontemgr',$(".h18_pref_brinc_par_nfc_vontemgr").is(":checked"?'true':'false'));
+        data.append('h18_obs',$(".h18_obs").val());
+        data.append('h19_evita_ctt_c_pessoas',$(".h19_evita_ctt_c_pessoas").is(":checked"?'true':'false'));
+        data.append('h19_obs',$(".h19_obs").val());        
+        data.append('_token',CSRF_TOKEN);
+        data.append('_method','PUT');        
+
+        $.ajax({
+            url:'/ceteaadmin/terapia/store_histdesversaopaisdesenvsocial',
+            type: 'POST',
+            dataType: 'json',
+            data: data,
+            cache: false,
+            processData: false,
+            contentType: false,
+            async:true,
+            success:function(response){
+                if(response.status==400){
+                    $("#saveform_errlist_histdesversaopaisdesenvsocial").replaceWith('<ul id="saveform_errList_histdesversaopaisdesenvsocial"></ul>');
+                    $("#saveform_errlist_histdesversaopaisdesenvsocial").addClass("alert alert-danger");
+                    $.each(response.errors,function(key,err_values){
+                        $("#saveform_errlist_histdesversaopaisdesenvsocial").append('<li>'+err_values+'</li>')
+                    });
+                    loading.hide();
+                }else{
+                    loading.hide();
+                    $("#saveform_errlist_histdesversaopaisdesenvsocial").replaceWith('<ul id="saveform_errList_histdesversaopaisdesenvsocial"></ul>');
+                    $("#histdes_versaopais_desenvsocial"+atendimentoid).replaceWith('<i data-id="1" id="histdes_versaopais_desenvsocial'+atendimentoid+'" class="fas fa-check" style="color: green"></i>');
+                    $("#addform_histdesversaopaisdesenvsocial").trigger('reset');
+                    $("#AddHistDesVersaoPaisDesenvSocial").modal('hide');                     
+                }
+            }
+
+        });
+
+    });
+
+
+    $(document).on('click','.update_histdesversaopaisdesenvsocial_btn',function(e){
+        var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+        var atendimentoid = $("#editatendimentoid_histdesversaopaisdesenvsocial").val();
+        var pacienteid = $("#editpacienteid_histdesversaopaisdesenvsocial").val();
+
+        var loading = $("#imgedit_histdesversaopaisdesenvsocial");
+            loading.show();
+
+        var data = new FormData();
+
+        data.append('atendimento',atendimentoid);
+        data.append('paciente',pacienteid);        
+        data.append('h1_idade_prim_sorrisos',$("#edith1_idade_prim_sorrisos").val());
+        data.append('h2_olha_p_face_qdobrinca_c_ele',$("#edith2_olha_p_face_qdobrinca_c_ele").is(":checked"?'true':'false'));
+        data.append('h2_obs',$("#edith2_obs").val());
+        data.append('h3_sorriso_esp_pess_familiares',$("#edith3_sorriso_esp_pess_familiares").is(":checked"?'true':'false'));
+        data.append('h3_obs',$("#edith3_obs").val());
+        data.append('h4_sorriso_esp_pess_nfamiliares',$("#edith4_sorriso_esp_pess_nfamiliares").is(":checked"?'true':'false'));
+        data.append('h4_obs',$("#edith4_obs").val());
+        data.append('h5_sorria_em_resp_sorriso',$("#edith5_sorria_em_resp_sorriso").is(":checked"?'true':'false'));
+        data.append('h5_obs',$("#edith5_obs").val());
+        data.append('h6_vc_conseg_ident_exp_faciais_nfilho',$("#edith6_vc_conseg_ident_exp_faciais_nfilho").is(":checked"?'true':'false'));
+        data.append('h6_obs',$("#edith6_obs").val());
+        data.append('h7_apres_expr_emo_contexto',$("#edith7_apres_expr_emo_contexto").is(":checked"?'true':'false'));
+        data.append('h7_obs',$("#edith7_obs").val());
+        data.append('h8_compartilha_interesses',$("#edith8_compartilha_interesses").is(":checked"?'true':'false'));
+        data.append('h8_obs',$("#edith8_obs").val());
+        data.append('h9_dem_preoc_cpais',$("#edith9_dem_preoc_cpais").is(":checked"?'true':'false'));
+        data.append('h9_obs',$("#edith9_obs").val());
+        data.append('h10_fazcoment_verbais_ou_gestos',$("#edith10_fazcoment_verbais_ou_gestos").is(":checked"?'true':'false'));
+        data.append('h10_obs',$("#edith10_obs").val());
+        data.append('h11_olha_p_ondevc_olhando',$("#edith11_olha_p_ondevc_olhando").is(":checked"?'true':'false'));
+        data.append('h11_obs',$("#edith11_obs").val());
+        data.append('h12_olha_p_ondevc_aponta',$("#edith12_olha_p_ondevc_aponta").is(":checked"?'true':'false'));
+        data.append('h12_obs',$("#edith12_obs").val());
+        data.append('h13_resp_conv_p_brincarcadultos',$("#edith13_resp_conv_p_brincarcadultos").is(":checked"?'true':'false'));
+        data.append('h13_apos_insistencia',$("#edith13_apos_insistencia").is(":checked"?'true':'false'));
+        data.append('h13_obs',$("#edith13_obs").val());
+        data.append('h14_resp_conv_p_brincarccriancas',$("#edith14_resp_conv_p_brincarccriancas").is(":checked"?'true':'false'));
+        data.append('h14_apos_insistencia',$("#edith14_apos_insistencia").is(":checked"?'true':'false'));
+        data.append('h14_obs',$("#edith14_obs").val());
+        data.append('h15_busca_comp_out_criancas',$("#edith15_busca_comp_out_criancas").is(":checked"?'true':'false'));
+        data.append('h15_obs',$("#edith15_obs").val());
+        data.append('h16_cm_reag_a_criancasdesc_festa',$("#edith16_cm_reag_a_criancasdesc_festa").val());
+        data.append('h16_fica_ansioso',$("#edith16_fica_ansioso").val());
+        data.append('h17_perm_som_algtipo_brinc',$("#edith17_perm_som_algtipo_brinc").is(":checked"?'true':'false'));
+        data.append('h17_obs',$("#edith17_obs").val());
+        data.append('h18_pref_brinc_par_nfc_vontemgr',$("#edith18_pref_brinc_par_nfc_vontemgr").is(":checked"?'true':'false'));
+        data.append('h18_obs',$("#edith18_obs").val());
+        data.append('h19_evita_ctt_c_pessoas',$("#edith19_evita_ctt_c_pessoas").is(":checked"?'true':'false'));
+        data.append('h19_obs',$("#edith19_obs").val());
+        data.append('_token',CSRF_TOKEN);
+        data.append('_method','PUT');   
+
+        $.ajax({
+            url:'/ceteaadmin/terapia/update_histdesversaopaisdesenvsocial/'+pacienteid,
+            type:'POST',
+            contentType: 'json',
+            data: data,
+            cache: false,
+            processData: false,
+            contentType: false,
+            async:true,
+            success:function(response){
+                if(response.status==400){
+                    $("#updateform_errList_histdesversaopaisdesenvsocial").replaceWith('<ul id="updateform_errList_histdesversaopaisdesenvsocial"></ul>');
+                    $("#updateform_errlist_histdesversaopaisdesenvsocial").addClass('alert alert-danger');
+                    $.each(response.errors,function(key,err_values){
+                        $("#updateform_errlist_histdesversaopaisdesenvsocial").append('<li>'+err_values+'</li>');
+                    });
+                    loading.hide();
+                }else{
+                    loading.hide();
+                    $("#updateform_errlist_histdesversaopaisdesenvsocial").replaceWith('<ul id="updateform_errList_histdesversaopaisdesenvsocial"></ul>');
+                    $("#histdes_versaopais_desenvsocial"+atendimentoid).replaceWith('<i data-id="1" id="histdes_versaopais_desenvsocial'+atendimentoid+'" class="fas fa-check" style="color: green"></i>');
+                    $("#editform_histdesversaopaisdesenvsocial").trigger('reset');
+                    $("#EditHistDesVersaoPaisDesenvSocial").modal('hide');    
+                }
+            }
+        });
+    });
+
+//fim histdes_versaopais_desenvsocial
 
 });
 

@@ -1200,6 +1200,156 @@ public function storeHistDesVersaoPaisLinguagem(Request $request){
     }
     }
 
+public function storeHistDesVersaoPaisDesenvSocial(Request $request){
+        $validator = Validator::make($request->all(),[
+            'atendimento' => ['required'],
+            'paciente' => ['required'],                    
+        ]);
+        if($validator->fails()){
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->errors()->getMessages(),
+            ]);
+        }else{
+            $user = auth()->user();
+            $data['id'] = $this->maxId_HistDesVersaoPaisDesenvSocial();
+            $data['atendimento_id'] = $request->input('atendimento');
+            $data['paciente_id'] = $request->input('paciente');
+            $data['h1_idade_prim_sorrisos'] = $request->input('h1_idade_prim_sorrisos');
+            $data['h2_olha_p_face_qdobrinca_c_ele'] = $request->input('h2_olha_p_face_qdobrinca_c_ele');
+            $data['h2_obs'] = $request->input('h2_obs');
+            $data['h3_sorriso_esp_pess_familiares'] = $request->input('h3_sorriso_esp_pess_familiares');
+            $data['h3_obs'] = $request->input('h3_obs');
+            $data['h4_sorriso_esp_pess_nfamiliares'] = $request->input('h4_sorriso_esp_pess_nfamiliares');
+            $data['h4_obs'] = $request->input('h4_obs');
+            $data['h5_sorria_em_resp_sorriso'] = $request->input('h5_sorria_em_resp_sorriso');
+            $data['h5_obs'] = $request->input('h5_obs');
+            $data['h6_vc_conseg_ident_exp_faciais_nfilho'] = $request->input('h6_vc_conseg_ident_exp_faciais_nfilho');
+            $data['h6_obs'] = $request->input('h6_obs');
+            $data['h7_apres_expr_emo_contexto'] = $request->input('h7_apres_expr_emo_contexto');
+            $data['h7_obs'] = $request->input('h7_obs');
+            $data['h8_compartilha_interesses'] = $request->input('h8_compartilha_interesses');
+            $data['h8_obs'] = $request->input('h8_obs');
+            $data['h9_dem_preoc_cpais'] = $request->input('h9_dem_preoc_cpais');
+            $data['h9_obs'] = $request->input('h9_obs');
+            $data['h10_fazcoment_verbais_ou_gestos'] = $request->input('h10_fazcoment_verbais_ou_gestos');
+            $data['h10_obs'] = $request->input('h10_obs');
+            $data['h11_olha_p_ondevc_olhando'] = $request->input('h11_olha_p_ondevc_olhando');
+            $data['h11_obs'] = $request->input('h11_obs');
+            $data['h12_olha_p_ondevc_aponta'] = $request->input('h12_olha_p_ondevc_aponta');
+            $data['h12_obs'] = $request->input('h12_obs');
+            $data['h13_resp_conv_p_brincarcadultos'] = $request->input('h13_resp_conv_p_brincarcadultos');
+            $data['h13_apos_insistencia'] = $request->input('h13_apos_insistencia');
+            $data['h13_obs'] = $request->input('h13_obs');
+            $data['h14_resp_conv_p_brincarccriancas'] = $request->input('h14_resp_conv_p_brincarccriancas');
+            $data['h14_apos_insistencia'] = $request->input('h14_apos_insistencia');
+            $data['h14_obs'] = $request->input('h14_obs');
+            $data['h15_busca_comp_out_criancas'] = $request->input('h15_busca_comp_out_criancas');
+            $data['h15_obs'] = $request->input('h15_obs');
+            $data['h16_cm_reag_a_criancasdesc_festa'] = $request->input('h16_cm_reag_a_criancasdesc_festa');
+            $data['h16_fica_ansioso'] = $request->input('h16_fica_ansioso');
+            $data['h17_perm_som_algtipo_brinc'] = $request->input('h17_perm_som_algtipo_brinc');
+            $data['h17_obs'] = $request->input('h17_obs');
+            $data['h18_pref_brinc_par_nfc_vontemgr'] = $request->input('h18_pref_brinc_par_nfc_vontemgr');
+            $data['h18_obs'] = $request->input('h18_obs');
+            $data['h19_evita_ctt_c_pessoas'] = $request->input('h19_evita_ctt_c_pessoas');
+            $data['h19_obs'] = $request->input('h19_obs');
+            $data['created_at'] = now();
+            $data['updated_at'] = null;
+            $data['creater_user'] = $user->id;
+            $data['updater_user'] = null;
+            $this->histdes_versaopais_desenvsocial->create($data);
+
+            return response()->json([
+                'status' => 200,
+            ]);
+
+        }
+    }    
+
+    protected function maxId_HistDesVersaoPaisDesenvSocial(){
+        $histdes_versaopais_desenvsocial = $this->histdes_versaopais_desenvsocial->orderByDesc('id')->first();
+        if($histdes_versaopais_desenvsocial){
+            $codigo = $histdes_versaopais_desenvsocial->id;
+        }else{
+            $codigo = 0;
+        }
+        return $codigo+1;
+    }
+
+    public function editHistDesVersaoPaisDesenvSocial(int $id){
+        $busca_pelo_paciente = $this->histdes_versaopais_desenvsocial->wherePaciente_id($id)->first();        
+        $histdes_versaopais_desenvsocial = $this->histdes_versaopais_desenvsocial->find($busca_pelo_paciente->id);
+        return response()->json([
+            'status' => 200,
+            'histdesversaopaisdesenvsocial' => $histdes_versaopais_desenvsocial,
+        ]);
+    }
+
+    public function updateHistDesVersaoPaisDesenvSocial(Request $request, int $id){
+        $validator = Validator::make($request->all(),[
+            'atendimento' => ['required'],
+            'paciente' => ['required'],                        
+        ]);
+        if($validator->fails()){
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->errors()->getMessages(),
+            ]);
+        }else{
+            $busca_pelo_paciente = $this->histdes_versaopais_desenvsocial->wherePaciente_id($id)->first();
+            $desenvsocial = $this->histdes_versaopais_desenvsocial->find($busca_pelo_paciente->id);
+            $user = auth()->user();            
+            $data['atendimento_id'] = $request->input('atendimento');
+            $data['paciente_id'] = $request->input('paciente');
+            $data['h1_idade_prim_sorrisos'] = $request->input('h1_idade_prim_sorrisos');
+            $data['h2_olha_p_face_qdobrinca_c_ele'] = $request->input('h2_olha_p_face_qdobrinca_c_ele');
+            $data['h2_obs'] = $request->input('h2_obs');
+            $data['h3_sorriso_esp_pess_familiares'] = $request->input('h3_sorriso_esp_pess_familiares');
+            $data['h3_obs'] = $request->input('h3_obs');
+            $data['h4_sorriso_esp_pess_nfamiliares'] = $request->input('h4_sorriso_esp_pess_nfamiliares');
+            $data['h4_obs'] = $request->input('h4_obs');
+            $data['h5_sorria_em_resp_sorriso'] = $request->input('h5_sorria_em_resp_sorriso');
+            $data['h5_obs'] = $request->input('h5_obs');
+            $data['h6_vc_conseg_ident_exp_faciais_nfilho'] = $request->input('h6_vc_conseg_ident_exp_faciais_nfilho');
+            $data['h6_obs'] = $request->input('h6_obs');
+            $data['h7_apres_expr_emo_contexto'] = $request->input('h7_apres_expr_emo_contexto');
+            $data['h7_obs'] = $request->input('h7_obs');
+            $data['h8_compartilha_interesses'] = $request->input('h8_compartilha_interesses');
+            $data['h8_obs'] = $request->input('h8_obs');
+            $data['h9_dem_preoc_cpais'] = $request->input('h9_dem_preoc_cpais');
+            $data['h9_obs'] = $request->input('h9_obs');
+            $data['h10_fazcoment_verbais_ou_gestos'] = $request->input('h10_fazcoment_verbais_ou_gestos');
+            $data['h10_obs'] = $request->input('h10_obs');
+            $data['h11_olha_p_ondevc_olhando'] = $request->input('h11_olha_p_ondevc_olhando');
+            $data['h11_obs'] = $request->input('h11_obs');
+            $data['h12_olha_p_ondevc_aponta'] = $request->input('h12_olha_p_ondevc_aponta');
+            $data['h12_obs'] = $request->input('h12_obs');
+            $data['h13_resp_conv_p_brincarcadultos'] = $request->input('h13_resp_conv_p_brincarcadultos');
+            $data['h13_apos_insistencia'] = $request->input('h13_apos_insistencia');
+            $data['h13_obs'] = $request->input('h13_obs');
+            $data['h14_resp_conv_p_brincarccriancas'] = $request->input('h14_resp_conv_p_brincarccriancas');
+            $data['h14_apos_insistencia'] = $request->input('h14_apos_insistencia');
+            $data['h14_obs'] = $request->input('h14_obs');
+            $data['h15_busca_comp_out_criancas'] = $request->input('h15_busca_comp_out_criancas');
+            $data['h15_obs'] = $request->input('h15_obs');
+            $data['h16_cm_reag_a_criancasdesc_festa'] = $request->input('h16_cm_reag_a_criancasdesc_festa');
+            $data['h16_fica_ansioso'] = $request->input('h16_fica_ansioso');
+            $data['h17_perm_som_algtipo_brinc'] = $request->input('h17_perm_som_algtipo_brinc');
+            $data['h17_obs'] = $request->input('h17_obs');
+            $data['h18_pref_brinc_par_nfc_vontemgr'] = $request->input('h18_pref_brinc_par_nfc_vontemgr');
+            $data['h18_obs'] = $request->input('h18_obs');
+            $data['h19_evita_ctt_c_pessoas'] = $request->input('h19_evita_ctt_c_pessoas');
+            $data['h19_obs'] = $request->input('h19_obs');           
+            $data['updated_at'] = now();
+            $data['updater_user'] = $user->id;
+            $desenvsocial->update($data);            
+
+            return response()->json([
+                'status' => 200,                
+            ]);        
+    }
+    }
 
 
 }
