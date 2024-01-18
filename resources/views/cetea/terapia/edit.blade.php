@@ -29,6 +29,332 @@
 </style>
 
 
+<!-- Inicio AddHistDesVersaoPaisBrincadeiras -->
+<div class="modal fade animate__animated animate__bounce animate__faster bd-example-modal-xl" id="AddHistDesVersaoPaisBrincadeiras" tabindex="-1" role="dialog" aria-labelledby="AddmyExtraLargeModalLabel_HistDesVersaoBrincadeiras" aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+        <div class="modal-header bg-{{$color}}">
+            <h5 class="modal-title" id="AddmyExtraLargeModalLabel_HistDesVersaoPaisBrincadeiras" style="color: white;">Histórico do Desenvolvimento Versão Pais - Brincadeiras</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                <span aria-hidden="true" style="color: white.">&times;</span>
+            </button>
+        </div>      
+        <div class="modal-body form-horizontal" role="form">
+            <form id="addform_hisdesversaopaisbrincadeiras" class="form-horizontal" role="form" method="POST">
+                <input type="hidden" id="addpacienteid_histdesversaopaisbrincadeiras">
+                <input type="hidden" id="addatendimentoid_histdesversaopaisbrincadeiras">
+                <ul id="saveform_errlist_histdesversaopaisbrincadeiras"></ul>
+                <fieldset>
+                    <legend>BRINCADEIRA (Assinale se o seu filho(a) faz ou fez quando menor. Caso perdeu a habilidade, mencione com observações)</legend>
+                </fieldset>
+                <fieldset>
+                    <legend>Qual sua brincadeira favorita?</legend>
+                    <div class="col-md-4">
+                    <span class="addl1_brincadeira_favorita"></span>
+                    <textarea name="addl1_brincadeira_favorita" id="addl1_brincadeira_favorita" cols="30" rows="4" class="l1_brincadeira_favorita"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                    <legend>Quais seus brinquedos favoritos?</legend>
+                      <span class="addl2_brinquedos_favoritos"></span>
+                      <textarea name="addl2_brinquedos_favoritos" id="addl2_brinquedos_favoritos" cols="30" rows="4" class="l2_brinquedos_favoritos form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                    <legend>Você o considera obcecado por algo?</legend>
+                      <span class="addl3_vc_o_considera_obcecado"></span>
+                      <textarea name="addl3_vc_o_considera_obcecado" id="addl3_vc_o_considera_obcecado" cols="30" rows="4" class="l3_vc_o_considera_obcecado form-control"></textarea>
+                    </div>                                  
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                    <legend>Ele já foi obcecado por algo antes?</legend>
+                      <span class="addl3_ele_ja_foi_obcecado_por_algo"></span>
+                      <textarea name="addl3_ele_ja_foi_obcecado_por_algo" id="addl3_ele_ja_foi_obcecado_por_algo" cols="30" rows="4" class="l3_ele_ja_foi_obcecado_por_algo form-control"></textarea>
+                    </div>                                  
+                </fieldset>                
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addl4_tem_inter_p_cheiro_textura">
+                      <input type="checkbox" class="l4_tem_inter_p_cheiro_textura" name="addl4_tem_inter_p_cheiro_textura" id="addl4_tem_inter_p_cheiro_textura"> Seu filho(a) tem interesse pelo cheiro, textura dos objetos? Dê um exemplo.</label>
+                      <label for="">Observações:</label>
+                      <span class="addl4_obs"></span>
+                      <textarea name="addl4_obs" id="addl4_obs" cols="30" rows="4" class="l4_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>                    
+                    <div class="form-group">
+                      <label for="addl5_brinca_de_form_repet">
+                      <input type="checkbox" class="l5_brinca_de_form_repet" name="addl5_brinca_de_form_repet" id="addl5_brinca_de_form_repet"> Seu filho(a) brinca de forma repetitiva (alinhando, empilhando, girando os objetos de forma repetitiva)? Dê um exemplo.</label>
+                      <label for="">Observações:</label>
+                      <span class="addl5_obs"></span>
+                      <textarea name="addl5_obs" id="addl5_obs" cols="30" rows="4" class="l5_obs form-control"></textarea>
+                    </div>
+                </fieldset>    
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addl6_brinca_de_form_func">
+                      <input type="checkbox" class="l6_brinca_de_form_func" name="addl6_brinca_de_form_func" id="addl6_brinca_de_form_func"> Seu filho(a) brinca de maneira funcional (ex.: aperta botões, abre e fecha partes, abre e fecha potes e tampas)? Dê um exemplo.</label>
+                      <label for="">Observações:</label>
+                      <span class="addl6_obs"></span>
+                      <textarea name="addl6_obs" id="addl6_obs" cols="30" rows="4" class="l6_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addl7_brinca_de_form_simb_mini">
+                      <input type="checkbox" class="l7_brinca_de_form_simb_mini" name="addl7_brinca_de_form_simb_mini" id="addl7_brinca_de_form_simb_mini"> Seu filho(a) brinca de maneira simbólica com miniaturas? Dê exemplos.</label>
+                      <label for="">Observações:</label>
+                      <span class="addl7_obs"></span>
+                      <textarea name="addl7_obs" id="addl7_obs" cols="30" rows="4" class="l7_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addl8_brinca_de_form_simb_objetos">
+                      <input type="checkbox" class="l8_brinca_de_form_simb_objetos" name="addl8_brinca_de_form_simb_objetos" id="addl8_brinca_de_form_simb_objetos"> Seu filho(a) brinca de maneira simbólica com um objeto como se fosse outro? Dê exemplo.</label>
+                      <label for="">Observações:</label>
+                      <span class="addl8_obs"></span>
+                      <textarea name="addl8_obs" id="addl8_obs" cols="30" rows="4" class="l8_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addl9_brinca_de_form_simb_atrpapeis">
+                      <input type="checkbox" class="l9_brinca_de_form_simb_atrpapeis" name="addl9_brinca_de_form_simb_atrpapeis" id="addl9_brinca_de_form_simb_atrpapeis"> Seu filho(a) brinca de maneira simbólica atribuindo diferentes papéis a si mesmo e ao outro como, por exemplo, médico, super herói, professor, etc? Dê um exemplo.</label>
+                      <label for="">Observações:</label>
+                      <span class="addl9_obs"></span>
+                      <textarea name="addl9_obs" id="addl9_obs" cols="30" rows="4" class="l9_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addl10_segue_regras_de_brincadeiras">
+                      <input type="checkbox" class="l10_segue_regras_de_brincadeiras" name="addl10_segue_regras_de_brincadeiras" id="addl10_segue_regras_de_brincadeiras"> Seu filho(a) é bom em seguir regras da brincadeira quando interage com outras crianças?</label>
+                      <label for="">Observações:</label>
+                      <span class="addl10_obs"></span>
+                      <textarea name="addl10_obs" id="addl10_obs" cols="30" rows="4" class="l10_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addl11_bom_fazer_amizades">
+                      <input type="checkbox" class="l11_bom_fazer_amizades" name="addl11_bom_fazer_amizades" id="addl11_bom_fazer_amizades"> Seu filho(a) é bom em fazer amizades?</label>
+                      <label for="">Observações:</label>
+                      <span class="addl11_obs"></span>
+                      <textarea name="addl11_obs" id="addl11_obs" cols="30" rows="4" class="l11_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addl12_e_solitario">
+                      <input type="checkbox" class="l12_e_solitario" name="addl12_e_solitario" id="addl12_e_solitario"> Seu filho(a) é solitário(a)?</label>
+                      <label for="">Observações:</label>
+                      <span class="addl12_obs"></span>
+                      <textarea name="addl12_obs" id="addl12_obs" cols="30" rows="4" class="l12_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addl13_e_timido">
+                      <input type="checkbox" class="l13_e_timido" name="addl13_e_timido" id="addl13_e_timido"> Seu filho(a) é tímido(a)?</label>
+                      <label for="">Observações:</label>
+                      <span class="addl13_obs"></span>
+                      <textarea name="addl13_obs" id="addl13_obs" cols="30" rows="4" class="l13_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addl14_tem_melhor_amigo">
+                      <input type="checkbox" class="l14_tem_melhor_amigo" name="addl14_tem_melhor_amigo" id="addl14_tem_melhor_amigo"> Seu filho(a) tem um(a) melhor amigo(a)?</label>
+                      <label for="">Observações:</label>
+                      <span class="addl14_obs"></span>
+                      <textarea name="addl14_obs" id="addl14_obs" cols="30" rows="4" class="l14_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <legend>Seu filho(a) prefere crianças da mesma idade, mais velhas ou adultos?</legend>
+                      <span class="addl15_obs"></span>
+                      <textarea name="addl15_obs" id="addl15_obs" cols="30" rows="4" class="l15_obs form-control"></textarea>
+                    </div>
+                </fieldset>                
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            <button data-color="{{$color}}" class="btn btn-{{$color}} add_histdesversaopais_desenvsocial_btn"><img id="imgadd_histdesversaopaisdesenvsocial" src="{{asset('storage/ajax-loader.gif')}}" style="display: none;" class="rounded-circle" width="20"> Salvar</button>
+        </div>
+    </div>
+  </div>
+</div>
+<!-- Fim AddHistDesVersaoPaisBrincadeiras -->
+
+<!-- Inicio EditHistDesVersaoPaisBrincadeiras -->
+<div class="modal fade animate__animated animate__bounce animate__faster bd-example-modal-xl" id="EditHistDesVersaoPaisBrincadeiras" tabindex="-1" role="dialog" aria-labelledby="EditmyExtraLargeModalLabel_histdesversaopaisbrincadeiras" aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+        <div class="modal-header bg-{{$color}}">
+            <h5 class="modal-title" id="EditmyExtraLargeModalLabel_histdesversaopaisbrincadeiras" style="color: white;">Histórico do Desenvolvimento Versão Pais - Brincadeiras</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                <span aria-hidden="true" style="color: white.">&times;</span>
+            </button>
+        </div>      
+        <div class="modal-body form-horizontal" role="form">
+            <form id="editform_histdesversaopaisbrincadeiras" class="form-horizontal" role="form" method="POST">
+                <input type="hidden" id="editpacienteid_histdesversaopaisbrincadeiras">
+                <input type="hidden" id="editatendimentoid_histdesversaopaisbrincadeiras">
+                <ul id="updateform_errlist_histdesversaopaisbrincadeiras"></ul>
+                <fieldset>
+                    <legend>BRINCADEIRA (Assinale se o seu filho(a) faz ou fez quando menor. Caso perdeu a habilidade, mencione com observações)</legend>
+                </fieldset>
+                <fieldset>
+                    <legend>Qual sua brincadeira favorita?</legend>
+                    <div class="col-md-4">
+                    <span class="editl1_brincadeira_favorita"></span>
+                    <textarea name="editl1_brincadeira_favorita" id="editl1_brincadeira_favorita" cols="30" rows="4" class="l1_brincadeira_favorita"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                    <legend>Quais seus brinquedos favoritos?</legend>
+                      <span class="editl2_brinquedos_favoritos"></span>
+                      <textarea name="editl2_brinquedos_favoritos" id="editl2_brinquedos_favoritos" cols="30" rows="4" class="l2_brinquedos_favoritos form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                    <legend>Você o considera obcecado por algo?</legend>
+                      <span class="editl3_vc_o_considera_obcecado"></span>
+                      <textarea name="editl3_vc_o_considera_obcecado" id="editl3_vc_o_considera_obcecado" cols="30" rows="4" class="l3_vc_o_considera_obcecado form-control"></textarea>
+                    </div>                                  
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                    <legend>Ele já foi obcecado por algo antes?</legend>
+                      <span class="editl3_ele_ja_foi_obcecado_por_algo"></span>
+                      <textarea name="editl3_ele_ja_foi_obcecado_por_algo" id="editl3_ele_ja_foi_obcecado_por_algo" cols="30" rows="4" class="l3_ele_ja_foi_obcecado_por_algo form-control"></textarea>
+                    </div>                                  
+                </fieldset>                
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editl4_tem_inter_p_cheiro_textura">
+                      <input type="checkbox" class="l4_tem_inter_p_cheiro_textura" name="editl4_tem_inter_p_cheiro_textura" id="editl4_tem_inter_p_cheiro_textura"> Seu filho(a) tem interesse pelo cheiro, textura dos objetos? Dê um exemplo.</label>
+                      <label for="">Observações:</label>
+                      <span class="addl4_obs"></span>
+                      <textarea name="editl4_obs" id="editl4_obs" cols="30" rows="4" class="l4_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>                    
+                    <div class="form-group">
+                      <label for="editl5_brinca_de_form_repet">
+                      <input type="checkbox" class="l5_brinca_de_form_repet" name="editl5_brinca_de_form_repet" id="editl5_brinca_de_form_repet"> Seu filho(a) brinca de forma repetitiva (alinhando, empilhando, girando os objetos de forma repetitiva)? Dê um exemplo.</label>
+                      <label for="">Observações:</label>
+                      <span class="editl5_obs"></span>
+                      <textarea name="editl5_obs" id="editl5_obs" cols="30" rows="4" class="l5_obs form-control"></textarea>
+                    </div>
+                </fieldset>    
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editl6_brinca_de_form_func">
+                      <input type="checkbox" class="l6_brinca_de_form_func" name="editl6_brinca_de_form_func" id="editl6_brinca_de_form_func"> Seu filho(a) brinca de maneira funcional (ex.: aperta botões, abre e fecha partes, abre e fecha potes e tampas)? Dê um exemplo.</label>
+                      <label for="">Observações:</label>
+                      <span class="editl6_obs"></span>
+                      <textarea name="editl6_obs" id="editl6_obs" cols="30" rows="4" class="l6_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editl7_brinca_de_form_simb_mini">
+                      <input type="checkbox" class="l7_brinca_de_form_simb_mini" name="editl7_brinca_de_form_simb_mini" id="editl7_brinca_de_form_simb_mini"> Seu filho(a) brinca de maneira simbólica com miniaturas? Dê exemplos.</label>
+                      <label for="">Observações:</label>
+                      <span class="editl7_obs"></span>
+                      <textarea name="editl7_obs" id="editl7_obs" cols="30" rows="4" class="l7_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editl8_brinca_de_form_simb_objetos">
+                      <input type="checkbox" class="l8_brinca_de_form_simb_objetos" name="editl8_brinca_de_form_simb_objetos" id="editl8_brinca_de_form_simb_objetos"> Seu filho(a) brinca de maneira simbólica com um objeto como se fosse outro? Dê exemplo.</label>
+                      <label for="">Observações:</label>
+                      <span class="editl8_obs"></span>
+                      <textarea name="editl8_obs" id="editl8_obs" cols="30" rows="4" class="l8_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editl9_brinca_de_form_simb_atrpapeis">
+                      <input type="checkbox" class="l9_brinca_de_form_simb_atrpapeis" name="editl9_brinca_de_form_simb_atrpapeis" id="editl9_brinca_de_form_simb_atrpapeis"> Seu filho(a) brinca de maneira simbólica atribuindo diferentes papéis a si mesmo e ao outro como, por exemplo, médico, super herói, professor, etc? Dê um exemplo.</label>
+                      <label for="">Observações:</label>
+                      <span class="editl9_obs"></span>
+                      <textarea name="editl9_obs" id="editl9_obs" cols="30" rows="4" class="l9_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editl10_segue_regras_de_brincadeiras">
+                      <input type="checkbox" class="l10_segue_regras_de_brincadeiras" name="editl10_segue_regras_de_brincadeiras" id="editl10_segue_regras_de_brincadeiras"> Seu filho(a) é bom em seguir regras da brincadeira quando interage com outras crianças?</label>
+                      <label for="">Observações:</label>
+                      <span class="editl10_obs"></span>
+                      <textarea name="editl10_obs" id="editl10_obs" cols="30" rows="4" class="l10_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editl11_bom_fazer_amizades">
+                      <input type="checkbox" class="l11_bom_fazer_amizades" name="editl11_bom_fazer_amizades" id="editl11_bom_fazer_amizades"> Seu filho(a) é bom em fazer amizades?</label>
+                      <label for="">Observações:</label>
+                      <span class="editl11_obs"></span>
+                      <textarea name="editl11_obs" id="editl11_obs" cols="30" rows="4" class="l11_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editl12_e_solitario">
+                      <input type="checkbox" class="l12_e_solitario" name="editl12_e_solitario" id="editl12_e_solitario"> Seu filho(a) é solitário(a)?</label>
+                      <label for="">Observações:</label>
+                      <span class="editl12_obs"></span>
+                      <textarea name="editl12_obs" id="editl12_obs" cols="30" rows="4" class="l12_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editl13_e_timido">
+                      <input type="checkbox" class="l13_e_timido" name="editl13_e_timido" id="editl13_e_timido"> Seu filho(a) é tímido(a)?</label>
+                      <label for="">Observações:</label>
+                      <span class="editl13_obs"></span>
+                      <textarea name="editl13_obs" id="editl13_obs" cols="30" rows="4" class="l13_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editl14_tem_melhor_amigo">
+                      <input type="checkbox" class="l14_tem_melhor_amigo" name="editl14_tem_melhor_amigo" id="editl14_tem_melhor_amigo"> Seu filho(a) tem um(a) melhor amigo(a)?</label>
+                      <label for="">Observações:</label>
+                      <span class="editl14_obs"></span>
+                      <textarea name="editl14_obs" id="editl14_obs" cols="30" rows="4" class="l14_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <legend>Seu filho(a) prefere crianças da mesma idade, mais velhas ou adultos?</legend>
+                      <span class="editl15_obs"></span>
+                      <textarea name="editl15_obs" id="editl15_obs" cols="30" rows="4" class="l15_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            <button data-color="{{$color}}" class="btn btn-{{$color}} update_histdesversaopaisbrincadeiras_btn"><img id="imgedit_histdesversaopaisbrincadeiras" src="{{asset('storage/ajax-loader.gif')}}" style="display: none;" class="rounded-circle" width="20"> Salvar</button>
+        </div>
+    </div>
+  </div>
+</div>
+<!-- Fim EditHistDesVersaoPaisBrincadeiras -->
+
 <!-- Inicio AddHistDesVersaoPaisDesenvSocial -->
 <div class="modal fade animate__animated animate__bounce animate__faster bd-example-modal-xl" id="AddHistDesVersaoPaisDesenvSocial" tabindex="-1" role="dialog" aria-labelledby="AddmyExtraLargeModalLabel_HistDesVersaoPaisDesenvSocial" aria-hidden="true">
   <div class="modal-dialog modal-xl" role="document">
