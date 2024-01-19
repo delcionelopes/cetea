@@ -384,6 +384,8 @@
                     <div class="form-group">
                       <label for="addh2_olha_p_face_qdobrinca_c_ele">
                       <input type="checkbox" class="h2_olha_p_face_qdobrinca_c_ele checkbox" name="addh2_olha_p_face_qdobrinca_c_ele" id="addh2_olha_p_face_qdobrinca_c_ele"> Virava a cabeça e os olhos para a face do adulto quando esse falava / brincava com ele(a)?</label>
+                    </div>
+                    <div class="form-group">
                       <label for="">Observações:</label>
                       <span class="addh2_obs"></span>
                       <textarea name="addh2_obs" id="addh2_obs" cols="30" rows="4" class="h2_obs form-control"></textarea>
@@ -393,6 +395,8 @@
                     <div class="form-group">
                       <label for="addh3_sorriso_esp_pess_familiares">
                       <input type="checkbox" class="h3_sorriso_esp_pess_familiares" name="addh3_sorriso_esp_pess_familiares" id="addh3_sorriso_esp_pess_familiares"> Sorriso espontâneo às pessoas familiares?</label>
+                    </div>
+                    <div class="form-group">
                       <label for="">Observações:</label>
                       <span class="addh3_obs"></span>
                       <textarea name="addh3_obs" id="addh3_obs" cols="30" rows="4" class="h3_obs form-control"></textarea>
@@ -402,6 +406,8 @@
                     <div class="form-group">
                       <label for="addh4_sorriso_esp_pess_nfamiliares">
                       <input type="checkbox" class="h4_sorriso_esp_pess_nfamiliares" name="addh4_sorriso_esp_pess_nfamiliares" id="addh4_sorriso_esp_pess_nfamiliares"> Sorriso espontâneo às pessoas não familiares?</label>
+                    </div>
+                    <div class="form-group">
                       <label for="">Observações:</label>
                       <span class="addh4_obs"></span>
                       <textarea name="addh4_obs" id="addh4_obs" cols="30" rows="4" class="h4_obs form-control"></textarea>
@@ -411,6 +417,8 @@
                     <div class="form-group">
                       <label for="addh5_sorria_em_resp_sorriso">
                       <input type="checkbox" class="h5_sorria_em_resp_sorriso" name="addh5_sorria_em_resp_sorriso" id="addh5_sorria_em_resp_sorriso"> Sorria em resposta ao sorriso de outras pessoas?</label>
+                    </div>
+                    <div class="form-group">
                       <label for="">Observações:</label>
                       <span class="addh5_obs"></span>
                       <textarea name="addh5_obs" id="addh5_obs" cols="30" rows="4" class="h5_obs form-control"></textarea>
@@ -420,6 +428,8 @@
                     <div class="form-group">
                       <label for="addh6_vc_conseg_ident_exp_faciais_nfilho">
                       <input type="checkbox" class="h6_vc_conseg_ident_exp_faciais_nfilho" name="addh6_vc_conseg_ident_exp_faciais_nfilho" id="addh6_vc_conseg_ident_exp_faciais_nfilho"> Você consegue identificar diversas expressões faciais em seu filho(a) (ex.: contentamento, surpresa, medo)?</label>
+                    </div>
+                    <div class="form-group">
                       <label for="">Observações:</label>
                       <span class="addh6_obs"></span>
                       <textarea name="addh6_obs" id="addh6_obs" cols="30" rows="4" class="h6_obs form-control"></textarea>
@@ -429,6 +439,8 @@
                     <div class="form-group">
                       <label for="addh7_apres_expr_emo_contexto">
                       <input type="checkbox" class="h7_apres_expr_emo_contexto" name="addh7_apres_expr_emo_contexto" id="addh7_apres_expr_emo_contexto"> Seu filho(a) apresenta expressões emocionais adequadas ao contexto?</label>
+                    </div>
+                    <div class="form-group">
                       <label for="">Observações:</label>
                       <span class="addh7_obs"></span>
                       <textarea name="addh7_obs" id="addh7_obs" cols="30" rows="4" class="h7_obs form-control"></textarea>
@@ -438,6 +450,8 @@
                     <div class="form-group">
                       <label for="addh8_compartilha_interesses">
                       <input type="checkbox" class="h8_compartilha_interesses" name="addh8_compartilha_interesses" id="addh8_compartilha_interesses"> Compartilha interesses, atividades pazerosas com outras pessoas apenas por compartilhar?</label>
+                    </div>
+                    <div class="form-group">
                       <label for="">Observações:</label>
                       <span class="addh8_obs"></span>
                       <textarea name="addh8_obs" id="addh8_obs" cols="30" rows="4" class="h8_obs form-control"></textarea>
@@ -447,6 +461,8 @@
                     <div class="form-group">
                       <label for="addh9_dem_preoc_cpais">
                       <input type="checkbox" class="h9_dem_preoc_cpais" name="addh9_dem_preoc_cpais" id="addh9_dem_preoc_cpais"> Seu filho(a) demonstra preocupações quando os pais estão doentes ou machucados? Dê um exemplo.</label>
+                    </div>
+                    <div class="form-group">
                       <label for="">Observações:</label>
                       <span class="addh9_obs"></span>
                       <textarea name="addh9_obs" id="addh9_obs" cols="30" rows="4" class="h9_obs form-control"></textarea>
@@ -456,6 +472,8 @@
                     <div class="form-group">
                       <label for="addh10_fazcoment_verbais_ou_gestos">
                       <input type="checkbox" class="h10_fazcoment_verbais_ou_gestos" name="addh10_fazcoment_verbais_ou_gestos" id="addh10_fazcoment_verbais_ou_gestos"> Seu filho(a) faz comentários verbais ou através de gestos? Dê um exemplo.</label>
+                    </div>
+                    <div class="form-group">
                       <label for="">Observações:</label>
                       <span class="addh10_obs"></span>
                       <textarea name="addh10_obs" id="addh10_obs" cols="30" rows="4" class="h10_obs form-control"></textarea>
@@ -465,6 +483,8 @@
                     <div class="form-group">
                       <label for="addh11_olha_p_ondevc_olhando">
                       <input type="checkbox" class="h11_olha_p_ondevc_olhando" name="addh11_olha_p_ondevc_olhando" id="addh11_olha_p_ondevc_olhando"> Seu filho(a) olha para onde você está olhando?</label>
+                    </div>
+                    <div class="form-group">
                       <label for="">Observações:</label>
                       <span class="addh11_obs"></span>
                       <textarea name="addh11_obs" id="addh11_obs" cols="30" rows="4" class="h11_obs form-control"></textarea>
@@ -474,6 +494,8 @@
                     <div class="form-group">
                       <label for="addh12_olha_p_ondevc_aponta">
                       <input type="checkbox" class="h12_olha_p_ondevc_aponta" name="addh12_olha_p_ondevc_aponta" id="addh12_olha_p_ondevc_aponta"> Seu filho(a) Seu filho(a) olha para onde você aponta?</label>
+                    </div>
+                    <div class="form-group">
                       <label for="">Observações:</label>
                       <span class="addh12_obs"></span>
                       <textarea name="addh12_obs" id="addh12_obs" cols="30" rows="4" class="h12_obs form-control"></textarea>
@@ -487,6 +509,8 @@
                     <div class="form-group">
                       <label for="addh13_apos_insistencia">
                       <input type="checkbox" class="h13_apos_insistencia" name="addh13_apos_insistencia" id="addh13_apos_insistencia"> Após insistência.</label>
+                    </div>
+                    <div class="form-group">
                       <label for="">Observações:</label>
                       <span class="addh13_obs"></span>
                       <textarea name="addh13_obs" id="addh13_obs" cols="30" rows="4" class="h13_obs form-control"></textarea>
@@ -500,6 +524,8 @@
                     <div class="form-group">
                       <label for="addh14_apos_insistencia">
                       <input type="checkbox" class="h14_apos_insistencia" name="addh14_apos_insistencia" id="addh14_apos_insistencia"> Após insistência.</label>
+                    </div>
+                    <div class="form-group">
                       <label for="">Observações:</label>
                       <span class="addh14_obs"></span>
                       <textarea name="addh14_obs" id="addh14_obs" cols="30" rows="4" class="h14_obs form-control"></textarea>
@@ -530,6 +556,8 @@
                     <div class="form-group">
                       <label for="addh17_perm_som_algtipo_brinc">
                       <input type="checkbox" class="h17_perm_som_algtipo_brinc" name="addh17_perm_som_algtipo_brinc" id="addh17_perm_som_algtipo_brinc"> Permanece somente em alguns tipos de brincadeiras? Dê um exemplo.</label>
+                    </div>
+                    <div class="form-group">
                       <label for="">Observações:</label>
                       <span class="addh17_obs"></span>
                       <textarea name="addh17_obs" id="addh17_obs" cols="30" rows="4" class="h17_obs form-control"></textarea>
@@ -539,6 +567,8 @@
                     <div class="form-group">
                       <label for="addh18_pref_brinc_par_nfc_vontemgr">
                       <input type="checkbox" class="h18_pref_brinc_par_nfc_vontemgr" name="addh18_pref_brinc_par_nfc_vontemgr" id="addh18_pref_brinc_par_nfc_vontemgr"> Prefere brincadeiras de par, não fica à vontade em grupos? Dê um exemplo.</label>
+                    </div>
+                    <div class="form-group">
                       <label for="">Observações:</label>
                       <span class="addh18_obs"></span>
                       <textarea name="addh18_obs" id="addh18_obs" cols="30" rows="4" class="h18_obs form-control"></textarea>
@@ -548,6 +578,8 @@
                     <div class="form-group">
                       <label for="addh19_evita_ctt_c_pessoas">
                       <input type="checkbox" class="h19_evita_ctt_c_pessoas" name="addh19_evita_ctt_c_pessoas" id="addh19_evita_ctt_c_pessoas"> Ignora / evita o contato com pessoas em geral? Dê um exemplo.</label>
+                    </div>
+                    <div class="form-group">
                       <label for="">Observações:</label>
                       <span class="addh19_obs"></span>
                       <textarea name="addh19_obs" id="addh19_obs" cols="30" rows="4" class="h19_obs form-control"></textarea>
@@ -593,6 +625,8 @@
                     <div class="form-group">
                       <label for="edith2_olha_p_face_qdobrinca_c_ele">
                       <input type="checkbox" class="h2_olha_p_face_qdobrinca_c_ele checkbox" name="edith2_olha_p_face_qdobrinca_c_ele" id="edith2_olha_p_face_qdobrinca_c_ele"> Virava a cabeça e os olhos para a face do adulto quando esse falava / brincava com ele(a)?</label>
+                    </div>
+                    <div class="form-group">
                       <label for="">Observações:</label>
                       <span class="edith2_obs"></span>
                       <textarea name="edith2_obs" id="edith2_obs" cols="30" rows="4" class="h2_obs form-control"></textarea>
@@ -602,6 +636,8 @@
                     <div class="form-group">
                       <label for="edith3_sorriso_esp_pess_familiares">
                       <input type="checkbox" class="h3_sorriso_esp_pess_familiares" name="edith3_sorriso_esp_pess_familiares" id="edith3_sorriso_esp_pess_familiares"> Sorriso espontâneo às pessoas familiares?</label>
+                    </div>
+                    <div class="form-group">
                       <label for="">Observações:</label>
                       <span class="edith3_obs"></span>
                       <textarea name="edith3_obs" id="edith3_obs" cols="30" rows="4" class="h3_obs form-control"></textarea>
@@ -611,6 +647,8 @@
                     <div class="form-group">
                       <label for="edith4_sorriso_esp_pess_nfamiliares">
                       <input type="checkbox" class="h4_sorriso_esp_pess_nfamiliares" name="edith4_sorriso_esp_pess_nfamiliares" id="edith4_sorriso_esp_pess_nfamiliares"> Sorriso espontâneo às pessoas não familiares?</label>
+                    </div>
+                    <div class="form-group">
                       <label for="">Observações:</label>
                       <span class="edith4_obs"></span>
                       <textarea name="edith4_obs" id="edith4_obs" cols="30" rows="4" class="h4_obs form-control"></textarea>
@@ -620,6 +658,8 @@
                     <div class="form-group">
                       <label for="edith5_sorria_em_resp_sorriso">
                       <input type="checkbox" class="h5_sorria_em_resp_sorriso" name="edith5_sorria_em_resp_sorriso" id="edith5_sorria_em_resp_sorriso"> Sorria em resposta ao sorriso de outras pessoas?</label>
+                    </div>
+                    <div class="form-group">
                       <label for="">Observações:</label>
                       <span class="edith5_obs"></span>
                       <textarea name="edith5_obs" id="edith5_obs" cols="30" rows="4" class="h5_obs form-control"></textarea>
@@ -629,6 +669,8 @@
                     <div class="form-group">
                       <label for="edith6_vc_conseg_ident_exp_faciais_nfilho">
                       <input type="checkbox" class="h6_vc_conseg_ident_exp_faciais_nfilho" name="edith6_vc_conseg_ident_exp_faciais_nfilho" id="edith6_vc_conseg_ident_exp_faciais_nfilho"> Você consegue identificar diversas expressões faciais em seu filho(a) (ex.: contentamento, surpresa, medo)?</label>
+                    </div>
+                    <div class="form-group">
                       <label for="">Observações:</label>
                       <span class="edith6_obs"></span>
                       <textarea name="edith6_obs" id="edith6_obs" cols="30" rows="4" class="h6_obs form-control"></textarea>
@@ -638,6 +680,8 @@
                     <div class="form-group">
                       <label for="edith7_apres_expr_emo_contexto">
                       <input type="checkbox" class="h7_apres_expr_emo_contexto" name="edith7_apres_expr_emo_contexto" id="edith7_apres_expr_emo_contexto"> Seu filho(a) apresenta expressões emocionais adequadas ao contexto?</label>
+                    </div>
+                    <div class="form-group">
                       <label for="">Observações:</label>
                       <span class="edith7_obs"></span>
                       <textarea name="edith7_obs" id="edith7_obs" cols="30" rows="4" class="h7_obs form-control"></textarea>
@@ -647,6 +691,8 @@
                     <div class="form-group">
                       <label for="edith8_compartilha_interesses">
                       <input type="checkbox" class="h8_compartilha_interesses" name="edith8_compartilha_interesses" id="edith8_compartilha_interesses"> Compartilha interesses, atividades pazerosas com outras pessoas apenas por compartilhar?</label>
+                    </div>
+                    <div class="form-group">
                       <label for="">Observações:</label>
                       <span class="edith8_obs"></span>
                       <textarea name="edith8_obs" id="edith8_obs" cols="30" rows="4" class="h8_obs form-control"></textarea>
@@ -656,6 +702,8 @@
                     <div class="form-group">
                       <label for="edith9_dem_preoc_cpais">
                       <input type="checkbox" class="h9_dem_preoc_cpais" name="edith9_dem_preoc_cpais" id="edith9_dem_preoc_cpais"> Seu filho(a) demonstra preocupações quando os pais estão doentes ou machucados? Dê um exemplo.</label>
+                    </div>
+                    <div class="form-group">
                       <label for="">Observações:</label>
                       <span class="edith9_obs"></span>
                       <textarea name="edith9_obs" id="edith9_obs" cols="30" rows="4" class="h9_obs form-control"></textarea>
@@ -665,6 +713,8 @@
                     <div class="form-group">
                       <label for="edith10_fazcoment_verbais_ou_gestos">
                       <input type="checkbox" class="h10_fazcoment_verbais_ou_gestos" name="edith10_fazcoment_verbais_ou_gestos" id="edith10_fazcoment_verbais_ou_gestos"> Seu filho(a) faz comentários verbais ou através de gestos? Dê um exemplo.</label>
+                    </div>
+                    <div class="form-group">
                       <label for="">Observações:</label>
                       <span class="edith10_obs"></span>
                       <textarea name="edith10_obs" id="edith10_obs" cols="30" rows="4" class="h10_obs form-control"></textarea>
@@ -674,6 +724,8 @@
                     <div class="form-group">
                       <label for="edith11_olha_p_ondevc_olhando">
                       <input type="checkbox" class="h11_olha_p_ondevc_olhando" name="edith11_olha_p_ondevc_olhando" id="edith11_olha_p_ondevc_olhando"> Seu filho(a) olha para onde você está olhando?</label>
+                    </div>
+                    <div class="form-group">
                       <label for="">Observações:</label>
                       <span class="edith11_obs"></span>
                       <textarea name="edith11_obs" id="edith11_obs" cols="30" rows="4" class="h11_obs form-control"></textarea>
@@ -683,6 +735,8 @@
                     <div class="form-group">
                       <label for="edith12_olha_p_ondevc_aponta">
                       <input type="checkbox" class="h12_olha_p_ondevc_aponta" name="edith12_olha_p_ondevc_aponta" id="edith12_olha_p_ondevc_aponta"> Seu filho(a) Seu filho(a) olha para onde você aponta?</label>
+                    </div>
+                    <div class="form-group">
                       <label for="">Observações:</label>
                       <span class="edith12_obs"></span>
                       <textarea name="edith12_obs" id="edith12_obs" cols="30" rows="4" class="h12_obs form-control"></textarea>
@@ -696,6 +750,8 @@
                     <div class="form-group">
                       <label for="edith13_apos_insistencia">
                       <input type="checkbox" class="h13_apos_insistencia" name="edith13_apos_insistencia" id="edith13_apos_insistencia"> Após insistência.</label>
+                    </div>
+                    <div class="form-group">
                       <label for="">Observações:</label>
                       <span class="edith13_obs"></span>
                       <textarea name="edith13_obs" id="edith13_obs" cols="30" rows="4" class="h13_obs form-control"></textarea>
@@ -709,6 +765,8 @@
                     <div class="form-group">
                       <label for="edith14_apos_insistencia">
                       <input type="checkbox" class="h14_apos_insistencia" name="edith14_apos_insistencia" id="edith14_apos_insistencia"> Após insistência.</label>
+                    </div>
+                    <div class="form-group">
                       <label for="">Observações:</label>
                       <span class="edith14_obs"></span>
                       <textarea name="edith14_obs" id="edith14_obs" cols="30" rows="4" class="h14_obs form-control"></textarea>
@@ -718,6 +776,8 @@
                     <div class="form-group">
                       <label for="edith15_busca_comp_out_criancas">
                       <input type="checkbox" class="h15_busca_comp_out_criancas" name="edith15_busca_comp_out_criancas" id="edith15_busca_comp_out_criancas"> Seu filho(a) busca a companhia de outras crianças espontaneamente? Dê um exemplo.</label>
+                    </div>
+                    <div class="form-group">
                       <label for="">Observações:</label>
                       <span class="edith15_obs"></span>
                       <textarea name="edith15_obs" id="edith15_obs" cols="30" rows="4" class="h15_obs form-control"></textarea>
@@ -739,6 +799,8 @@
                     <div class="form-group">
                       <label for="edith17_perm_som_algtipo_brinc">
                       <input type="checkbox" class="h17_perm_som_algtipo_brinc" name="edith17_perm_som_algtipo_brinc" id="edith17_perm_som_algtipo_brinc"> Permanece somente em alguns tipos de brincadeiras? Dê um exemplo.</label>
+                    </div>
+                    <div class="form-group">
                       <label for="">Observações:</label>
                       <span class="edith17_obs"></span>
                       <textarea name="edith17_obs" id="edith17_obs" cols="30" rows="4" class="h17_obs form-control"></textarea>
@@ -748,6 +810,8 @@
                     <div class="form-group">
                       <label for="edith18_pref_brinc_par_nfc_vontemgr">
                       <input type="checkbox" class="h18_pref_brinc_par_nfc_vontemgr" name="edith18_pref_brinc_par_nfc_vontemgr" id="edith18_pref_brinc_par_nfc_vontemgr"> Prefere brincadeiras de par, não fica à vontade em grupos? Dê um exemplo.</label>
+                    </div>
+                    <div class="form-group">
                       <label for="">Observações:</label>
                       <span class="edith18_obs"></span>
                       <textarea name="edith18_obs" id="edith18_obs" cols="30" rows="4" class="h18_obs form-control"></textarea>
@@ -757,6 +821,8 @@
                     <div class="form-group">
                       <label for="edith19_evita_ctt_c_pessoas">
                       <input type="checkbox" class="h19_evita_ctt_c_pessoas" name="edith19_evita_ctt_c_pessoas" id="edith19_evita_ctt_c_pessoas"> Ignora / evita o contato com pessoas em geral? Dê um exemplo.</label>
+                    </div>
+                    <div class="form-group">
                       <label for="">Observações:</label>
                       <span class="edith19_obs"></span>
                       <textarea name="edith19_obs" id="edith19_obs" cols="30" rows="4" class="h19_obs form-control"></textarea>
@@ -2312,7 +2378,7 @@
                                             @if($count_histdes_versaopais_linguagem)<i data-id="1" id="histdes_versaopais_linguagem{{$atendimento->id}}" class="fas fa-check" style="color: green"></i>@else<i data-id="0" id="histdes_versaopais_linguagem{{$atendimento->id}}"></i>@endif Linguagem</a></li>
                                         <li class="dropdown-item bg-light"><a href="#" class="histdes_versaopais_desenvsocial dropdown-item" data-pacienteid="{{$atendimento->paciente_id}}" data-atendimentoid="{{$atendimento->id}}">
                                             @if($count_histdes_versaopais_desenvsocial)<i data-id="1" id="histdes_versaopais_desenvsocial{{$atendimento->id}}" class="fas fa-check" style="color: green"></i>@else<i data-id="0" id="histdes_versaopais_desenvsocial{{$atendimento->id}}"></i>@endif Desenvolvimento Social</a></li>
-                                        <li class="dropdown-item bg-light"><a href="#" class="dropdown-item" data-id="{{$atendimento->paciente_id}}">
+                                        <li class="dropdown-item bg-light"><a href="#" class="histdes_versaopais_brincadeiras dropdown-item" data-pacienteid="{{$atendimento->paciente_id}}" data-atendimentoid="{{$atendimento->id}}">
                                             @if($count_histdes_versaopais_brincadeiras)<i data-id="1" id="histdes_versaopais_brincadeiras{{$atendimento->id}}" class="fas fa-check" style="color: green"></i>@else<i data-id="0" id="histdes_versaopais_brincadeiras{{$atendimento->id}}"></i>@endif Brincadeiras</a></li>
                                         <li class="dropdown-item bg-light"><a href="#" class="dropdown-item" data-id="{{$atendimento->paciente_id}}">
                                             @if($count_histdes_versaopais_comportamentos)<i data-id="1" id="histdes_versaopais_comportamentos{{$atendimento->id}}" class="fas fa-check" style="color: green"></i>@else<i data-id="0" id="histdes_versaopais_comportamentos{{$atendimento->id}}"></i>@endif Comportamentos</a></li>
@@ -5801,7 +5867,6 @@ $(document).on('click','.histdes_versaopais_linguagem',function(e){
 
 //fim histdes_versaopais_linguagem
 
-/////////////////////////////////////////////////////
 //início histdes_versaopais_desenvsocial
 
 $("#AddAHistDesVersaoPaisDesenvSocial").on('shown.bs.modal',function(){
@@ -5815,22 +5880,609 @@ $("#EditHistDesVersaoPaisDesenvSocial").on('shown.bs.modal',function(){
 //inicio conta caracteres dos textarea HistDesVersaoPaisDesenvSocial
 
     //add
-/* 
-    $(document).on('input','#adde1idade_prim_vocalizacoes',function(){
+ 
+    $(document).on('input','#addh1_idade_prim_sorrisos',function(){
         var limite = 10;
         var informativo = "caracteres restantes";
         var caracteresDigitados = $(this).val().length;
         var caracteresRestantes = limite - caracteresDigitados;
 
         if (caracteresRestantes <= 0){
-            var idade_prim_vocalizacoes = $('input[name="adde1idade_prim_vocalizacoes"]').val();
-            $('input[name="adde1idade_prim_vocalizacoes"]').val(idade_prim_vocalizacoes.substr(0,limite));
-            $(".adde1idade_prim_vocalizacoes").text("0" + " " + informativo);
+            var h1_idade_prim_sorrisos = $('input[name="addh1_idade_prim_sorrisos"]').val();
+            $('input[name="addh1_idade_prim_sorrisos"]').val(h1_idade_prim_sorrisos.substr(0,limite));
+            $(".addh1_idade_prim_sorrisos").text("0" + " " + informativo);
         }else{
-            $(".adde1idade_prim_vocalizacoes").text(caracteresRestantes + " " + informativo);
+            $(".addh1_idade_prim_sorrisos").text(caracteresRestantes + " " + informativo);
         }
-    }); */   
+    });
+    
+    $(document).on('input','#addh2_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
 
+        if (caracteresRestantes <= 0){
+            var h2_obs = $('textarea[name="addh2_obs"]').val();
+            $('textarea[name="addh2_obs"]').val(h2_obs.substr(0,limite));
+            $(".addh2_obs").text("0" + " " + informativo);
+        }else{
+            $(".addh2_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addh3_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var h3_obs = $('textarea[name="addh3_obs"]').val();
+            $('textarea[name="addh3_obs"]').val(h3_obs.substr(0,limite));
+            $(".addh3_obs").text("0" + " " + informativo);
+        }else{
+            $(".addh3_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addh4_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var h4_obs = $('textarea[name="addh4_obs"]').val();
+            $('textarea[name="addh4_obs"]').val(h4_obs.substr(0,limite));
+            $(".addh4_obs").text("0" + " " + informativo);
+        }else{
+            $(".addh4_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addh5_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var h5_obs = $('textarea[name="addh5_obs"]').val();
+            $('textarea[name="addh5_obs"]').val(h5_obs.substr(0,limite));
+            $(".addh5_obs").text("0" + " " + informativo);
+        }else{
+            $(".addh5_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addh6_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var h6_obs = $('textarea[name="addh6_obs"]').val();
+            $('textarea[name="addh6_obs"]').val(h6_obs.substr(0,limite));
+            $(".addh6_obs").text("0" + " " + informativo);
+        }else{
+            $(".addh6_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addh7_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var h7_obs = $('textarea[name="addh7_obs"]').val();
+            $('textarea[name="addh7_obs"]').val(h7_obs.substr(0,limite));
+            $(".addh7_obs").text("0" + " " + informativo);
+        }else{
+            $(".addh7_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addh8_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var h8_obs = $('textarea[name="addh8_obs"]').val();
+            $('textarea[name="addh8_obs"]').val(h8_obs.substr(0,limite));
+            $(".addh8_obs").text("0" + " " + informativo);
+        }else{
+            $(".addh8_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addh9_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var h9_obs = $('textarea[name="addh9_obs"]').val();
+            $('textarea[name="addh9_obs"]').val(h9_obs.substr(0,limite));
+            $(".addh9_obs").text("0" + " " + informativo);
+        }else{
+            $(".addh9_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addh10_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var h10_obs = $('textarea[name="addh10_obs"]').val();
+            $('textarea[name="addh10_obs"]').val(h10_obs.substr(0,limite));
+            $(".addh10_obs").text("0" + " " + informativo);
+        }else{
+            $(".addh10_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addh11_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var h11_obs = $('textarea[name="addh11_obs"]').val();
+            $('textarea[name="addh11_obs"]').val(h11_obs.substr(0,limite));
+            $(".addh11_obs").text("0" + " " + informativo);
+        }else{
+            $(".addh11_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addh12_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var h12_obs = $('textarea[name="addh12_obs"]').val();
+            $('textarea[name="addh12_obs"]').val(h12_obs.substr(0,limite));
+            $(".addh12_obs").text("0" + " " + informativo);
+        }else{
+            $(".addh12_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addh13_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var h13_obs = $('textarea[name="addh13_obs"]').val();
+            $('textarea[name="addh13_obs"]').val(h13_obs.substr(0,limite));
+            $(".addh13_obs").text("0" + " " + informativo);
+        }else{
+            $(".addh13_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addh14_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var h14_obs = $('textarea[name="addh14_obs"]').val();
+            $('textarea[name="addh14_obs"]').val(h14_obs.substr(0,limite));
+            $(".addh14_obs").text("0" + " " + informativo);
+        }else{
+            $(".addh14_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addh15_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var h15_obs = $('textarea[name="addh15_obs"]').val();
+            $('textarea[name="addh15_obs"]').val(h15_obs.substr(0,limite));
+            $(".addh15_obs").text("0" + " " + informativo);
+        }else{
+            $(".addh15_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addh16_cm_reag_a_criancasdesc_festa',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var h16_cm_reag_a_criancasdesc_festa = $('textarea[name="addh16_cm_reag_a_criancasdesc_festa"]').val();
+            $('textarea[name="addh16_cm_reag_a_criancasdesc_festa"]').val(h16_cm_reag_a_criancasdesc_festa.substr(0,limite));
+            $(".addh16_cm_reag_a_criancasdesc_festa").text("0" + " " + informativo);
+        }else{
+            $(".addh16_cm_reag_a_criancasdesc_festa").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addh16_fica_ansioso',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var h16_fica_ansioso = $('textarea[name="addh16_fica_ansioso"]').val();
+            $('textarea[name="addh16_fica_ansioso"]').val(h16_fica_ansioso.substr(0,limite));
+            $(".addh16_fica_ansioso").text("0" + " " + informativo);
+        }else{
+            $(".addh16_fica_ansioso").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addh17_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var h17_obs = $('textarea[name="addh17_obs"]').val();
+            $('textarea[name="addh17_obs"]').val(h17_obs.substr(0,limite));
+            $(".addh17_obs").text("0" + " " + informativo);
+        }else{
+            $(".addh17_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addh18_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var h18_obs = $('textarea[name="addh18_obs"]').val();
+            $('textarea[name="addh18_obs"]').val(h18_obs.substr(0,limite));
+            $(".addh18_obs").text("0" + " " + informativo);
+        }else{
+            $(".addh18_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addh19_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var h19_obs = $('textarea[name="addh19_obs"]').val();
+            $('textarea[name="addh19_obs"]').val(h19_obs.substr(0,limite));
+            $(".addh19_obs").text("0" + " " + informativo);
+        }else{
+            $(".addh19_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+
+    //edit
+ 
+    $(document).on('input','#edith1_idade_prim_sorrisos',function(){
+        var limite = 10;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var h1_idade_prim_sorrisos = $('input[name="edith1_idade_prim_sorrisos"]').val();
+            $('input[name="edith1_idade_prim_sorrisos"]').val(h1_idade_prim_sorrisos.substr(0,limite));
+            $(".edith1_idade_prim_sorrisos").text("0" + " " + informativo);
+        }else{
+            $(".edith1_idade_prim_sorrisos").text(caracteresRestantes + " " + informativo);
+        }
+    });
+    
+    $(document).on('input','#edith2_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var h2_obs = $('textarea[name="edith2_obs"]').val();
+            $('textarea[name="edith2_obs"]').val(h2_obs.substr(0,limite));
+            $(".edith2_obs").text("0" + " " + informativo);
+        }else{
+            $(".edith2_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#edith3_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var h3_obs = $('textarea[name="edith3_obs"]').val();
+            $('textarea[name="edith3_obs"]').val(h3_obs.substr(0,limite));
+            $(".edith3_obs").text("0" + " " + informativo);
+        }else{
+            $(".edith3_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#edith4_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var h4_obs = $('textarea[name="edith4_obs"]').val();
+            $('textarea[name="edith4_obs"]').val(h4_obs.substr(0,limite));
+            $(".edith4_obs").text("0" + " " + informativo);
+        }else{
+            $(".edith4_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#edith5_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var h5_obs = $('textarea[name="edith5_obs"]').val();
+            $('textarea[name="edith5_obs"]').val(h5_obs.substr(0,limite));
+            $(".edith5_obs").text("0" + " " + informativo);
+        }else{
+            $(".edith5_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#edith6_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var h6_obs = $('textarea[name="edith6_obs"]').val();
+            $('textarea[name="edith6_obs"]').val(h6_obs.substr(0,limite));
+            $(".edith6_obs").text("0" + " " + informativo);
+        }else{
+            $(".edith6_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#edith7_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var h7_obs = $('textarea[name="edith7_obs"]').val();
+            $('textarea[name="edith7_obs"]').val(h7_obs.substr(0,limite));
+            $(".edith7_obs").text("0" + " " + informativo);
+        }else{
+            $(".edith7_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#edith8_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var h8_obs = $('textarea[name="edith8_obs"]').val();
+            $('textarea[name="edith8_obs"]').val(h8_obs.substr(0,limite));
+            $(".edith8_obs").text("0" + " " + informativo);
+        }else{
+            $(".edith8_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#edith9_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var h9_obs = $('textarea[name="edith9_obs"]').val();
+            $('textarea[name="edith9_obs"]').val(h9_obs.substr(0,limite));
+            $(".edith9_obs").text("0" + " " + informativo);
+        }else{
+            $(".edith9_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#edith10_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var h10_obs = $('textarea[name="edith10_obs"]').val();
+            $('textarea[name="edith10_obs"]').val(h10_obs.substr(0,limite));
+            $(".edith10_obs").text("0" + " " + informativo);
+        }else{
+            $(".edith10_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#edith11_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var h11_obs = $('textarea[name="edith11_obs"]').val();
+            $('textarea[name="edith11_obs"]').val(h11_obs.substr(0,limite));
+            $(".edith11_obs").text("0" + " " + informativo);
+        }else{
+            $(".edith11_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#edith12_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var h12_obs = $('textarea[name="edith12_obs"]').val();
+            $('textarea[name="edith12_obs"]').val(h12_obs.substr(0,limite));
+            $(".edith12_obs").text("0" + " " + informativo);
+        }else{
+            $(".edith12_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#edith13_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var h13_obs = $('textarea[name="edith13_obs"]').val();
+            $('textarea[name="edith13_obs"]').val(h13_obs.substr(0,limite));
+            $(".edith13_obs").text("0" + " " + informativo);
+        }else{
+            $(".edith13_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#edith14_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var h14_obs = $('textarea[name="edith14_obs"]').val();
+            $('textarea[name="edith14_obs"]').val(h14_obs.substr(0,limite));
+            $(".edith14_obs").text("0" + " " + informativo);
+        }else{
+            $(".edith14_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#edith15_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var h15_obs = $('textarea[name="edith15_obs"]').val();
+            $('textarea[name="edith15_obs"]').val(h15_obs.substr(0,limite));
+            $(".edith15_obs").text("0" + " " + informativo);
+        }else{
+            $(".edith15_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#edith16_cm_reag_a_criancasdesc_festa',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var h16_cm_reag_a_criancasdesc_festa = $('textarea[name="edith16_cm_reag_a_criancasdesc_festa"]').val();
+            $('textarea[name="edith16_cm_reag_a_criancasdesc_festa"]').val(h16_cm_reag_a_criancasdesc_festa.substr(0,limite));
+            $(".edith16_cm_reag_a_criancasdesc_festa").text("0" + " " + informativo);
+        }else{
+            $(".edith16_cm_reag_a_criancasdesc_festa").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#edith16_fica_ansioso',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var h16_fica_ansioso = $('textarea[name="edith16_fica_ansioso"]').val();
+            $('textarea[name="edith16_fica_ansioso"]').val(h16_fica_ansioso.substr(0,limite));
+            $(".edith16_fica_ansioso").text("0" + " " + informativo);
+        }else{
+            $(".edith16_fica_ansioso").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#edith17_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var h17_obs = $('textarea[name="edith17_obs"]').val();
+            $('textarea[name="edith17_obs"]').val(h17_obs.substr(0,limite));
+            $(".edith17_obs").text("0" + " " + informativo);
+        }else{
+            $(".edith17_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#edith18_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var h18_obs = $('textarea[name="edith18_obs"]').val();
+            $('textarea[name="edith18_obs"]').val(h18_obs.substr(0,limite));
+            $(".edith18_obs").text("0" + " " + informativo);
+        }else{
+            $(".edith18_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#edith19_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var h19_obs = $('textarea[name="edith19_obs"]').val();
+            $('textarea[name="edith19_obs"]').val(h19_obs.substr(0,limite));
+            $(".edith19_obs").text("0" + " " + informativo);
+        }else{
+            $(".edith19_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
 
 
 $(document).on('click','.histdes_versaopais_desenvsocial',function(e){
@@ -5925,43 +6577,43 @@ $(document).on('click','.histdes_versaopais_desenvsocial',function(e){
         data.append('atendimento',atendimentoid);
         data.append('paciente',pacienteid);
         data.append('h1_idade_prim_sorrisos',$(".h1_idade_prim_sorrisos").val());
-        data.append('h2_olha_p_face_qdobrinca_c_ele',$(".h2_olha_p_face_qdobrinca_c_ele").is(":checked"?'true':'false'));
+        data.append('h2_olha_p_face_qdobrinca_c_ele',$(".h2_olha_p_face_qdobrinca_c_ele").is(":checked")?'true':'false');
         data.append('h2_obs',$(".h2_obs").val());
-        data.append('h3_sorriso_esp_pess_familiares',$(".h3_sorriso_esp_pess_familiares").is(":checked"?'true':'false'));
+        data.append('h3_sorriso_esp_pess_familiares',$(".h3_sorriso_esp_pess_familiares").is(":checked")?'true':'false');
         data.append('h3_obs',$(".h3_obs").val());
-        data.append('h4_sorriso_esp_pess_nfamiliares',$(".h4_sorriso_esp_pess_nfamiliares").is(":checked"?'true':'false'));
+        data.append('h4_sorriso_esp_pess_nfamiliares',$(".h4_sorriso_esp_pess_nfamiliares").is(":checked")?'true':'false');
         data.append('h4_obs',$(".h4_obs").val());
-        data.append('h5_sorria_em_resp_sorriso',$(".h5_sorria_em_resp_sorriso").is(":checked"?'true':'false'));
+        data.append('h5_sorria_em_resp_sorriso',$(".h5_sorria_em_resp_sorriso").is(":checked")?'true':'false');
         data.append('h5_obs',$(".h5_obs").val());
-        data.append('h6_vc_conseg_ident_exp_faciais_nfilho',$(".h6_vc_conseg_ident_exp_faciais_nfilho").is(":checked"?'true':'false'));
+        data.append('h6_vc_conseg_ident_exp_faciais_nfilho',$(".h6_vc_conseg_ident_exp_faciais_nfilho").is(":checked")?'true':'false');
         data.append('h6_obs',$(".h6_obs").val());
-        data.append('h7_apres_expr_emo_contexto',$(".h7_apres_expr_emo_contexto").is(":checked"?'true':'false'));
+        data.append('h7_apres_expr_emo_contexto',$(".h7_apres_expr_emo_contexto").is(":checked")?'true':'false');
         data.append('h7_obs',$(".h7_obs").val());
-        data.append('h8_compartilha_interesses',$(".h8_compartilha_interesses").is(":checked"?'true':'false'));
+        data.append('h8_compartilha_interesses',$(".h8_compartilha_interesses").is(":checked")?'true':'false');
         data.append('h8_obs',$(".h8_obs").val());
-        data.append('h9_dem_preoc_cpais',$(".h9_dem_preoc_cpais").is(":checked"?'true':'false'));
+        data.append('h9_dem_preoc_cpais',$(".h9_dem_preoc_cpais").is(":checked")?'true':'false');
         data.append('h9_obs',$(".h9_obs").val());
-        data.append('h10_fazcoment_verbais_ou_gestos',$(".h10_fazcoment_verbais_ou_gestos").is(":checked"?'true':'false'));
+        data.append('h10_fazcoment_verbais_ou_gestos',$(".h10_fazcoment_verbais_ou_gestos").is(":checked")?'true':'false');
         data.append('h10_obs',$(".h10_obs").val());
-        data.append('h11_olha_p_ondevc_olhando',$(".h11_olha_p_ondevc_olhando").is(":checked"?'true':'false'));
+        data.append('h11_olha_p_ondevc_olhando',$(".h11_olha_p_ondevc_olhando").is(":checked")?'true':'false');
         data.append('h11_obs',$(".h11_obs").val());
-        data.append('h12_olha_p_ondevc_aponta',$(".h12_olha_p_ondevc_aponta").is(":checked"?'true':'false'));
+        data.append('h12_olha_p_ondevc_aponta',$(".h12_olha_p_ondevc_aponta").is(":checked")?'true':'false');
         data.append('h12_obs',$(".h12_obs").val());
-        data.append('h13_resp_conv_p_brincarcadultos',$(".h13_resp_conv_p_brincarcadultos").is(":checked"?'true':'false'));
-        data.append('h13_apos_insistencia',$(".h13_apos_insistencia").is(":checked"?'true':'false'));
+        data.append('h13_resp_conv_p_brincarcadultos',$(".h13_resp_conv_p_brincarcadultos").is(":checked")?'true':'false');
+        data.append('h13_apos_insistencia',$(".h13_apos_insistencia").is(":checked")?'true':'false');
         data.append('h13_obs',$(".h13_obs").val());
-        data.append('h14_resp_conv_p_brincarccriancas',$(".h14_resp_conv_p_brincarccriancas").is(":checked"?'true':'false'));
-        data.append('h14_apos_insistencia',$(".h14_apos_insistencia").is(":checked"?'true':'false'));
+        data.append('h14_resp_conv_p_brincarccriancas',$(".h14_resp_conv_p_brincarccriancas").is(":checked")?'true':'false');
+        data.append('h14_apos_insistencia',$(".h14_apos_insistencia").is(":checked")?'true':'false');
         data.append('h14_obs',$(".h14_obs").val());
-        data.append('h15_busca_comp_out_criancas',$(".h15_busca_comp_out_criancas").is(":checked"?'true':'false'));
+        data.append('h15_busca_comp_out_criancas',$(".h15_busca_comp_out_criancas").is(":checked")?'true':'false');
         data.append('h15_obs',$(".h15_obs").val());
         data.append('h16_cm_reag_a_criancasdesc_festa',$(".h16_cm_reag_a_criancasdesc_festa").val());
         data.append('h16_fica_ansioso',$(".h16_fica_ansioso").val());
-        data.append('h17_perm_som_algtipo_brinc',$(".h17_perm_som_algtipo_brinc").is(":checked"?'true':'false'));
+        data.append('h17_perm_som_algtipo_brinc',$(".h17_perm_som_algtipo_brinc").is(":checked")?'true':'false');
         data.append('h17_obs',$(".h17_obs").val());
-        data.append('h18_pref_brinc_par_nfc_vontemgr',$(".h18_pref_brinc_par_nfc_vontemgr").is(":checked"?'true':'false'));
+        data.append('h18_pref_brinc_par_nfc_vontemgr',$(".h18_pref_brinc_par_nfc_vontemgr").is(":checked")?'true':'false');
         data.append('h18_obs',$(".h18_obs").val());
-        data.append('h19_evita_ctt_c_pessoas',$(".h19_evita_ctt_c_pessoas").is(":checked"?'true':'false'));
+        data.append('h19_evita_ctt_c_pessoas',$(".h19_evita_ctt_c_pessoas").is(":checked")?'true':'false');
         data.append('h19_obs',$(".h19_obs").val());        
         data.append('_token',CSRF_TOKEN);
         data.append('_method','PUT');        
@@ -6010,43 +6662,43 @@ $(document).on('click','.histdes_versaopais_desenvsocial',function(e){
         data.append('atendimento',atendimentoid);
         data.append('paciente',pacienteid);        
         data.append('h1_idade_prim_sorrisos',$("#edith1_idade_prim_sorrisos").val());
-        data.append('h2_olha_p_face_qdobrinca_c_ele',$("#edith2_olha_p_face_qdobrinca_c_ele").is(":checked"?'true':'false'));
+        data.append('h2_olha_p_face_qdobrinca_c_ele',$("#edith2_olha_p_face_qdobrinca_c_ele").is(":checked")?'true':'false');
         data.append('h2_obs',$("#edith2_obs").val());
-        data.append('h3_sorriso_esp_pess_familiares',$("#edith3_sorriso_esp_pess_familiares").is(":checked"?'true':'false'));
+        data.append('h3_sorriso_esp_pess_familiares',$("#edith3_sorriso_esp_pess_familiares").is(":checked")?'true':'false');
         data.append('h3_obs',$("#edith3_obs").val());
-        data.append('h4_sorriso_esp_pess_nfamiliares',$("#edith4_sorriso_esp_pess_nfamiliares").is(":checked"?'true':'false'));
+        data.append('h4_sorriso_esp_pess_nfamiliares',$("#edith4_sorriso_esp_pess_nfamiliares").is(":checked")?'true':'false');
         data.append('h4_obs',$("#edith4_obs").val());
-        data.append('h5_sorria_em_resp_sorriso',$("#edith5_sorria_em_resp_sorriso").is(":checked"?'true':'false'));
+        data.append('h5_sorria_em_resp_sorriso',$("#edith5_sorria_em_resp_sorriso").is(":checked")?'true':'false');
         data.append('h5_obs',$("#edith5_obs").val());
-        data.append('h6_vc_conseg_ident_exp_faciais_nfilho',$("#edith6_vc_conseg_ident_exp_faciais_nfilho").is(":checked"?'true':'false'));
+        data.append('h6_vc_conseg_ident_exp_faciais_nfilho',$("#edith6_vc_conseg_ident_exp_faciais_nfilho").is(":checked")?'true':'false');
         data.append('h6_obs',$("#edith6_obs").val());
-        data.append('h7_apres_expr_emo_contexto',$("#edith7_apres_expr_emo_contexto").is(":checked"?'true':'false'));
+        data.append('h7_apres_expr_emo_contexto',$("#edith7_apres_expr_emo_contexto").is(":checked")?'true':'false');
         data.append('h7_obs',$("#edith7_obs").val());
-        data.append('h8_compartilha_interesses',$("#edith8_compartilha_interesses").is(":checked"?'true':'false'));
+        data.append('h8_compartilha_interesses',$("#edith8_compartilha_interesses").is(":checked")?'true':'false');
         data.append('h8_obs',$("#edith8_obs").val());
-        data.append('h9_dem_preoc_cpais',$("#edith9_dem_preoc_cpais").is(":checked"?'true':'false'));
+        data.append('h9_dem_preoc_cpais',$("#edith9_dem_preoc_cpais").is(":checked")?'true':'false');
         data.append('h9_obs',$("#edith9_obs").val());
-        data.append('h10_fazcoment_verbais_ou_gestos',$("#edith10_fazcoment_verbais_ou_gestos").is(":checked"?'true':'false'));
+        data.append('h10_fazcoment_verbais_ou_gestos',$("#edith10_fazcoment_verbais_ou_gestos").is(":checked")?'true':'false');
         data.append('h10_obs',$("#edith10_obs").val());
-        data.append('h11_olha_p_ondevc_olhando',$("#edith11_olha_p_ondevc_olhando").is(":checked"?'true':'false'));
+        data.append('h11_olha_p_ondevc_olhando',$("#edith11_olha_p_ondevc_olhando").is(":checked")?'true':'false');
         data.append('h11_obs',$("#edith11_obs").val());
-        data.append('h12_olha_p_ondevc_aponta',$("#edith12_olha_p_ondevc_aponta").is(":checked"?'true':'false'));
+        data.append('h12_olha_p_ondevc_aponta',$("#edith12_olha_p_ondevc_aponta").is(":checked")?'true':'false');
         data.append('h12_obs',$("#edith12_obs").val());
-        data.append('h13_resp_conv_p_brincarcadultos',$("#edith13_resp_conv_p_brincarcadultos").is(":checked"?'true':'false'));
-        data.append('h13_apos_insistencia',$("#edith13_apos_insistencia").is(":checked"?'true':'false'));
+        data.append('h13_resp_conv_p_brincarcadultos',$("#edith13_resp_conv_p_brincarcadultos").is(":checked")?'true':'false');
+        data.append('h13_apos_insistencia',$("#edith13_apos_insistencia").is(":checked")?'true':'false');
         data.append('h13_obs',$("#edith13_obs").val());
-        data.append('h14_resp_conv_p_brincarccriancas',$("#edith14_resp_conv_p_brincarccriancas").is(":checked"?'true':'false'));
-        data.append('h14_apos_insistencia',$("#edith14_apos_insistencia").is(":checked"?'true':'false'));
+        data.append('h14_resp_conv_p_brincarccriancas',$("#edith14_resp_conv_p_brincarccriancas").is(":checked")?'true':'false');
+        data.append('h14_apos_insistencia',$("#edith14_apos_insistencia").is(":checked")?'true':'false');
         data.append('h14_obs',$("#edith14_obs").val());
-        data.append('h15_busca_comp_out_criancas',$("#edith15_busca_comp_out_criancas").is(":checked"?'true':'false'));
+        data.append('h15_busca_comp_out_criancas',$("#edith15_busca_comp_out_criancas").is(":checked")?'true':'false');
         data.append('h15_obs',$("#edith15_obs").val());
         data.append('h16_cm_reag_a_criancasdesc_festa',$("#edith16_cm_reag_a_criancasdesc_festa").val());
         data.append('h16_fica_ansioso',$("#edith16_fica_ansioso").val());
-        data.append('h17_perm_som_algtipo_brinc',$("#edith17_perm_som_algtipo_brinc").is(":checked"?'true':'false'));
+        data.append('h17_perm_som_algtipo_brinc',$("#edith17_perm_som_algtipo_brinc").is(":checked")?'true':'false');
         data.append('h17_obs',$("#edith17_obs").val());
-        data.append('h18_pref_brinc_par_nfc_vontemgr',$("#edith18_pref_brinc_par_nfc_vontemgr").is(":checked"?'true':'false'));
+        data.append('h18_pref_brinc_par_nfc_vontemgr',$("#edith18_pref_brinc_par_nfc_vontemgr").is(":checked")?'true':'false');
         data.append('h18_obs',$("#edith18_obs").val());
-        data.append('h19_evita_ctt_c_pessoas',$("#edith19_evita_ctt_c_pessoas").is(":checked"?'true':'false'));
+        data.append('h19_evita_ctt_c_pessoas',$("#edith19_evita_ctt_c_pessoas").is(":checked")?'true':'false');
         data.append('h19_obs',$("#edith19_obs").val());
         data.append('_token',CSRF_TOKEN);
         data.append('_method','PUT');   
@@ -6080,6 +6732,716 @@ $(document).on('click','.histdes_versaopais_desenvsocial',function(e){
     });
 
 //fim histdes_versaopais_desenvsocial
+////////////////////////////////
+
+//início histdes_versaopais_brincadeiras
+
+$("#AddAHistDesVersaoPaisBrincadeiras").on('shown.bs.modal',function(){
+            $(".l1_brincadeira_favorita").focus();
+    });
+
+$("#EditHistDesVersaoPaisBrincadeiras").on('shown.bs.modal',function(){
+            $(".l1_brincadeira_favorita").focus();
+    });
+
+//inicio conta caracteres dos textarea HistDesVersaoPaisBrincadeiras
+
+    //add
+ 
+    $(document).on('input','#addl1_brincadeira_favorita',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l1_brincadeira_favorita = $('textarea[name="addl1_brincadeira_favorita"]').val();
+            $('textarea[name="addl1_brincadeira_favorita"]').val(l1_brincadeira_favorita.substr(0,limite));
+            $(".addl1_brincadeira_favorita").text("0" + " " + informativo);
+        }else{
+            $(".addl1_brincadeira_favorita").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addl2_brinquedos_favoritos',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l2_brinquedos_favoritos = $('textarea[name="addl2_brinquedos_favoritos"]').val();
+            $('textarea[name="addl2_brinquedos_favoritos"]').val(l2_brinquedos_favoritos.substr(0,limite));
+            $(".addl2_brinquedos_favoritos").text("0" + " " + informativo);
+        }else{
+            $(".addl2_brinquedos_favoritos").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addl3_vc_o_considera_obcecado',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l3_vc_o_considera_obcecado = $('textarea[name="addl3_vc_o_considera_obcecado"]').val();
+            $('textarea[name="addl3_vc_o_considera_obcecado"]').val(l3_vc_o_considera_obcecado.substr(0,limite));
+            $(".addl3_vc_o_considera_obcecado").text("0" + " " + informativo);
+        }else{
+            $(".addl3_vc_o_considera_obcecado").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addl3_ele_ja_foi_obcecado_por_algo',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l3_ele_ja_foi_obcecado_por_algo = $('textarea[name="addl3_ele_ja_foi_obcecado_por_algo"]').val();
+            $('textarea[name="addl3_ele_ja_foi_obcecado_por_algo"]').val(l3_ele_ja_foi_obcecado_por_algo.substr(0,limite));
+            $(".addl3_ele_ja_foi_obcecado_por_algo").text("0" + " " + informativo);
+        }else{
+            $(".addl3_ele_ja_foi_obcecado_por_algo").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addl4_obs',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l4_obs = $('textarea[name="addl4_obs"]').val();
+            $('textarea[name="addl4_obs"]').val(l4_obs.substr(0,limite));
+            $(".addl4_obs").text("0" + " " + informativo);
+        }else{
+            $(".addl4_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addl5_obs',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l5_obs = $('textarea[name="addl5_obs"]').val();
+            $('textarea[name="addl5_obs"]').val(l5_obs.substr(0,limite));
+            $(".addl5_obs").text("0" + " " + informativo);
+        }else{
+            $(".addl5_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addl6_obs',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l6_obs = $('textarea[name="addl6_obs"]').val();
+            $('textarea[name="addl6_obs"]').val(l6_obs.substr(0,limite));
+            $(".addl6_obs").text("0" + " " + informativo);
+        }else{
+            $(".addl6_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addl7_obs',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l7_obs = $('textarea[name="addl7_obs"]').val();
+            $('textarea[name="addl7_obs"]').val(l7_obs.substr(0,limite));
+            $(".addl7_obs").text("0" + " " + informativo);
+        }else{
+            $(".addl7_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addl8_obs',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l8_obs = $('textarea[name="addl8_obs"]').val();
+            $('textarea[name="addl8_obs"]').val(l8_obs.substr(0,limite));
+            $(".addl8_obs").text("0" + " " + informativo);
+        }else{
+            $(".addl8_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addl9_obs',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l9_obs = $('textarea[name="addl9_obs"]').val();
+            $('textarea[name="addl9_obs"]').val(l9_obs.substr(0,limite));
+            $(".addl9_obs").text("0" + " " + informativo);
+        }else{
+            $(".addl9_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addl10_obs',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l10_obs = $('textarea[name="addl10_obs"]').val();
+            $('textarea[name="addl10_obs"]').val(l10_obs.substr(0,limite));
+            $(".addl10_obs").text("0" + " " + informativo);
+        }else{
+            $(".addl10_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addl11_obs',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l11_obs = $('textarea[name="addl11_obs"]').val();
+            $('textarea[name="addl11_obs"]').val(l11_obs.substr(0,limite));
+            $(".addl11_obs").text("0" + " " + informativo);
+        }else{
+            $(".addl11_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addl12_obs',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l12_obs = $('textarea[name="addl12_obs"]').val();
+            $('textarea[name="addl12_obs"]').val(l12_obs.substr(0,limite));
+            $(".addl12_obs").text("0" + " " + informativo);
+        }else{
+            $(".addl12_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addl13_obs',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l13_obs = $('textarea[name="addl13_obs"]').val();
+            $('textarea[name="addl13_obs"]').val(l13_obs.substr(0,limite));
+            $(".addl13_obs").text("0" + " " + informativo);
+        }else{
+            $(".addl13_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addl14_obs',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l14_obs = $('textarea[name="addl14_obs"]').val();
+            $('textarea[name="addl14_obs"]').val(l14_obs.substr(0,limite));
+            $(".addl14_obs").text("0" + " " + informativo);
+        }else{
+            $(".addl14_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addl15_obs',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l15_obs = $('textarea[name="addl15_obs"]').val();
+            $('textarea[name="addl15_obs"]').val(l15_obs.substr(0,limite));
+            $(".addl15_obs").text("0" + " " + informativo);
+        }else{
+            $(".addl15_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+   //edit
+ 
+    $(document).on('input','#editl1_brincadeira_favorita',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l1_brincadeira_favorita = $('textarea[name="editl1_brincadeira_favorita"]').val();
+            $('textarea[name="editl1_brincadeira_favorita"]').val(l1_brincadeira_favorita.substr(0,limite));
+            $(".editl1_brincadeira_favorita").text("0" + " " + informativo);
+        }else{
+            $(".editl1_brincadeira_favorita").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editl2_brinquedos_favoritos',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l2_brinquedos_favoritos = $('textarea[name="editl2_brinquedos_favoritos"]').val();
+            $('textarea[name="editl2_brinquedos_favoritos"]').val(l2_brinquedos_favoritos.substr(0,limite));
+            $(".editl2_brinquedos_favoritos").text("0" + " " + informativo);
+        }else{
+            $(".editl2_brinquedos_favoritos").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editl3_vc_o_considera_obcecado',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l3_vc_o_considera_obcecado = $('textarea[name="editl3_vc_o_considera_obcecado"]').val();
+            $('textarea[name="editl3_vc_o_considera_obcecado"]').val(l3_vc_o_considera_obcecado.substr(0,limite));
+            $(".editl3_vc_o_considera_obcecado").text("0" + " " + informativo);
+        }else{
+            $(".editl3_vc_o_considera_obcecado").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editl3_ele_ja_foi_obcecado_por_algo',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l3_ele_ja_foi_obcecado_por_algo = $('textarea[name="editl3_ele_ja_foi_obcecado_por_algo"]').val();
+            $('textarea[name="editl3_ele_ja_foi_obcecado_por_algo"]').val(l3_ele_ja_foi_obcecado_por_algo.substr(0,limite));
+            $(".editl3_ele_ja_foi_obcecado_por_algo").text("0" + " " + informativo);
+        }else{
+            $(".editl3_ele_ja_foi_obcecado_por_algo").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editl4_obs',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l4_obs = $('textarea[name="editl4_obs"]').val();
+            $('textarea[name="editl4_obs"]').val(l4_obs.substr(0,limite));
+            $(".editl4_obs").text("0" + " " + informativo);
+        }else{
+            $(".editl4_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editl5_obs',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l5_obs = $('textarea[name="editl5_obs"]').val();
+            $('textarea[name="editl5_obs"]').val(l5_obs.substr(0,limite));
+            $(".editl5_obs").text("0" + " " + informativo);
+        }else{
+            $(".editl5_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editl6_obs',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l6_obs = $('textarea[name="editl6_obs"]').val();
+            $('textarea[name="editl6_obs"]').val(l6_obs.substr(0,limite));
+            $(".editl6_obs").text("0" + " " + informativo);
+        }else{
+            $(".editl6_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editl7_obs',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l7_obs = $('textarea[name="editl7_obs"]').val();
+            $('textarea[name="editl7_obs"]').val(l7_obs.substr(0,limite));
+            $(".editl7_obs").text("0" + " " + informativo);
+        }else{
+            $(".editl7_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editl8_obs',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l8_obs = $('textarea[name="editl8_obs"]').val();
+            $('textarea[name="editl8_obs"]').val(l8_obs.substr(0,limite));
+            $(".editl8_obs").text("0" + " " + informativo);
+        }else{
+            $(".editl8_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editl9_obs',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l9_obs = $('textarea[name="editl9_obs"]').val();
+            $('textarea[name="editl9_obs"]').val(l9_obs.substr(0,limite));
+            $(".editl9_obs").text("0" + " " + informativo);
+        }else{
+            $(".editl9_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editl10_obs',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l10_obs = $('textarea[name="editl10_obs"]').val();
+            $('textarea[name="editl10_obs"]').val(l10_obs.substr(0,limite));
+            $(".editl10_obs").text("0" + " " + informativo);
+        }else{
+            $(".editl10_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editl11_obs',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l11_obs = $('textarea[name="editl11_obs"]').val();
+            $('textarea[name="editl11_obs"]').val(l11_obs.substr(0,limite));
+            $(".editl11_obs").text("0" + " " + informativo);
+        }else{
+            $(".editl11_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editl12_obs',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l12_obs = $('textarea[name="editl12_obs"]').val();
+            $('textarea[name="editl12_obs"]').val(l12_obs.substr(0,limite));
+            $(".editl12_obs").text("0" + " " + informativo);
+        }else{
+            $(".editl12_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editl13_obs',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l13_obs = $('textarea[name="editl13_obs"]').val();
+            $('textarea[name="editl13_obs"]').val(l13_obs.substr(0,limite));
+            $(".editl13_obs").text("0" + " " + informativo);
+        }else{
+            $(".editl13_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editl14_obs',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l14_obs = $('textarea[name="editl14_obs"]').val();
+            $('textarea[name="editl14_obs"]').val(l14_obs.substr(0,limite));
+            $(".editl14_obs").text("0" + " " + informativo);
+        }else{
+            $(".editl14_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editl15_obs',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l15_obs = $('textarea[name="editl15_obs"]').val();
+            $('textarea[name="editl15_obs"]').val(l15_obs.substr(0,limite));
+            $(".editl15_obs").text("0" + " " + informativo);
+        }else{
+            $(".editl15_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+$(document).on('click','.histdes_versaopais_brincadeiras',function(e){
+        e.preventDefault();
+        var pacienteid = $(this).data("pacienteid");
+        var atendimentoid = $(this).data("atendimentoid");
+        var opcao_form_histdes_versaopais_brincadeiras = $("#histdes_versaopais_brincadeiras"+atendimentoid).data("id");
+
+        if(opcao_form_histdes_versaopais_brincadeiras==0){
+                $("#addpacienteid_histdesversaopaisbrincadeiras").val(pacienteid);
+                $("#addatendimentoid_histdesversaopaisbrincadeiras").val(atendimentoid);
+                $("#addform_histdesversaopaisbrincadeiras").trigger('reset');
+                $("#AddHistDesVersaoPaisBrincadeiras").modal('show'); 
+                $("#saveform_errList_histdesversaopaisbrincadeiras").replaceWith('<ul id="saveform_errList_histdesversaopaisbrincadeiras"></ul>');
+        }else{            
+                $("#editpacienteid_histdesversaopaisbrincadeiras").val(pacienteid);
+                $("#editatendimentoid_histdesversaopaisbrincadeiras").val(atendimentoid);
+                $("#editform_histdesversaopaisbrincadeiras").trigger('reset');
+                $("#EditHistDesVersaoPaisBrincadeiras").modal('show'); 
+                $("#updateform_errList_histdesversaobrincadeiras").replaceWith('<ul id="updateform_errList_histdesversaobrincadeiras"></ul>');
+
+                 $.ajaxSetup({
+                    headers:{
+                        'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+    
+    
+                $.ajax({ 
+                    type: 'GET',             
+                    dataType: 'json',                                    
+                    url: '/ceteaadmin/terapia/edit_histdesversaopaisbrincadeiras/'+pacienteid,
+                    success: function(response){           
+                        if(response.status==200){                            
+                            $(".l1_brincadeira_favorita").val(response.histdesversaopaisbrincadeiras.i1_brincadeira_favorita);
+                            $(".l2_brinquedos_favoritos").val(response.histdesversaopaisbrincadeiras.i2_brinquedos_favoritos);
+                            $(".l3_vc_o_considera_obcecado").val(response.histdesversaopaisbrincadeiras.i3_vc_o_considera_obcecado);
+                            $(".l3_ele_ja_foi_obcecado_por_algo").val(response.histdesversaopaisbrincadeiras.i3_ele_ja_foi_obcecado_por_algo);                            
+                            $(".l4_tem_inter_p_cheiro_textura").attr('checked',response.histdesversaopaisbrincadeiras.i4_tem_inter_p_cheiro_textura);
+                            $(".l4_obs").val(response.histdesversaopaisbrincadeiras.i4_obs);
+                            $(".l5_brinca_de_form_repet").attr('checked',response.histdesversaopaisbrincadeiras.i5_brinca_de_form_repet);
+                            $(".l5_obs").val(response.histdesversaopaisbrincadeiras.i5_obs);
+                            $(".l6_brinca_de_form_func").attr('checked',response.histdesversaopaisbrincadeiras.i6_brinca_de_form_func);
+                            $(".l6_obs").val(response.histdesversaopaisbrincadeiras.i6_obs);
+                            $(".l7_brinca_de_form_simb_mini").attr('checked',response.histdesversaopaisbrincadeiras.i7_brinca_de_form_simb_mini);
+                            $(".l7_obs").val(response.histdesversaopaisbrincadeiras.i7_obs);
+                            $(".l8_brinca_de_form_simb_objetos").attr('checked',response.histdesversaopaisbrincadeiras.i8_brinca_de_form_simb_objetos);
+                            $(".l8_obs").val(response.histdesversaopaisbrincadeiras.i8_obs);
+                            $(".l9_brinca_de_form_simb_atrpapeis").attr('checked',response.histdesversaopaisbrincadeiras.i9_brinca_de_form_simb_atrpapeis);
+                            $(".l9_obs").val(response.histdesversaopaisbrincadeiras.i9_obs);
+                            $(".l10_segue_regras_de_brincadeiras").attr('checked',response.histdesversaopaisbrincadeiras.i10_segue_regras_de_brincadeiras);
+                            $(".l10_obs").val(response.histdesversaopaisbrincadeiras.i10_obs);
+                            $(".l11_bom_fazer_amizades").attr('checked',response.histdesversaopaisbrincadeiras.i11_bom_fazer_amizades);
+                            $(".l11_obs").val(response.histdesversaopaisbrincadeiras.i11_obs);
+                            $(".l12_e_solitario").attr('checked',response.histdesversaopaisbrincadeiras.i12_e_solitario);
+                            $(".l12_obs").val(response.histdesversaopaisbrincadeiras.i12_obs);
+                            $(".l13_e_timido").attr('checked',response.histdesversaopaisbrincadeiras.i13_e_timido);
+                            $(".l13_obs").val(response.histdesversaopaisbrincadeiras.i13_obs);
+                            $(".l14_tem_melhor_amigo").attr('checked',response.histdesversaopaisbrincadeiras.i14_tem_melhor_amigo);
+                            $(".l14_obs").val(response.histdesversaopaisbrincadeiras.i14_obs);
+                            $(".l15_obs").val(response.histdesversaopaisbrincadeiras.i15_prefer_criancas_mesma_idade);                            
+                        }      
+                    }
+                });
+        }
+    });
+
+
+    $(document).on('click','.add_histdesversaopais_brincadeiras_btn',function(e){
+        e.preventDefault();
+        var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+        var pacienteid = $("#addpacienteid_histdesversaopaisbrincadeiras").val();
+        var atendimentoid = $("#addatendimentoid_histdesversaopaisbrincadeiras").val();
+
+        var loading = $("#imgadd_histdesversaopaisbrincadeiras");
+            loading.show();
+
+        var data = new FormData();
+
+        data.append('atendimento',atendimentoid);
+        data.append('paciente',pacienteid);
+        data.append('l1_brincadeira_favorita',$(".l1_brincadeira_favorita").val());
+        data.append('l2_brinquedos_favoritos',$(".l2_brinquedos_favoritos").val());
+        data.append('l3_vc_o_considera_obcecado',$(".l3_vc_o_considera_obcecado").val());
+        data.append('l3_ele_ja_foi_obcecado_por_algo',$(".l3_ele_ja_foi_obcecado_por_algo").val());        
+        data.append('l4_tem_inter_p_cheiro_textura',$(".l4_tem_inter_p_cheiro_textura").is(":checked")?'true':'false');
+        data.append('l4_obs',$(".l4_obs").val());
+        data.append('l5_brinca_de_form_repet',$(".l5_brinca_de_form_repet").is(":checked")?'true':'false');
+        data.append('l5_obs',$(".l5_obs").val());
+        data.append('l6_brinca_de_form_func',$(".l6_brinca_de_form_func").is(":checked")?'true':'false');
+        data.append('l6_obs',$(".l6_obs").val());
+        data.append('l7_brinca_de_form_simb_mini',$(".l7_brinca_de_form_simb_mini").is(":checked")?'true':'false');
+        data.append('l7_obs',$(".l7_obs").val());
+        data.append('l8_brinca_de_form_simb_objetos',$(".l8_brinca_de_form_simb_objetos").is(":checked")?'true':'false');
+        data.append('l8_obs',$(".l8_obs").val());
+        data.append('l9_brinca_de_form_simb_atrpapeis',$(".l9_brinca_de_form_simb_atrpapeis").is(":checked")?'true':'false');
+        data.append('l9_obs',$(".l9_obs").val());
+        data.append('l10_segue_regras_de_brincadeiras',$(".l10_segue_regras_de_brincadeiras").is(":checked")?'true':'false');
+        data.append('l10_obs',$(".l10_obs").val());
+        data.append('l11_bom_fazer_amizades',$(".l11_bom_fazer_amizades").is(":checked")?'true':'false');
+        data.append('l11_obs',$(".l11_obs").val());
+        data.append('l12_e_solitario',$(".l12_e_solitario").is(":checked")?'true':'false');
+        data.append('l12_obs',$(".l12_obs").val());        
+        data.append('l13_e_timido',$(".l13_e_timido").is(":checked")?'true':'false');
+        data.append('l13_obs',$(".l13_obs").val());
+        data.append('l14_tem_melhor_amigo',$(".l14_tem_melhor_amigo").is(":checked")?'true':'false');        
+        data.append('l14_obs',$(".l14_obs").val());        
+        data.append('l15_prefer_criancas_mesma_idade',$(".l15_obs").val());
+        data.append('_token',CSRF_TOKEN);
+        data.append('_method','PUT');        
+
+        $.ajax({
+            url:'/ceteaadmin/terapia/store_histdesversaopaisbrincadeiras',
+            type: 'POST',
+            dataType: 'json',
+            data: data,
+            cache: false,
+            processData: false,
+            contentType: false,
+            async:true,
+            success:function(response){
+                if(response.status==400){
+                    $("#saveform_errlist_histdesversaopaisbrincadeiras").replaceWith('<ul id="saveform_errList_histdesversaopaisbrincadeiras"></ul>');
+                    $("#saveform_errlist_histdesversaopaisbrincadeiras").addClass("alert alert-danger");
+                    $.each(response.errors,function(key,err_values){
+                        $("#saveform_errlist_histdesversaopaisbrincadeiras").append('<li>'+err_values+'</li>')
+                    });
+                    loading.hide();
+                }else{
+                    loading.hide();
+                    $("#saveform_errlist_histdesversaopaisbrincadeiras").replaceWith('<ul id="saveform_errList_histdesversaopaisbrincadeiras"></ul>');
+                    $("#histdes_versaopais_brincadeiras"+atendimentoid).replaceWith('<i data-id="1" id="histdes_versaopais_brincadeiras'+atendimentoid+'" class="fas fa-check" style="color: green"></i>');
+                    $("#addform_histdesversaopaisbrincadeiras").trigger('reset');
+                    $("#AddHistDesVersaoPaisBrincadeiras").modal('hide');                     
+                }
+            }
+
+        });
+
+    });
+
+
+    $(document).on('click','.update_histdesversaopaisbrincadeiras_btn',function(e){
+        var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+        var atendimentoid = $("#editatendimentoid_histdesversaopaisbrincadeiras").val();
+        var pacienteid = $("#editpacienteid_histdesversaopaisbrincadeiras").val();
+
+        var loading = $("#imgedit_histdesversaopaisbrincadeiras");
+            loading.show();
+
+        var data = new FormData();
+
+        data.append('atendimento',atendimentoid);
+        data.append('paciente',pacienteid);        
+        data.append('l1_brincadeira_favorita',$("#editl1_brincadeira_favorita").val());
+        data.append('l2_brinquedos_favoritos',$("#editl2_brinquedos_favoritos").val());
+        data.append('l3_vc_o_considera_obcecado',$("#editl3_vc_o_considera_obcecado").val());
+        data.append('l3_ele_ja_foi_obcecado_por_algo',$("#editl3_ele_ja_foi_obcecado_por_algo").val());        
+        data.append('l4_tem_inter_p_cheiro_textura',$("#editl4_tem_inter_p_cheiro_textura").is(":checked")?'true':'false');
+        data.append('l4_obs',$("#editl4_obs").val());
+        data.append('l5_brinca_de_form_repet',$("#editl5_brinca_de_form_repet").is(":checked")?'true':'false');
+        data.append('l5_obs',$("#editl5_obs").val());
+        data.append('l6_brinca_de_form_func',$("#editl6_brinca_de_form_func").is(":checked")?'true':'false');
+        data.append('l6_obs',$("#editl6_obs").val());
+        data.append('l7_brinca_de_form_simb_mini',$("#editl7_brinca_de_form_simb_mini").is(":checked")?'true':'false');
+        data.append('l7_obs',$("#editl7_obs").val());
+        data.append('l8_brinca_de_form_simb_objetos',$("#editl8_brinca_de_form_simb_objetos").is(":checked")?'true':'false');
+        data.append('l8_obs',$("#editl8_obs").val());
+        data.append('l9_brinca_de_form_simb_atrpapeis',$("#editl9_brinca_de_form_simb_atrpapeis").is(":checked")?'true':'false');
+        data.append('l9_obs',$("#editl9_obs").val());
+        data.append('l10_segue_regras_de_brincadeiras',$("#editl10_segue_regras_de_brincadeiras").is(":checked")?'true':'false');
+        data.append('l10_obs',$("#editl10_obs").val());
+        data.append('l11_bom_fazer_amizades',$("#editl11_bom_fazer_amizades").is(":checked")?'true':'false');
+        data.append('l11_obs',$("#editl11_obs").val());
+        data.append('l12_e_solitario',$("#editl12_e_solitario").is(":checked")?'true':'false');
+        data.append('l12_obs',$("#editl12_obs").val());        
+        data.append('l13_e_timido',$("#editl13_e_timido").is(":checked")?'true':'false');
+        data.append('l13_obs',$("#editl13_obs").val());
+        data.append('l14_tem_melhor_amigo',$("#editl14_tem_melhor_amigo").is(":checked")?'true':'false');        
+        data.append('l14_obs',$("#editl14_obs").val());        
+        data.append('l15_prefer_criancas_mesma_idade',$("#editl15_obs").val());
+        data.append('_token',CSRF_TOKEN);
+        data.append('_method','PUT');   
+
+        $.ajax({
+            url:'/ceteaadmin/terapia/update_histdesversaopaisbrincadeiras/'+pacienteid,
+            type:'POST',
+            contentType: 'json',
+            data: data,
+            cache: false,
+            processData: false,
+            contentType: false,
+            async:true,
+            success:function(response){
+                if(response.status==400){
+                    $("#updateform_errList_histdesversaopaisbrincadeiras").replaceWith('<ul id="updateform_errList_histdesversaopaisdesenvsocial"></ul>');
+                    $("#updateform_errlist_histdesversaopaisbrincadeiras").addClass('alert alert-danger');
+                    $.each(response.errors,function(key,err_values){
+                        $("#updateform_errlist_histdesversaopaisbrincadeiras").append('<li>'+err_values+'</li>');
+                    });
+                    loading.hide();
+                }else{
+                    loading.hide();
+                    $("#updateform_errlist_histdesversaopaisbrincadeiras").replaceWith('<ul id="updateform_errList_histdesversaopaisdesenvsocial"></ul>');
+                    $("#histdes_versaopais_brincadeiras"+atendimentoid).replaceWith('<i data-id="1" id="histdes_versaopais_desenvsocial'+atendimentoid+'" class="fas fa-check" style="color: green"></i>');
+                    $("#editform_histdesversaopaisbrincadeiras").trigger('reset');
+                    $("#EditHistDesVersaoPaisBrincadeiras").modal('hide');    
+                }
+            }
+        });
+    });
+
+//fim histdes_versaopais_brincadeiras
+
 
 });
 

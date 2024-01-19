@@ -227,6 +227,9 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::put('/store_histdesversaopaisdesenvsocial',[TerapiaController::class,'storeHistDesVersaoPaisDesenvSocial']);
         Route::get('/edit_histdesversaopaisdesenvsocial/{id}',[TerapiaController::class,'editHistDesVersaoPaisDesenvSocial']);
         Route::put('/update_histdesversaopaisdesenvsocial/{id}',[TerapiaController::class,'updateHistDesVersaoPaisDesenvSocial']);
+        Route::put('/store_histdesversaopaisbrincadeiras',[TerapiaController::class,'storeHistDesVersaoPaisBrincadeiras']);
+        Route::get('/edit_histdesversaopaisbrincadeiras/{id}',[TerapiaController::class,'editHistDesVersaoPaisBrincadeiras']);
+        Route::put('/update_histdesversaopaisbrincadeiras/{id}',[TerapiaController::class,'updateHistDesVersaoPaisbrincadeiras']);
       });
 
       Route::prefix('feriado')->name('feriado.')->group(function(){

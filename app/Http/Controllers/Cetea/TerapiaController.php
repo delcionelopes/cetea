@@ -1351,5 +1351,135 @@ public function storeHistDesVersaoPaisDesenvSocial(Request $request){
     }
     }
 
+///////////////////////////
+
+public function storeHistDesVersaoPaisBrincadeiras(Request $request){
+        $validator = Validator::make($request->all(),[
+            'atendimento' => ['required'],
+            'paciente' => ['required'],                    
+        ]);
+        if($validator->fails()){
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->errors()->getMessages(),
+            ]);
+        }else{
+            $user = auth()->user();
+            $data['id'] = $this->maxId_HistDesVersaoPaisBrincadeiras();
+            $data['atendimento_id'] = $request->input('atendimento');
+            $data['paciente_id'] = $request->input('paciente');
+            $data['i1_brincadeira_favorita'] = $request->input('l1_brincadeira_favorita');
+            $data['i2_brinquedos_favoritos'] = $request->input('l2_brinquedos_favoritos');
+            $data['i3_vc_o_considera_obcecado'] = $request->input('l3_vc_o_considera_obcecado');
+            $data['i3_ele_ja_foi_obcecado_por_algo'] = $request->input('l3_ele_ja_foi_obcecado_por_algo');
+            $data['i4_tem_inter_p_cheiro_textura'] = $request->input('l4_tem_inter_p_cheiro_textura');
+            $data['i4_obs'] = $request->input('l4_obs');
+            $data['i5_brinca_de_form_repet'] = $request->input('l5_brinca_de_form_repet');
+            $data['i5_obs'] = $request->input('l5_obs');
+            $data['i6_brinca_de_form_func'] = $request->input('l6_brinca_de_form_func');
+            $data['i6_obs'] = $request->input('l6_obs');
+            $data['i7_brinca_de_form_simb_mini'] = $request->input('l7_brinca_de_form_simb_mini');
+            $data['i7_obs'] = $request->input('l7_obs');
+            $data['i8_brinca_de_form_simb_objetos'] = $request->input('l8_brinca_de_form_simb_objetos');
+            $data['i8_obs'] = $request->input('l8_obs');
+            $data['i9_brinca_de_form_simb_atrpapeis'] = $request->input('l9_brinca_de_form_simb_atrpapeis');
+            $data['i9_obs'] = $request->input('l9_obs');
+            $data['i10_segue_regras_de_brincadeiras'] = $request->input('l10_segue_regras_de_brincadeiras');
+            $data['i10_obs'] = $request->input('l10_obs');
+            $data['i11_bom_fazer_amizades'] = $request->input('l11_bom_fazer_amizades');
+            $data['i11_obs'] = $request->input('l11_obs');
+            $data['i12_e_solitario'] = $request->input('l12_e_solitario');
+            $data['i12_obs'] = $request->input('l12_obs');
+            $data['i13_e_timido'] = $request->input('l13_e_timido');
+            $data['i13_obs'] = $request->input('l13_obs');
+            $data['i14_tem_melhor_amigo'] = $request->input('l14_tem_melhor_amigo');
+            $data['i14_obs'] = $request->input('l14_obs');
+            $data['i15_prefer_criancas_mesma_idade'] = $request->input('l15_prefer_criancas_mesma_idade');
+            $data['created_at'] = now();
+            $data['updated_at'] = null;
+            $data['creater_user'] = $user->id;
+            $data['updater_user'] = null;
+            $this->histdes_versaopais_brincadeiras->create($data);
+
+            return response()->json([
+                'status' => 200,
+            ]);
+
+        }
+    }    
+
+    protected function maxId_HistDesVersaoPaisBrincadeiras(){
+        $histdes_versaopais_brincadeiras = $this->histdes_versaopais_brincadeiras->orderByDesc('id')->first();
+        if($histdes_versaopais_brincadeiras){
+            $codigo = $histdes_versaopais_brincadeiras->id;
+        }else{
+            $codigo = 0;
+        }
+        return $codigo+1;
+    }
+
+    public function editHistDesVersaoPaisBrincadeiras(int $id){
+        $busca_pelo_paciente = $this->histdes_versaopais_brincadeiras->wherePaciente_id($id)->first();        
+        $histdes_versaopais_brincadeiras = $this->histdes_versaopais_brincadeiras->find($busca_pelo_paciente->id);
+        return response()->json([
+            'status' => 200,
+            'histdesversaopaisbrincadeiras' => $histdes_versaopais_brincadeiras,
+        ]);
+    }
+
+    public function updateHistDesVersaoPaisBrincadeiras(Request $request, int $id){
+        $validator = Validator::make($request->all(),[
+            'atendimento' => ['required'],
+            'paciente' => ['required'],                        
+        ]);
+        if($validator->fails()){
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->errors()->getMessages(),
+            ]);
+        }else{
+            $busca_pelo_paciente = $this->histdes_versaopais_brincadeiras->wherePaciente_id($id)->first();
+            $brincadeiras = $this->histdes_versaopais_brincadeiras->find($busca_pelo_paciente->id);
+            $user = auth()->user();            
+            $data['atendimento_id'] = $request->input('atendimento');
+            $data['paciente_id'] = $request->input('paciente');
+            $data['i1_brincadeira_favorita'] = $request->input('l1_brincadeira_favorita');
+            $data['i2_brinquedos_favoritos'] = $request->input('l2_brinquedos_favoritos');
+            $data['i3_vc_o_considera_obcecado'] = $request->input('l3_vc_o_considera_obcecado');
+            $data['i3_ele_ja_foi_obcecado_por_algo'] = $request->input('l3_ele_ja_foi_obcecado_por_algo');
+            $data['i4_tem_inter_p_cheiro_textura'] = $request->input('l4_tem_inter_p_cheiro_textura');
+            $data['i4_obs'] = $request->input('l4_obs');
+            $data['i5_brinca_de_form_repet'] = $request->input('l5_brinca_de_form_repet');
+            $data['i5_obs'] = $request->input('l5_obs');
+            $data['i6_brinca_de_form_func'] = $request->input('l6_brinca_de_form_func');
+            $data['i6_obs'] = $request->input('l6_obs');
+            $data['i7_brinca_de_form_simb_mini'] = $request->input('l7_brinca_de_form_simb_mini');
+            $data['i7_obs'] = $request->input('l7_obs');
+            $data['i8_brinca_de_form_simb_objetos'] = $request->input('l8_brinca_de_form_simb_objetos');
+            $data['i8_obs'] = $request->input('l8_obs');
+            $data['i9_brinca_de_form_simb_atrpapeis'] = $request->input('l9_brinca_de_form_simb_atrpapeis');
+            $data['i9_obs'] = $request->input('l9_obs');
+            $data['i10_segue_regras_de_brincadeiras'] = $request->input('l10_segue_regras_de_brincadeiras');
+            $data['i10_obs'] = $request->input('l10_obs');
+            $data['i11_bom_fazer_amizades'] = $request->input('l11_bom_fazer_amizades');
+            $data['i11_obs'] = $request->input('l11_obs');
+            $data['i12_e_solitario'] = $request->input('l12_e_solitario');
+            $data['i12_obs'] = $request->input('l12_obs');
+            $data['i13_e_timido'] = $request->input('l13_e_timido');
+            $data['i13_obs'] = $request->input('l13_obs');
+            $data['i14_tem_melhor_amigo'] = $request->input('l14_tem_melhor_amigo');
+            $data['i14_obs'] = $request->input('l14_obs');
+            $data['i15_prefer_criancas_mesma_idade'] = $request->input('l15_prefer_criancas_mesma_idade');        
+            $data['updated_at'] = now();
+            $data['updater_user'] = $user->id;
+            $brincadeiras->update($data);            
+
+            return response()->json([
+                'status' => 200,                
+            ]);        
+    }
+    }
+
+
 
 }
