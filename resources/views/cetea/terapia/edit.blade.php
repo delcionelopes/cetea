@@ -7423,7 +7423,7 @@ $(document).on('click','.histdes_versaopais_brincadeiras',function(e){
             async:true,
             success:function(response){
                 if(response.status==400){
-                    $("#updateform_errList_histdesversaopaisbrincadeiras").replaceWith('<ul id="updateform_errList_histdesversaopaisdesenvsocial"></ul>');
+                    $("#updateform_errList_histdesversaopaisbrincadeiras").replaceWith('<ul id="updateform_errList_histdesversaopaisbrincadeiras"></ul>');
                     $("#updateform_errlist_histdesversaopaisbrincadeiras").addClass('alert alert-danger');
                     $.each(response.errors,function(key,err_values){
                         $("#updateform_errlist_histdesversaopaisbrincadeiras").append('<li>'+err_values+'</li>');
@@ -7431,8 +7431,8 @@ $(document).on('click','.histdes_versaopais_brincadeiras',function(e){
                     loading.hide();
                 }else{
                     loading.hide();
-                    $("#updateform_errlist_histdesversaopaisbrincadeiras").replaceWith('<ul id="updateform_errList_histdesversaopaisdesenvsocial"></ul>');
-                    $("#histdes_versaopais_brincadeiras"+atendimentoid).replaceWith('<i data-id="1" id="histdes_versaopais_desenvsocial'+atendimentoid+'" class="fas fa-check" style="color: green"></i>');
+                    $("#updateform_errlist_histdesversaopaisbrincadeiras").replaceWith('<ul id="updateform_errList_histdesversaopaisbrincadeiras"></ul>');
+                    $("#histdes_versaopais_brincadeiras"+atendimentoid).replaceWith('<i data-id="1" id="histdes_versaopais_brincadeiras'+atendimentoid+'" class="fas fa-check" style="color: green"></i>');
                     $("#editform_histdesversaopaisbrincadeiras").trigger('reset');
                     $("#EditHistDesVersaoPaisBrincadeiras").modal('hide');    
                 }
