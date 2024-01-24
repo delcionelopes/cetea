@@ -234,6 +234,7 @@
                         <label for="addj16_sensivel_barulho">
                         <input type="checkbox" class="j16_sensivel_barulho checkbox" name="addj16_sensivel_barulho" id="addj16_sensivel_barulho"> Ele(a) é muito sensível a barulho. Costuma tapar os ouvidos ou ter crises em alguma situações?</label>
                         <label for="addj16_obs">Observações:</label>
+                        <span class="addj16_obs"></span>
                         <textarea name="addj16_obs" id="addj16_obs" class="j16_obs form-control" cols="30" rows="4"></textarea>
 
                     </div>
@@ -243,6 +244,7 @@
                         <label for="addj17_tocarcheirarabracarinadpessobj">
                         <input type="checkbox" class="j17_tocarcheirarabracarinadpessobj checkbox" name="addj17_tocarcheirarabracarinadpessobj" id="addj17_tocarcheirarabracarinadpessobj"> Procura tocar, cheirar, ou abraçar de forma inadequada as pessoas ou objetos?</label>
                         <label for="addj17_obs">Observações:</label>
+                        <span class="addj17_obs"></span>
                         <textarea name="addj17_obs" id="addj17_obs" class="j17_obs form-control" cols="30" rows="4"></textarea>
 
                     </div>
@@ -252,6 +254,7 @@
                         <label for="addj18_par_nsentir_sentir_dor_frio">
                         <input type="checkbox" class="j18_par_nsentir_sentir_dor_frio checkbox" name="addj18_par_nsentir_sentir_dor_frio" id="addj18_par_nsentir_sentir_dor_frio"> Parece não sentir dor quando sofre um machucado ou não sentir frio? É pouco sensível a alguns estímulos sensoriais?</label>
                         <label for="addj18_obs">Observações:</label>
+                        <span class="addj18_obs"></span>
                         <textarea name="addj18_obs" id="addj18_obs" class="j18_obs form-control" cols="30" rows="4"></textarea>
                     </div>
                 </fieldset>
@@ -260,6 +263,7 @@
                         <label for="addj19_fascinado_luzes">
                         <input type="checkbox" class="j19_fascinado_luzes checkbox" name="addj19_fascinado_luzes" id="addj19_fascinado_luzes"> É fascinado(a) por luzes?</label>
                         <label for="addj19_obs">Observações:</label>
+                        <span class="addj19_obs"></span>
                         <textarea name="addj19_obs" id="addj19_obs" class="j19_obs form-control" cols="30" rows="4"></textarea>
                     </div>
                 </fieldset>
@@ -268,6 +272,7 @@
                         <label for="addj20_sensivel_ao_toque">
                         <input type="checkbox" class="j20_sensivel_ao_toque checkbox" name="addj20_sensivel_ao_toque" id="addj20_sensivel_ao_toque"> Ele(a) é muito sensível ao toque? Evita ser abraçado, tem dificuldades para trocar de roupas e se enxugar após o banho?</label>
                         <label for="addj20_obs">Observações:</label>
+                        <span class="addj20_obs"></span>
                         <textarea name="addj20_obs" id="addj20_obs" class="j20_obs form-control" cols="30" rows="4"></textarea>
                     </div>
                 </fieldset>
@@ -276,6 +281,7 @@
                         <label for="addj21_texturas_incomodam">
                         <input type="checkbox" class="j21_texturas_incomodam checkbox" name="addj21_texturas_incomodam" id="addj21_texturas_incomodam"> Algumas texturas realmente o(a) incomodam?</label>
                         <label for="addj21_obs">Observações:</label>
+                        <span class="addj21_obs"></span>
                         <textarea name="addj21_obs" id="addj21_obs" class="j21_obs form-control" cols="30" rows="4"></textarea>
                     </div>
                 </fieldset>
@@ -284,6 +290,7 @@
                         <label for="addj22_reacao_text_alim">
                         <input type="checkbox" class="j22_reacao_text_alim checkbox" name="addj22_reacao_text_alim" id="addj22_reacao_text_alim"> Apresenta alguma reação a textura de alimentos?</label>
                         <label for="addj22_obs">Observações:</label>
+                        <span class="addj22_obs"></span>
                         <textarea name="addj22_obs" id="addj22_obs" class="j22_obs form-control" cols="30" rows="4"></textarea>
                     </div>
                 </fieldset>
@@ -503,6 +510,7 @@
                         <label for="editj16_sensivel_barulho">
                         <input type="checkbox" class="j16_sensivel_barulho checkbox" name="editj16_sensivel_barulho" id="editj16_sensivel_barulho"> Ele(a) é muito sensível a barulho. Costuma tapar os ouvidos ou ter crises em alguma situações?</label>
                         <label for="editj16_obs">Observações:</label>
+                        <span class="editj16_obs"></span>
                         <textarea name="editj16_obs" id="editj16_obs" class="j16_obs form-control" cols="30" rows="4"></textarea>
 
                     </div>
@@ -512,6 +520,7 @@
                         <label for="editj17_tocarcheirarabracarinadpessobj">
                         <input type="checkbox" class="j17_tocarcheirarabracarinadpessobj checkbox" name="editj17_tocarcheirarabracarinadpessobj" id="editj17_tocarcheirarabracarinadpessobj"> Procura tocar, cheirar, ou abraçar de forma inadequada as pessoas ou objetos?</label>
                         <label for="editj17_obs">Observações:</label>
+                        <span class="editj17_obs"></span>
                         <textarea name="editj17_obs" id="editj17_obs" class="j17_obs form-control" cols="30" rows="4"></textarea>
 
                     </div>
@@ -521,6 +530,7 @@
                         <label for="editj18_par_nsentir_sentir_dor_frio">
                         <input type="checkbox" class="j18_par_nsentir_sentir_dor_frio checkbox" name="editj18_par_nsentir_sentir_dor_frio" id="editj18_par_nsentir_sentir_dor_frio"> Parece não sentir dor quando sofre um machucado ou não sentir frio? É pouco sensível a alguns estímulos sensoriais?</label>
                         <label for="editj18_obs">Observações:</label>
+                        <span class="editj18_obs"></span>
                         <textarea name="editj18_obs" id="editj18_obs" class="j18_obs form-control" cols="30" rows="4"></textarea>
                     </div>
                 </fieldset>
@@ -529,6 +539,7 @@
                         <label for="editj19_fascinado_luzes">
                         <input type="checkbox" class="j19_fascinado_luzes checkbox" name="editj19_fascinado_luzes" id="editj19_fascinado_luzes"> É fascinado(a) por luzes?</label>
                         <label for="editj19_obs">Observações:</label>
+                        <span class="editj19_obs"></span>
                         <textarea name="editj19_obs" id="editj19_obs" class="j19_obs form-control" cols="30" rows="4"></textarea>
                     </div>
                 </fieldset>
@@ -537,6 +548,7 @@
                         <label for="editj20_sensivel_ao_toque">
                         <input type="checkbox" class="j20_sensivel_ao_toque checkbox" name="editj20_sensivel_ao_toque" id="editj20_sensivel_ao_toque"> Ele(a) é muito sensível ao toque? Evita ser abraçado, tem dificuldades para trocar de roupas e se enxugar após o banho?</label>
                         <label for="editj20_obs">Observações:</label>
+                        <span class="editj20_obs"></span>
                         <textarea name="editj20_obs" id="editj20_obs" class="j20_obs form-control" cols="30" rows="4"></textarea>
                     </div>
                 </fieldset>
@@ -545,6 +557,7 @@
                         <label for="editj21_texturas_incomodam">
                         <input type="checkbox" class="j21_texturas_incomodam checkbox" name="editj21_texturas_incomodam" id="editj21_texturas_incomodam"> Algumas texturas realmente o(a) incomodam?</label>
                         <label for="editj21_obs">Observações:</label>
+                        <span class="editj21_obs"></span>
                         <textarea name="editj21_obs" id="editj21_obs" class="j21_obs form-control" cols="30" rows="4"></textarea>
                     </div>
                 </fieldset>
@@ -553,6 +566,7 @@
                         <label for="editj22_reacao_text_alim">
                         <input type="checkbox" class="j22_reacao_text_alim checkbox" name="editj22_reacao_text_alim" id="editj22_reacao_text_alim"> Apresenta alguma reação a textura de alimentos?</label>
                         <label for="editj22_obs">Observações:</label>
+                        <span class="editj22_obs"></span>
                         <textarea name="editj22_obs" id="editj22_obs" class="j22_obs form-control" cols="30" rows="4"></textarea>
                     </div>
                 </fieldset>
@@ -2917,7 +2931,7 @@
                                             @if($count_histdes_versaopais_desenvsocial)<i data-id="1" id="histdes_versaopais_desenvsocial{{$atendimento->id}}" class="fas fa-check" style="color: green"></i>@else<i data-id="0" id="histdes_versaopais_desenvsocial{{$atendimento->id}}"></i>@endif Desenvolvimento Social</a></li>
                                         <li class="dropdown-item bg-light"><a href="#" class="histdes_versaopais_brincadeiras dropdown-item" data-pacienteid="{{$atendimento->paciente_id}}" data-atendimentoid="{{$atendimento->id}}">
                                             @if($count_histdes_versaopais_brincadeiras)<i data-id="1" id="histdes_versaopais_brincadeiras{{$atendimento->id}}" class="fas fa-check" style="color: green"></i>@else<i data-id="0" id="histdes_versaopais_brincadeiras{{$atendimento->id}}"></i>@endif Brincadeiras</a></li>
-                                        <li class="dropdown-item bg-light"><a href="#" class="dropdown-item" data-id="{{$atendimento->paciente_id}}">
+                                        <li class="dropdown-item bg-light"><a href="#" class="histdes_versaopais_comportamentos dropdown-item" data-pacienteid="{{$atendimento->paciente_id}}" data-atendimentoid="{{$atendimento->id}}">
                                             @if($count_histdes_versaopais_comportamentos)<i data-id="1" id="histdes_versaopais_comportamentos{{$atendimento->id}}" class="fas fa-check" style="color: green"></i>@else<i data-id="0" id="histdes_versaopais_comportamentos{{$atendimento->id}}"></i>@endif Comportamentos</a></li>
                                         <li class="dropdown-item bg-light"><a href="#" class="dropdown-item" data-id="{{$atendimento->paciente_id}}">
                                             @if($count_histdes_versaopais_independencia)<i data-id="1" id="histdes_versaopais_independencia{{$atendimento->id}}" class="fas fa-check" style="color: green"></i>@else<i data-id="0" id="histdes_versaopais_independencia{{$atendimento->id}}"></i>@endif Independência</a></li>
@@ -7269,7 +7283,6 @@ $(document).on('click','.histdes_versaopais_desenvsocial',function(e){
     });
 
 //fim histdes_versaopais_desenvsocial
-////////////////////////////////
 
 //início histdes_versaopais_brincadeiras
 
@@ -7978,6 +7991,950 @@ $(document).on('click','.histdes_versaopais_brincadeiras',function(e){
     });
 
 //fim histdes_versaopais_brincadeiras
+
+//////////////////////////
+
+//início histdes_versaopais_comportamentos
+
+$("#AddAHistDesVersaoPaisComportamentos").on('shown.bs.modal',function(){
+            $(".j1_obs").focus();
+    });
+
+$("#EditHistDesVersaoPaisComportamentos").on('shown.bs.modal',function(){
+            $(".j1_obs").focus();
+    });
+
+//inicio conta caracteres dos textarea HistDesVersaoPaisComportamentos
+
+    //add
+ 
+    $(document).on('input','#addj1_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var j1_obs = $('textarea[name="addj1_obs"]').val();
+            $('textarea[name="addj1_obs"]').val(j1_obs.substr(0,limite));
+            $(".addj1_obs").text("0" + " " + informativo);
+        }else{
+            $(".addj1_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addj2_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var j2_obs = $('textarea[name="addj2_obs"]').val();
+            $('textarea[name="addj2_obs"]').val(j2_obs.substr(0,limite));
+            $(".addj2_obs").text("0" + " " + informativo);
+        }else{
+            $(".addj2_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addj3_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var j3_obs = $('textarea[name="addj3_obs"]').val();
+            $('textarea[name="addj3_obs"]').val(j3_obs.substr(0,limite));
+            $(".addj3_obs").text("0" + " " + informativo);
+        }else{
+            $(".addj3_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addj4_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var j4_obs = $('textarea[name="addj4_obs"]').val();
+            $('textarea[name="addj4_obs"]').val(j4_obs.substr(0,limite));
+            $(".addj4_obs").text("0" + " " + informativo);
+        }else{
+            $(".addj4_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addj5_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var j5_obs = $('textarea[name="addj5_obs"]').val();
+            $('textarea[name="addj5_obs"]').val(j5_obs.substr(0,limite));
+            $(".addj5_obs").text("0" + " " + informativo);
+        }else{
+            $(".addj5_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addj6_outras_manias',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var j6_outras_manias = $('textarea[name="addj6_outras_manias"]').val();
+            $('textarea[name="addj6_outras_manias"]').val(j6_outras_manias.substr(0,limite));
+            $(".addj6_outras_manias").text("0" + " " + informativo);
+        }else{
+            $(".addj6_outras_manias").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addj7_reacao_quando_interr',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var j7_reacao_quando_interr = $('textarea[name="addj7_reacao_quando_interr"]').val();
+            $('textarea[name="addj7_reacao_quando_interr"]').val(j7_reacao_quando_interr.substr(0,limite));
+            $(".addj7_reacao_quando_interr").text("0" + " " + informativo);
+        }else{
+            $(".addj7_reacao_quando_interr").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addj8_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var j8_obs = $('textarea[name="addj8_obs"]').val();
+            $('textarea[name="addj8_obs"]').val(j8_obs.substr(0,limite));
+            $(".addj8_obs").text("0" + " " + informativo);
+        }else{
+            $(".addj8_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addj9_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var j9_obs = $('textarea[name="addj9_obs"]').val();
+            $('textarea[name="addj9_obs"]').val(j9_obs.substr(0,limite));
+            $(".addj9_obs").text("0" + " " + informativo);
+        }else{
+            $(".addj9_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addj10_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var j10_obs = $('textarea[name="addj10_obs"]').val();
+            $('textarea[name="addj10_obs"]').val(j10_obs.substr(0,limite));
+            $(".addj10_obs").text("0" + " " + informativo);
+        }else{
+            $(".addj10_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addj11_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var j11_obs = $('textarea[name="addj11_obs"]').val();
+            $('textarea[name="addj11_obs"]').val(j11_obs.substr(0,limite));
+            $(".addj11_obs").text("0" + " " + informativo);
+        }else{
+            $(".addj11_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addj12_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var j12_obs = $('textarea[name="addj12_obs"]').val();
+            $('textarea[name="addj12_obs"]').val(j12_obs.substr(0,limite));
+            $(".addj12_obs").text("0" + " " + informativo);
+        }else{
+            $(".addj12_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addj13_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var j13_obs = $('textarea[name="addj13_obs"]').val();
+            $('textarea[name="addj13_obs"]').val(j13_obs.substr(0,limite));
+            $(".addj13_obs").text("0" + " " + informativo);
+        }else{
+            $(".addj13_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addj14_cm_reage_frust_contr',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var j14_cm_reage_frust_contr = $('textarea[name="addj14_cm_reage_frust_contr"]').val();
+            $('textarea[name="addj14_cm_reage_frust_contr"]').val(j14_cm_reage_frust_contr.substr(0,limite));
+            $(".addj14_cm_reage_frust_contr").text("0" + " " + informativo);
+        }else{
+            $(".addj14_cm_reage_frust_contr").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addj16_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var j16_obs = $('textarea[name="addj16_obs"]').val();
+            $('textarea[name="addj16_obs"]').val(j16_obs.substr(0,limite));
+            $(".addj16_obs").text("0" + " " + informativo);
+        }else{
+            $(".addj16_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addj17_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var j17_obs = $('textarea[name="addj17_obs"]').val();
+            $('textarea[name="addj17_obs"]').val(j17_obs.substr(0,limite));
+            $(".addj17_obs").text("0" + " " + informativo);
+        }else{
+            $(".addj17_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addj18_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var j18_obs = $('textarea[name="addj18_obs"]').val();
+            $('textarea[name="addj18_obs"]').val(j18_obs.substr(0,limite));
+            $(".addj18_obs").text("0" + " " + informativo);
+        }else{
+            $(".addj18_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addj19_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var j19_obs = $('textarea[name="addj19_obs"]').val();
+            $('textarea[name="addj19_obs"]').val(j19_obs.substr(0,limite));
+            $(".addj19_obs").text("0" + " " + informativo);
+        }else{
+            $(".addj19_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addj20_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var j20_obs = $('textarea[name="addj20_obs"]').val();
+            $('textarea[name="addj20_obs"]').val(j20_obs.substr(0,limite));
+            $(".addj20_obs").text("0" + " " + informativo);
+        }else{
+            $(".addj20_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addj21_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var j21_obs = $('textarea[name="addj21_obs"]').val();
+            $('textarea[name="addj21_obs"]').val(j21_obs.substr(0,limite));
+            $(".addj21_obs").text("0" + " " + informativo);
+        }else{
+            $(".addj21_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addj22_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var j22_obs = $('textarea[name="addj22_obs"]').val();
+            $('textarea[name="addj22_obs"]').val(j22_obs.substr(0,limite));
+            $(".addj22_obs").text("0" + " " + informativo);
+        }else{
+            $(".addj22_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+     //edit
+ 
+    $(document).on('input','#editj1_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var j1_obs = $('textarea[name="editj1_obs"]').val();
+            $('textarea[name="editj1_obs"]').val(j1_obs.substr(0,limite));
+            $(".editj1_obs").text("0" + " " + informativo);
+        }else{
+            $(".editj1_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editj2_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var j2_obs = $('textarea[name="editj2_obs"]').val();
+            $('textarea[name="editj2_obs"]').val(j2_obs.substr(0,limite));
+            $(".editj2_obs").text("0" + " " + informativo);
+        }else{
+            $(".editj2_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editj3_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var j3_obs = $('textarea[name="editj3_obs"]').val();
+            $('textarea[name="editj3_obs"]').val(j3_obs.substr(0,limite));
+            $(".editj3_obs").text("0" + " " + informativo);
+        }else{
+            $(".editj3_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editj4_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var j4_obs = $('textarea[name="editj4_obs"]').val();
+            $('textarea[name="editj4_obs"]').val(j4_obs.substr(0,limite));
+            $(".editj4_obs").text("0" + " " + informativo);
+        }else{
+            $(".editj4_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editj5_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var j5_obs = $('textarea[name="editj5_obs"]').val();
+            $('textarea[name="editj5_obs"]').val(j5_obs.substr(0,limite));
+            $(".editj5_obs").text("0" + " " + informativo);
+        }else{
+            $(".editj5_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editj6_outras_manias',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var j6_outras_manias = $('textarea[name="editj6_outras_manias"]').val();
+            $('textarea[name="editj6_outras_manias"]').val(j6_outras_manias.substr(0,limite));
+            $(".editj6_outras_manias").text("0" + " " + informativo);
+        }else{
+            $(".editj6_outras_manias").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editj7_reacao_quando_interr',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var j7_reacao_quando_interr = $('textarea[name="editj7_reacao_quando_interr"]').val();
+            $('textarea[name="editj7_reacao_quando_interr"]').val(j7_reacao_quando_interr.substr(0,limite));
+            $(".editj7_reacao_quando_interr").text("0" + " " + informativo);
+        }else{
+            $(".editj7_reacao_quando_interr").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editj8_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var j8_obs = $('textarea[name="editj8_obs"]').val();
+            $('textarea[name="editj8_obs"]').val(j8_obs.substr(0,limite));
+            $(".editj8_obs").text("0" + " " + informativo);
+        }else{
+            $(".editj8_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editj9_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var j9_obs = $('textarea[name="editj9_obs"]').val();
+            $('textarea[name="editj9_obs"]').val(j9_obs.substr(0,limite));
+            $(".editj9_obs").text("0" + " " + informativo);
+        }else{
+            $(".editj9_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editj10_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var j10_obs = $('textarea[name="editj10_obs"]').val();
+            $('textarea[name="editj10_obs"]').val(j10_obs.substr(0,limite));
+            $(".editj10_obs").text("0" + " " + informativo);
+        }else{
+            $(".editj10_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editj11_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var j11_obs = $('textarea[name="editj11_obs"]').val();
+            $('textarea[name="editj11_obs"]').val(j11_obs.substr(0,limite));
+            $(".editj11_obs").text("0" + " " + informativo);
+        }else{
+            $(".editj11_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editj12_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var j12_obs = $('textarea[name="editj12_obs"]').val();
+            $('textarea[name="editj12_obs"]').val(j12_obs.substr(0,limite));
+            $(".editj12_obs").text("0" + " " + informativo);
+        }else{
+            $(".editj12_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editj13_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var j13_obs = $('textarea[name="editj13_obs"]').val();
+            $('textarea[name="editj13_obs"]').val(j13_obs.substr(0,limite));
+            $(".editj13_obs").text("0" + " " + informativo);
+        }else{
+            $(".editj13_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editj14_cm_reage_frust_contr',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var j14_cm_reage_frust_contr = $('textarea[name="editj14_cm_reage_frust_contr"]').val();
+            $('textarea[name="editj14_cm_reage_frust_contr"]').val(j14_cm_reage_frust_contr.substr(0,limite));
+            $(".editj14_cm_reage_frust_contr").text("0" + " " + informativo);
+        }else{
+            $(".editj14_cm_reage_frust_contr").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editj16_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var j16_obs = $('textarea[name="editj16_obs"]').val();
+            $('textarea[name="editj16_obs"]').val(j16_obs.substr(0,limite));
+            $(".editj16_obs").text("0" + " " + informativo);
+        }else{
+            $(".editj16_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editj17_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var j17_obs = $('textarea[name="editj17_obs"]').val();
+            $('textarea[name="editj17_obs"]').val(j17_obs.substr(0,limite));
+            $(".editj17_obs").text("0" + " " + informativo);
+        }else{
+            $(".editj17_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editj18_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var j18_obs = $('textarea[name="editj18_obs"]').val();
+            $('textarea[name="editj18_obs"]').val(j18_obs.substr(0,limite));
+            $(".editj18_obs").text("0" + " " + informativo);
+        }else{
+            $(".editj18_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editj19_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var j19_obs = $('textarea[name="editj19_obs"]').val();
+            $('textarea[name="editj19_obs"]').val(j19_obs.substr(0,limite));
+            $(".editj19_obs").text("0" + " " + informativo);
+        }else{
+            $(".editj19_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editj20_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var j20_obs = $('textarea[name="editj20_obs"]').val();
+            $('textarea[name="editj20_obs"]').val(j20_obs.substr(0,limite));
+            $(".editj20_obs").text("0" + " " + informativo);
+        }else{
+            $(".editj20_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editj21_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var j21_obs = $('textarea[name="editj21_obs"]').val();
+            $('textarea[name="editj21_obs"]').val(j21_obs.substr(0,limite));
+            $(".editj21_obs").text("0" + " " + informativo);
+        }else{
+            $(".editj21_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editj22_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var j22_obs = $('textarea[name="editj22_obs"]').val();
+            $('textarea[name="editj22_obs"]').val(j22_obs.substr(0,limite));
+            $(".editj22_obs").text("0" + " " + informativo);
+        }else{
+            $(".editj22_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+
+
+   
+$(document).on('click','.histdes_versaopais_comportamentos',function(e){
+        e.preventDefault();
+        var pacienteid = $(this).data("pacienteid");
+        var atendimentoid = $(this).data("atendimentoid");
+        var opcao_form_histdes_versaopais_comportamentos = $("#histdes_versaopais_comportamentos"+atendimentoid).data("id");
+
+        if(opcao_form_histdes_versaopais_comportamentos==0){
+                $("#addpacienteid_histdesversaopaiscomportamentos").val(pacienteid);
+                $("#addatendimentoid_histdesversaopaiscomportamentos").val(atendimentoid);
+                $("#addform_histdesversaopaiscomportamentos").trigger('reset');
+                $("#AddHistDesVersaoPaisComportamentos").modal('show'); 
+                $("#saveform_errList_histdesversaopaiscomportamentos").replaceWith('<ul id="saveform_errList_histdesversaopaiscomportamentos"></ul>');
+        }else{            
+                $("#editpacienteid_histdesversaopaiscomportamentos").val(pacienteid);
+                $("#editatendimentoid_histdesversaopaiscomportamentos").val(atendimentoid);
+                $("#editform_histdesversaopaiscomportamentos").trigger('reset');
+                $("#EditHistDesVersaoPaisComportamentos").modal('show'); 
+                $("#updateform_errList_histdesversaocomportamentos").replaceWith('<ul id="updateform_errList_histdesversaocomportamentos"></ul>');
+
+                 $.ajaxSetup({
+                    headers:{
+                        'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+    
+    
+                $.ajax({ 
+                    type: 'GET',             
+                    dataType: 'json',                                    
+                    url: '/ceteaadmin/terapia/edit_histdesversaopaiscomportamentos/'+pacienteid,
+                    success: function(response){           
+                        if(response.status==200){                                                
+                            $(".j1_alinha_enfileira_objetos").attr('checked',response.histdesversaopaiscomportamentos.j1_alinha_enfileira_objetos);
+                            $(".j1_obs").val(response.histdesversaopaiscomportamentos.j1_obs);
+                            $(".j2_empilha_objetos").attr('checked',response.histdesversaopaiscomportamentos.j2_empilha_objetos);
+                            $(".j2_obs").val(response.histdesversaopaiscomportamentos.j2_obs);
+                            $(".j3_abrefecha_gav_port").attr('checked',response.histdesversaopaiscomportamentos.j3_abrefecha_gav_port);
+                            $(".j3_obs").val(response.histdesversaopaiscomportamentos.j3_obs);
+                            $(".j4_apagaacende_luz").attr('checked',response.histdesversaopaiscomportamentos.j4_apagaacende_luz);
+                            $(".j4_obs").val(response.histdesversaopaiscomportamentos.j4_obs);
+                            $(".j5_inter_objetos_giram").attr('checked',response.histdesversaopaiscomportamentos.j5_inter_objetos_giram);
+                            $(".j5_obs").val(response.histdesversaopaiscomportamentos.j5_obs);                            
+                            $(".j6_outras_manias").val(response.histdesversaopaiscomportamentos.j6_outras_manias);
+                            $(".j7_inter_objetos_giram_2").attr('checked',response.histdesversaopaiscomportamentos.j7_inter_objetos_giram_2);
+                            $(".j7_reacao_quando_interr").val(response.histdesversaopaiscomportamentos.j7_reacao_quando_interr);
+                            $(".j8_brinca_form_simbol_insist").attr('checked',response.histdesversaopaiscomportamentos.j8_brinca_form_simbol_insist);
+                            $(".j8_obs").val(response.histdesversaopaiscomportamentos.j8_obs);
+                            $(".j9_resiste_mud_rotina").attr('checked',response.histdesversaopaiscomportamentos.j9_resiste_mud_rotina);
+                            $(".j9_obs").val(response.histdesversaopaiscomportamentos.j9_obs);
+                            $(".j10_gosta_msm_ordem_horario").attr('checked',response.histdesversaopaiscomportamentos.j10_gosta_msm_ordem_horario);
+                            $(".j10_obs").val(response.histdesversaopaiscomportamentos.j10_obs);
+                            $(".j11_ritual_ordem_determinada").attr('checked',response.histdesversaopaiscomportamentos.j11_ritual_ordem_determinada);
+                            $(".j11_obs").val(response.histdesversaopaiscomportamentos.j11_obs);
+                            $(".j12_coisas_msm_lugar").attr('checked',response.histdesversaopaiscomportamentos.j12_coisas_msm_lugar);
+                            $(".j12_obs").val(response.histdesversaopaiscomportamentos.j12_obs);
+                            $(".j13_gstmsm_roupas_alim_lugar").attr('checked',response.histdesversaopaiscomportamentos.j13_gstmsm_roupas_alim_lugar);
+                            $(".j13_obs").val(response.histdesversaopaiscomportamentos.j13_obs);
+                            $(".j14_cm_reage_frust_contr").val(response.histdesversaopaiscomportamentos.j14_cm_reage_frust_contr);
+                            $(".j15_chup_os_dedos").attr('checked',response.histdesversaopaiscomportamentos.j15_chup_os_dedos);
+                            $(".j15_roe_unhas").attr('checked',response.histdesversaopaiscomportamentos.j15_roe_unhas);
+                            $(".j15_estalar_dedos").attr('checked',response.histdesversaopaiscomportamentos.j15_estalar_dedos);
+                            $(".j15_morder_labios").attr('checked',response.histdesversaopaiscomportamentos.j15_morder_labios);
+                            $(".j15_mast_publico").attr('checked',response.histdesversaopaiscomportamentos.j15_mast_publico);
+                            $(".j15_torce_cabelo").attr('checked',response.histdesversaopaiscomportamentos.j15_torce_cabelo);
+                            $(".j15_balanc_corpo").attr('checked',response.histdesversaopaiscomportamentos.j15_balanc_corpo);
+                            $(".j15_bater_maos").attr('checked',response.histdesversaopaiscomportamentos.j15_bater_maos);
+                            $(".j15_flapping_maos").attr('checked',response.histdesversaopaiscomportamentos.j15_flapping_maos);
+                            $(".j15_andar_ponta_pes").attr('checked',response.histdesversaopaiscomportamentos.j15_andar_ponta_pes);
+                            $(".j15_flex_ext_punhos").attr('checked',response.histdesversaopaiscomportamentos.j15_flex_ext_punhos);
+                            $(".j15_morde_pp_corpo").attr('checked',response.histdesversaopaiscomportamentos.j15_morde_pp_corpo);
+                            $(".j15_bater_a_cabeca").attr('checked',response.histdesversaopaiscomportamentos.j15_bater_a_cabeca);
+                            $(".j15_outros").val(response.histdesversaopaiscomportamentos.j15_outros);
+                            $(".j16_sensivel_barulho").attr('checked',response.histdesversaopaiscomportamentos.j16_sensivel_barulho);
+                            $(".j16_obs").val(response.histdesversaopaiscomportamentos.j16_obs);
+                            $(".j17_tocarcheirarabracarinadpessobj").attr('checked',response.histdesversaopaiscomportamentos.j17_tocarcheirarabracarinadpessobj);
+                            $(".j17_obs").val(response.histdesversaopaiscomportamentos.j17_obs);
+                            $(".j18_par_nsentir_sentir_dor_frio").attr('checked',response.histdesversaopaiscomportamentos.j18_par_nsentir_sentir_dor_frio);
+                            $(".j18_obs").val(response.histdesversaopaiscomportamentos.j18_obs);
+                            $(".j19_fascinado_luzes").attr('checked',response.histdesversaopaiscomportamentos.j19_fascinado_luzes);
+                            $(".j19_obs").val(response.histdesversaopaiscomportamentos.j19_obs);
+                            $(".j20_sensivel_ao_toque").attr('checked',response.histdesversaopaiscomportamentos.j20_sensivel_ao_toque);
+                            $(".j20_obs").val(response.histdesversaopaiscomportamentos.j20_obs);
+                            $(".j21_texturas_incomodam").attr('checked',response.histdesversaopaiscomportamentos.j21_texturas_incomodam);
+                            $(".j21_obs").val(response.histdesversaopaiscomportamentos.j21_obs);
+                            $(".j22_reacao_text_alim").attr('checked',response.histdesversaopaiscomportamentos.j22_reacao_text_alim);
+                            $(".j22_obs").val(response.histdesversaopaiscomportamentos.j22_obs);                            
+                        }      
+                    }
+                });
+        }
+    });
+
+
+    $(document).on('click','.add_histdesversaopais_comportamentos_btn',function(e){
+        e.preventDefault();
+        var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+        var pacienteid = $("#addpacienteid_histdesversaopaiscomportamentos").val();
+        var atendimentoid = $("#addatendimentoid_histdesversaopaiscomportamentos").val();
+
+        var loading = $("#imgadd_histdesversaopaiscomportamentos");
+            loading.show();
+
+        var data = new FormData();
+
+        data.append('atendimento',atendimentoid);
+        data.append('paciente',pacienteid);
+        data.append('j1_alinha_enfileira_objetos',$(".j1_alinha_enfileira_objetos").is(":checked")?'true':'false');
+        data.append('j1_obs',$(".j1_obs").val());
+        data.append('j2_empilha_objetos',$(".j2_empilha_objetos").is(":checked")?'true':'false');
+        data.append('j2_obs',$(".j2_obs").val());
+        data.append('j3_abrefecha_gav_port',$(".j3_abrefecha_gav_port").is(":checked")?'true':'false');
+        data.append('j3_obs',$(".j3_obs").val());
+        data.append('j4_apagaacende_luz',$(".j4_apagaacende_luz").is(":checked")?'true':'false');
+        data.append('j4_obs',$(".l7_obs").val());
+        data.append('j5_inter_objetos_giram',$(".j5_inter_objetos_giram").is(":checked")?'true':'false');
+        data.append('j5_obs',$(".j5_obs").val());
+        data.append('j6_outras_manias',$(".j6_outras_manias").val());
+        data.append('j7_inter_objetos_giram_2',$(".j7_inter_objetos_giram_2").is(":checked")?'true':'false');
+        data.append('j7_reacao_quando_interr',$(".j7_reacao_quando_interr").val());
+        data.append('j8_brinca_form_simbol_insist',$(".j8_brinca_form_simbol_insist").is(":checked")?'true':'false');
+        data.append('j8_obs',$(".j8_obs").val());
+        data.append('j9_resiste_mud_rotina',$(".j9_resiste_mud_rotina").is(":checked")?'true':'false');
+        data.append('j9_obs',$(".j9_obs").val());
+        data.append('j10_gosta_msm_ordem_horario',$(".j10_gosta_msm_ordem_horario").is(":checked")?'true':'false');
+        data.append('j10_obs',$(".j10_obs").val());
+        data.append('j11_ritual_ordem_determinada',$(".j11_ritual_ordem_determinada").is(":checked")?'true':'false');
+        data.append('j11_obs',$(".j11_obs").val());
+        data.append('j12_coisas_msm_lugar',$(".j12_coisas_msm_lugar").is(":checked")?'true':'false');
+        data.append('j12_obs',$(".j12_obs").val());
+        data.append('j13_gstmsm_roupas_alim_lugar',$(".j13_gstmsm_roupas_alim_lugar").is(":checked")?'true':'false');
+        data.append('j13_obs',$(".j13_obs").val());
+        data.append('j14_cm_reage_frust_contr',$(".j14_cm_reage_frust_contr").val());
+        data.append('j15_chup_os_dedos',$(".j15_chup_os_dedos").is(":checked")?'true':'false');
+        data.append('j15_roe_unhas',$(".j15_roe_unhas").is(":checked")?'true':'false');
+        data.append('j15_estalar_dedos',$(".j15_estalar_dedos").is(":checked")?'true':'false');
+        data.append('j15_morder_labios',$(".j15_morder_labios").is(":checked")?'true':'false');
+        data.append('j15_mast_publico',$(".j15_mast_publico").is(":checked")?'true':'false');
+        data.append('j15_torce_cabelo',$(".j15_torce_cabelo").is(":checked")?'true':'false');
+        data.append('j15_balanc_corpo',$(".j15_balanc_corpo").is(":checked")?'true':'false');
+        data.append('j15_bater_maos',$(".j15_bater_maos").is(":checked")?'true':'false');
+        data.append('j15_flapping_maos',$(".j15_flapping_maos").is(":checked")?'true':'false');
+        data.append('j15_andar_ponta_pes',$(".j15_andar_ponta_pes").is(":checked")?'true':'false');
+        data.append('j15_flex_ext_punhos',$(".j15_flex_ext_punhos").is(":checked")?'true':'false');
+        data.append('j15_morde_pp_corpo',$(".j15_morde_pp_corpo").is(":checked")?'true':'false');
+        data.append('j15_bater_a_cabeca',$(".j15_bater_a_cabeca").is(":checked")?'true':'false');
+        data.append('j15_outros',$(".j15_outros").val());
+        data.append('j16_sensivel_barulho',$(".j16_sensivel_barulho").is(":checked")?'true':'false');
+        data.append('j16_obs',$(".j16_obs").val());
+        data.append('j17_tocarcheirarabracarinadpessobj',$(".j17_tocarcheirarabracarinadpessobj").is(":checked")?'true':'false');
+        data.append('j17_obs',$(".j17_obs").val());
+        data.append('j18_par_nsentir_sentir_dor_frio',$(".j18_par_nsentir_sentir_dor_frio").is(":checked")?'true':'false');
+        data.append('j18_obs',$(".j18_obs").val());
+        data.append('j19_fascinado_luzes',$(".j19_fascinado_luzes").is(":checked")?'true':'false');
+        data.append('j19_obs',$(".j19_obs").val());
+        data.append('j20_sensivel_ao_toque',$(".j20_sensivel_ao_toque").is(":checked")?'true':'false');
+        data.append('j20_obs',$(".j20_obs").val());
+        data.append('j21_texturas_incomodam',$(".j21_texturas_incomodam").is(":checked")?'true':'false');
+        data.append('j21_obs',$(".j21_obs").val());
+        data.append('j22_reacao_text_alim',$(".j22_reacao_text_alim").is(":checked")?'true':'false');
+        data.append('j22_obs',$(".j22_obs").val());
+        data.append('_token',CSRF_TOKEN);
+        data.append('_method','PUT');
+
+        $.ajax({
+            url:'/ceteaadmin/terapia/store_histdesversaopaiscomportamentos',
+            type: 'POST',
+            dataType: 'json',
+            data: data,
+            cache: false,
+            processData: false,
+            contentType: false,
+            async:true,
+            success:function(response){
+                if(response.status==400){
+                    $("#saveform_errlist_histdesversaopaiscomportamentos").replaceWith('<ul id="saveform_errList_histdesversaopaiscomportamentos"></ul>');
+                    $("#saveform_errlist_histdesversaopaiscomportamentos").addClass("alert alert-danger");
+                    $.each(response.errors,function(key,err_values){
+                        $("#saveform_errlist_histdesversaopaiscomportamentos").append('<li>'+err_values+'</li>')
+                    });
+                    loading.hide();
+                }else{
+                    loading.hide();
+                    $("#saveform_errlist_histdesversaopaiscomportamentos").replaceWith('<ul id="saveform_errList_histdesversaopaiscomportamentos"></ul>');
+                    $("#histdes_versaopais_comportamentos"+atendimentoid).replaceWith('<i data-id="1" id="histdes_versaopais_comportamentos'+atendimentoid+'" class="fas fa-check" style="color: green"></i>');
+                    $("#addform_histdesversaopaiscomportamentos").trigger('reset');
+                    $("#AddHistDesVersaoPaiscomportamentos").modal('hide');                     
+                }
+            }
+
+        });
+
+    });
+
+
+    $(document).on('click','.update_histdesversaopaiscomportamentos_btn',function(e){
+        var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+        var atendimentoid = $("#editatendimentoid_histdesversaopaiscomportamentos").val();
+        var pacienteid = $("#editpacienteid_histdesversaopaiscomportamentos").val();
+
+        var loading = $("#imgedit_histdesversaopaiscomportamentos");
+            loading.show();
+
+        var data = new FormData();
+
+        data.append('atendimento',atendimentoid);
+        data.append('paciente',pacienteid);        
+        data.append('j1_alinha_enfileira_objetos',$("#editj1_alinha_enfileira_objetos").is(":checked")?'true':'false');
+        data.append('j1_obs',$("#editj1_obs").val());
+        data.append('j2_empilha_objetos',$("#editj2_empilha_objetos").is(":checked")?'true':'false');
+        data.append('j2_obs',$("#editj2_obs").val());
+        data.append('j3_abrefecha_gav_port',$("#editj3_abrefecha_gav_port").is(":checked")?'true':'false');
+        data.append('j3_obs',$("#editj3_obs").val());
+        data.append('j4_apagaacende_luz',$("#editj4_apagaacende_luz").is(":checked")?'true':'false');
+        data.append('j4_obs',$("#editl7_obs").val());
+        data.append('j5_inter_objetos_giram',$("#editj5_inter_objetos_giram").is(":checked")?'true':'false');
+        data.append('j5_obs',$("#editj5_obs").val());
+        data.append('j6_outras_manias',$("#editj6_outras_manias").val());
+        data.append('j7_inter_objetos_giram_2',$("#editj7_inter_objetos_giram_2").is(":checked")?'true':'false');
+        data.append('j7_reacao_quando_interr',$("#editj7_reacao_quando_interr").val());
+        data.append('j8_brinca_form_simbol_insist',$("#editj8_brinca_form_simbol_insist").is(":checked")?'true':'false');
+        data.append('j8_obs',$("#editj8_obs").val());
+        data.append('j9_resiste_mud_rotina',$("#editj9_resiste_mud_rotina").is(":checked")?'true':'false');
+        data.append('j9_obs',$("#editj9_obs").val());
+        data.append('j10_gosta_msm_ordem_horario',$("#editj10_gosta_msm_ordem_horario").is(":checked")?'true':'false');
+        data.append('j10_obs',$("#editj10_obs").val());
+        data.append('j11_ritual_ordem_determinada',$("#editj11_ritual_ordem_determinada").is(":checked")?'true':'false');
+        data.append('j11_obs',$("#editj11_obs").val());
+        data.append('j12_coisas_msm_lugar',$("#editj12_coisas_msm_lugar").is(":checked")?'true':'false');
+        data.append('j12_obs',$("#editj12_obs").val());
+        data.append('j13_gstmsm_roupas_alim_lugar',$("#editj13_gstmsm_roupas_alim_lugar").is(":checked")?'true':'false');
+        data.append('j13_obs',$("#editj13_obs").val());
+        data.append('j14_cm_reage_frust_contr',$("#editj14_cm_reage_frust_contr").val());
+        data.append('j15_chup_os_dedos',$("#editj15_chup_os_dedos").is(":checked")?'true':'false');
+        data.append('j15_roe_unhas',$("#editj15_roe_unhas").is(":checked")?'true':'false');
+        data.append('j15_estalar_dedos',$("#editj15_estalar_dedos").is(":checked")?'true':'false');
+        data.append('j15_morder_labios',$("#editj15_morder_labios").is(":checked")?'true':'false');
+        data.append('j15_mast_publico',$("#editj15_mast_publico").is(":checked")?'true':'false');
+        data.append('j15_torce_cabelo',$("#editj15_torce_cabelo").is(":checked")?'true':'false');
+        data.append('j15_balanc_corpo',$("#editj15_balanc_corpo").is(":checked")?'true':'false');
+        data.append('j15_bater_maos',$("#editj15_bater_maos").is(":checked")?'true':'false');
+        data.append('j15_flapping_maos',$("#editj15_flapping_maos").is(":checked")?'true':'false');
+        data.append('j15_andar_ponta_pes',$("#editj15_andar_ponta_pes").is(":checked")?'true':'false');
+        data.append('j15_flex_ext_punhos',$("#editj15_flex_ext_punhos").is(":checked")?'true':'false');
+        data.append('j15_morde_pp_corpo',$("#editj15_morde_pp_corpo").is(":checked")?'true':'false');
+        data.append('j15_bater_a_cabeca',$("#editj15_bater_a_cabeca").is(":checked")?'true':'false');
+        data.append('j15_outros',$("#editj15_outros").val());
+        data.append('j16_sensivel_barulho',$("#editj16_sensivel_barulho").is(":checked")?'true':'false');
+        data.append('j16_obs',$("#editj16_obs").val());
+        data.append('j17_tocarcheirarabracarinadpessobj',$("#editj17_tocarcheirarabracarinadpessobj").is(":checked")?'true':'false');
+        data.append('j17_obs',$("#editj17_obs").val());
+        data.append('j18_par_nsentir_sentir_dor_frio',$("#editj18_par_nsentir_sentir_dor_frio").is(":checked")?'true':'false');
+        data.append('j18_obs',$("#editj18_obs").val());
+        data.append('j19_fascinado_luzes',$("#editj19_fascinado_luzes").is(":checked")?'true':'false');
+        data.append('j19_obs',$("#editj19_obs").val());
+        data.append('j20_sensivel_ao_toque',$("#editj20_sensivel_ao_toque").is(":checked")?'true':'false');
+        data.append('j20_obs',$("#editj20_obs").val());
+        data.append('j21_texturas_incomodam',$("#editj21_texturas_incomodam").is(":checked")?'true':'false');
+        data.append('j21_obs',$("#editj21_obs").val());
+        data.append('j22_reacao_text_alim',$("#editj22_reacao_text_alim").is(":checked")?'true':'false');
+        data.append('j22_obs',$("#editj22_obs").val());
+        data.append('_token',CSRF_TOKEN);
+        data.append('_method','PUT');   
+
+        $.ajax({
+            url:'/ceteaadmin/terapia/update_histdesversaopaiscomportamentos/'+pacienteid,
+            type:'POST',
+            contentType: 'json',
+            data: data,
+            cache: false,
+            processData: false,
+            contentType: false,
+            async:true,
+            success:function(response){
+                if(response.status==400){
+                    $("#updateform_errList_histdesversaopaiscomportamentos").replaceWith('<ul id="updateform_errList_histdesversaopaiscomportamentos"></ul>');
+                    $("#updateform_errlist_histdesversaopaiscomportamentos").addClass('alert alert-danger');
+                    $.each(response.errors,function(key,err_values){
+                        $("#updateform_errlist_histdesversaopaiscomportamentos").append('<li>'+err_values+'</li>');
+                    });
+                    loading.hide();
+                }else{
+                    loading.hide();
+                    $("#updateform_errlist_histdesversaopaiscomportamentos").replaceWith('<ul id="updateform_errList_histdesversaopaiscomportamentos"></ul>');
+                    $("#histdes_versaopais_comportamentos"+atendimentoid).replaceWith('<i data-id="1" id="histdes_versaopais_comportamentos'+atendimentoid+'" class="fas fa-check" style="color: green"></i>');
+                    $("#editform_histdesversaopaiscomportamentos").trigger('reset');
+                    $("#EditHistDesVersaoPaiscomportamentos").modal('hide');    
+                }
+            }
+        });
+    });
+
+//fim histdes_versaopais_comportamentos
 
 
 });
