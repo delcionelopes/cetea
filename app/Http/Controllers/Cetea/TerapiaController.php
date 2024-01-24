@@ -1351,8 +1351,6 @@ public function storeHistDesVersaoPaisDesenvSocial(Request $request){
     }
     }
 
-///////////////////////////
-
 public function storeHistDesVersaoPaisBrincadeiras(Request $request){
         $validator = Validator::make($request->all(),[
             'atendimento' => ['required'],
@@ -1479,6 +1477,189 @@ public function storeHistDesVersaoPaisBrincadeiras(Request $request){
             ]);        
     }
     }
+
+//////////////////////////
+public function storeHistDesVersaoPaisComportamentos(Request $request){
+        $validator = Validator::make($request->all(),[
+            'atendimento' => ['required'],
+            'paciente' => ['required'],                    
+        ]);
+        if($validator->fails()){
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->errors()->getMessages(),
+            ]);
+        }else{
+            $user = auth()->user();
+            $data['id'] = $this->maxId_HistDesVersaoPaisComportamentos();
+            $data['atendimento_id'] = $request->input('atendimento');
+            $data['paciente_id'] = $request->input('paciente');
+            $data['j1_alinha_enfileira_objetos'] = $request->input('j1_alinha_enfileira_objetos');
+            $data['j1_obs'] = $request->input('j1_obs');
+            $data['j2_empilha_objetos'] = $request->input('j2_empilha_objetos');
+            $data['j2_obs'] = $request->input('j2_obs');
+            $data['j3_abrefecha_gav_port'] = $request->input('j3_abrefecha_gav_port');
+            $data['j3_obs'] = $request->input('j3_obs');
+            $data['j4_apagaacende_luz'] = $request->input('j4_apagaacende_luz');            
+            $data['j4_obs'] = $request->input('j4_obs');
+            $data['j5_inter_objetos_giram'] = $request->input('j5_inter_objetos_giram');
+            $data['j5_obs'] = $request->input('j5_obs');
+            $data['j6_outras_manias'] = $request->input('j6_outras_manias');
+            $data['j7_inter_objetos_giram_2'] = $request->input('j7_inter_objetos_giram_2');
+            $data['j7_reacao_quando_interr'] = $request->input('j7_reacao_quando_interr');
+            $data['j8_brinca_form_simbol_insist'] = $request->input('j8_brinca_form_simbol_insist');
+            $data['j8_obs'] = $request->input('j8_obs');
+            $data['j9_resiste_mud_rotina'] = $request->input('j9_resiste_mud_rotina');
+            $data['j9_obs'] = $request->input('j9_obs');
+            $data['j10_gosta_msm_ordem_horario'] = $request->input('j10_gosta_msm_ordem_horario');
+            $data['j10_obs'] = $request->input('j10_obs');
+            $data['j11_ritual_ordem_determinada'] = $request->input('j11_ritual_ordem_determinada');
+            $data['j11_obs'] = $request->input('j11_obs');
+            $data['j12_coisas_msm_lugar'] = $request->input('j12_coisas_msm_lugar');
+            $data['j12_obs'] = $request->input('j12_obs');
+            $data['j13_gstmsm_roupas_alim_lugar'] = $request->input('j13_gstmsm_roupas_alim_lugar');
+            $data['j13_obs'] = $request->input('j13_obs');
+            $data['j14_cm_reage_frustr_contr'] = $request->input('j14_cm_reage_frustr_contr');
+            $data['j15_chup_os_dedos'] = $request->input('j15_chup_os_dedos');
+            $data['j15_roe_unhas'] = $request->input('j15_roe_unhas');
+            $data['j15_estalar_dedos'] = $request->input('j15_estalar_dedos');
+            $data['j15_morder_labios'] = $request->input('j15_morder_labios');
+            $data['j15_mast_publico'] = $request->input('j15_mast_publico');
+            $data['j15_torce_cabelo'] = $request->input('j15_torce_cabelo');
+            $data['j15_balanc_corpo'] = $request->input('j15_balanc_corpo');
+            $data['j15_bater_maos'] = $request->input('j15_bater_maos');
+            $data['j15_flapping_maos'] = $request->input('j15_flapping_maos');
+            $data['j15_andar_ponta_pes'] = $request->input('j15_andar_ponta_pes');
+            $data['j15_flex_ext_punhos'] = $request->input('j15_flex_ext_punhos');
+            $data['j15_morde_pp_corpo'] = $request->input('j15_morde_pp_corpo');
+            $data['j15_bater_a_cabeca'] = $request->input('j15_bater_a_cabeca');
+            $data['j15_outros'] = $request->input('j15_outros');
+            $data['j16_sensivel_barulho'] = $request->input('j16_sensivel_barulho');
+            $data['j16_obs'] = $request->input('j16_obs');
+            $data['j17_tocarcheirarabracarinadpessobj'] = $request->input('j17_tocarcheirarabracarinadpessobj');
+            $data['j17_obs'] = $request->input('j17_obs');
+            $data['j18_par_nsentir_dor_frio'] = $request->input('j18_par_nsentir_dor_frio');
+            $data['j18_obs'] = $request->input('j18_obs');
+            $data['j19_fascinado_luzes'] = $request->input('j19_fascinado_luzes');
+            $data['j19_obs'] = $request->input('j19_obs');
+            $data['j20_sensivel_ao_toque'] = $request->input('j20_sensivel_ao_toque');
+            $data['j20_obs'] = $request->input('j20_obs');
+            $data['j21_texturas_incomodam'] = $request->input('j21_texturas_incomodam');
+            $data['j21_obs'] = $request->input('j21_obs');
+            $data['j22_reacao_text_alim'] = $request->input('j22_reacao_text_alim');
+            $data['j22_obs'] = $request->input('j22_obs');
+            $data['created_at'] = now();
+            $data['updated_at'] = null;
+            $data['creater_user'] = $user->id;
+            $data['updater_user'] = null;
+            $this->histdes_versaopais_comportamentos->create($data);
+
+            return response()->json([
+                'status' => 200,
+            ]);
+
+        }
+    }    
+
+    protected function maxId_HistDesVersaoPaisComportamentos(){
+        $histdes_versaopais_comportamentos = $this->histdes_versaopais_comportamentos->orderByDesc('id')->first();
+        if($histdes_versaopais_comportamentos){
+            $codigo = $histdes_versaopais_comportamentos->id;
+        }else{
+            $codigo = 0;
+        }
+        return $codigo+1;
+    }
+
+    public function editHistDesVersaoPaisComportamentos(int $id){
+        $busca_pelo_paciente = $this->histdes_versaopais_comportamentos->wherePaciente_id($id)->first();        
+        $histdes_versaopais_comportamentos = $this->histdes_versaopais_comportamentos->find($busca_pelo_paciente->id);
+        return response()->json([
+            'status' => 200,
+            'histdesversaopaiscomportamentos' => $histdes_versaopais_comportamentos,
+        ]);
+    }
+
+    public function updateHistDesVersaoPaisComportamentos(Request $request, int $id){
+        $validator = Validator::make($request->all(),[
+            'atendimento' => ['required'],
+            'paciente' => ['required'],                        
+        ]);
+        if($validator->fails()){
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->errors()->getMessages(),
+            ]);
+        }else{
+            $busca_pelo_paciente = $this->histdes_versaopais_comportamentos->wherePaciente_id($id)->first();
+            $comportamentos = $this->histdes_versaopais_comportamentos->find($busca_pelo_paciente->id);
+            $user = auth()->user();            
+            $data['atendimento_id'] = $request->input('atendimento');
+            $data['paciente_id'] = $request->input('paciente');
+            $data['j1_alinha_enfileira_objetos'] = $request->input('j1_alinha_enfileira_objetos');
+            $data['j1_obs'] = $request->input('j1_obs');
+            $data['j2_empilha_objetos'] = $request->input('j2_empilha_objetos');
+            $data['j2_obs'] = $request->input('j2_obs');
+            $data['j3_abrefecha_gav_port'] = $request->input('j3_abrefecha_gav_port');
+            $data['j3_obs'] = $request->input('j3_obs');
+            $data['j4_apagaacende_luz'] = $request->input('j4_apagaacende_luz');            
+            $data['j4_obs'] = $request->input('j4_obs');
+            $data['j5_inter_objetos_giram'] = $request->input('j5_inter_objetos_giram');
+            $data['j5_obs'] = $request->input('j5_obs');
+            $data['j6_outras_manias'] = $request->input('j6_outras_manias');
+            $data['j7_inter_objetos_giram_2'] = $request->input('j7_inter_objetos_giram_2');
+            $data['j7_reacao_quando_interr'] = $request->input('j7_reacao_quando_interr');
+            $data['j8_brinca_form_simbol_insist'] = $request->input('j8_brinca_form_simbol_insist');
+            $data['j8_obs'] = $request->input('j8_obs');
+            $data['j9_resiste_mud_rotina'] = $request->input('j9_resiste_mud_rotina');
+            $data['j9_obs'] = $request->input('j9_obs');
+            $data['j10_gosta_msm_ordem_horario'] = $request->input('j10_gosta_msm_ordem_horario');
+            $data['j10_obs'] = $request->input('j10_obs');
+            $data['j11_ritual_ordem_determinada'] = $request->input('j11_ritual_ordem_determinada');
+            $data['j11_obs'] = $request->input('j11_obs');
+            $data['j12_coisas_msm_lugar'] = $request->input('j12_coisas_msm_lugar');
+            $data['j12_obs'] = $request->input('j12_obs');
+            $data['j13_gstmsm_roupas_alim_lugar'] = $request->input('j13_gstmsm_roupas_alim_lugar');
+            $data['j13_obs'] = $request->input('j13_obs');
+            $data['j14_cm_reage_frustr_contr'] = $request->input('j14_cm_reage_frustr_contr');
+            $data['j15_chup_os_dedos'] = $request->input('j15_chup_os_dedos');
+            $data['j15_roe_unhas'] = $request->input('j15_roe_unhas');
+            $data['j15_estalar_dedos'] = $request->input('j15_estalar_dedos');
+            $data['j15_morder_labios'] = $request->input('j15_morder_labios');
+            $data['j15_mast_publico'] = $request->input('j15_mast_publico');
+            $data['j15_torce_cabelo'] = $request->input('j15_torce_cabelo');
+            $data['j15_balanc_corpo'] = $request->input('j15_balanc_corpo');
+            $data['j15_bater_maos'] = $request->input('j15_bater_maos');
+            $data['j15_flapping_maos'] = $request->input('j15_flapping_maos');
+            $data['j15_andar_ponta_pes'] = $request->input('j15_andar_ponta_pes');
+            $data['j15_flex_ext_punhos'] = $request->input('j15_flex_ext_punhos');
+            $data['j15_morde_pp_corpo'] = $request->input('j15_morde_pp_corpo');
+            $data['j15_bater_a_cabeca'] = $request->input('j15_bater_a_cabeca');
+            $data['j15_outros'] = $request->input('j15_outros');
+            $data['j16_sensivel_barulho'] = $request->input('j16_sensivel_barulho');
+            $data['j16_obs'] = $request->input('j16_obs');
+            $data['j17_tocarcheirarabracarinadpessobj'] = $request->input('j17_tocarcheirarabracarinadpessobj');
+            $data['j17_obs'] = $request->input('j17_obs');
+            $data['j18_par_nsentir_dor_frio'] = $request->input('j18_par_nsentir_dor_frio');
+            $data['j18_obs'] = $request->input('j18_obs');
+            $data['j19_fascinado_luzes'] = $request->input('j19_fascinado_luzes');
+            $data['j19_obs'] = $request->input('j19_obs');
+            $data['j20_sensivel_ao_toque'] = $request->input('j20_sensivel_ao_toque');
+            $data['j20_obs'] = $request->input('j20_obs');
+            $data['j21_texturas_incomodam'] = $request->input('j21_texturas_incomodam');
+            $data['j21_obs'] = $request->input('j21_obs');
+            $data['j22_reacao_text_alim'] = $request->input('j22_reacao_text_alim');
+            $data['j22_obs'] = $request->input('j22_obs');        
+            $data['updated_at'] = now();
+            $data['updater_user'] = $user->id;
+            $comportamentos->update($data);            
+
+            return response()->json([
+                'status' => 200,                
+            ]);        
+    }
+    }
+
 
 
 

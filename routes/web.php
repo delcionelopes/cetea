@@ -230,6 +230,9 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::put('/store_histdesversaopaisbrincadeiras',[TerapiaController::class,'storeHistDesVersaoPaisBrincadeiras']);
         Route::get('/edit_histdesversaopaisbrincadeiras/{id}',[TerapiaController::class,'editHistDesVersaoPaisBrincadeiras']);
         Route::put('/update_histdesversaopaisbrincadeiras/{id}',[TerapiaController::class,'updateHistDesVersaoPaisbrincadeiras']);
+        Route::put('/store_histdesversaopaiscomportamentos',[TerapiaController::class,'storeHistDesVersaoPaisComportamentos']);
+        Route::get('/edit_histdesversaopaiscomportamentos/{id}',[TerapiaController::class,'editHistDesVersaoPaisComportamentos']);
+        Route::put('/update_histdesversaopaiscomportamentos/{id}',[TerapiaController::class,'updateHistDesVersaoPaisComportamentos']);
       });
 
       Route::prefix('feriado')->name('feriado.')->group(function(){

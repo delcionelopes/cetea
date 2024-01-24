@@ -51,7 +51,7 @@
                     <div class="form-group">
                       <label for="addj1_alinha_enfileira_objetos">
                       <input type="checkbox" class="j1_alinha_enfileira_objetos" name="addj1_alinha_enfileira_objetos" id="addj1_alinha_enfileira_objetos"> Alinha ou enfileira objetos? Dê um exemplo.</label>
-                      <label for="">Observações:</label>
+                      <label for="">Observações:</label><br>
                       <span class="addj1_obs"></span>
                       <textarea name="addj1_obs" id="addj1_obs" cols="30" rows="4" class="j1_obs form-control"></textarea>
                     </div>
@@ -60,7 +60,7 @@
                     <div class="form-group">
                       <label for="addj2_empilha_objetos">
                       <input type="checkbox" class="j2_empilha_objetos" name="addj2_empilha_objetos" id="addj2_empilha_objetos"> Empilha objetos? Dê um exemplo.</label>
-                      <label for="">Observações:</label>
+                      <label for="">Observações:</label><br>
                       <span class="addj2_obs"></span>
                       <textarea name="addj2_obs" id="addj2_obs" cols="30" rows="4" class="j2_obs form-control"></textarea>
                     </div>
@@ -69,7 +69,7 @@
                     <div class="form-group">
                       <label for="addj3_abrefecha_gav_port">
                       <input type="checkbox" class="j3_abrefecha_gav_port" name="addj3_abrefecha_gav_port" id="addj3_abrefecha_gav_port"> Abre e fecha portas, gavetas, etc.? Dê um exemplo.</label>
-                      <label for="">Observações:</label>
+                      <label for="">Observações:</label><br>
                       <span class="addj3_obs"></span>
                       <textarea name="addj3_obs" id="addj3_obs" cols="30" rows="4" class="j3_obs form-control"></textarea>
                     </div>
@@ -78,7 +78,7 @@
                     <div class="form-group">
                       <label for="addj4_apagaacende_luz">
                       <input type="checkbox" class="j4_apagaacende_luz" name="addj4_apagaacende_luz" id="addj4_apagaacende_luz"> Apaga e acende a luz?</label>
-                      <label for="">Observações:</label>
+                      <label for="">Observações:</label><br>
                       <span class="addj4_obs"></span>
                       <textarea name="addj4_obs" id="addj4_obs" cols="30" rows="4" class="j4_obs form-control"></textarea>
                     </div>
@@ -87,14 +87,14 @@
                     <div class="form-group">
                       <label for="addj5_inter_objetos_giram">
                       <input type="checkbox" class="j5_inter_objetos_giram" name="addj5_inter_objetos_giram" id="addj5_inter_objetos_giram"> Interesse por objetos que giram?</label>
-                      <label for="">Observações:</label>
+                      <label for="">Observações:</label><br>
                       <span class="addj5_obs"></span>
                       <textarea name="addj5_obs" id="addj5_obs" cols="30" rows="4" class="j5_obs form-control"></textarea>
                     </div>
                 </fieldset>
                 <fieldset>
                     <div class="form-group">                      
-                      <label for="">Outras manias?</label>
+                      <label for="">Outras manias?</label><br>
                       <span class="addj6_outras_manias"></span>
                       <textarea name="addj6_outras_manias" id="addj6_outras_manias" cols="30" rows="4" class="j6_outras_manias form-control"></textarea>
                     </div>
@@ -103,16 +103,16 @@
                     <div class="form-group">
                       <label for="addj7_inter_objetos_giram_2">
                       <input type="checkbox" class="j7_inter_objetos_giram_2" name="addj7_inter_objetos_giram_2" id="addj7_inter_objetos_giram_2"> Interesse por objetos que giram? Ex.: ventilador, máquina de lavar, etc.</label>
-                      <label for="">Qual sua reação quando é interrompido?</label>
+                      <label for="">Qual sua reação quando é interrompido?</label><br>
                       <span class="addj7_reacao_quando_interr"></span>
-                      <textarea name="addj7_reacao_quando_interr" id="addj7_reacao_quando_interr" cols="30" rows="4" class="j7_reacao_quando_interr"></textarea>
+                      <textarea name="addj7_reacao_quando_interr" id="addj7_reacao_quando_interr" cols="30" rows="4" class="j7_reacao_quando_interr form-control"></textarea>
                     </div>
                 </fieldset>
                 <fieldset>
                     <div class="form-group">
                       <label for="addj8_brinca_form_simbol_insist">
                       <input type="checkbox" class="j8_brinca_form_simbol_insist" name="addj8_brinca_form_simbol_insist" id="addj8_brinca_form_simbol_insist"> Brinca de forma simbólica, mas de forma rígida, insistindo no mesmo tópico??</label>
-                      <label for="">Observações:</label>
+                      <label for="">Observações:</label><br>
                       <span class="addj8_obs"></span>
                       <textarea name="addj8_obs" id="addj8_obs" cols="30" rows="4" class="j8_obs form-control"></textarea>
                     </div>
@@ -121,7 +121,7 @@
                     <div class="form-group">
                       <label for="addj9_resiste_mud_rotina">
                       <input type="checkbox" class="j9_resiste_mud_rotina" name="addj9_resiste_mud_rotina" id="addj9_resiste_mud_rotina"> Resiste a mudanças de rotina? Dê um exemplo.</label>
-                      <label for="">Observações:</label>
+                      <label for="">Observações:</label><br>
                       <span class="addj9_obs"></span>
                       <textarea name="addj9_obs" id="addj9_obs" cols="30" rows="4" class="j9_obs form-control"></textarea>
                     </div>
@@ -130,7 +130,7 @@
                     <div class="form-group">
                       <label for="addj10_gosta_msm_ordem_horario">
                       <input type="checkbox" class="j10_gosta_msm_ordem_horario" name="addj10_gosta_msm_ordem_horario" id="addj10_gosta_msm_ordem_horario"> Ele(a) gosta que as atividades diárias sejam feitas sempre na mesma ordem e no mesmo horário?</label>
-                      <label for="">Observações:</label>
+                      <label for="">Observações:</label><br>
                       <span class="addj10_obs"></span>
                       <textarea name="addj10_obs" id="addj10_obs" cols="30" rows="4" class="j10_obs form-control"></textarea>
                     </div>
@@ -139,7 +139,7 @@
                     <div class="form-group">
                       <label for="addj11_ritual_ordem_determinada">
                       <input type="checkbox" class="j11_ritual_ordem_determinada" name="addj11_ritual_ordem_determinada" id="addj11_ritual_ordem_determinada"> Ele(a) tem algum ritual? Gosta de fazer coisas seguindo uma ordem determinada e de uma maneira específica?</label>
-                      <label for="">Observações:</label>
+                      <label for="">Observações:</label><br>
                       <span class="addj11_obs"></span>
                       <textarea name="addj11_obs" id="addj11_obs" cols="30" rows="4" class="j11_obs form-control"></textarea>
                     </div>
@@ -148,7 +148,7 @@
                     <div class="form-group">
                       <label for="addj12_coisas_msm_lugar">
                       <input type="checkbox" class="j12_coisas_msm_lugar" name="addj12_coisas_msm_lugar" id="addj12_coisas_msm_lugar"> Ele(a) gosta que as coisas fiquem sempre no mesmo lugar e do mesmo jeito, por exemplo, em casa?</label>
-                      <label for="">Observações:</label>
+                      <label for="">Observações:</label><br>
                       <span class="addj12_obs"></span>
                       <textarea name="addj12_obs" id="addj12_obs" cols="30" rows="4" class="j12_obs form-control"></textarea>
                     </div>
@@ -157,7 +157,7 @@
                     <div class="form-group">
                       <label for="addj13_gstmsm_roupas_alim_lugar">
                       <input type="checkbox" class="j13_gstmsm_roupas_alim_lugar" name="addj13_gstmsm_roupas_alim_lugar" id="addj13_gstmsm_roupas_alim_lugar"> Gosta de usar as mesmas roupas, comer os mesmos alimentos ou ir aos mesmos lugares?</label>
-                      <label for="">Observações:</label>
+                      <label for="">Observações:</label><br>
                       <span class="addj13_obs"></span>
                       <textarea name="addj13_obs" id="addj13_obs" cols="30" rows="4" class="j13_obs form-control"></textarea>
                     </div>
@@ -224,16 +224,16 @@
                                 <input type="checkbox" class="j15_bater_a_cabeca checkbox" name="addj15_bater_a_cabeca" id="addj15_bater_a_cabeca"> Bater a cabeça</label>
                     </div>                    
                     <div class="form-group">
-                                <label for="">Outros. Quais?</label>
+                                <label for="">Outros. Quais?</label><br>
                                 <span class="addj15_outros"></span>
-                                <textarea name="addj15_outros" id="addj15_outros" cols="30" rows="4" class="15_outros form-control"></textarea>
+                                <textarea name="addj15_outros" id="addj15_outros" cols="30" rows="4" class="j15_outros form-control"></textarea>
                     </div>                    
                 </fieldset> 
                 <fieldset>
                     <div class="form-group">
                         <label for="addj16_sensivel_barulho">
                         <input type="checkbox" class="j16_sensivel_barulho checkbox" name="addj16_sensivel_barulho" id="addj16_sensivel_barulho"> Ele(a) é muito sensível a barulho. Costuma tapar os ouvidos ou ter crises em alguma situações?</label>
-                        <label for="addj16_obs">Observações:</label>
+                        <label for="addj16_obs">Observações:</label><br>
                         <span class="addj16_obs"></span>
                         <textarea name="addj16_obs" id="addj16_obs" class="j16_obs form-control" cols="30" rows="4"></textarea>
 
@@ -243,7 +243,7 @@
                     <div class="form-group">
                         <label for="addj17_tocarcheirarabracarinadpessobj">
                         <input type="checkbox" class="j17_tocarcheirarabracarinadpessobj checkbox" name="addj17_tocarcheirarabracarinadpessobj" id="addj17_tocarcheirarabracarinadpessobj"> Procura tocar, cheirar, ou abraçar de forma inadequada as pessoas ou objetos?</label>
-                        <label for="addj17_obs">Observações:</label>
+                        <label for="addj17_obs">Observações:</label><br>
                         <span class="addj17_obs"></span>
                         <textarea name="addj17_obs" id="addj17_obs" class="j17_obs form-control" cols="30" rows="4"></textarea>
 
@@ -253,7 +253,7 @@
                     <div class="form-group">
                         <label for="addj18_par_nsentir_sentir_dor_frio">
                         <input type="checkbox" class="j18_par_nsentir_sentir_dor_frio checkbox" name="addj18_par_nsentir_sentir_dor_frio" id="addj18_par_nsentir_sentir_dor_frio"> Parece não sentir dor quando sofre um machucado ou não sentir frio? É pouco sensível a alguns estímulos sensoriais?</label>
-                        <label for="addj18_obs">Observações:</label>
+                        <label for="addj18_obs">Observações:</label><br>
                         <span class="addj18_obs"></span>
                         <textarea name="addj18_obs" id="addj18_obs" class="j18_obs form-control" cols="30" rows="4"></textarea>
                     </div>
@@ -262,7 +262,7 @@
                     <div class="form-group">
                         <label for="addj19_fascinado_luzes">
                         <input type="checkbox" class="j19_fascinado_luzes checkbox" name="addj19_fascinado_luzes" id="addj19_fascinado_luzes"> É fascinado(a) por luzes?</label>
-                        <label for="addj19_obs">Observações:</label>
+                        <label for="addj19_obs">Observações:</label><br>
                         <span class="addj19_obs"></span>
                         <textarea name="addj19_obs" id="addj19_obs" class="j19_obs form-control" cols="30" rows="4"></textarea>
                     </div>
@@ -271,7 +271,7 @@
                     <div class="form-group">
                         <label for="addj20_sensivel_ao_toque">
                         <input type="checkbox" class="j20_sensivel_ao_toque checkbox" name="addj20_sensivel_ao_toque" id="addj20_sensivel_ao_toque"> Ele(a) é muito sensível ao toque? Evita ser abraçado, tem dificuldades para trocar de roupas e se enxugar após o banho?</label>
-                        <label for="addj20_obs">Observações:</label>
+                        <label for="addj20_obs">Observações:</label><br>
                         <span class="addj20_obs"></span>
                         <textarea name="addj20_obs" id="addj20_obs" class="j20_obs form-control" cols="30" rows="4"></textarea>
                     </div>
@@ -280,7 +280,7 @@
                     <div class="form-group">
                         <label for="addj21_texturas_incomodam">
                         <input type="checkbox" class="j21_texturas_incomodam checkbox" name="addj21_texturas_incomodam" id="addj21_texturas_incomodam"> Algumas texturas realmente o(a) incomodam?</label>
-                        <label for="addj21_obs">Observações:</label>
+                        <label for="addj21_obs">Observações:</label><br>
                         <span class="addj21_obs"></span>
                         <textarea name="addj21_obs" id="addj21_obs" class="j21_obs form-control" cols="30" rows="4"></textarea>
                     </div>
@@ -289,7 +289,7 @@
                     <div class="form-group">
                         <label for="addj22_reacao_text_alim">
                         <input type="checkbox" class="j22_reacao_text_alim checkbox" name="addj22_reacao_text_alim" id="addj22_reacao_text_alim"> Apresenta alguma reação a textura de alimentos?</label>
-                        <label for="addj22_obs">Observações:</label>
+                        <label for="addj22_obs">Observações:</label><br>
                         <span class="addj22_obs"></span>
                         <textarea name="addj22_obs" id="addj22_obs" class="j22_obs form-control" cols="30" rows="4"></textarea>
                     </div>
@@ -327,7 +327,7 @@
                     <div class="form-group">
                       <label for="editj1_alinha_enfileira_objetos">
                       <input type="checkbox" class="j1_alinha_enfileira_objetos" name="editj1_alinha_enfileira_objetos" id="editj1_alinha_enfileira_objetos"> Alinha ou enfileira objetos? Dê um exemplo.</label>
-                      <label for="">Observações:</label>
+                      <label for="">Observações:</label><br>
                       <span class="editj1_obs"></span>
                       <textarea name="editj1_obs" id="editj1_obs" cols="30" rows="4" class="j1_obs form-control"></textarea>
                     </div>
@@ -336,7 +336,7 @@
                     <div class="form-group">
                       <label for="editj2_empilha_objetos">
                       <input type="checkbox" class="j2_empilha_objetos" name="editj2_empilha_objetos" id="editj2_empilha_objetos"> Empilha objetos? Dê um exemplo.</label>
-                      <label for="">Observações:</label>
+                      <label for="">Observações:</label><br>
                       <span class="editj2_obs"></span>
                       <textarea name="editj2_obs" id="editj2_obs" cols="30" rows="4" class="j2_obs form-control"></textarea>
                     </div>
@@ -345,7 +345,7 @@
                     <div class="form-group">
                       <label for="editj3_abrefecha_gav_port">
                       <input type="checkbox" class="j3_abrefecha_gav_port" name="editj3_abrefecha_gav_port" id="editj3_abrefecha_gav_port"> Abre e fecha portas, gavetas, etc.? Dê um exemplo.</label>
-                      <label for="">Observações:</label>
+                      <label for="">Observações:</label><br>
                       <span class="editj3_obs"></span>
                       <textarea name="editj3_obs" id="editj3_obs" cols="30" rows="4" class="j3_obs form-control"></textarea>
                     </div>
@@ -354,7 +354,7 @@
                     <div class="form-group">
                       <label for="editj4_apagaacende_luz">
                       <input type="checkbox" class="j4_apagaacende_luz" name="editj4_apagaacende_luz" id="editj4_apagaacende_luz"> Apaga e acende a luz?</label>
-                      <label for="">Observações:</label>
+                      <label for="">Observações:</label><br>
                       <span class="editj4_obs"></span>
                       <textarea name="editj4_obs" id="editj4_obs" cols="30" rows="4" class="j4_obs form-control"></textarea>
                     </div>
@@ -363,14 +363,14 @@
                     <div class="form-group">
                       <label for="editj5_inter_objetos_giram">
                       <input type="checkbox" class="j5_inter_objetos_giram" name="editj5_inter_objetos_giram" id="editj5_inter_objetos_giram"> Interesse por objetos que giram?</label>
-                      <label for="">Observações:</label>
+                      <label for="">Observações:</label><br>
                       <span class="editj5_obs"></span>
                       <textarea name="editj5_obs" id="editj5_obs" cols="30" rows="4" class="j5_obs form-control"></textarea>
                     </div>
                 </fieldset>
                 <fieldset>
                     <div class="form-group">                      
-                      <label for="">Outras manias?</label>
+                      <label for="">Outras manias?</label><br>
                       <span class="editj6_outras_manias"></span>
                       <textarea name="editj6_outras_manias" id="editj6_outras_manias" cols="30" rows="4" class="j6_outras_manias form-control"></textarea>
                     </div>
@@ -379,16 +379,16 @@
                     <div class="form-group">
                       <label for="editj7_inter_objetos_giram_2">
                       <input type="checkbox" class="j7_inter_objetos_giram_2" name="editj7_inter_objetos_giram_2" id="editj7_inter_objetos_giram_2"> Interesse por objetos que giram? Ex.: ventilador, máquina de lavar, etc.</label>
-                      <label for="">Qual sua reação quando é interrompido?</label>
+                      <label for="">Qual sua reação quando é interrompido?</label><br>
                       <span class="editj7_reacao_quando_interr"></span>
-                      <textarea name="editj7_reacao_quando_interr" id="editj7_reacao_quando_interr" cols="30" rows="4" class="j7_reacao_quando_interr"></textarea>
+                      <textarea name="editj7_reacao_quando_interr" id="editj7_reacao_quando_interr" cols="30" rows="4" class="j7_reacao_quando_interr form-control"></textarea>
                     </div>
                 </fieldset>
                 <fieldset>
                     <div class="form-group">
                       <label for="editj8_brinca_form_simbol_insist">
                       <input type="checkbox" class="j8_brinca_form_simbol_insist" name="editj8_brinca_form_simbol_insist" id="editj8_brinca_form_simbol_insist"> Brinca de forma simbólica, mas de forma rígida, insistindo no mesmo tópico??</label>
-                      <label for="">Observações:</label>
+                      <label for="">Observações:</label><br>
                       <span class="editj8_obs"></span>
                       <textarea name="editj8_obs" id="editj8_obs" cols="30" rows="4" class="j8_obs form-control"></textarea>
                     </div>
@@ -397,7 +397,7 @@
                     <div class="form-group">
                       <label for="editj9_resiste_mud_rotina">
                       <input type="checkbox" class="j9_resiste_mud_rotina" name="editj9_resiste_mud_rotina" id="editj9_resiste_mud_rotina"> Resiste a mudanças de rotina? Dê um exemplo.</label>
-                      <label for="">Observações:</label>
+                      <label for="">Observações:</label><br>
                       <span class="editj9_obs"></span>
                       <textarea name="editj9_obs" id="editj9_obs" cols="30" rows="4" class="j9_obs form-control"></textarea>
                     </div>
@@ -406,7 +406,7 @@
                     <div class="form-group">
                       <label for="editj10_gosta_msm_ordem_horario">
                       <input type="checkbox" class="j10_gosta_msm_ordem_horario" name="editj10_gosta_msm_ordem_horario" id="editj10_gosta_msm_ordem_horario"> Ele(a) gosta que as atividades diárias sejam feitas sempre na mesma ordem e no mesmo horário?</label>
-                      <label for="">Observações:</label>
+                      <label for="">Observações:</label><br>
                       <span class="editj10_obs"></span>
                       <textarea name="editj10_obs" id="editj10_obs" cols="30" rows="4" class="j10_obs form-control"></textarea>
                     </div>
@@ -415,7 +415,7 @@
                     <div class="form-group">
                       <label for="editj11_ritual_ordem_determinada">
                       <input type="checkbox" class="j11_ritual_ordem_determinada" name="editj11_ritual_ordem_determinada" id="editj11_ritual_ordem_determinada"> Ele(a) tem algum ritual? Gosta de fazer coisas seguindo uma ordem determinada e de uma maneira específica?</label>
-                      <label for="">Observações:</label>
+                      <label for="">Observações:</label><br>
                       <span class="editj11_obs"></span>
                       <textarea name="editj11_obs" id="editj11_obs" cols="30" rows="4" class="j11_obs form-control"></textarea>
                     </div>
@@ -424,7 +424,7 @@
                     <div class="form-group">
                       <label for="editj12_coisas_msm_lugar">
                       <input type="checkbox" class="j12_coisas_msm_lugar" name="editj12_coisas_msm_lugar" id="editj12_coisas_msm_lugar"> Ele(a) gosta que as coisas fiquem sempre no mesmo lugar e do mesmo jeito, por exemplo, em casa?</label>
-                      <label for="">Observações:</label>
+                      <label for="">Observações:</label><br>
                       <span class="editj12_obs"></span>
                       <textarea name="editj12_obs" id="editj12_obs" cols="30" rows="4" class="j12_obs form-control"></textarea>
                     </div>
@@ -433,7 +433,7 @@
                     <div class="form-group">
                       <label for="editj13_gstmsm_roupas_alim_lugar">
                       <input type="checkbox" class="j13_gstmsm_roupas_alim_lugar" name="editj13_gstmsm_roupas_alim_lugar" id="editj13_gstmsm_roupas_alim_lugar"> Gosta de usar as mesmas roupas, comer os mesmos alimentos ou ir aos mesmos lugares?</label>
-                      <label for="">Observações:</label>
+                      <label for="">Observações:</label><br>
                       <span class="editj13_obs"></span>
                       <textarea name="editj13_obs" id="editj13_obs" cols="30" rows="4" class="j13_obs form-control"></textarea>
                     </div>
@@ -500,16 +500,16 @@
                                 <input type="checkbox" class="j15_bater_a_cabeca checkbox" name="editj15_bater_a_cabeca" id="editj15_bater_a_cabeca"> Bater a cabeça</label>
                     </div>                    
                     <div class="form-group">
-                                <label for="">Outros. Quais?</label>
+                                <label for="">Outros. Quais?</label><br>
                                 <span class="editj15_outros"></span>
-                                <textarea name="editj15_outros" id="editj15_outros" cols="30" rows="4" class="15_outros form-control"></textarea>
+                                <textarea name="editj15_outros" id="editj15_outros" cols="30" rows="4" class="j15_outros form-control"></textarea>
                     </div>                    
                 </fieldset> 
                 <fieldset>
                     <div class="form-group">
                         <label for="editj16_sensivel_barulho">
                         <input type="checkbox" class="j16_sensivel_barulho checkbox" name="editj16_sensivel_barulho" id="editj16_sensivel_barulho"> Ele(a) é muito sensível a barulho. Costuma tapar os ouvidos ou ter crises em alguma situações?</label>
-                        <label for="editj16_obs">Observações:</label>
+                        <label for="editj16_obs">Observações:</label><br>
                         <span class="editj16_obs"></span>
                         <textarea name="editj16_obs" id="editj16_obs" class="j16_obs form-control" cols="30" rows="4"></textarea>
 
@@ -519,7 +519,7 @@
                     <div class="form-group">
                         <label for="editj17_tocarcheirarabracarinadpessobj">
                         <input type="checkbox" class="j17_tocarcheirarabracarinadpessobj checkbox" name="editj17_tocarcheirarabracarinadpessobj" id="editj17_tocarcheirarabracarinadpessobj"> Procura tocar, cheirar, ou abraçar de forma inadequada as pessoas ou objetos?</label>
-                        <label for="editj17_obs">Observações:</label>
+                        <label for="editj17_obs">Observações:</label><br>
                         <span class="editj17_obs"></span>
                         <textarea name="editj17_obs" id="editj17_obs" class="j17_obs form-control" cols="30" rows="4"></textarea>
 
@@ -529,7 +529,7 @@
                     <div class="form-group">
                         <label for="editj18_par_nsentir_sentir_dor_frio">
                         <input type="checkbox" class="j18_par_nsentir_sentir_dor_frio checkbox" name="editj18_par_nsentir_sentir_dor_frio" id="editj18_par_nsentir_sentir_dor_frio"> Parece não sentir dor quando sofre um machucado ou não sentir frio? É pouco sensível a alguns estímulos sensoriais?</label>
-                        <label for="editj18_obs">Observações:</label>
+                        <label for="editj18_obs">Observações:</label><br>
                         <span class="editj18_obs"></span>
                         <textarea name="editj18_obs" id="editj18_obs" class="j18_obs form-control" cols="30" rows="4"></textarea>
                     </div>
@@ -538,7 +538,7 @@
                     <div class="form-group">
                         <label for="editj19_fascinado_luzes">
                         <input type="checkbox" class="j19_fascinado_luzes checkbox" name="editj19_fascinado_luzes" id="editj19_fascinado_luzes"> É fascinado(a) por luzes?</label>
-                        <label for="editj19_obs">Observações:</label>
+                        <label for="editj19_obs">Observações:</label><br>
                         <span class="editj19_obs"></span>
                         <textarea name="editj19_obs" id="editj19_obs" class="j19_obs form-control" cols="30" rows="4"></textarea>
                     </div>
@@ -547,7 +547,7 @@
                     <div class="form-group">
                         <label for="editj20_sensivel_ao_toque">
                         <input type="checkbox" class="j20_sensivel_ao_toque checkbox" name="editj20_sensivel_ao_toque" id="editj20_sensivel_ao_toque"> Ele(a) é muito sensível ao toque? Evita ser abraçado, tem dificuldades para trocar de roupas e se enxugar após o banho?</label>
-                        <label for="editj20_obs">Observações:</label>
+                        <label for="editj20_obs">Observações:</label><br>
                         <span class="editj20_obs"></span>
                         <textarea name="editj20_obs" id="editj20_obs" class="j20_obs form-control" cols="30" rows="4"></textarea>
                     </div>
@@ -556,7 +556,7 @@
                     <div class="form-group">
                         <label for="editj21_texturas_incomodam">
                         <input type="checkbox" class="j21_texturas_incomodam checkbox" name="editj21_texturas_incomodam" id="editj21_texturas_incomodam"> Algumas texturas realmente o(a) incomodam?</label>
-                        <label for="editj21_obs">Observações:</label>
+                        <label for="editj21_obs">Observações:</label><br>
                         <span class="editj21_obs"></span>
                         <textarea name="editj21_obs" id="editj21_obs" class="j21_obs form-control" cols="30" rows="4"></textarea>
                     </div>
@@ -600,10 +600,10 @@
                     <legend>BRINCADEIRA (Assinale se o seu filho(a) faz ou fez quando menor. Caso perdeu a habilidade, mencione com observações)</legend>
                 </fieldset>
                 <fieldset>
-                    <legend>Qual sua brincadeira favorita?</legend>
-                    <div class="col-md-4">
+                    <div class="form-group">
+                    <legend>Qual sua brincadeira favorita?</legend>                    
                     <span class="addl1_brincadeira_favorita"></span>
-                    <textarea name="addl1_brincadeira_favorita" id="addl1_brincadeira_favorita" cols="30" rows="4" class="l1_brincadeira_favorita"></textarea>
+                    <textarea name="addl1_brincadeira_favorita" id="addl1_brincadeira_favorita" cols="30" rows="4" class="l1_brincadeira_favorita form-control"></textarea>
                     </div>
                 </fieldset>
                 <fieldset>
@@ -763,10 +763,10 @@
                     <legend>BRINCADEIRA (Assinale se o seu filho(a) faz ou fez quando menor. Caso perdeu a habilidade, mencione com observações)</legend>
                 </fieldset>
                 <fieldset>
-                    <legend>Qual sua brincadeira favorita?</legend>
-                    <div class="col-md-4">
+                    <div class="form-group">
+                    <legend>Qual sua brincadeira favorita?</legend>                    
                     <span class="editl1_brincadeira_favorita"></span>
-                    <textarea name="editl1_brincadeira_favorita" id="editl1_brincadeira_favorita" cols="30" rows="4" class="l1_brincadeira_favorita"></textarea>
+                    <textarea name="editl1_brincadeira_favorita" id="editl1_brincadeira_favorita" cols="30" rows="4" class="l1_brincadeira_favorita form-control"></textarea>
                     </div>
                 </fieldset>
                 <fieldset>
@@ -7992,16 +7992,14 @@ $(document).on('click','.histdes_versaopais_brincadeiras',function(e){
 
 //fim histdes_versaopais_brincadeiras
 
-//////////////////////////
-
 //início histdes_versaopais_comportamentos
 
-$("#AddAHistDesVersaoPaisComportamentos").on('shown.bs.modal',function(){
-            $(".j1_obs").focus();
+$("#AddHistDesVersaoPaisComportamentos").on('shown.bs.modal',function(){
+            $(".j1_alinha_enfileira_objetos").focus();
     });
 
 $("#EditHistDesVersaoPaisComportamentos").on('shown.bs.modal',function(){
-            $(".j1_obs").focus();
+            $(".j1_alinha_enfileira_objetos").focus();
     });
 
 //inicio conta caracteres dos textarea HistDesVersaoPaisComportamentos
@@ -8215,6 +8213,21 @@ $("#EditHistDesVersaoPaisComportamentos").on('shown.bs.modal',function(){
             $(".addj14_cm_reage_frust_contr").text("0" + " " + informativo);
         }else{
             $(".addj14_cm_reage_frust_contr").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addj15_outros',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var j15_outros = $('textarea[name="addj15_outros"]').val();
+            $('textarea[name="addj15_outros"]').val(j15_outros.substr(0,limite));
+            $(".addj15_outros").text("0" + " " + informativo);
+        }else{
+            $(".addj15_outros").text(caracteresRestantes + " " + informativo);
         }
     });
 
@@ -8535,6 +8548,21 @@ $("#EditHistDesVersaoPaisComportamentos").on('shown.bs.modal',function(){
         }
     });
 
+    $(document).on('input','#editj15_outros',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var j15_outros = $('textarea[name="editj15_outros"]').val();
+            $('textarea[name="editj15_outros"]').val(j15_outros.substr(0,limite));
+            $(".editj15_outros").text("0" + " " + informativo);
+        }else{
+            $(".editj15_outros").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
     $(document).on('input','#editj16_obs',function(){
         var limite = 200;
         var informativo = "caracteres restantes";
@@ -8828,7 +8856,7 @@ $(document).on('click','.histdes_versaopais_comportamentos',function(e){
                     $("#saveform_errlist_histdesversaopaiscomportamentos").replaceWith('<ul id="saveform_errList_histdesversaopaiscomportamentos"></ul>');
                     $("#histdes_versaopais_comportamentos"+atendimentoid).replaceWith('<i data-id="1" id="histdes_versaopais_comportamentos'+atendimentoid+'" class="fas fa-check" style="color: green"></i>');
                     $("#addform_histdesversaopaiscomportamentos").trigger('reset');
-                    $("#AddHistDesVersaoPaiscomportamentos").modal('hide');                     
+                    $("#AddHistDesVersaoPaisComportamentos").modal('hide');                     
                 }
             }
 
@@ -8928,7 +8956,7 @@ $(document).on('click','.histdes_versaopais_comportamentos',function(e){
                     $("#updateform_errlist_histdesversaopaiscomportamentos").replaceWith('<ul id="updateform_errList_histdesversaopaiscomportamentos"></ul>');
                     $("#histdes_versaopais_comportamentos"+atendimentoid).replaceWith('<i data-id="1" id="histdes_versaopais_comportamentos'+atendimentoid+'" class="fas fa-check" style="color: green"></i>');
                     $("#editform_histdesversaopaiscomportamentos").trigger('reset');
-                    $("#EditHistDesVersaoPaiscomportamentos").modal('hide');    
+                    $("#EditHistDesVersaoPaisComportamentos").modal('hide');    
                 }
             }
         });
