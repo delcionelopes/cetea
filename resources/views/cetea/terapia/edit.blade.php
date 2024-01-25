@@ -28,6 +28,409 @@
 
 </style>
 
+<!-- Inicio AddHistDesVersaoPaisIndependencia -->
+<div class="modal fade animate__animated animate__bounce animate__faster bd-example-modal-xl" id="AddHistDesVersaoPaisIndependencia" tabindex="-1" role="dialog" aria-labelledby="AddmyExtraLargeModalLabel_HistDesVersaoIndependencia" aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+        <div class="modal-header bg-{{$color}}">
+            <h5 class="modal-title" id="AddmyExtraLargeModalLabel_HistDesVersaoPaisIndependencia" style="color: white;">Histórico do Desenvolvimento Versão Pais - Independência</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                <span aria-hidden="true" style="color: white.">&times;</span>
+            </button>
+        </div>      
+        <div class="modal-body form-horizontal" role="form">
+            <form id="addform_hisdesversaopaisdindependencia" class="form-horizontal" role="form" method="POST">
+                <input type="hidden" id="addpacienteid_histdesversaopaisindependencia">
+                <input type="hidden" id="addatendimentoid_histdesversaopaisindependencia">
+                <ul id="saveform_errlist_histdesversaopaisindependencia"></ul>
+                <fieldset>
+                    <legend>NIVEL DE INDENPENDENCIA NA VIDA DIÁRIA (caso seja muito novo, responda não tem oportunidade).</legend>
+                </fieldset>                            
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addji1_veste_roupa_soz">
+                      <input type="checkbox" class="ji1_veste_roupa_soz" name="addji1_veste_roupa_soz" id="addji1_veste_roupa_soz"> Veste roupa sozinho.</label>
+                    </div>                    
+                    <div class="form-group">
+                      <label for="addji1_parcial">
+                      <input type="checkbox" class="ji1_parcial" name="addji1_parcial" id="addji1_parcial"> Parcial.</label>    
+                      <label for="">Observações:</label><br>
+                      <span class="addji1_obs"></span>
+                      <textarea name="addji1_obs" id="addji1_obs" cols="30" rows="4" class="ji1_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addji2_retira_roupa_soz">
+                      <input type="checkbox" class="ji2_retira_roupa_soz" name="addji2_retira_roupa_soz" id="addji2_retira_roupa_soz"> Retira a roupa sozinho?</label>
+                    </div>                    
+                    <div class="form-group">
+                      <label for="addji2_parcial">
+                      <input type="checkbox" class="ji2_parcial" name="addji2_parcial" id="addji2_parcial"> Parcial.</label>    
+                      <label for="">Observações:</label><br>
+                      <span class="addji2_obs"></span>
+                      <textarea name="addji2_obs" id="addji2_obs" cols="30" rows="4" class="ji2_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addji3_toma_banho_soz">
+                      <input type="checkbox" class="ji3_toma_banho_soz" name="addji3_toma_banho_soz" id="addji3_toma_banho_soz"> Toma banho sozinho?</label>
+                    </div>                    
+                    <div class="form-group">
+                      <label for="addji3_parcial">
+                      <input type="checkbox" class="ji3_parcial" name="addji3_parcial" id="addji3_parcial"> Parcial.</label>    
+                      <label for="">Observações:</label><br>
+                      <span class="addji3_obs"></span>
+                      <textarea name="addji3_obs" id="addji3_obs" cols="30" rows="4" class="ji3_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>                    
+                    <div class="form-group">
+                      <label for="addji4_jg_len_pp_no_lix">
+                      <input type="checkbox" class="ji4_jg_len_pp_no_lix" name="addji4_jg_len_pp_no_lix" id="addji4_jg_len_pp_no_lix"> Joga o lenço de papel ou guardanapo no lixo após solicitação do adulto?</label>
+                      <label for="">Observações:</label><br>
+                      <span class="addji4_obs"></span>
+                      <textarea name="addji4_obs" id="addji4_obs" cols="30" rows="4" class="ji4_obs form-control"></textarea>
+                    </div>
+                </fieldset>    
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addji6_come_ref_na_mesa">
+                      <input type="checkbox" class="ji6_come_ref_na_mesa" name="addji6_come_ref_na_mesa" id="addji6_come_ref_na_mesa"> Come refeições na mesa?</label>
+                      <label for="">Observações:</label><br>
+                      <span class="addji6_obs"></span>
+                      <textarea name="addji6_obs" id="addji6_obs" cols="30" rows="4" class="ji6_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addji7_usa_colher_ind">
+                      <input type="checkbox" class="ji7_usa_colher_ind" name="addji7_usa_colher_ind" id="addji7_usa_colher_ind"> Usa colher independente?</label>
+                      <label for="">Observações:</label><br>
+                      <span class="addji7_obs"></span>
+                      <textarea name="addji7_obs" id="addji7_obs" cols="30" rows="4" class="ji7_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addji8_usa_garfo_ind">
+                      <input type="checkbox" class="ji8_usa_garfo_ind" name="addji8_usa_garfo_ind" id="addji8_usa_garfo_ind"> Usa garfo independente?</label>
+                      <label for="">Observações:</label><br>
+                      <span class="addji8_obs"></span>
+                      <textarea name="addji8_obs" id="addji8_obs" cols="30" rows="4" class="ji8_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addji9_tol_nov_alim">
+                      <input type="checkbox" class="ji9_tol_nov_alim" name="addji9_tol_nov_alim" id="addji9_tol_nov_alim"> Tolera novos alimentos no prato?</label>
+                      <label for="">Observações:</label><br>
+                      <span class="addji9_obs"></span>
+                      <textarea name="addji9_obs" id="addji9_obs" cols="30" rows="4" class="ji9_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addji10_usacopo_aberto">
+                      <input type="checkbox" class="ji10_usacopo_aberto" name="addji10_usacopo_aberto" id="addji10_usacopo_aberto"> Usa copo aberto?</label>
+                      <label for="">Observações:</label><br>
+                      <span class="addji10_obs"></span>
+                      <textarea name="addji10_obs" id="addji10_obs" cols="30" rows="4" class="ji10_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addji11_perm_parc_mesa">
+                      <input type="checkbox" class="ji11_perm_parc_mesa" name="addji11_perm_parc_mesa" id="addji11_perm_parc_mesa"> Permanece com os parceiros à mesa?</label>
+                      <label for="">Observações:</label><br>
+                      <span class="addji11_obs"></span>
+                      <textarea name="addji11_obs" id="addji11_obs" cols="30" rows="4" class="ji11_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addji12_desp_roup_ind">
+                      <input type="checkbox" class="ji12_desp_roup_ind" name="addji12_desp_roup_ind" id="addji12_desp_roup_ind"> Despe a roupa independente e coloca no cesto?</label>
+                      <label for="">Observações:</label><br>
+                      <span class="addji12_obs"></span>
+                      <textarea name="addji12_obs" id="addji12_obs" cols="30" rows="4" class="ji12_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addji13_limpa_nariz">
+                      <input type="checkbox" class="ji13_limpa_nariz" name="addji13_limpa_nariz" id="addji13_limpa_nariz"> Limpa o nariz?</label>
+                      <label for="">Observações:</label><br>
+                      <span class="addji13_obs"></span>
+                      <textarea name="addji13_obs" id="addji13_obs" cols="30" rows="4" class="ji13_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addji14_usa_garf_cpab_sderr">
+                      <input type="checkbox" class="ji14_usa_garf_cpab_sderr" name="addji14_usa_garf_cpab_sderr" id="addji14_usa_garf_cpab_sderr"> Usa o garfo e copo aberto sem derramar?</label>
+                      <label for="">Observações:</label><br>
+                      <span class="addji14_obs"></span>
+                      <textarea name="addji14_obs" id="addji14_obs" cols="30" rows="4" class="ji14_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addji15_abrefecha_moch_lanch_aut">
+                      <input type="checkbox" class="ji15_abrefecha_moch_lanch_aut" name="addji15_abrefecha_moch_lanch_aut" id="addji15_abrefecha_moch_lanch_aut"> Abre e fecha a mochila/lancheira de forma autônoma?</label>
+                      <label for="">Observações:</label><br>
+                      <span class="addji15_obs"></span>
+                      <textarea name="addji15_obs" id="addji15_obs" cols="30" rows="4" class="ji15_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addji16_usa_banh_aut">
+                      <input type="checkbox" class="ji16_usa_banh_aut" name="addji16_usa_banh_aut" id="addji16_usa_banh_aut"> Usa o banheiro de forma autônoma por iniciativa própria?</label>
+                      <label for="">Observações:</label><br>
+                      <span class="addji16_obs"></span>
+                      <textarea name="addji16_obs" id="addji16_obs" cols="30" rows="4" class="ji16_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addji17_tp_boca_qdtoss_esp">
+                      <input type="checkbox" class="ji17_tp_boca_qdtoss_esp" name="addji17_tp_boca_qdtoss_esp" id="addji17_tp_boca_qdtoss_esp"> Tampa a boca quando tosse ou espirra?</label>
+                      <label for="">Observações:</label><br>
+                      <span class="addji17_obs"></span>
+                      <textarea name="addji17_obs" id="addji17_obs" cols="30" rows="4" class="ji17_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addji18_ajuda_escovacao">
+                      <input type="checkbox" class="ji18_ajuda_escovacao" name="addji18_ajuda_escovacao" id="addji18_ajuda_escovacao"> Ajuda na escovação?</label>
+                      <label for="">Observações:</label><br>
+                      <span class="addji18_obs"></span>
+                      <textarea name="addji18_obs" id="addji18_obs" cols="30" rows="4" class="ji18_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <legend>Dê detalhes da autonomia de seu filho(a).</legend>
+                      <br>
+                      <span class="addji19_de_detalhes_aut"></span>
+                      <textarea name="addji19_de_detalhes_aut" id="addji19_de_detalhes_aut" cols="30" rows="4" class="ji19_de_detalhes_aut form-control"></textarea>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            <button data-color="{{$color}}" class="btn btn-{{$color}} add_histdesversaopais_independencia_btn"><img id="imgadd_histdesversaopaisindependencia" src="{{asset('storage/ajax-loader.gif')}}" style="display: none;" class="rounded-circle" width="20"> Salvar</button>
+        </div>
+    </div>
+  </div>
+</div>
+<!-- Fim AddHistDesVersaoPaisIndependencia -->
+
+<!-- Inicio EditHistDesVersaoPaisIndependencia -->
+<div class="modal fade animate__animated animate__bounce animate__faster bd-example-modal-xl" id="EditHistDesVersaoPaisIndependencia" tabindex="-1" role="dialog" aria-labelledby="EditmyExtraLargeModalLabel_histdesversaopaisindependencia" aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+        <div class="modal-header bg-{{$color}}">
+            <h5 class="modal-title" id="EditmyExtraLargeModalLabel_histdesversaopaisindependencia" style="color: white;">Histórico do Desenvolvimento Versão Pais - Independência</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                <span aria-hidden="true" style="color: white.">&times;</span>
+            </button>
+        </div>      
+        <div class="modal-body form-horizontal" role="form">
+            <form id="editform_histdesversaopaisindependencia" class="form-horizontal" role="form" method="POST">
+                <input type="hidden" id="editpacienteid_histdesversaopaisindependencia">
+                <input type="hidden" id="editatendimentoid_histdesversaopaisindependencia">
+                <ul id="updateform_errlist_histdesversaopaisindependencia"></ul>
+                 <fieldset>
+                    <legend>NIVEL DE INDENPENDENCIA NA VIDA DIÁRIA (caso seja muito novo, responda não tem oportunidade).</legend>
+                </fieldset>                            
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editji1_veste_roupa_soz">
+                      <input type="checkbox" class="ji1_veste_roupa_soz" name="editji1_veste_roupa_soz" id="editji1_veste_roupa_soz"> Veste roupa sozinho.</label>
+                    </div>                    
+                    <div class="form-group">
+                      <label for="editji1_parcial">
+                      <input type="checkbox" class="ji1_parcial" name="editji1_parcial" id="editji1_parcial"> Parcial.</label>    
+                      <label for="">Observações:</label><br>
+                      <span class="editji1_obs"></span>
+                      <textarea name="editji1_obs" id="editji1_obs" cols="30" rows="4" class="ji1_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editji2_retira_roupa_soz">
+                      <input type="checkbox" class="ji2_retira_roupa_soz" name="editji2_retira_roupa_soz" id="editji2_retira_roupa_soz"> Retira a roupa sozinho?</label>
+                    </div>                    
+                    <div class="form-group">
+                      <label for="editji2_parcial">
+                      <input type="checkbox" class="ji2_parcial" name="editji2_parcial" id="editji2_parcial"> Parcial.</label>    
+                      <label for="">Observações:</label><br>
+                      <span class="editji2_obs"></span>
+                      <textarea name="editji2_obs" id="editji2_obs" cols="30" rows="4" class="ji2_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editji3_toma_banho_soz">
+                      <input type="checkbox" class="ji3_toma_banho_soz" name="editji3_toma_banho_soz" id="editji3_toma_banho_soz"> Toma banho sozinho?</label>
+                    </div>                    
+                    <div class="form-group">
+                      <label for="editji3_parcial">
+                      <input type="checkbox" class="ji3_parcial" name="editji3_parcial" id="editji3_parcial"> Parcial.</label>    
+                      <label for="">Observações:</label><br>
+                      <span class="editji3_obs"></span>
+                      <textarea name="editji3_obs" id="editji3_obs" cols="30" rows="4" class="ji3_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>                    
+                    <div class="form-group">
+                      <label for="editji4_jg_len_pp_no_lix">
+                      <input type="checkbox" class="ji4_jg_len_pp_no_lix" name="editji4_jg_len_pp_no_lix" id="editji4_jg_len_pp_no_lix"> Joga o lenço de papel ou guardanapo no lixo após solicitação do adulto?</label>
+                      <label for="">Observações:</label><br>
+                      <span class="editji4_obs"></span>
+                      <textarea name="editji4_obs" id="editji4_obs" cols="30" rows="4" class="ji4_obs form-control"></textarea>
+                    </div>
+                </fieldset>    
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editji6_come_ref_na_mesa">
+                      <input type="checkbox" class="ji6_come_ref_na_mesa" name="editji6_come_ref_na_mesa" id="editji6_come_ref_na_mesa"> Come refeições na mesa?</label>
+                      <label for="">Observações:</label><br>
+                      <span class="editji6_obs"></span>
+                      <textarea name="editji6_obs" id="editji6_obs" cols="30" rows="4" class="ji6_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editji7_usa_colher_ind">
+                      <input type="checkbox" class="ji7_usa_colher_ind" name="editji7_usa_colher_ind" id="editji7_usa_colher_ind"> Usa colher independente?</label>
+                      <label for="">Observações:</label><br>
+                      <span class="editji7_obs"></span>
+                      <textarea name="editji7_obs" id="editji7_obs" cols="30" rows="4" class="ji7_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editji8_usa_garfo_ind">
+                      <input type="checkbox" class="ji8_usa_garfo_ind" name="editji8_usa_garfo_ind" id="editji8_usa_garfo_ind"> Usa garfo independente?</label>
+                      <label for="">Observações:</label><br>
+                      <span class="editji8_obs"></span>
+                      <textarea name="editji8_obs" id="editji8_obs" cols="30" rows="4" class="ji8_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editji9_tol_nov_alim">
+                      <input type="checkbox" class="ji9_tol_nov_alim" name="editji9_tol_nov_alim" id="editji9_tol_nov_alim"> Tolera novos alimentos no prato?</label>
+                      <label for="">Observações:</label><br>
+                      <span class="editji9_obs"></span>
+                      <textarea name="editji9_obs" id="editji9_obs" cols="30" rows="4" class="ji9_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editji10_usacopo_aberto">
+                      <input type="checkbox" class="ji10_usacopo_aberto" name="editji10_usacopo_aberto" id="editji10_usacopo_aberto"> Usa copo aberto?</label>
+                      <label for="">Observações:</label><br>
+                      <span class="editji10_obs"></span>
+                      <textarea name="editji10_obs" id="editji10_obs" cols="30" rows="4" class="ji10_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editji11_perm_parc_mesa">
+                      <input type="checkbox" class="ji11_perm_parc_mesa" name="editji11_perm_parc_mesa" id="editji11_perm_parc_mesa"> Permanece com os parceiros à mesa?</label>
+                      <label for="">Observações:</label><br>
+                      <span class="editji11_obs"></span>
+                      <textarea name="editji11_obs" id="editji11_obs" cols="30" rows="4" class="ji11_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editji12_desp_roup_ind">
+                      <input type="checkbox" class="ji12_desp_roup_ind" name="editji12_desp_roup_ind" id="editji12_desp_roup_ind"> Despe a roupa independente e coloca no cesto?</label>
+                      <label for="">Observações:</label><br>
+                      <span class="editji12_obs"></span>
+                      <textarea name="editji12_obs" id="editji12_obs" cols="30" rows="4" class="ji12_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editji13_limpa_nariz">
+                      <input type="checkbox" class="ji13_limpa_nariz" name="editji13_limpa_nariz" id="editji13_limpa_nariz"> Limpa o nariz?</label>
+                      <label for="">Observações:</label><br>
+                      <span class="editji13_obs"></span>
+                      <textarea name="editji13_obs" id="editji13_obs" cols="30" rows="4" class="ji13_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editji14_usa_garf_cpab_sderr">
+                      <input type="checkbox" class="ji14_usa_garf_cpab_sderr" name="editji14_usa_garf_cpab_sderr" id="editji14_usa_garf_cpab_sderr"> Usa o garfo e copo aberto sem derramar?</label>
+                      <label for="">Observações:</label><br>
+                      <span class="editji14_obs"></span>
+                      <textarea name="editji14_obs" id="editji14_obs" cols="30" rows="4" class="ji14_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editji15_abrefecha_moch_lanch_aut">
+                      <input type="checkbox" class="ji15_abrefecha_moch_lanch_aut" name="editji15_abrefecha_moch_lanch_aut" id="editji15_abrefecha_moch_lanch_aut"> Abre e fecha a mochila/lancheira de forma autônoma?</label>
+                      <label for="">Observações:</label><br>
+                      <span class="editji15_obs"></span>
+                      <textarea name="editji15_obs" id="editji15_obs" cols="30" rows="4" class="ji15_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editji16_usa_banh_aut">
+                      <input type="checkbox" class="ji16_usa_banh_aut" name="editji16_usa_banh_aut" id="editji16_usa_banh_aut"> Usa o banheiro de forma autônoma por iniciativa própria?</label>
+                      <label for="">Observações:</label><br>
+                      <span class="editji16_obs"></span>
+                      <textarea name="editji16_obs" id="editji16_obs" cols="30" rows="4" class="ji16_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editji17_tp_boca_qdtoss_esp">
+                      <input type="checkbox" class="ji17_tp_boca_qdtoss_esp" name="editji17_tp_boca_qdtoss_esp" id="editji17_tp_boca_qdtoss_esp"> Tampa a boca quando tosse ou espirra?</label>
+                      <label for="">Observações:</label><br>
+                      <span class="editji17_obs"></span>
+                      <textarea name="editji17_obs" id="editji17_obs" cols="30" rows="4" class="ji17_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editji18_ajuda_escovacao">
+                      <input type="checkbox" class="ji18_ajuda_escovacao" name="editji18_ajuda_escovacao" id="editji18_ajuda_escovacao"> Ajuda na escovação?</label>
+                      <label for="">Observações:</label><br>
+                      <span class="editji18_obs"></span>
+                      <textarea name="editji18_obs" id="editji18_obs" cols="30" rows="4" class="ji18_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <legend>Dê detalhes da autonomia de seu filho(a).</legend>
+                      <br>
+                      <span class="editji19_de_detalhes_aut"></span>
+                      <textarea name="editji19_de_detalhes_aut" id="editji19_de_detalhes_aut" cols="30" rows="4" class="ji19_de_detalhes_aut form-control"></textarea>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            <button data-color="{{$color}}" class="btn btn-{{$color}} update_histdesversaopaisindependencia_btn"><img id="imgedit_histdesversaopaisindependencia" src="{{asset('storage/ajax-loader.gif')}}" style="display: none;" class="rounded-circle" width="20"> Salvar</button>
+        </div>
+    </div>
+  </div>
+</div>
+<!-- Fim EditHistDesVersaoPaisIndependencia -->
 
 <!-- Inicio AddHistDesVersaoPaisComportamentos -->
 <div class="modal fade animate__animated animate__bounce animate__faster bd-example-modal-xl" id="AddHistDesVersaoPaisComportamentos" tabindex="-1" role="dialog" aria-labelledby="AddmyExtraLargeModalLabel_HistDesVersaoComportamentos" aria-hidden="true">
