@@ -1478,7 +1478,6 @@ public function storeHistDesVersaoPaisBrincadeiras(Request $request){
     }
     }
 
-//////////////////////////
 public function storeHistDesVersaoPaisComportamentos(Request $request){
         $validator = Validator::make($request->all(),[
             'atendimento' => ['required'],
@@ -1660,6 +1659,156 @@ public function storeHistDesVersaoPaisComportamentos(Request $request){
     }
     }
 
+//////////////////
+
+public function storeHistDesVersaoPaisIndependencia(Request $request){
+        $validator = Validator::make($request->all(),[
+            'atendimento' => ['required'],
+            'paciente' => ['required'],                    
+        ]);
+        if($validator->fails()){
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->errors()->getMessages(),
+            ]);
+        }else{
+            $user = auth()->user();
+            $data['id'] = $this->maxId_HistDesVersaoPaisIndependencia();
+            $data['atendimento_id'] = $request->input('atendimento');
+            $data['paciente_id'] = $request->input('paciente');
+            $data['j1_veste_roupa_soz'] = $request->input('j1_veste_roupa_soz');
+            $data['j1_parcial'] = $request->input('j1_parcial');
+            $data['j1_obs'] = $request->input('j1_obs');
+            $data['j2_retira_roupa_soz'] = $request->input('j2_retira_roupa_soz');
+            $data['j2_parcial'] = $request->input('j2_parcial');
+            $data['j2_obs'] = $request->input('j2_obs');
+            $data['j3_toma_banho_soz'] = $request->input('j3_toma_banho_soz');
+            $data['j3_parcial'] = $request->input('j3_parcial');
+            $data['j3_obs'] = $request->input('j3_obs');
+            $data['j4_jg_lenc_pp_no_lix'] = $request->input('j4_jg_lenc_pp_no_lix');
+            $data['j4_obs'] = $request->input('j4_obs');
+            $data['j6_come_ref_na_mesa'] = $request->input('j6_come_ref_na_mesa');
+            $data['j6_obs'] = $request->input('j6_obs');
+            $data['j7_usa_colher_ind'] = $request->input('j7_usa_colher_ind');
+            $data['j7_obs'] = $request->input('j7_obs');
+            $data['j8_usa_garfo_ind'] = $request->input('j8_usa_garfo_ind');
+            $data['j8_obs'] = $request->input('j8_obs');
+            $data['j9_tol_nov_alim'] = $request->input('j9_tol_nov_alim');
+            $data['j9_obs'] = $request->input('j9_obs');
+            $data['j10_usacopo_aberto'] = $request->input('j10_usacopo_aberto');
+            $data['j10_obs'] = $request->input('j10_obs');
+            $data['j11_perm_parc_mesa'] = $request->input('j11_perm_parc_mesa');
+            $data['j11_obs'] = $request->input('j11_obs');
+            $data['j12_desp_roup_ind'] = $request->input('j12_desp_roup_ind');
+            $data['j12_obs'] = $request->input('j12_obs');
+            $data['j13_limpa_nariz'] = $request->input('j13_limpa_nariz');
+            $data['j13_obs'] = $request->input('j13_obs');
+            $data['j14_usa_garf_cpab_sderr'] = $request->input('j14_usa_garf_cpab_sderr');
+            $data['j14_obs'] = $request->input('j14_obs');
+            $data['j15_abrefecha_moch_lanch_aut'] = $request->input('j15_abrefecha_moch_lanch_aut');
+            $data['j15_obs'] = $request->input('j15_obs');
+            $data['j16_usa_banh_aut'] = $request->input('j16_usa_banh_aut');
+            $data['j16_obs'] = $request->input('j16_obs');
+            $data['j17_tp_boca_qdtoss_esp'] = $request->input('j17_tp_boca_qdtoss_esp');
+            $data['j17_obs'] = $request->input('j17_obs');
+            $data['j18_ajuda_escovacao'] = $request->input('j18_ajuda_escovacao');
+            $data['j18_obs'] = $request->input('j18_obs');
+            $data['j19_de_detalhes_aut'] = $request->input('j19_de_detalhes_aut');
+            $data['created_at'] = now();
+            $data['updated_at'] = null;
+            $data['creater_user'] = $user->id;
+            $data['updater_user'] = null;
+            $this->histdes_versaopais_independencia->create($data);
+
+            return response()->json([
+                'status' => 200,
+            ]);
+
+        }
+    }    
+
+    protected function maxId_HistDesVersaoPaisIndependencia(){
+        $histdes_versaopais_independencia = $this->histdes_versaopais_independencia->orderByDesc('id')->first();
+        if($histdes_versaopais_independencia){
+            $codigo = $histdes_versaopais_independencia->id;
+        }else{
+            $codigo = 0;
+        }
+        return $codigo+1;
+    }
+
+    public function editHistDesVersaoPaisIndependencia(int $id){
+        $busca_pelo_paciente = $this->histdes_versaopais_independencia->wherePaciente_id($id)->first();        
+        $histdes_versaopais_independencia = $this->histdes_versaopais_independencia->find($busca_pelo_paciente->id);
+        return response()->json([
+            'status' => 200,
+            'histdesversaopaisindependencia' => $histdes_versaopais_independencia,
+        ]);
+    }
+
+    public function updateHistDesVersaoPaisIndependencia(Request $request, int $id){
+        $validator = Validator::make($request->all(),[
+            'atendimento' => ['required'],
+            'paciente' => ['required'],                        
+        ]);
+        if($validator->fails()){
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->errors()->getMessages(),
+            ]);
+        }else{
+            $busca_pelo_paciente = $this->histdes_versaopais_independencia->wherePaciente_id($id)->first();
+            $independencia = $this->histdes_versaopais_independencia->find($busca_pelo_paciente->id);
+            $user = auth()->user();            
+            $data['atendimento_id'] = $request->input('atendimento');
+            $data['paciente_id'] = $request->input('paciente');
+            $data['j1_veste_roupa_soz'] = $request->input('j1_veste_roupa_soz');
+            $data['j1_parcial'] = $request->input('j1_parcial');
+            $data['j1_obs'] = $request->input('j1_obs');
+            $data['j2_retira_roupa_soz'] = $request->input('j2_retira_roupa_soz');
+            $data['j2_parcial'] = $request->input('j2_parcial');
+            $data['j2_obs'] = $request->input('j2_obs');
+            $data['j3_toma_banho_soz'] = $request->input('j3_toma_banho_soz');
+            $data['j3_parcial'] = $request->input('j3_parcial');
+            $data['j3_obs'] = $request->input('j3_obs');
+            $data['j4_jg_lenc_pp_no_lix'] = $request->input('j4_jg_lenc_pp_no_lix');
+            $data['j4_obs'] = $request->input('j4_obs');
+            $data['j6_come_ref_na_mesa'] = $request->input('j6_come_ref_na_mesa');
+            $data['j6_obs'] = $request->input('j6_obs');
+            $data['j7_usa_colher_ind'] = $request->input('j7_usa_colher_ind');
+            $data['j7_obs'] = $request->input('j7_obs');
+            $data['j8_usa_garfo_ind'] = $request->input('j8_usa_garfo_ind');
+            $data['j8_obs'] = $request->input('j8_obs');
+            $data['j9_tol_nov_alim'] = $request->input('j9_tol_nov_alim');
+            $data['j9_obs'] = $request->input('j9_obs');
+            $data['j10_usacopo_aberto'] = $request->input('j10_usacopo_aberto');
+            $data['j10_obs'] = $request->input('j10_obs');
+            $data['j11_perm_parc_mesa'] = $request->input('j11_perm_parc_mesa');
+            $data['j11_obs'] = $request->input('j11_obs');
+            $data['j12_desp_roup_ind'] = $request->input('j12_desp_roup_ind');
+            $data['j12_obs'] = $request->input('j12_obs');
+            $data['j13_limpa_nariz'] = $request->input('j13_limpa_nariz');
+            $data['j13_obs'] = $request->input('j13_obs');
+            $data['j14_usa_garf_cpab_sderr'] = $request->input('j14_usa_garf_cpab_sderr');
+            $data['j14_obs'] = $request->input('j14_obs');
+            $data['j15_abrefecha_moch_lanch_aut'] = $request->input('j15_abrefecha_moch_lanch_aut');
+            $data['j15_obs'] = $request->input('j15_obs');
+            $data['j16_usa_banh_aut'] = $request->input('j16_usa_banh_aut');
+            $data['j16_obs'] = $request->input('j16_obs');
+            $data['j17_tp_boca_qdtoss_esp'] = $request->input('j17_tp_boca_qdtoss_esp');
+            $data['j17_obs'] = $request->input('j17_obs');
+            $data['j18_ajuda_escovacao'] = $request->input('j18_ajuda_escovacao');
+            $data['j18_obs'] = $request->input('j18_obs');
+            $data['j19_de_detalhes_aut'] = $request->input('j19_de_detalhes_aut');  
+            $data['updated_at'] = now();
+            $data['updater_user'] = $user->id;
+            $independencia->update($data);            
+
+            return response()->json([
+                'status' => 200,                
+            ]);        
+    }
+    }
 
 
 

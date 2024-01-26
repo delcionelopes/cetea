@@ -3336,7 +3336,7 @@
                                             @if($count_histdes_versaopais_brincadeiras)<i data-id="1" id="histdes_versaopais_brincadeiras{{$atendimento->id}}" class="fas fa-check" style="color: green"></i>@else<i data-id="0" id="histdes_versaopais_brincadeiras{{$atendimento->id}}"></i>@endif Brincadeiras</a></li>
                                         <li class="dropdown-item bg-light"><a href="#" class="histdes_versaopais_comportamentos dropdown-item" data-pacienteid="{{$atendimento->paciente_id}}" data-atendimentoid="{{$atendimento->id}}">
                                             @if($count_histdes_versaopais_comportamentos)<i data-id="1" id="histdes_versaopais_comportamentos{{$atendimento->id}}" class="fas fa-check" style="color: green"></i>@else<i data-id="0" id="histdes_versaopais_comportamentos{{$atendimento->id}}"></i>@endif Comportamentos</a></li>
-                                        <li class="dropdown-item bg-light"><a href="#" class="dropdown-item" data-id="{{$atendimento->paciente_id}}">
+                                        <li class="dropdown-item bg-light"><a href="#" class="histdes_versaopais_independencia dropdown-item" data-pacienteid="{{$atendimento->paciente_id}}" data-atendimentoid="{{$atendimento->id}}">
                                             @if($count_histdes_versaopais_independencia)<i data-id="1" id="histdes_versaopais_independencia{{$atendimento->id}}" class="fas fa-check" style="color: green"></i>@else<i data-id="0" id="histdes_versaopais_independencia{{$atendimento->id}}"></i>@endif Independência</a></li>
                                         <li class="dropdown-item bg-light"><a href="#" class="dropdown-item" data-id="{{$atendimento->paciente_id}}">
                                             @if($count_histdes_versaopais_desenvmotor)<i data-id="1" id="histdes_versaopais_desenvmotor{{$atendimento->id}}" class="fas fa-check" style="color: green"></i>@else<i data-id="0" id="histdes_versaopais_desenvmotor{{$atendimento->id}}"></i>@endif Desenvolvimento Motor</a></li>    
@@ -9366,6 +9366,810 @@ $(document).on('click','.histdes_versaopais_comportamentos',function(e){
     });
 
 //fim histdes_versaopais_comportamentos
+
+///////////////////////////////////
+
+//início histdes_versaopais_independencia
+
+$("#AddHistDesVersaoPaisIndependencia").on('shown.bs.modal',function(){
+            $(".ji1_veste_roupa_soz").focus();
+    });
+
+$("#EditHistDesVersaoPaisIndependencia").on('shown.bs.modal',function(){
+            $(".ji1_veste_roupa_soz").focus();
+    });
+
+//inicio conta caracteres dos textarea HistDesVersaoPaisIndependencia
+
+    //add
+ 
+    $(document).on('input','#addji1_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var ji1_obs = $('textarea[name="addji1_obs"]').val();
+            $('textarea[name="addji1_obs"]').val(ji1_obs.substr(0,limite));
+            $(".addji1_obs").text("0" + " " + informativo);
+        }else{
+            $(".addji1_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addji2_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var ji2_obs = $('textarea[name="addji2_obs"]').val();
+            $('textarea[name="addji2_obs"]').val(ji2_obs.substr(0,limite));
+            $(".addji2_obs").text("0" + " " + informativo);
+        }else{
+            $(".addji2_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addji3_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var ji3_obs = $('textarea[name="addji3_obs"]').val();
+            $('textarea[name="addji3_obs"]').val(ji3_obs.substr(0,limite));
+            $(".addji3_obs").text("0" + " " + informativo);
+        }else{
+            $(".addji3_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addji4_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var ji4_obs = $('textarea[name="addji4_obs"]').val();
+            $('textarea[name="addji4_obs"]').val(ji4_obs.substr(0,limite));
+            $(".addji4_obs").text("0" + " " + informativo);
+        }else{
+            $(".addji4_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addji6_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var ji6_obs = $('textarea[name="addji6_obs"]').val();
+            $('textarea[name="addji6_obs"]').val(ji6_obs.substr(0,limite));
+            $(".addji6_obs").text("0" + " " + informativo);
+        }else{
+            $(".addji6_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addji7_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var ji7_obs = $('textarea[name="addji7_obs"]').val();
+            $('textarea[name="addji7_obs"]').val(ji7_obs.substr(0,limite));
+            $(".addji7_obs").text("0" + " " + informativo);
+        }else{
+            $(".addji7_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addji8_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var ji8_obs = $('textarea[name="addji8_obs"]').val();
+            $('textarea[name="addji8_obs"]').val(ji8_obs.substr(0,limite));
+            $(".addji8_obs").text("0" + " " + informativo);
+        }else{
+            $(".addji8_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addji9_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var ji9_obs = $('textarea[name="addji9_obs"]').val();
+            $('textarea[name="addji9_obs"]').val(ji9_obs.substr(0,limite));
+            $(".addji9_obs").text("0" + " " + informativo);
+        }else{
+            $(".addji9_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addji10_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var ji10_obs = $('textarea[name="addji10_obs"]').val();
+            $('textarea[name="addji10_obs"]').val(ji10_obs.substr(0,limite));
+            $(".addji10_obs").text("0" + " " + informativo);
+        }else{
+            $(".addji10_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addji11_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var ji11_obs = $('textarea[name="addji11_obs"]').val();
+            $('textarea[name="addji11_obs"]').val(ji11_obs.substr(0,limite));
+            $(".addji11_obs").text("0" + " " + informativo);
+        }else{
+            $(".addji11_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addji12_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var ji12_obs = $('textarea[name="addji12_obs"]').val();
+            $('textarea[name="addji12_obs"]').val(ji3_obs.substr(0,limite));
+            $(".addji12_obs").text("0" + " " + informativo);
+        }else{
+            $(".addji12_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addji13_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var ji13_obs = $('textarea[name="addji13_obs"]').val();
+            $('textarea[name="addji13_obs"]').val(ji13_obs.substr(0,limite));
+            $(".addji13_obs").text("0" + " " + informativo);
+        }else{
+            $(".addji13_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addji14_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var ji14_obs = $('textarea[name="addji14_obs"]').val();
+            $('textarea[name="addji14_obs"]').val(ji14_obs.substr(0,limite));
+            $(".addji14_obs").text("0" + " " + informativo);
+        }else{
+            $(".addji14_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addji15_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var ji15_obs = $('textarea[name="addji15_obs"]').val();
+            $('textarea[name="addji15_obs"]').val(ji15_obs.substr(0,limite));
+            $(".addji15_obs").text("0" + " " + informativo);
+        }else{
+            $(".addji15_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addji16_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var ji16_obs = $('textarea[name="addji16_obs"]').val();
+            $('textarea[name="addji16_obs"]').val(ji16_obs.substr(0,limite));
+            $(".addji16_obs").text("0" + " " + informativo);
+        }else{
+            $(".addji16_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addji17_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var ji17_obs = $('textarea[name="addji17_obs"]').val();
+            $('textarea[name="addji17_obs"]').val(ji17_obs.substr(0,limite));
+            $(".addji17_obs").text("0" + " " + informativo);
+        }else{
+            $(".addji17_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addji18_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var ji18_obs = $('textarea[name="addji18_obs"]').val();
+            $('textarea[name="addji18_obs"]').val(ji18_obs.substr(0,limite));
+            $(".addji18_obs").text("0" + " " + informativo);
+        }else{
+            $(".addji18_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addji19_de_detalhes_aut',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var ji19_de_detalhes_aut = $('textarea[name="addji19_de_detalhes_aut"]').val();
+            $('textarea[name="addji19_de_detalhes_aut"]').val(ji19_de_detalhes_aut.substr(0,limite));
+            $(".addji19_de_detalhes_aut").text("0" + " " + informativo);
+        }else{
+            $(".addji19_de_detalhes_aut").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+     //edit
+ 
+    $(document).on('input','#editji1_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var ji1_obs = $('textarea[name="editji1_obs"]').val();
+            $('textarea[name="editji1_obs"]').val(ji1_obs.substr(0,limite));
+            $(".editji1_obs").text("0" + " " + informativo);
+        }else{
+            $(".editji1_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editji2_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var ji2_obs = $('textarea[name="editji2_obs"]').val();
+            $('textarea[name="editji2_obs"]').val(ji2_obs.substr(0,limite));
+            $(".editji2_obs").text("0" + " " + informativo);
+        }else{
+            $(".editji2_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editji3_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var ji3_obs = $('textarea[name="editji3_obs"]').val();
+            $('textarea[name="editji3_obs"]').val(ji3_obs.substr(0,limite));
+            $(".editji3_obs").text("0" + " " + informativo);
+        }else{
+            $(".editji3_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editji4_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var ji4_obs = $('textarea[name="editji4_obs"]').val();
+            $('textarea[name="editji4_obs"]').val(ji4_obs.substr(0,limite));
+            $(".editji4_obs").text("0" + " " + informativo);
+        }else{
+            $(".editji4_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editji6_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var ji6_obs = $('textarea[name="editji6_obs"]').val();
+            $('textarea[name="editji6_obs"]').val(ji6_obs.substr(0,limite));
+            $(".editji6_obs").text("0" + " " + informativo);
+        }else{
+            $(".editji6_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editji7_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var ji7_obs = $('textarea[name="editji7_obs"]').val();
+            $('textarea[name="editji7_obs"]').val(ji7_obs.substr(0,limite));
+            $(".editji7_obs").text("0" + " " + informativo);
+        }else{
+            $(".editji7_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editji8_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var ji8_obs = $('textarea[name="editji8_obs"]').val();
+            $('textarea[name="editji8_obs"]').val(ji8_obs.substr(0,limite));
+            $(".editji8_obs").text("0" + " " + informativo);
+        }else{
+            $(".editji8_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editji9_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var ji9_obs = $('textarea[name="editji9_obs"]').val();
+            $('textarea[name="editji9_obs"]').val(ji9_obs.substr(0,limite));
+            $(".editji9_obs").text("0" + " " + informativo);
+        }else{
+            $(".editji9_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editji10_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var ji10_obs = $('textarea[name="editji10_obs"]').val();
+            $('textarea[name="editji10_obs"]').val(ji10_obs.substr(0,limite));
+            $(".editji10_obs").text("0" + " " + informativo);
+        }else{
+            $(".editji10_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editji11_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var ji11_obs = $('textarea[name="editji11_obs"]').val();
+            $('textarea[name="editji11_obs"]').val(ji11_obs.substr(0,limite));
+            $(".editji11_obs").text("0" + " " + informativo);
+        }else{
+            $(".editji11_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editji12_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var ji12_obs = $('textarea[name="editji12_obs"]').val();
+            $('textarea[name="editji12_obs"]').val(ji3_obs.substr(0,limite));
+            $(".editji12_obs").text("0" + " " + informativo);
+        }else{
+            $(".editji12_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editji13_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var ji13_obs = $('textarea[name="editji13_obs"]').val();
+            $('textarea[name="editji13_obs"]').val(ji13_obs.substr(0,limite));
+            $(".editji13_obs").text("0" + " " + informativo);
+        }else{
+            $(".editji13_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editji14_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var ji14_obs = $('textarea[name="editji14_obs"]').val();
+            $('textarea[name="editji14_obs"]').val(ji14_obs.substr(0,limite));
+            $(".editji14_obs").text("0" + " " + informativo);
+        }else{
+            $(".editji14_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editji15_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var ji15_obs = $('textarea[name="editji15_obs"]').val();
+            $('textarea[name="editji15_obs"]').val(ji15_obs.substr(0,limite));
+            $(".editji15_obs").text("0" + " " + informativo);
+        }else{
+            $(".editji15_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editji16_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var ji16_obs = $('textarea[name="editji16_obs"]').val();
+            $('textarea[name="editji16_obs"]').val(ji16_obs.substr(0,limite));
+            $(".editji16_obs").text("0" + " " + informativo);
+        }else{
+            $(".editji16_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editji17_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var ji17_obs = $('textarea[name="editji17_obs"]').val();
+            $('textarea[name="editji17_obs"]').val(ji17_obs.substr(0,limite));
+            $(".editji17_obs").text("0" + " " + informativo);
+        }else{
+            $(".editji17_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editji18_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var ji18_obs = $('textarea[name="editji18_obs"]').val();
+            $('textarea[name="editji18_obs"]').val(ji18_obs.substr(0,limite));
+            $(".editji18_obs").text("0" + " " + informativo);
+        }else{
+            $(".editji18_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editji19_de_detalhes_aut',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var ji19_de_detalhes_aut = $('textarea[name="editji19_de_detalhes_aut"]').val();
+            $('textarea[name="editji19_de_detalhes_aut"]').val(ji19_de_detalhes_aut.substr(0,limite));
+            $(".editji19_de_detalhes_aut").text("0" + " " + informativo);
+        }else{
+            $(".editji19_de_detalhes_aut").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    
+$(document).on('click','.histdes_versaopais_independencia',function(e){
+        e.preventDefault();
+        var pacienteid = $(this).data("pacienteid");
+        var atendimentoid = $(this).data("atendimentoid");
+        var opcao_form_histdes_versaopais_comportamentos = $("#histdes_versaopais_independencia"+atendimentoid).data("id");
+
+        if(opcao_form_histdes_versaopais_independencia==0){
+                $("#addpacienteid_histdesversaopaisindependencia").val(pacienteid);
+                $("#addatendimentoid_histdesversaopaisindependencia").val(atendimentoid);
+                $("#addform_histdesversaopaisindependencia").trigger('reset');
+                $("#AddHistDesVersaoPaisIndependencia").modal('show'); 
+                $("#saveform_errList_histdesversaopaisindependencia").replaceWith('<ul id="saveform_errList_histdesversaopaisindependencia"></ul>');
+        }else{            
+                $("#editpacienteid_histdesversaopaisindependencia").val(pacienteid);
+                $("#editatendimentoid_histdesversaopaisindependencia").val(atendimentoid);
+                $("#editform_histdesversaopaisindependencia").trigger('reset');
+                $("#EditHistDesVersaoPaisIndependencia").modal('show'); 
+                $("#updateform_errList_histdesversaoindependencia").replaceWith('<ul id="updateform_errList_histdesversaoindependencia"></ul>');
+
+                 $.ajaxSetup({
+                    headers:{
+                        'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+    
+    
+                $.ajax({ 
+                    type: 'GET',             
+                    dataType: 'json',                                    
+                    url: '/ceteaadmin/terapia/edit_histdesversaopaisindependencia/'+pacienteid,
+                    success: function(response){           
+                        if(response.status==200){                                                
+                            $(".ji1_veste_roupa_soz").attr('checked',response.histdesversaopaisindependencia.j1_veste_roupa_soz);
+                            $(".ji1_parcial").attr('checked',response.histdesversaopaisindependencia.j1_parcial);
+                            $(".ji1_obs").val(response.histdesversaopaiscomportamentos.j1_obs);
+                            $(".ji2_retira_roupa_soz").attr('checked',response.histdesversaopaisindependencia.j2_retira_roupa_soz);
+                            $(".ji2_parcial").attr('checked',response.histdesversaopaisindependencia.j2_parcial);
+                            $(".ji2_obs").val(response.histdesversaopaiscomportamentos.j2_obs);
+                            $(".ji3_toma_banho_soz").attr('checked',response.histdesversaopaisindependencia.j3_toma_banho_soz);
+                            $(".ji3_parcial").attr('checked',response.histdesversaopaisindependencia.j3_parcial);
+                            $(".ji3_obs").val(response.histdesversaopaiscomportamentos.j3_obs);
+                            $(".ji4_jg_len_pp_no_lix").attr('checked',response.histdesversaopaisindependencia.j4_jg_len_pp_no_lix);
+                            $(".ji4_obs").val(response.histdesversaopaiscomportamentos.j4_obs);
+                            $(".ji6_come_ref_na_mesa").attr('checked',response.histdesversaopaisindependencia.j6_come_ref_na_mesa);
+                            $(".ji6_obs").val(response.histdesversaopaiscomportamentos.j6_obs);
+                            $(".ji7_usa_colher_ind").attr('checked',response.histdesversaopaisindependencia.j7_usa_colher_ind);
+                            $(".ji7_obs").val(response.histdesversaopaiscomportamentos.j7_obs);
+                            $(".ji8_usa_garfo_ind").attr('checked',response.histdesversaopaisindependencia.j8_usa_garfo_ind);
+                            $(".ji8_obs").val(response.histdesversaopaiscomportamentos.j8_obs);
+                            $(".ji9_tol_nov_alim").attr('checked',response.histdesversaopaisindependencia.j9_tol_nov_alim);
+                            $(".ji9_obs").val(response.histdesversaopaiscomportamentos.j9_obs);
+                            $(".ji10_usacopo_aberto").attr('checked',response.histdesversaopaisindependencia.j10_usacopo_aberto);
+                            $(".ji10_obs").val(response.histdesversaopaiscomportamentos.j10_obs);
+                            $(".ji11_perm_parc_mesa").attr('checked',response.histdesversaopaisindependencia.j11_perm_parc_mesa);
+                            $(".ji11_obs").val(response.histdesversaopaiscomportamentos.j11_obs);
+                            $(".ji12_desp_roup_ind").attr('checked',response.histdesversaopaisindependencia.j12_desp_roup_ind);
+                            $(".ji12_obs").val(response.histdesversaopaiscomportamentos.j12_obs);
+                            $(".ji13_limpa_nariz").attr('checked',response.histdesversaopaisindependencia.j13_limpa_nariz);
+                            $(".ji13_obs").val(response.histdesversaopaiscomportamentos.j13_obs);
+                            $(".ji14_usa_garf_cpab_sderr").attr('checked',response.histdesversaopaisindependencia.j14_usa_garf_cpab_sderr);
+                            $(".ji14_obs").val(response.histdesversaopaiscomportamentos.j14_obs);
+                            $(".ji15_abrefecha_moch_lanch_aut").attr('checked',response.histdesversaopaisindependencia.j15_abrefecha_moch_lanch_aut);
+                            $(".ji15_obs").val(response.histdesversaopaiscomportamentos.j15_obs);
+                            $(".ji16_usa_banh_aut").attr('checked',response.histdesversaopaisindependencia.j16_usa_banh_aut);
+                            $(".ji16_obs").val(response.histdesversaopaiscomportamentos.j16_obs);
+                            $(".ji17_tp_boca_qdtoss_esp").attr('checked',response.histdesversaopaisindependencia.j17_tp_boca_qdtoss_esp);
+                            $(".ji17_obs").val(response.histdesversaopaiscomportamentos.j17_obs);
+                            $(".ji18_ajuda_escovacao").attr('checked',response.histdesversaopaisindependencia.j18_ajuda_escovacao);
+                            $(".ji18_obs").val(response.histdesversaopaiscomportamentos.j18_obs);
+                            $(".ji19_de_detalhes_aut").val(response.histdesversaopaiscomportamentos.j19_de_detalhes_aut);
+                        }
+                    }
+                });
+        }
+    });
+
+
+    $(document).on('click','.add_histdesversaopais_independencia_btn',function(e){
+        e.preventDefault();
+        var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+        var pacienteid = $("#addpacienteid_histdesversaopaisindependencia").val();
+        var atendimentoid = $("#addatendimentoid_histdesversaopaisindependencia").val();
+
+        var loading = $("#imgadd_histdesversaopaisindependencia");
+            loading.show();
+
+        var data = new FormData();
+
+        data.append('atendimento',atendimentoid);
+        data.append('paciente',pacienteid);
+        data.append('j1_veste_roupa_soz',$(".ji1_veste_roupa_soz").is(":checked")?'true':'false');
+        data.append('j1_parcial',$(".ji1_parcial").is(":checked")?'true':'false');
+        data.append('j1_obs',$(".ji1_obs").val());
+        data.append('j2_retira_roupa_soz',$(".ji2_retira_roupa_soz").is(":checked")?'true':'false');
+        data.append('j2_parcial',$(".ji2_parcial").is(":checked")?'true':'false');
+        data.append('j2_obs',$(".ji2_obs").val());
+        data.append('j3_toma_banho_soz',$(".ji3_toma_banho_soz").is(":checked")?'true':'false');
+        data.append('j3_parcial',$(".ji3_parcial").is(":checked")?'true':'false');
+        data.append('j3_obs',$(".ji3_obs").val());
+        data.append('j4_jg_len_pp_no_lix',$(".ji4_jg_len_pp_no_lix").is(":checked")?'true':'false');        
+        data.append('j4_obs',$(".ji4_obs").val());
+        data.append('j6_come_ref_na_mesa',$(".ji6_come_ref_na_mesa").is(":checked")?'true':'false');        
+        data.append('j6_obs',$(".ji6_obs").val());
+        data.append('j7_usa_colher_ind',$(".ji7_usa_colher_ind").is(":checked")?'true':'false');        
+        data.append('j7_obs',$(".ji7_obs").val());
+        data.append('j8_usa_garfo_ind',$(".ji8_usa_garfo_ind").is(":checked")?'true':'false');        
+        data.append('j8_obs',$(".ji8_obs").val());
+        data.append('j9_tol_nov_alim',$(".ji9_tol_nov_alim").is(":checked")?'true':'false');        
+        data.append('j9_obs',$(".ji9_obs").val());
+        data.append('j10_usacopo_aberto',$(".ji10_usacopo_aberto").is(":checked")?'true':'false');        
+        data.append('j10_obs',$(".ji10_obs").val());
+        data.append('j11_perm_parc_mesa',$(".ji11_perm_parc_mesa").is(":checked")?'true':'false');        
+        data.append('j11_obs',$(".ji11_obs").val());
+        data.append('j12_desp_roup_ind',$(".ji12_desp_roup_ind").is(":checked")?'true':'false');        
+        data.append('j12_obs',$(".ji12_obs").val());
+        data.append('j13_limpa_nariz',$(".ji13_limpa_nariz").is(":checked")?'true':'false');        
+        data.append('j13_obs',$(".ji13_obs").val());
+        data.append('j14_usa_garf_cpab_sderr',$(".ji14_usa_garf_cpab_sderr").is(":checked")?'true':'false');        
+        data.append('j14_obs',$(".ji14_obs").val());
+        data.append('j15_abrefecha_moch_lanch_aut',$(".ji15_abrefecha_moch_lanch_aut").is(":checked")?'true':'false');        
+        data.append('j15_obs',$(".ji15_obs").val());
+        data.append('j16_usa_banh_aut',$(".ji16_usa_banh_aut").is(":checked")?'true':'false');        
+        data.append('j16_obs',$(".ji16_obs").val());
+        data.append('j17_tp_boca_qdtoss_esp',$(".ji17_tp_boca_qdtoss_esp").is(":checked")?'true':'false');        
+        data.append('j17_obs',$(".ji17_obs").val());
+        data.append('j18_ajuda_escovacao',$(".ji18_ajuda_escovacao").is(":checked")?'true':'false');        
+        data.append('j18_obs',$(".ji18_obs").val());        
+        data.append('j19_de_detalhes_aut',$(".ji19_de_detalhes_aut").val());
+        data.append('_token',CSRF_TOKEN);
+        data.append('_method','PUT');
+
+        $.ajax({
+            url:'/ceteaadmin/terapia/store_histdesversaopaisindependencia',
+            type: 'POST',
+            dataType: 'json',
+            data: data,
+            cache: false,
+            processData: false,
+            contentType: false,
+            async:true,
+            success:function(response){
+                if(response.status==400){
+                    $("#saveform_errlist_histdesversaopaisindependencia").replaceWith('<ul id="saveform_errList_histdesversaopaisindependencia"></ul>');
+                    $("#saveform_errlist_histdesversaopaisindependencia").addClass("alert alert-danger");
+                    $.each(response.errors,function(key,err_values){
+                        $("#saveform_errlist_histdesversaopaisindependencia").append('<li>'+err_values+'</li>')
+                    });
+                    loading.hide();
+                }else{
+                    loading.hide();
+                    $("#saveform_errlist_histdesversaopaisindependencia").replaceWith('<ul id="saveform_errList_histdesversaopaisindependencia"></ul>');
+                    $("#histdes_versaopais_independencia"+atendimentoid).replaceWith('<i data-id="1" id="histdes_versaopais_independencia'+atendimentoid+'" class="fas fa-check" style="color: green"></i>');
+                    $("#addform_histdesversaopaisindependencia").trigger('reset');
+                    $("#AddHistDesVersaoPaisIndependencia").modal('hide');                     
+                }
+            }
+
+        });
+
+    });
+
+
+    $(document).on('click','.update_histdesversaopaisindependencia_btn',function(e){
+        var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+        var atendimentoid = $("#editatendimentoid_histdesversaopaisindependencia").val();
+        var pacienteid = $("#editpacienteid_histdesversaopaisindependencia").val();
+
+        var loading = $("#imgedit_histdesversaopaisindependencia");
+            loading.show();
+
+        var data = new FormData();
+
+        data.append('atendimento',atendimentoid);
+        data.append('paciente',pacienteid);        
+        data.append('j1_veste_roupa_soz',$("#editji1_veste_roupa_soz").is(":checked")?'true':'false');
+        data.append('j1_parcial',$("#editji1_parcial").is(":checked")?'true':'false');
+        data.append('j1_obs',$("#editji1_obs").val());
+        data.append('j2_retira_roupa_soz',$("#editji2_retira_roupa_soz").is(":checked")?'true':'false');
+        data.append('j2_parcial',$("#editji2_parcial").is(":checked")?'true':'false');
+        data.append('j2_obs',$("#editji2_obs").val());
+        data.append('j3_toma_banho_soz',$("#editji3_toma_banho_soz").is(":checked")?'true':'false');
+        data.append('j3_parcial',$("#editji3_parcial").is(":checked")?'true':'false');
+        data.append('j3_obs',$("#editji3_obs").val());
+        data.append('j4_jg_len_pp_no_lix',$("#editji4_jg_len_pp_no_lix").is(":checked")?'true':'false');        
+        data.append('j4_obs',$("#editji4_obs").val());
+        data.append('j6_come_ref_na_mesa',$("#editji6_come_ref_na_mesa").is(":checked")?'true':'false');        
+        data.append('j6_obs',$("#editji6_obs").val());
+        data.append('j7_usa_colher_ind',$("#editji7_usa_colher_ind").is(":checked")?'true':'false');        
+        data.append('j7_obs',$("#editji7_obs").val());
+        data.append('j8_usa_garfo_ind',$("#editji8_usa_garfo_ind").is(":checked")?'true':'false');        
+        data.append('j8_obs',$("#editji8_obs").val());
+        data.append('j9_tol_nov_alim',$("#editji9_tol_nov_alim").is(":checked")?'true':'false');        
+        data.append('j9_obs',$("#editji9_obs").val());
+        data.append('j10_usacopo_aberto',$("#editji10_usacopo_aberto").is(":checked")?'true':'false');        
+        data.append('j10_obs',$("#editji10_obs").val());
+        data.append('j11_perm_parc_mesa',$("#editji11_perm_parc_mesa").is(":checked")?'true':'false');        
+        data.append('j11_obs',$("#editji11_obs").val());
+        data.append('j12_desp_roup_ind',$("#editji12_desp_roup_ind").is(":checked")?'true':'false');        
+        data.append('j12_obs',$("#editji12_obs").val());
+        data.append('j13_limpa_nariz',$("#editji13_limpa_nariz").is(":checked")?'true':'false');        
+        data.append('j13_obs',$("#editji13_obs").val());
+        data.append('j14_usa_garf_cpab_sderr',$("#editji14_usa_garf_cpab_sderr").is(":checked")?'true':'false');        
+        data.append('j14_obs',$("#editji14_obs").val());
+        data.append('j15_abrefecha_moch_lanch_aut',$("#editji15_abrefecha_moch_lanch_aut").is(":checked")?'true':'false');        
+        data.append('j15_obs',$("#editji15_obs").val());
+        data.append('j16_usa_banh_aut',$("#editji16_usa_banh_aut").is(":checked")?'true':'false');        
+        data.append('j16_obs',$("#editji16_obs").val());
+        data.append('j17_tp_boca_qdtoss_esp',$("#editji17_tp_boca_qdtoss_esp").is(":checked")?'true':'false');        
+        data.append('j17_obs',$("#editji17_obs").val());
+        data.append('j18_ajuda_escovacao',$("#editji18_ajuda_escovacao").is(":checked")?'true':'false');        
+        data.append('j18_obs',$("#editji18_obs").val());        
+        data.append('j19_de_detalhes_aut',$("#editji19_de_detalhes_aut").val());
+        data.append('_token',CSRF_TOKEN);
+        data.append('_method','PUT');   
+
+        $.ajax({
+            url:'/ceteaadmin/terapia/update_histdesversaopaisindependencia/'+pacienteid,
+            type:'POST',
+            contentType: 'json',
+            data: data,
+            cache: false,
+            processData: false,
+            contentType: false,
+            async:true,
+            success:function(response){
+                if(response.status==400){
+                    $("#updateform_errList_histdesversaopaisindependencia").replaceWith('<ul id="updateform_errList_histdesversaopaisindependencia"></ul>');
+                    $("#updateform_errlist_histdesversaopaisindependencia").addClass('alert alert-danger');
+                    $.each(response.errors,function(key,err_values){
+                        $("#updateform_errlist_histdesversaopaisindependencia").append('<li>'+err_values+'</li>');
+                    });
+                    loading.hide();
+                }else{
+                    loading.hide();
+                    $("#updateform_errlist_histdesversaopaisindependencia").replaceWith('<ul id="updateform_errList_histdesversaopaisindependencia"></ul>');
+                    $("#histdes_versaopais_independencia"+atendimentoid).replaceWith('<i data-id="1" id="histdes_versaopais_independencia'+atendimentoid+'" class="fas fa-check" style="color: green"></i>');
+                    $("#editform_histdesversaopaisindependencia").trigger('reset');
+                    $("#EditHistDesVersaoPaisIndependencia").modal('hide');    
+                }
+            }
+        });
+    });
+
+//fim histdes_versaopais_independencia
 
 
 });
