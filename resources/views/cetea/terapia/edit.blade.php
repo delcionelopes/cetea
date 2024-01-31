@@ -28,6 +28,378 @@
 
 </style>
 
+<!-- Inicio AddHistDesVersaoPaisDesenvMotor -->
+<div class="modal fade animate__animated animate__bounce animate__faster bd-example-modal-xl" id="AddHistDesVersaoPaisDesenvMotor" tabindex="-1" role="dialog" aria-labelledby="AddmyExtraLargeModalLabel_HistDesVersaoDesenvMotor" aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+        <div class="modal-header bg-{{$color}}">
+            <h5 class="modal-title" id="AddmyExtraLargeModalLabel_HistDesVersaoPaisDesenvMotor" style="color: white;">Histórico do Desenvolvimento Versão Pais - Desenv. Motor</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                <span aria-hidden="true" style="color: white.">&times;</span>
+            </button>
+        </div>      
+        <div class="modal-body form-horizontal" role="form">
+            <form id="addform_hisdesversaopaisddesenvmotor" class="form-horizontal" role="form" method="POST">
+                <input type="hidden" id="addpacienteid_histdesversaopaisdesenvmotor">
+                <input type="hidden" id="addatendimentoid_histdesversaopaisdesenvmotor">
+                <ul id="saveform_errlist_histdesversaopaisindependencia"></ul>
+                <fieldset>
+                    <legend>DESENVOLVIMENTO MOTOR (idades aproximadas).</legend>
+                </fieldset>                            
+                <fieldset>                      
+                    <legend>Sustentou a cabeça.</legend>
+                    <div class="form-group">
+                      <span class="addl1_sust_cabeca"></span>
+                      <textarea name="addl1_sust_cabeca" id="addl1_sust_cabeca" cols="30" rows="3" class="l1_sust_cabeca form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Sentou sem apoio.</legend>
+                    <div class="form-group">
+                      <span class="addl2_sent_s_apoio"></span>
+                      <textarea name="addl2_sent_s_apoio" id="addl2_sent_s_apoio" cols="30" rows="3" class="l2_sent_s_apoio form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Andou.</legend>
+                    <div class="form-group">
+                      <span class="addl3_andou"></span>
+                      <textarea name="addl3_andou" id="addl3_andou" cols="30" rows="3" class="l3_andou form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>                    
+                    <legend>Descreva o processo de desfralde (idades e dificuldades).</legend>
+                    <div class="form-group">
+                      <span class="addl4_desproc_desfralde"></span>
+                      <textarea name="addl4_desproc_desfralde" id="addl4_desproc_desfralde" cols="30" rows="3" class="l4_desproc_desfralde form-control"></textarea>
+                    </div>
+                </fieldset>    
+                <fieldset>
+                    <legend>Houve perda de controle esfincteriano já adquirido?</legend>
+                    <div class="form-group">
+                      <span class="addl5_hv_perdcontrol_esfinc"></span>
+                      <textarea name="addl5_hv_perdcontrol_esfinc" id="addl5_hv_perdcontrol_esfinc" cols="30" rows="3" class="l5_hv_perdcontrol_esfinc form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addl6_rab_em_papel">
+                      <input type="checkbox" class="l6_rab_em_papel" name="addl6_rab_em_papel" id="addl6_rab_em_papel"> Rabisca em papel?</label>
+                      <label for="">Observações:</label><br>
+                      <span class="addl6_obs"></span>
+                      <textarea name="addl6_obs" id="addl6_obs" cols="30" rows="3" class="l6_obs form-control"></textarea>
+                    </div>
+                    <div class="form-group">
+                      <label for="">Como segura o lápis? De maneira adequada?</label><br>
+                      <span class="addl6_cm_seg_lapis"></span>
+                      <textarea name="addl6_cm_seg_lapis" id="addl6_cm_seg_lapis" cols="30" rows="3" class="l6_cm_seg_lapis form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addl7_cam_ponta_pes">
+                      <input type="checkbox" class="l7_cam_ponta_pes" name="addl7_cam_ponta_pes" id="addl7_cam_ponta_pes"> Caminha na ponta dos pés?</label>
+                      <label for="">Observações:</label><br>
+                      <span class="addl7_obs"></span>
+                      <textarea name="addl7_obs" id="addl7_obs" cols="30" rows="3" class="l7_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addl8_apres_deseq">
+                      <input type="checkbox" class="l8_apres_deseq" name="addl8_apres_deseq" id="addl8_apres_deseq"> Apresenta desequilíbrio?</label>
+                      <label for="">Observações:</label><br>
+                      <span class="addl8_obs"></span>
+                      <textarea name="addl8_obs" id="addl8_obs" cols="30" rows="3" class="l8_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addl9_dif_para_correr">
+                      <input type="checkbox" class="l9_dif_para_correr" name="addl9_dif_para_correr" id="addl9_dif_para_correr"> Tem dificuldade para correr?</label>
+                      <label for="">Observações:</label><br>
+                      <span class="addl9_obs"></span>
+                      <textarea name="addl9_obs" id="addl9_obs" cols="30" rows="3" class="l9_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addl10_dif_para_escalar">
+                      <input type="checkbox" class="l10_dif_para_escalar" name="addl10_dif_para_escalar" id="addl10_dif_para_escalar"> Tem dificuldade para escalar?</label>
+                      <label for="">Observações:</label><br>
+                      <span class="addl10_obs"></span>
+                      <textarea name="addl10_obs" id="addl10_obs" cols="30" rows="3" class="l10_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addl11_chuta_bola">
+                      <input type="checkbox" class="l11_chuta_bola" name="addl11_chuta_bola" id="addl11_chuta_bola"> Chuta uma bola?</label>
+                      <label for="">Observações:</label><br>
+                      <span class="addl11_obs"></span>
+                      <textarea name="addl11_obs" id="addl11_obs" cols="30" rows="3" class="l11_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addl12_sb_esc_sajuda">
+                      <input type="checkbox" class="l12_sb_esc_sajuda" name="addl12_sb_esc_sajuda" id="addl12_sb_esc_sajuda"> Sobe escadas sem ajuda?</label>
+                      <label for="">Observações:</label><br>
+                      <span class="addl12_obs"></span>
+                      <textarea name="addl12_obs" id="addl12_obs" cols="30" rows="3" class="l12_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addl13_sb_esc_altpess">
+                      <input type="checkbox" class="l13_sb_esc_altpess" name="addl13_sb_esc_altpess" id="addl13_sb_esc_altpess"> Sobe escadas alternando os pés?</label>
+                      <label for="">Observações:</label><br>
+                      <span class="addl13_obs"></span>
+                      <textarea name="addl13_obs" id="addl13_obs" cols="30" rows="3" class="l13_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addl14_sb_pedalar">
+                      <input type="checkbox" class="l14_sb_pedalar" name="addl14_sb_pedalar" id="addl14_sb_pedalar"> Sabe pedalar?</label>
+                      <label for="">Observações:</label><br>
+                      <span class="addl14_obs"></span>
+                      <textarea name="addl14_obs" id="addl14_obs" cols="30" rows="3" class="l14_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addl15_dif_man_obj_cdedos">
+                      <input type="checkbox" class="l15_dif_man_obj_cdedos" name="addl15_dif_man_obj_cdedos" id="addl15_dif_man_obj_cdedos"> Apresenta dificuldade em manipular objetos com os dedos?</label>
+                      <label for="">Observações:</label><br>
+                      <span class="addl15_obs"></span>
+                      <textarea name="addl15_obs" id="addl15_obs" cols="30" rows="3" class="l15_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addl16_senta_em_w">
+                      <input type="checkbox" class="l16_senta_em_w" name="addl16_senta_em_w" id="addl16_senta_em_w"> Senta em W?</label>
+                      <label for="">Observações:</label><br>
+                      <span class="addl16_obs"></span>
+                      <textarea name="addl16_obs" id="addl16_obs" cols="30" rows="3" class="l16_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addl17_seg_mamadeira">
+                      <input type="checkbox" class="l17_seg_mamadeira" name="addl17_seg_mamadeira" id="addl17_seg_mamadeira"> Segurar mamadeira?</label>
+                      <label for="">Observações:</label><br>
+                      <span class="addl17_obs"></span>
+                      <textarea name="addl17_obs" id="addl17_obs" cols="30" rows="3" class="l17_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addl18_amarra_cadarco">
+                      <input type="checkbox" class="l18_amarra_cadarco" name="addl18_amarra_cadarco" id="addl18_amarra_cadarco"> Amarra cadarço?</label>
+                      <label for="">Observações:</label><br>
+                      <span class="addl18_obs"></span>
+                      <textarea name="addl18_obs" id="addl18_obs" cols="30" rows="3" class="l18_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            <button data-color="{{$color}}" class="btn btn-{{$color}} add_histdesversaopais_desenvmotor_btn"><img id="imgadd_histdesversaopaisdesenvmotor" src="{{asset('storage/ajax-loader.gif')}}" style="display: none;" class="rounded-circle" width="20"> Salvar</button>
+        </div>
+    </div>
+  </div>
+</div>
+<!-- Fim AddHistDesVersaoPaisDesenvMotor -->
+
+<!-- Inicio EditHistDesVersaoPaisDesenvMotor -->
+<div class="modal fade animate__animated animate__bounce animate__faster bd-example-modal-xl" id="EditHistDesVersaoPaisDesenvMotor" tabindex="-1" role="dialog" aria-labelledby="EditmyExtraLargeModalLabel_histdesversaopaisdesenvmotor" aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+        <div class="modal-header bg-{{$color}}">
+            <h5 class="modal-title" id="EditmyExtraLargeModalLabel_histdesversaopaisdesenvmotor" style="color: white;">Histórico do Desenvolvimento Versão Pais - Desenv. Motor</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                <span aria-hidden="true" style="color: white.">&times;</span>
+            </button>
+        </div>      
+        <div class="modal-body form-horizontal" role="form">
+            <form id="editform_histdesversaopaisdesenvmotor" class="form-horizontal" role="form" method="POST">
+                <input type="hidden" id="editpacienteid_histdesversaopaisdesenvmotor">
+                <input type="hidden" id="editatendimentoid_histdesversaopaisdesenvmotor">
+                <ul id="updateform_errlist_histdesversaopaisdesenvmotor"></ul>
+                <fieldset>
+                    <legend>DESENVOLVIMENTO MOTOR (idades aproximadas).</legend>
+                </fieldset>                            
+                <fieldset>                      
+                    <legend>Sustentou a cabeça.</legend>
+                    <div class="form-group">
+                      <span class="editl1_sust_cabeca"></span>
+                      <textarea name="editl1_sust_cabeca" id="editl1_sust_cabeca" cols="30" rows="3" class="l1_sust_cabeca form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Sentou sem apoio.</legend>
+                    <div class="form-group">
+                      <span class="editl2_sent_s_apoio"></span>
+                      <textarea name="editl2_sent_s_apoio" id="editl2_sent_s_apoio" cols="30" rows="3" class="l2_sent_s_apoio form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Andou.</legend>
+                    <div class="form-group">
+                      <span class="editl3_andou"></span>
+                      <textarea name="editl3_andou" id="editl3_andou" cols="30" rows="3" class="l3_andou form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>                    
+                    <legend>Descreva o processo de desfralde (idades e dificuldades).</legend>
+                    <div class="form-group">
+                      <span class="editl4_desproc_desfralde"></span>
+                      <textarea name="editl4_desproc_desfralde" id="editl4_desproc_desfralde" cols="30" rows="3" class="l4_desproc_desfralde form-control"></textarea>
+                    </div>
+                </fieldset>    
+                <fieldset>
+                    <legend>Houve perda de controle esfincteriano já adquirido?</legend>
+                    <div class="form-group">
+                      <span class="editl5_hv_perdcontrol_esfinc"></span>
+                      <textarea name="editl5_hv_perdcontrol_esfinc" id="editl5_hv_perdcontrol_esfinc" cols="30" rows="3" class="l5_hv_perdcontrol_esfinc form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editl6_rab_em_papel">
+                      <input type="checkbox" class="l6_rab_em_papel" name="editl6_rab_em_papel" id="editl6_rab_em_papel"> Rabisca em papel?</label>
+                      <label for="">Observações:</label><br>
+                      <span class="editl6_obs"></span>
+                      <textarea name="editl6_obs" id="editl6_obs" cols="30" rows="3" class="l6_obs form-control"></textarea>
+                    </div>
+                    <div class="form-group">
+                      <label for="">Como segura o lápis? De maneira adequada?</label><br>
+                      <span class="editl6_cm_seg_lapis"></span>
+                      <textarea name="editl6_cm_seg_lapis" id="editl6_cm_seg_lapis" cols="30" rows="3" class="l6_cm_seg_lapis form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editl7_cam_ponta_pes">
+                      <input type="checkbox" class="l7_cam_ponta_pes" name="editl7_cam_ponta_pes" id="editl7_cam_ponta_pes"> Caminha na ponta dos pés?</label>
+                      <label for="">Observações:</label><br>
+                      <span class="editl7_obs"></span>
+                      <textarea name="editl7_obs" id="editl7_obs" cols="30" rows="3" class="l7_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editl8_apres_deseq">
+                      <input type="checkbox" class="l8_apres_deseq" name="editl8_apres_deseq" id="editl8_apres_deseq"> Apresenta desequilíbrio?</label>
+                      <label for="">Observações:</label><br>
+                      <span class="editl8_obs"></span>
+                      <textarea name="editl8_obs" id="editl8_obs" cols="30" rows="3" class="l8_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editl9_dif_para_correr">
+                      <input type="checkbox" class="l9_dif_para_correr" name="editl9_dif_para_correr" id="editl9_dif_para_correr"> Tem dificuldade para correr?</label>
+                      <label for="">Observações:</label><br>
+                      <span class="editl9_obs"></span>
+                      <textarea name="editl9_obs" id="editl9_obs" cols="30" rows="3" class="l9_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editl10_dif_para_escalar">
+                      <input type="checkbox" class="l10_dif_para_escalar" name="editl10_dif_para_escalar" id="editl10_dif_para_escalar"> Tem dificuldade para escalar?</label>
+                      <label for="">Observações:</label><br>
+                      <span class="editl10_obs"></span>
+                      <textarea name="editl10_obs" id="editl10_obs" cols="30" rows="3" class="l10_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editl11_chuta_bola">
+                      <input type="checkbox" class="l11_chuta_bola" name="editl11_chuta_bola" id="editl11_chuta_bola"> Chuta uma bola?</label>
+                      <label for="">Observações:</label><br>
+                      <span class="editl11_obs"></span>
+                      <textarea name="editl11_obs" id="editl11_obs" cols="30" rows="3" class="l11_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editl12_sb_esc_sajuda">
+                      <input type="checkbox" class="l12_sb_esc_sajuda" name="editl12_sb_esc_sajuda" id="editl12_sb_esc_sajuda"> Sobe escadas sem ajuda?</label>
+                      <label for="">Observações:</label><br>
+                      <span class="editl12_obs"></span>
+                      <textarea name="editl12_obs" id="editl12_obs" cols="30" rows="3" class="l12_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editl13_sb_esc_altpess">
+                      <input type="checkbox" class="l13_sb_esc_altpess" name="editl13_sb_esc_altpess" id="editl13_sb_esc_altpess"> Sobe escadas alternando os pés?</label>
+                      <label for="">Observações:</label><br>
+                      <span class="editl13_obs"></span>
+                      <textarea name="editl13_obs" id="editl13_obs" cols="30" rows="3" class="l13_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editl14_sb_pedalar">
+                      <input type="checkbox" class="l14_sb_pedalar" name="editl14_sb_pedalar" id="editl14_sb_pedalar"> Sabe pedalar?</label>
+                      <label for="">Observações:</label><br>
+                      <span class="editl14_obs"></span>
+                      <textarea name="editl14_obs" id="editl14_obs" cols="30" rows="3" class="l14_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editl15_dif_man_obj_cdedos">
+                      <input type="checkbox" class="l15_dif_man_obj_cdedos" name="editl15_dif_man_obj_cdedos" id="editl15_dif_man_obj_cdedos"> Apresenta dificuldade em manipular objetos com os dedos?</label>
+                      <label for="">Observações:</label><br>
+                      <span class="editl15_obs"></span>
+                      <textarea name="editl15_obs" id="editl15_obs" cols="30" rows="3" class="l15_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editl16_senta_em_w">
+                      <input type="checkbox" class="l16_senta_em_w" name="editl16_senta_em_w" id="editl16_senta_em_w"> Senta em W?</label>
+                      <label for="">Observações:</label><br>
+                      <span class="editl16_obs"></span>
+                      <textarea name="editl16_obs" id="editl16_obs" cols="30" rows="3" class="l16_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editl17_seg_mamadeira">
+                      <input type="checkbox" class="l17_seg_mamadeira" name="editl17_seg_mamadeira" id="editl17_seg_mamadeira"> Segurar mamadeira?</label>
+                      <label for="">Observações:</label><br>
+                      <span class="editl17_obs"></span>
+                      <textarea name="editl17_obs" id="editl17_obs" cols="30" rows="3" class="l17_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editl18_amarra_cadarco">
+                      <input type="checkbox" class="l18_amarra_cadarco" name="editl18_amarra_cadarco" id="editl18_amarra_cadarco"> Amarra cadarço?</label>
+                      <label for="">Observações:</label><br>
+                      <span class="editl18_obs"></span>
+                      <textarea name="editl18_obs" id="editl18_obs" cols="30" rows="3" class="l18_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            <button data-color="{{$color}}" class="btn btn-{{$color}} update_histdesversaopaisdesenvmotor_btn"><img id="imgedit_histdesversaopaisdesenvmotor" src="{{asset('storage/ajax-loader.gif')}}" style="display: none;" class="rounded-circle" width="20"> Salvar</button>
+        </div>
+    </div>
+  </div>
+</div>
+<!-- Fim EditHistDesVersaoPaisDesenvMotor -->
+
 <!-- Inicio AddHistDesVersaoPaisIndependencia -->
 <div class="modal fade animate__animated animate__bounce animate__faster bd-example-modal-xl" id="AddHistDesVersaoPaisIndependencia" tabindex="-1" role="dialog" aria-labelledby="AddmyExtraLargeModalLabel_HistDesVersaoIndependencia" aria-hidden="true">
   <div class="modal-dialog modal-xl" role="document">
