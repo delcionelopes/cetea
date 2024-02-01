@@ -30,7 +30,6 @@ use App\Models\Tratamento;
 use Carbon\CarbonPeriod;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use JeroenNoten\LaravelAdminLte\View\Components\Form\Input;
 
 class TerapiaController extends Controller
 {
@@ -1659,8 +1658,6 @@ public function storeHistDesVersaoPaisComportamentos(Request $request){
     }
     }
 
-//////////////////
-
 public function storeHistDesVersaoPaisIndependencia(Request $request){
         $validator = Validator::make($request->all(),[
             'atendimento' => ['required'],
@@ -1809,6 +1806,146 @@ public function storeHistDesVersaoPaisIndependencia(Request $request){
             ]);        
     }
     }
+
+
+public function storeHistDesVersaoPaisDesenvMotor(Request $request){
+        $validator = Validator::make($request->all(),[
+            'atendimento' => ['required'],
+            'paciente' => ['required'],                    
+        ]);
+        if($validator->fails()){
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->errors()->getMessages(),
+            ]);
+        }else{
+            $user = auth()->user();
+            $data['id'] = $this->maxId_HistDesVersaoPaisDesenvMotor();
+            $data['atendimento_id'] = $request->input('atendimento');
+            $data['paciente_id'] = $request->input('paciente');
+            $data['l1_sust_cabeca'] = $request->input('l1_sust_cabeca');
+            $data['l2_sent_s_apoio'] = $request->input('l2_sent_s_apoio');
+            $data['l3_andou'] = $request->input('l3_andou');
+            $data['l4_descproc_desfralde'] = $request->input('l4_descproc_desfralde');
+            $data['l5_hv_perdcontrol_esfinc'] = $request->input('l5_hv_perdcontrol_esfinc');
+            $data['l6_rab_em_papel'] = $request->input('l6_rab_em_papel');
+            $data['l6_obs'] = $request->input('l6_obs');
+            $data['i6_cm_seg_lapis'] = $request->input('i6_cm_seg_lapis');
+            $data['l7_cam_ponta_pes'] = $request->input('l7_cam_ponta_pes');
+            $data['l7_obs'] = $request->input('l7_obs');
+            $data['l8_apres_deseq'] = $request->input('l8_apres_deseq');
+            $data['l8_obs'] = $request->input('l8_obs');
+            $data['l9_dif_para_correr'] = $request->input('l9_dif_para_correr');
+            $data['l9_obs'] = $request->input('l9_obs');
+            $data['l10_dif_para_escalar'] = $request->input('l10_dif_para_escalar');
+            $data['l10_obs'] = $request->input('l10_obs');
+            $data['l11_chuta_bola'] = $request->input('l11_chuta_bola');
+            $data['l11_obs'] = $request->input('l11_obs');
+            $data['l12_sb_esc_sajuda'] = $request->input('l12_sb_esc_sajuda');
+            $data['l12_obs'] = $request->input('l12_obs');
+            $data['l13_sb_esc_altpes'] = $request->input('l13_sb_esc_altpes');
+            $data['l13_obs'] = $request->input('l13_obs');
+            $data['l14_sb_pedalar'] = $request->input('l14_sb_pedalar');
+            $data['l14_obs'] = $request->input('l14_obs');
+            $data['l15_dif_man_obj_cdedos'] = $request->input('l15_dif_man_obj_cdedos');
+            $data['l15_obs'] = $request->input('l15_obs');
+            $data['l16_senta_em_w'] = $request->input('l16_senta_em_w');
+            $data['l16_obs'] = $request->input('l16_obs');
+            $data['l17_seg_mamadeira'] = $request->input('l17_seg_mamadeira');
+            $data['l17_obs'] = $request->input('l17_obs');
+            $data['l18_amarra_cadarco'] = $request->input('l18_amarra_cadarco');
+            $data['l18_obs'] = $request->input('l18_obs');
+            $data['created_at'] = now();
+            $data['updated_at'] = null;
+            $data['creater_user'] = $user->id;
+            $data['updater_user'] = null;
+            $this->histdes_versaopais_desenvmotor->create($data);
+
+            return response()->json([
+                'status' => 200,
+            ]);
+
+        }
+    }    
+
+    protected function maxId_HistDesVersaoPaisDesenvMotor(){
+        $histdes_versaopais_desenvmotor = $this->histdes_versaopais_desenvmotor->orderByDesc('id')->first();
+        if($histdes_versaopais_desenvmotor){
+            $codigo = $histdes_versaopais_desenvmotor->id;
+        }else{
+            $codigo = 0;
+        }
+        return $codigo+1;
+    }
+
+    public function editHistDesVersaoPaisDesenvMotor(int $id){
+        $busca_pelo_paciente = $this->histdes_versaopais_desenvmotor->wherePaciente_id($id)->first();        
+        $histdes_versaopais_desenvmotor = $this->histdes_versaopais_desenvmotor->find($busca_pelo_paciente->id);
+        return response()->json([
+            'status' => 200,
+            'histdesversaopaisdesenvmotor' => $histdes_versaopais_desenvmotor,
+        ]);
+    }
+
+    public function updateHistDesVersaoPaisDesenvMotor(Request $request, int $id){
+        $validator = Validator::make($request->all(),[
+            'atendimento' => ['required'],
+            'paciente' => ['required'],                        
+        ]);
+        if($validator->fails()){
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->errors()->getMessages(),
+            ]);
+        }else{
+            $busca_pelo_paciente = $this->histdes_versaopais_desenvmotor->wherePaciente_id($id)->first();
+            $desenvmotor = $this->histdes_versaopais_desenvmotor->find($busca_pelo_paciente->id);
+            $user = auth()->user();            
+            $data['atendimento_id'] = $request->input('atendimento');
+            $data['paciente_id'] = $request->input('paciente');
+            $data['paciente_id'] = $request->input('paciente');
+            $data['l1_sust_cabeca'] = $request->input('l1_sust_cabeca');
+            $data['l2_sent_s_apoio'] = $request->input('l2_sent_s_apoio');
+            $data['l3_andou'] = $request->input('l3_andou');
+            $data['l4_descproc_desfralde'] = $request->input('l4_descproc_desfralde');
+            $data['l5_hv_perdcontrol_esfinc'] = $request->input('l5_hv_perdcontrol_esfinc');
+            $data['l6_rab_em_papel'] = $request->input('l6_rab_em_papel');
+            $data['l6_obs'] = $request->input('l6_obs');
+            $data['i6_cm_seg_lapis'] = $request->input('i6_cm_seg_lapis');
+            $data['l7_cam_ponta_pes'] = $request->input('l7_cam_ponta_pes');
+            $data['l7_obs'] = $request->input('l7_obs');
+            $data['l8_apres_deseq'] = $request->input('l8_apres_deseq');
+            $data['l8_obs'] = $request->input('l8_obs');
+            $data['l9_dif_para_correr'] = $request->input('l9_dif_para_correr');
+            $data['l9_obs'] = $request->input('l9_obs');
+            $data['l10_dif_para_escalar'] = $request->input('l10_dif_para_escalar');
+            $data['l10_obs'] = $request->input('l10_obs');
+            $data['l11_chuta_bola'] = $request->input('l11_chuta_bola');
+            $data['l11_obs'] = $request->input('l11_obs');
+            $data['l12_sb_esc_sajuda'] = $request->input('l12_sb_esc_sajuda');
+            $data['l12_obs'] = $request->input('l12_obs');
+            $data['l13_sb_esc_altpes'] = $request->input('l13_sb_esc_altpes');
+            $data['l13_obs'] = $request->input('l13_obs');
+            $data['l14_sb_pedalar'] = $request->input('l14_sb_pedalar');
+            $data['l14_obs'] = $request->input('l14_obs');
+            $data['l15_dif_man_obj_cdedos'] = $request->input('l15_dif_man_obj_cdedos');
+            $data['l15_obs'] = $request->input('l15_obs');
+            $data['l16_senta_em_w'] = $request->input('l16_senta_em_w');
+            $data['l16_obs'] = $request->input('l16_obs');
+            $data['l17_seg_mamadeira'] = $request->input('l17_seg_mamadeira');
+            $data['l17_obs'] = $request->input('l17_obs');
+            $data['l18_amarra_cadarco'] = $request->input('l18_amarra_cadarco');
+            $data['l18_obs'] = $request->input('l18_obs');
+            $data['updated_at'] = now();
+            $data['updater_user'] = $user->id;
+            $desenvmotor->update($data);            
+
+            return response()->json([
+                'status' => 200,                
+            ]);        
+    }
+    }
+
 
 
 

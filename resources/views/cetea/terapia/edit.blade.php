@@ -42,7 +42,7 @@
             <form id="addform_hisdesversaopaisddesenvmotor" class="form-horizontal" role="form" method="POST">
                 <input type="hidden" id="addpacienteid_histdesversaopaisdesenvmotor">
                 <input type="hidden" id="addatendimentoid_histdesversaopaisdesenvmotor">
-                <ul id="saveform_errlist_histdesversaopaisindependencia"></ul>
+                <ul id="saveform_errlist_histdesversaopaisdesenvmotor"></ul>
                 <fieldset>
                     <legend>DESENVOLVIMENTO MOTOR (idades aproximadas).</legend>
                 </fieldset>                            
@@ -3710,7 +3710,7 @@
                                             @if($count_histdes_versaopais_comportamentos)<i data-id="1" id="histdes_versaopais_comportamentos{{$atendimento->id}}" class="fas fa-check" style="color: green"></i>@else<i data-id="0" id="histdes_versaopais_comportamentos{{$atendimento->id}}"></i>@endif Comportamentos</a></li>
                                         <li class="dropdown-item bg-light"><a href="#" class="histdes_versaopais_independencia dropdown-item" data-pacienteid="{{$atendimento->paciente_id}}" data-atendimentoid="{{$atendimento->id}}">
                                             @if($count_histdes_versaopais_independencia)<i data-id="1" id="histdes_versaopais_independencia{{$atendimento->id}}" class="fas fa-check" style="color: green"></i>@else<i data-id="0" id="histdes_versaopais_independencia{{$atendimento->id}}"></i>@endif Independência</a></li>
-                                        <li class="dropdown-item bg-light"><a href="#" class="dropdown-item" data-id="{{$atendimento->paciente_id}}">
+                                        <li class="dropdown-item bg-light"><a href="#" class="histdes_versaopais_desenvmotor dropdown-item" data-pacienteid="{{$atendimento->paciente_id}}" data-atendimentoid="{{$atendimento->id}}">
                                             @if($count_histdes_versaopais_desenvmotor)<i data-id="1" id="histdes_versaopais_desenvmotor{{$atendimento->id}}" class="fas fa-check" style="color: green"></i>@else<i data-id="0" id="histdes_versaopais_desenvmotor{{$atendimento->id}}"></i>@endif Desenvolvimento Motor</a></li>    
                                         <li class="dropdown-item bg-light"><a href="#" class="dropdown-item" data-id="{{$atendimento->paciente_id}}">
                                             @if($count_histdes_versaopais_histescolar)<i data-id="1" id="histdes_versaopais_histescolar{{$atendimento->id}}" class="fas fa-check" style="color: green"></i>@else<i data-id="0" id="histdes_versaopais_histescolar{{$atendimento->id}}"></i>@endif Histórico Escolar</a></li>
@@ -9739,8 +9739,6 @@ $(document).on('click','.histdes_versaopais_comportamentos',function(e){
 
 //fim histdes_versaopais_comportamentos
 
-///////////////////////////////////
-
 //início histdes_versaopais_independencia
 
 $("#AddHistDesVersaoPaisIndependencia").on('shown.bs.modal',function(){
@@ -10302,7 +10300,7 @@ $(document).on('click','.histdes_versaopais_independencia',function(e){
         e.preventDefault();
         var pacienteid = $(this).data("pacienteid");
         var atendimentoid = $(this).data("atendimentoid");
-        var opcao_form_histdes_versaopais_comportamentos = $("#histdes_versaopais_independencia"+atendimentoid).data("id");
+        var opcao_form_histdes_versaopais_independencia = $("#histdes_versaopais_independencia"+atendimentoid).data("id");
 
         if(opcao_form_histdes_versaopais_independencia==0){
                 $("#addpacienteid_histdesversaopaisindependencia").val(pacienteid);
@@ -10542,6 +10540,821 @@ $(document).on('click','.histdes_versaopais_independencia',function(e){
     });
 
 //fim histdes_versaopais_independencia
+
+////////////////////////////////////
+//início histdes_versaopais_desenvmotor
+
+$("#AddHistDesVersaoPaisDesenvMotor").on('shown.bs.modal',function(){
+            $(".l1_sust_cabeca").focus();
+    });
+
+$("#EditHistDesVersaoPaisDesenvMotor").on('shown.bs.modal',function(){
+            $(".l1_sust_cabeca").focus();
+    });
+
+//inicio conta caracteres dos textarea HistDesVersaoPaisDesenvMotor
+
+    //add
+ 
+    $(document).on('input','#addl1_sust_cabeca',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l1_sust_cabeca = $('textarea[name="addl1_sust_cabeca"]').val();
+            $('textarea[name="addl1_sust_cabeca"]').val(l1_sust_cabeca.substr(0,limite));
+            $(".addl1_sust_cabeca").text("0" + " " + informativo);
+        }else{
+            $(".addl1_sust_cabeca").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addl2_sent_s_apoio',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l2_sent_s_apoio = $('textarea[name="addl2_sent_s_apoio"]').val();
+            $('textarea[name="addl2_sent_s_apoio"]').val(l2_sent_s_apoio.substr(0,limite));
+            $(".addl2_sent_s_apoio").text("0" + " " + informativo);
+        }else{
+            $(".addl2_sent_s_apoio").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addl3_andou',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l3_andou = $('textarea[name="addl3_andou"]').val();
+            $('textarea[name="addl3_andou"]').val(l3_andou.substr(0,limite));
+            $(".addl3_andou").text("0" + " " + informativo);
+        }else{
+            $(".addl3_andou").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addl4_desproc_desfralde',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l4_desproc_desfralde = $('textarea[name="addl4_desproc_desfralde"]').val();
+            $('textarea[name="addl4_desproc_desfralde"]').val(l4_desproc_desfralde.substr(0,limite));
+            $(".addl4_desproc_desfralde").text("0" + " " + informativo);
+        }else{
+            $(".addl4_desproc_desfralde").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addl5_hv_perdcontrol_esfinc',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l5_hv_perdcontrol_esfinc = $('textarea[name="addl5_hv_perdcontrol_esfinc"]').val();
+            $('textarea[name="addl5_hv_perdcontrol_esfinc"]').val(l5_hv_perdcontrol_esfinc.substr(0,limite));
+            $(".addl5_hv_perdcontrol_esfinc").text("0" + " " + informativo);
+        }else{
+            $(".addl5_hv_perdcontrol_esfinc").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addl6_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l6_obs = $('textarea[name="addl6_obs"]').val();
+            $('textarea[name="addl6_obs"]').val(l6_obs.substr(0,limite));
+            $(".addl6_obs").text("0" + " " + informativo);
+        }else{
+            $(".addl6_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addl6_cm_seg_lapis',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l6_cm_seg_lapis = $('textarea[name="addl6_cm_seg_lapis"]').val();
+            $('textarea[name="addl6_cm_seg_lapis"]').val(l6_cm_seg_lapis.substr(0,limite));
+            $(".addl6_cm_seg_lapis").text("0" + " " + informativo);
+        }else{
+            $(".addl6_cm_seg_lapis").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addl7_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l7_obs = $('textarea[name="addl7_obs"]').val();
+            $('textarea[name="addl7_obs"]').val(l7_obs.substr(0,limite));
+            $(".addl7_obs").text("0" + " " + informativo);
+        }else{
+            $(".addl7_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addl8_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l8_obs = $('textarea[name="addl8_obs"]').val();
+            $('textarea[name="addl8_obs"]').val(l8_obs.substr(0,limite));
+            $(".addl8_obs").text("0" + " " + informativo);
+        }else{
+            $(".addl8_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addl9_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l9_obs = $('textarea[name="addl9_obs"]').val();
+            $('textarea[name="addl9_obs"]').val(l9_obs.substr(0,limite));
+            $(".addl9_obs").text("0" + " " + informativo);
+        }else{
+            $(".addl9_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addl10_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l10_obs = $('textarea[name="addl10_obs"]').val();
+            $('textarea[name="addl10_obs"]').val(l10_obs.substr(0,limite));
+            $(".addl10_obs").text("0" + " " + informativo);
+        }else{
+            $(".addl10_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addl11_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l11_obs = $('textarea[name="addl11_obs"]').val();
+            $('textarea[name="addl11_obs"]').val(l11_obs.substr(0,limite));
+            $(".addl11_obs").text("0" + " " + informativo);
+        }else{
+            $(".addl11_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addl12_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l12_obs = $('textarea[name="addl12_obs"]').val();
+            $('textarea[name="addl12_obs"]').val(l12_obs.substr(0,limite));
+            $(".addl12_obs").text("0" + " " + informativo);
+        }else{
+            $(".addl12_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addl13_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l13_obs = $('textarea[name="addl13_obs"]').val();
+            $('textarea[name="addl13_obs"]').val(l13_obs.substr(0,limite));
+            $(".addl13_obs").text("0" + " " + informativo);
+        }else{
+            $(".addl13_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addl14_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l14_obs = $('textarea[name="addl14_obs"]').val();
+            $('textarea[name="addl14_obs"]').val(l14_obs.substr(0,limite));
+            $(".addl14_obs").text("0" + " " + informativo);
+        }else{
+            $(".addl14_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addl15_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l15_obs = $('textarea[name="addl15_obs"]').val();
+            $('textarea[name="addl15_obs"]').val(l15_obs.substr(0,limite));
+            $(".addl15_obs").text("0" + " " + informativo);
+        }else{
+            $(".addl15_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addl16_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l16_obs = $('textarea[name="addl16_obs"]').val();
+            $('textarea[name="addl16_obs"]').val(l16_obs.substr(0,limite));
+            $(".addl16_obs").text("0" + " " + informativo);
+        }else{
+            $(".addl16_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addl17_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l17_obs = $('textarea[name="addl17_obs"]').val();
+            $('textarea[name="addl17_obs"]').val(l17_obs.substr(0,limite));
+            $(".addl17_obs").text("0" + " " + informativo);
+        }else{
+            $(".addl17_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addl18_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l18_obs = $('textarea[name="addl18_obs"]').val();
+            $('textarea[name="addl18_obs"]').val(l12_obs.substr(0,limite));
+            $(".addl18_obs").text("0" + " " + informativo);
+        }else{
+            $(".addl18_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+ //edit
+ 
+    $(document).on('input','#editl1_sust_cabeca',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l1_sust_cabeca = $('textarea[name="editl1_sust_cabeca"]').val();
+            $('textarea[name="editl1_sust_cabeca"]').val(l1_sust_cabeca.substr(0,limite));
+            $(".editl1_sust_cabeca").text("0" + " " + informativo);
+        }else{
+            $(".editl1_sust_cabeca").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editl2_sent_s_apoio',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l2_sent_s_apoio = $('textarea[name="editl2_sent_s_apoio"]').val();
+            $('textarea[name="editl2_sent_s_apoio"]').val(l2_sent_s_apoio.substr(0,limite));
+            $(".editl2_sent_s_apoio").text("0" + " " + informativo);
+        }else{
+            $(".editl2_sent_s_apoio").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editl3_andou',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l3_andou = $('textarea[name="editl3_andou"]').val();
+            $('textarea[name="editl3_andou"]').val(l3_andou.substr(0,limite));
+            $(".editl3_andou").text("0" + " " + informativo);
+        }else{
+            $(".editl3_andou").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editl4_desproc_desfralde',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l4_desproc_desfralde = $('textarea[name="editl4_desproc_desfralde"]').val();
+            $('textarea[name="editl4_desproc_desfralde"]').val(l4_desproc_desfralde.substr(0,limite));
+            $(".editl4_desproc_desfralde").text("0" + " " + informativo);
+        }else{
+            $(".editl4_desproc_desfralde").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editl5_hv_perdcontrol_esfinc',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l5_hv_perdcontrol_esfinc = $('textarea[name="editl5_hv_perdcontrol_esfinc"]').val();
+            $('textarea[name="editl5_hv_perdcontrol_esfinc"]').val(l5_hv_perdcontrol_esfinc.substr(0,limite));
+            $(".editl5_hv_perdcontrol_esfinc").text("0" + " " + informativo);
+        }else{
+            $(".editl5_hv_perdcontrol_esfinc").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editl6_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l6_obs = $('textarea[name="editl6_obs"]').val();
+            $('textarea[name="editl6_obs"]').val(l6_obs.substr(0,limite));
+            $(".editl6_obs").text("0" + " " + informativo);
+        }else{
+            $(".editl6_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editl6_cm_seg_lapis',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l6_cm_seg_lapis = $('textarea[name="editl6_cm_seg_lapis"]').val();
+            $('textarea[name="editl6_cm_seg_lapis"]').val(l6_cm_seg_lapis.substr(0,limite));
+            $(".editl6_cm_seg_lapis").text("0" + " " + informativo);
+        }else{
+            $(".editl6_cm_seg_lapis").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editl7_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l7_obs = $('textarea[name="editl7_obs"]').val();
+            $('textarea[name="editl7_obs"]').val(l7_obs.substr(0,limite));
+            $(".editl7_obs").text("0" + " " + informativo);
+        }else{
+            $(".editl7_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editl8_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l8_obs = $('textarea[name="editl8_obs"]').val();
+            $('textarea[name="editl8_obs"]').val(l8_obs.substr(0,limite));
+            $(".editl8_obs").text("0" + " " + informativo);
+        }else{
+            $(".editl8_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editl9_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l9_obs = $('textarea[name="editl9_obs"]').val();
+            $('textarea[name="editl9_obs"]').val(l9_obs.substr(0,limite));
+            $(".editl9_obs").text("0" + " " + informativo);
+        }else{
+            $(".editl9_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editl10_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l10_obs = $('textarea[name="editl10_obs"]').val();
+            $('textarea[name="editl10_obs"]').val(l10_obs.substr(0,limite));
+            $(".editl10_obs").text("0" + " " + informativo);
+        }else{
+            $(".editl10_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editl11_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l11_obs = $('textarea[name="editl11_obs"]').val();
+            $('textarea[name="editl11_obs"]').val(l11_obs.substr(0,limite));
+            $(".editl11_obs").text("0" + " " + informativo);
+        }else{
+            $(".editl11_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editl12_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l12_obs = $('textarea[name="editl12_obs"]').val();
+            $('textarea[name="editl12_obs"]').val(l12_obs.substr(0,limite));
+            $(".editl12_obs").text("0" + " " + informativo);
+        }else{
+            $(".editl12_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editl13_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l13_obs = $('textarea[name="editl13_obs"]').val();
+            $('textarea[name="editl13_obs"]').val(l13_obs.substr(0,limite));
+            $(".editl13_obs").text("0" + " " + informativo);
+        }else{
+            $(".editl13_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editl14_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l14_obs = $('textarea[name="editl14_obs"]').val();
+            $('textarea[name="editl14_obs"]').val(l14_obs.substr(0,limite));
+            $(".editl14_obs").text("0" + " " + informativo);
+        }else{
+            $(".editl14_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editl15_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l15_obs = $('textarea[name="editl15_obs"]').val();
+            $('textarea[name="editl15_obs"]').val(l15_obs.substr(0,limite));
+            $(".editl15_obs").text("0" + " " + informativo);
+        }else{
+            $(".editl15_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editl16_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l16_obs = $('textarea[name="editl16_obs"]').val();
+            $('textarea[name="editl16_obs"]').val(l16_obs.substr(0,limite));
+            $(".editl16_obs").text("0" + " " + informativo);
+        }else{
+            $(".editl16_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editl17_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l17_obs = $('textarea[name="editl17_obs"]').val();
+            $('textarea[name="editl17_obs"]').val(l17_obs.substr(0,limite));
+            $(".editl17_obs").text("0" + " " + informativo);
+        }else{
+            $(".editl17_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editl18_obs',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var l18_obs = $('textarea[name="editl18_obs"]').val();
+            $('textarea[name="editl18_obs"]').val(l12_obs.substr(0,limite));
+            $(".editl18_obs").text("0" + " " + informativo);
+        }else{
+            $(".editl18_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+    
+    
+$(document).on('click','.histdes_versaopais_desenvmotor',function(e){
+        e.preventDefault();
+        var pacienteid = $(this).data("pacienteid");
+        var atendimentoid = $(this).data("atendimentoid");
+        var opcao_form_histdes_versaopais_desenvmotor = $("#histdes_versaopais_desenvmotor"+atendimentoid).data("id");
+
+        if(opcao_form_histdes_versaopais_desenvmotor==0){
+                $("#addpacienteid_histdesversaopaisdesenvmotor").val(pacienteid);
+                $("#addatendimentoid_histdesversaopaisdesenvmotor").val(atendimentoid);
+                $("#addform_histdesversaopaisdesenvmotor").trigger('reset');
+                $("#AddHistDesVersaoPaisDesenvMotor").modal('show'); 
+                $("#saveform_errList_histdesversaopaisdesenvmotor").replaceWith('<ul id="saveform_errList_histdesversaopaisdesenvmotor"></ul>');
+        }else{            
+                $("#editpacienteid_histdesversaopaisdesenvmotor").val(pacienteid);
+                $("#editatendimentoid_histdesversaopaisdesenvmotor").val(atendimentoid);
+                $("#editform_histdesversaopaisdesenvmotor").trigger('reset');
+                $("#EditHistDesVersaoPaisDesenvMotor").modal('show'); 
+                $("#updateform_errList_histdesversaodesenvmotor").replaceWith('<ul id="updateform_errList_histdesversaodesenvmotor"></ul>');
+
+                 $.ajaxSetup({
+                    headers:{
+                        'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+    
+    
+                $.ajax({ 
+                    type: 'GET',             
+                    dataType: 'json',                                    
+                    url: '/ceteaadmin/terapia/edit_histdesversaopaisdesenvmotor/'+pacienteid,
+                    success: function(response){           
+                        if(response.status==200){                                                                            
+                            $(".l1_sust_cabeca").val(response.histdesversaopaisdesenvmotor.l1_sust_cabeca);                            
+                            $(".l2_sent_s_apoio").val(response.histdesversaopaisdesenvmotor.l2_sent_s_apoio);                            
+                            $(".l3_andou").val(response.histdesversaopaisdesenvmotor.l3_andou);
+                            $(".l4_desproc_desfralde").val(response.histdesversaopaisdesenvmotor.l4_desproc_desfralde);
+                            $(".l5_hv_perdcontrol_esfinc").val(response.histdesversaopaisdesenvmotor.l5_hv_perdcontrol_esfinc);
+                            $(".l6_rab_em_papel").attr('checked',response.histdesversaopaisdesenvmotor.l6_rab_em_papel);
+                            $(".l6_obs").val(response.histdesversaopaisdesenvmotor.l6_obs);
+                            $(".l6_cm_seg_lapis").val(response.histdesversaopaisdesenvmotor.l6_cm_seg_lapis);
+                            $(".l7_cam_ponta_pes").attr('checked',response.histdesversaopaisdesenvmotor.l7_cam_ponta_pes);
+                            $(".l7_obs").val(response.histdesversaopaisdesenvmotor.l7_obs);
+                            $(".l8_apres_deseq").attr('checked',response.histdesversaopaisdesenvmotor.l8_apres_deseq);
+                            $(".l8_obs").val(response.histdesversaopaisdesenvmotor.l8_obs);
+                            $(".l9_dif_para_correr").attr('checked',response.histdesversaopaisdesenvmotor.l9_dif_para_correr);
+                            $(".l9_obs").val(response.histdesversaopaisdesenvmotor.l9_obs);
+                            $(".l10_dif_para_escalar").attr('checked',response.histdesversaopaisdesenvmotor.l10_dif_para_escalar);
+                            $(".l10_obs").val(response.histdesversaopaisdesenvmotor.l10_obs);
+                            $(".l11_chuta_bola").attr('checked',response.histdesversaopaisdesenvmotor.l11_chuta_bola);
+                            $(".l11_obs").val(response.histdesversaopaisdesenvmotor.l11_obs);
+                            $(".l12_sb_esc_sajuda").attr('checked',response.histdesversaopaisdesenvmotor.l12_sb_esc_sajuda);
+                            $(".l12_obs").val(response.histdesversaopaisdesenvmotor.l12_obs);
+                            $(".l13_sb_esc_altpess").attr('checked',response.histdesversaopaisdesenvmotor.l13_sb_esc_altpess);
+                            $(".l13_obs").val(response.histdesversaopaisdesenvmotor.l13_obs);
+                            $(".l14_sb_pedalar").attr('checked',response.histdesversaopaisdesenvmotor.l14_sb_pedalar);
+                            $(".l14_obs").val(response.histdesversaopaisdesenvmotor.l14_obs);
+                            $(".l15_dif_man_obj_cdedos").attr('checked',response.histdesversaopaisdesenvmotor.l15_dif_man_obj_cdedos);
+                            $(".l15_obs").val(response.histdesversaopaisdesenvmotor.l15_obs);
+                            $(".l16_senta_em_w").attr('checked',response.histdesversaopaisdesenvmotor.l16_senta_em_w);
+                            $(".l16_obs").val(response.histdesversaopaisdesenvmotor.l16_obs);
+                            $(".l17_seg_mamadeira").attr('checked',response.histdesversaopaisdesenvmotor.l17_seg_mamadeira);
+                            $(".l17_obs").val(response.histdesversaopaisdesenvmotor.l17_obs);
+                            $(".l18_amarra_cadarco").attr('checked',response.histdesversaopaisdesenvmotor.l18_amarra_cadarco);
+                            $(".l18_obs").val(response.histdesversaopaisdesenvmotor.l18_obs);
+                        }
+                    }
+                });
+        }
+    });
+
+
+    $(document).on('click','.add_histdesversaopais_desenvmotor_btn',function(e){
+        e.preventDefault();
+        var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+        var pacienteid = $("#addpacienteid_histdesversaopaisdesenvmotor").val();
+        var atendimentoid = $("#addatendimentoid_histdesversaopaisdesenvmotor").val();
+
+        var loading = $("#imgadd_histdesversaopaisdesenvmotor");
+            loading.show();
+
+        var data = new FormData();
+
+        data.append('atendimento',atendimentoid);
+        data.append('paciente',pacienteid);        
+        data.append('l1_sust_cabeca',$(".l1_sust_cabeca").val());
+        data.append('l2_sent_s_apoio',$(".l2_sent_s_apoio").val());
+        data.append('l3_andou',$(".l3_andou").val());
+        data.append('l4_desproc_desfralde',$(".l4_desproc_desfralde").val());
+        data.append('l5_hv_perdcontrol_esfinc',$(".l5_hv_perdcontrol_esfinc").val());
+        data.append('l6_rab_em_papel',$(".l6_rab_em_papel").is(":checked")?'true':'false');
+        data.append('l6_obs',$(".l6_obs").val());        
+        data.append('l6_cm_seg_lapis',$(".l6_cm_seg_lapis").val());
+        data.append('l7_cam_ponta_pes',$(".l7_cam_ponta_pes").is(":checked")?'true':'false');
+        data.append('l7_obs',$(".l7_obs").val());
+        data.append('l8_apres_deseq',$(".l8_apres_deseq").is(":checked")?'true':'false');        
+        data.append('l8_obs',$(".l8_obs").val());
+        data.append('l9_dif_para_correr',$(".l9_dif_para_correr").is(":checked")?'true':'false');
+        data.append('l9_obs',$(".l9_obs").val());
+        data.append('l10_dif_para_escalar',$(".l10_dif_para_escalar").is(":checked")?'true':'false');
+        data.append('l10_obs',$(".l10_obs").val());
+        data.append('l11_chuta_bola',$(".l11_chuta_bola").is(":checked")?'true':'false');        
+        data.append('l11_obs',$(".l11_obs").val());
+        data.append('l12_sb_esc_sajuda',$(".l12_sb_esc_sajuda").is(":checked")?'true':'false');        
+        data.append('l12_obs',$(".l12_obs").val());
+        data.append('l13_sb_esc_altpess',$(".l13_sb_esc_altpess").is(":checked")?'true':'false');        
+        data.append('l13_obs',$(".l13_obs").val());
+        data.append('l14_sb_pedalar',$(".l14_sb_pedalar").is(":checked")?'true':'false');
+        data.append('l14_obs',$(".l14_obs").val());
+        data.append('l15_dif_man_obj_cdedos',$(".l15_dif_man_obj_cdedos").is(":checked")?'true':'false');
+        data.append('l15_obs',$(".l15_obs").val());
+        data.append('l16_senta_em_w',$(".l16_senta_em_w").is(":checked")?'true':'false');
+        data.append('l16_obs',$(".l16_obs").val());
+        data.append('l17_seg_mamadeira',$(".l17_seg_mamadeira").is(":checked")?'true':'false');
+        data.append('l17_obs',$(".l17_obs").val());
+        data.append('l18_amarra_cadarco',$(".l18_amarra_cadarco").is(":checked")?'true':'false');
+        data.append('l18_obs',$(".l18_obs").val());
+        data.append('_token',CSRF_TOKEN);
+        data.append('_method','PUT');
+
+        $.ajax({
+            url:'/ceteaadmin/terapia/store_histdesversaopaisdesenvmotor',
+            type: 'POST',
+            dataType: 'json',
+            data: data,
+            cache: false,
+            processData: false,
+            contentType: false,
+            async:true,
+            success:function(response){
+                if(response.status==400){
+                    $("#saveform_errlist_histdesversaopaisdesenvmotor").replaceWith('<ul id="saveform_errList_histdesversaopaisdesenvmotor"></ul>');
+                    $("#saveform_errlist_histdesversaopaisdesenvmotor").addClass("alert alert-danger");
+                    $.each(response.errors,function(key,err_values){
+                        $("#saveform_errlist_histdesversaopaisdesenvmotor").append('<li>'+err_values+'</li>')
+                    });
+                    loading.hide();
+                }else{
+                    loading.hide();
+                    $("#saveform_errlist_histdesversaopaisdesenvmotor").replaceWith('<ul id="saveform_errList_histdesversaopaisdesenvmotor"></ul>');
+                    $("#histdes_versaopais_desenvmotor"+atendimentoid).replaceWith('<i data-id="1" id="histdes_versaopais_desenvmotor'+atendimentoid+'" class="fas fa-check" style="color: green"></i>');
+                    $("#addform_histdesversaopaisdesenvmotor").trigger('reset');
+                    $("#AddHistDesVersaoPaisDesenvMotor").modal('hide');                     
+                }
+            }
+
+        });
+
+    });
+
+
+    $(document).on('click','.update_histdesversaopaisdesenvmotor_btn',function(e){
+        var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+        var atendimentoid = $("#editatendimentoid_histdesversaopaisdesenvmotor").val();
+        var pacienteid = $("#editpacienteid_histdesversaopaisdesenvmotor").val();
+
+        var loading = $("#imgedit_histdesversaopaisdesenvmotor");
+            loading.show();
+
+        var data = new FormData();
+
+        data.append('atendimento',atendimentoid);
+        data.append('paciente',pacienteid);
+        data.append('l1_sust_cabeca',$("#editl1_sust_cabeca").val());
+        data.append('l2_sent_s_apoio',$("#editl2_sent_s_apoio").val());
+        data.append('l3_andou',$("#editl3_andou").val());
+        data.append('l4_desproc_desfralde',$("#editl4_desproc_desfralde").val());
+        data.append('l5_hv_perdcontrol_esfinc',$("#editl5_hv_perdcontrol_esfinc").val());
+        data.append('l6_rab_em_papel',$("#editl6_rab_em_papel").is(":checked")?'true':'false');
+        data.append('l6_obs',$("#editl6_obs").val());        
+        data.append('l6_cm_seg_lapis',$("#editl6_cm_seg_lapis").val());
+        data.append('l7_cam_ponta_pes',$("#editl7_cam_ponta_pes").is(":checked")?'true':'false');
+        data.append('l7_obs',$("#editl7_obs").val());
+        data.append('l8_apres_deseq',$("#editl8_apres_deseq").is(":checked")?'true':'false');        
+        data.append('l8_obs',$("#editl8_obs").val());
+        data.append('l9_dif_para_correr',$("#editl9_dif_para_correr").is(":checked")?'true':'false');
+        data.append('l9_obs',$("#editl9_obs").val());
+        data.append('l10_dif_para_escalar',$("#editl10_dif_para_escalar").is(":checked")?'true':'false');
+        data.append('l10_obs',$("#editl10_obs").val());
+        data.append('l11_chuta_bola',$("#editl11_chuta_bola").is(":checked")?'true':'false');        
+        data.append('l11_obs',$("#editl11_obs").val());
+        data.append('l12_sb_esc_sajuda',$("#editl12_sb_esc_sajuda").is(":checked")?'true':'false');        
+        data.append('l12_obs',$("#editl12_obs").val());
+        data.append('l13_sb_esc_altpess',$("#editl13_sb_esc_altpess").is(":checked")?'true':'false');        
+        data.append('l13_obs',$("#editl13_obs").val());
+        data.append('l14_sb_pedalar',$("#editl14_sb_pedalar").is(":checked")?'true':'false');
+        data.append('l14_obs',$("#editl14_obs").val());
+        data.append('l15_dif_man_obj_cdedos',$("#editl15_dif_man_obj_cdedos").is(":checked")?'true':'false');
+        data.append('l15_obs',$("#editl15_obs").val());
+        data.append('l16_senta_em_w',$("#editl16_senta_em_w").is(":checked")?'true':'false');
+        data.append('l16_obs',$("#editl16_obs").val());
+        data.append('l17_seg_mamadeira',$("#editl17_seg_mamadeira").is(":checked")?'true':'false');
+        data.append('l17_obs',$("#editl17_obs").val());
+        data.append('l18_amarra_cadarco',$("#editl18_amarra_cadarco").is(":checked")?'true':'false');
+        data.append('l18_obs',$("#editl18_obs").val());
+        data.append('_token',CSRF_TOKEN);
+        data.append('_method','PUT');   
+
+        $.ajax({
+            url:'/ceteaadmin/terapia/update_histdesversaopaisdesenvmotor/'+pacienteid,
+            type:'POST',
+            contentType: 'json',
+            data: data,
+            cache: false,
+            processData: false,
+            contentType: false,
+            async:true,
+            success:function(response){
+                if(response.status==400){
+                    $("#updateform_errList_histdesversaopaisdesenvmotor").replaceWith('<ul id="updateform_errList_histdesversaopaisdesenvmotor"></ul>');
+                    $("#updateform_errlist_histdesversaopaisdesenvmotor").addClass('alert alert-danger');
+                    $.each(response.errors,function(key,err_values){
+                        $("#updateform_errlist_histdesversaopaisdesenvmotor").append('<li>'+err_values+'</li>');
+                    });
+                    loading.hide();
+                }else{
+                    loading.hide();
+                    $("#updateform_errlist_histdesversaopaisdesenvmotor").replaceWith('<ul id="updateform_errList_histdesversaopaisdesenvmotor"></ul>');
+                    $("#histdes_versaopais_desenvmotor"+atendimentoid).replaceWith('<i data-id="1" id="histdes_versaopais_desenvmotor'+atendimentoid+'" class="fas fa-check" style="color: green"></i>');
+                    $("#editform_histdesversaopaisdesenvmotor").trigger('reset');
+                    $("#EditHistDesVersaoPaisDesenvMotor").modal('hide');    
+                }
+            }
+        });
+    });
+
+//fim histdes_versaopais_desenvmotor
 
 
 });
