@@ -421,11 +421,11 @@
                 <fieldset>
                     <div class="form-group">
                       <label for="addji1_veste_roupa_soz">
-                      <input type="checkbox" class="ji1_veste_roupa_soz" name="addji1_veste_roupa_soz" id="addji1_veste_roupa_soz"> Veste roupa sozinho.</label>
-                    </div>                    
-                    <div class="form-group">
+                      <input type="checkbox" class="ji1_veste_roupa_soz" name="addji1_veste_roupa_soz" id="addji1_veste_roupa_soz"> Veste roupa sozinho.   </label>
                       <label for="addji1_parcial">
                       <input type="checkbox" class="ji1_parcial" name="addji1_parcial" id="addji1_parcial"> Parcial.</label>    
+                    </div>                    
+                    <div class="form-group">                      
                       <label for="">Observações:</label><br>
                       <span class="addji1_obs"></span>
                       <textarea name="addji1_obs" id="addji1_obs" cols="30" rows="4" class="ji1_obs form-control"></textarea>
@@ -434,11 +434,11 @@
                 <fieldset>
                     <div class="form-group">
                       <label for="addji2_retira_roupa_soz">
-                      <input type="checkbox" class="ji2_retira_roupa_soz" name="addji2_retira_roupa_soz" id="addji2_retira_roupa_soz"> Retira a roupa sozinho?</label>
-                    </div>                    
-                    <div class="form-group">
+                      <input type="checkbox" class="ji2_retira_roupa_soz" name="addji2_retira_roupa_soz" id="addji2_retira_roupa_soz"> Retira a roupa sozinho?   </label>
                       <label for="addji2_parcial">
-                      <input type="checkbox" class="ji2_parcial" name="addji2_parcial" id="addji2_parcial"> Parcial.</label>    
+                      <input type="checkbox" class="ji2_parcial" name="addji2_parcial" id="addji2_parcial"> Parcial.</label>
+                    </div>                    
+                    <div class="form-group">                      
                       <label for="">Observações:</label><br>
                       <span class="addji2_obs"></span>
                       <textarea name="addji2_obs" id="addji2_obs" cols="30" rows="4" class="ji2_obs form-control"></textarea>
@@ -447,11 +447,11 @@
                 <fieldset>
                     <div class="form-group">
                       <label for="addji3_toma_banho_soz">
-                      <input type="checkbox" class="ji3_toma_banho_soz" name="addji3_toma_banho_soz" id="addji3_toma_banho_soz"> Toma banho sozinho?</label>
-                    </div>                    
-                    <div class="form-group">
+                      <input type="checkbox" class="ji3_toma_banho_soz" name="addji3_toma_banho_soz" id="addji3_toma_banho_soz"> Toma banho sozinho?   </label>
                       <label for="addji3_parcial">
                       <input type="checkbox" class="ji3_parcial" name="addji3_parcial" id="addji3_parcial"> Parcial.</label>    
+                    </div>                    
+                    <div class="form-group">                      
                       <label for="">Observações:</label><br>
                       <span class="addji3_obs"></span>
                       <textarea name="addji3_obs" id="addji3_obs" cols="30" rows="4" class="ji3_obs form-control"></textarea>
@@ -460,7 +460,7 @@
                 <fieldset>                    
                     <div class="form-group">
                       <label for="addji4_jg_len_pp_no_lix">
-                      <input type="checkbox" class="ji4_jg_len_pp_no_lix" name="addji4_jg_len_pp_no_lix" id="addji4_jg_len_pp_no_lix"> Joga o lenço de papel ou guardanapo no lixo após solicitação do adulto?</label>
+                      <input type="checkbox" class="ji4_jg_len_pp_no_lix" name="addji4_jg_len_pp_no_lix" id="addji4_jg_len_pp_no_lix"> Joga o lenço de papel ou guardanapo no lixo após solicitação do adulto?</label><br>
                       <label for="">Observações:</label><br>
                       <span class="addji4_obs"></span>
                       <textarea name="addji4_obs" id="addji4_obs" cols="30" rows="4" class="ji4_obs form-control"></textarea>
@@ -469,7 +469,7 @@
                 <fieldset>
                     <div class="form-group">
                       <label for="addji6_come_ref_na_mesa">
-                      <input type="checkbox" class="ji6_come_ref_na_mesa" name="addji6_come_ref_na_mesa" id="addji6_come_ref_na_mesa"> Come refeições na mesa?</label>
+                      <input type="checkbox" class="ji6_come_ref_na_mesa" name="addji6_come_ref_na_mesa" id="addji6_come_ref_na_mesa"> Come refeições na mesa?</label><br>
                       <label for="">Observações:</label><br>
                       <span class="addji6_obs"></span>
                       <textarea name="addji6_obs" id="addji6_obs" cols="30" rows="4" class="ji6_obs form-control"></textarea>
@@ -478,7 +478,7 @@
                 <fieldset>
                     <div class="form-group">
                       <label for="addji7_usa_colher_ind">
-                      <input type="checkbox" class="ji7_usa_colher_ind" name="addji7_usa_colher_ind" id="addji7_usa_colher_ind"> Usa colher independente?</label>
+                      <input type="checkbox" class="ji7_usa_colher_ind" name="addji7_usa_colher_ind" id="addji7_usa_colher_ind"> Usa colher independente?</label><br>
                       <label for="">Observações:</label><br>
                       <span class="addji7_obs"></span>
                       <textarea name="addji7_obs" id="addji7_obs" cols="30" rows="4" class="ji7_obs form-control"></textarea>
@@ -487,7 +487,7 @@
                 <fieldset>
                     <div class="form-group">
                       <label for="addji8_usa_garfo_ind">
-                      <input type="checkbox" class="ji8_usa_garfo_ind" name="addji8_usa_garfo_ind" id="addji8_usa_garfo_ind"> Usa garfo independente?</label>
+                      <input type="checkbox" class="ji8_usa_garfo_ind" name="addji8_usa_garfo_ind" id="addji8_usa_garfo_ind"> Usa garfo independente?</label><br>
                       <label for="">Observações:</label><br>
                       <span class="addji8_obs"></span>
                       <textarea name="addji8_obs" id="addji8_obs" cols="30" rows="4" class="ji8_obs form-control"></textarea>
@@ -496,7 +496,7 @@
                 <fieldset>
                     <div class="form-group">
                       <label for="addji9_tol_nov_alim">
-                      <input type="checkbox" class="ji9_tol_nov_alim" name="addji9_tol_nov_alim" id="addji9_tol_nov_alim"> Tolera novos alimentos no prato?</label>
+                      <input type="checkbox" class="ji9_tol_nov_alim" name="addji9_tol_nov_alim" id="addji9_tol_nov_alim"> Tolera novos alimentos no prato?</label><br>
                       <label for="">Observações:</label><br>
                       <span class="addji9_obs"></span>
                       <textarea name="addji9_obs" id="addji9_obs" cols="30" rows="4" class="ji9_obs form-control"></textarea>
@@ -505,7 +505,7 @@
                 <fieldset>
                     <div class="form-group">
                       <label for="addji10_usacopo_aberto">
-                      <input type="checkbox" class="ji10_usacopo_aberto" name="addji10_usacopo_aberto" id="addji10_usacopo_aberto"> Usa copo aberto?</label>
+                      <input type="checkbox" class="ji10_usacopo_aberto" name="addji10_usacopo_aberto" id="addji10_usacopo_aberto"> Usa copo aberto?</label><br>
                       <label for="">Observações:</label><br>
                       <span class="addji10_obs"></span>
                       <textarea name="addji10_obs" id="addji10_obs" cols="30" rows="4" class="ji10_obs form-control"></textarea>
@@ -514,7 +514,7 @@
                 <fieldset>
                     <div class="form-group">
                       <label for="addji11_perm_parc_mesa">
-                      <input type="checkbox" class="ji11_perm_parc_mesa" name="addji11_perm_parc_mesa" id="addji11_perm_parc_mesa"> Permanece com os parceiros à mesa?</label>
+                      <input type="checkbox" class="ji11_perm_parc_mesa" name="addji11_perm_parc_mesa" id="addji11_perm_parc_mesa"> Permanece com os parceiros à mesa?</label><br>
                       <label for="">Observações:</label><br>
                       <span class="addji11_obs"></span>
                       <textarea name="addji11_obs" id="addji11_obs" cols="30" rows="4" class="ji11_obs form-control"></textarea>
@@ -523,7 +523,7 @@
                 <fieldset>
                     <div class="form-group">
                       <label for="addji12_desp_roup_ind">
-                      <input type="checkbox" class="ji12_desp_roup_ind" name="addji12_desp_roup_ind" id="addji12_desp_roup_ind"> Despe a roupa independente e coloca no cesto?</label>
+                      <input type="checkbox" class="ji12_desp_roup_ind" name="addji12_desp_roup_ind" id="addji12_desp_roup_ind"> Despe a roupa independente e coloca no cesto?</label><br>
                       <label for="">Observações:</label><br>
                       <span class="addji12_obs"></span>
                       <textarea name="addji12_obs" id="addji12_obs" cols="30" rows="4" class="ji12_obs form-control"></textarea>
@@ -532,7 +532,7 @@
                 <fieldset>
                     <div class="form-group">
                       <label for="addji13_limpa_nariz">
-                      <input type="checkbox" class="ji13_limpa_nariz" name="addji13_limpa_nariz" id="addji13_limpa_nariz"> Limpa o nariz?</label>
+                      <input type="checkbox" class="ji13_limpa_nariz" name="addji13_limpa_nariz" id="addji13_limpa_nariz"> Limpa o nariz?</label><br>
                       <label for="">Observações:</label><br>
                       <span class="addji13_obs"></span>
                       <textarea name="addji13_obs" id="addji13_obs" cols="30" rows="4" class="ji13_obs form-control"></textarea>
@@ -541,7 +541,7 @@
                 <fieldset>
                     <div class="form-group">
                       <label for="addji14_usa_garf_cpab_sderr">
-                      <input type="checkbox" class="ji14_usa_garf_cpab_sderr" name="addji14_usa_garf_cpab_sderr" id="addji14_usa_garf_cpab_sderr"> Usa o garfo e copo aberto sem derramar?</label>
+                      <input type="checkbox" class="ji14_usa_garf_cpab_sderr" name="addji14_usa_garf_cpab_sderr" id="addji14_usa_garf_cpab_sderr"> Usa o garfo e copo aberto sem derramar?</label><br>
                       <label for="">Observações:</label><br>
                       <span class="addji14_obs"></span>
                       <textarea name="addji14_obs" id="addji14_obs" cols="30" rows="4" class="ji14_obs form-control"></textarea>
@@ -550,7 +550,7 @@
                 <fieldset>
                     <div class="form-group">
                       <label for="addji15_abrefecha_moch_lanch_aut">
-                      <input type="checkbox" class="ji15_abrefecha_moch_lanch_aut" name="addji15_abrefecha_moch_lanch_aut" id="addji15_abrefecha_moch_lanch_aut"> Abre e fecha a mochila/lancheira de forma autônoma?</label>
+                      <input type="checkbox" class="ji15_abrefecha_moch_lanch_aut" name="addji15_abrefecha_moch_lanch_aut" id="addji15_abrefecha_moch_lanch_aut"> Abre e fecha a mochila/lancheira de forma autônoma?</label><br>
                       <label for="">Observações:</label><br>
                       <span class="addji15_obs"></span>
                       <textarea name="addji15_obs" id="addji15_obs" cols="30" rows="4" class="ji15_obs form-control"></textarea>
@@ -559,7 +559,7 @@
                 <fieldset>
                     <div class="form-group">
                       <label for="addji16_usa_banh_aut">
-                      <input type="checkbox" class="ji16_usa_banh_aut" name="addji16_usa_banh_aut" id="addji16_usa_banh_aut"> Usa o banheiro de forma autônoma por iniciativa própria?</label>
+                      <input type="checkbox" class="ji16_usa_banh_aut" name="addji16_usa_banh_aut" id="addji16_usa_banh_aut"> Usa o banheiro de forma autônoma por iniciativa própria?</label><br>
                       <label for="">Observações:</label><br>
                       <span class="addji16_obs"></span>
                       <textarea name="addji16_obs" id="addji16_obs" cols="30" rows="4" class="ji16_obs form-control"></textarea>
@@ -568,7 +568,7 @@
                 <fieldset>
                     <div class="form-group">
                       <label for="addji17_tp_boca_qdtoss_esp">
-                      <input type="checkbox" class="ji17_tp_boca_qdtoss_esp" name="addji17_tp_boca_qdtoss_esp" id="addji17_tp_boca_qdtoss_esp"> Tampa a boca quando tosse ou espirra?</label>
+                      <input type="checkbox" class="ji17_tp_boca_qdtoss_esp" name="addji17_tp_boca_qdtoss_esp" id="addji17_tp_boca_qdtoss_esp"> Tampa a boca quando tosse ou espirra?</label><br>
                       <label for="">Observações:</label><br>
                       <span class="addji17_obs"></span>
                       <textarea name="addji17_obs" id="addji17_obs" cols="30" rows="4" class="ji17_obs form-control"></textarea>
@@ -577,7 +577,7 @@
                 <fieldset>
                     <div class="form-group">
                       <label for="addji18_ajuda_escovacao">
-                      <input type="checkbox" class="ji18_ajuda_escovacao" name="addji18_ajuda_escovacao" id="addji18_ajuda_escovacao"> Ajuda na escovação?</label>
+                      <input type="checkbox" class="ji18_ajuda_escovacao" name="addji18_ajuda_escovacao" id="addji18_ajuda_escovacao"> Ajuda na escovação?</label><br>
                       <label for="">Observações:</label><br>
                       <span class="addji18_obs"></span>
                       <textarea name="addji18_obs" id="addji18_obs" cols="30" rows="4" class="ji18_obs form-control"></textarea>
@@ -623,11 +623,11 @@
                 <fieldset>
                     <div class="form-group">
                       <label for="editji1_veste_roupa_soz">
-                      <input type="checkbox" class="ji1_veste_roupa_soz" name="editji1_veste_roupa_soz" id="editji1_veste_roupa_soz"> Veste roupa sozinho.</label>
-                    </div>                    
-                    <div class="form-group">
+                      <input type="checkbox" class="ji1_veste_roupa_soz" name="editji1_veste_roupa_soz" id="editji1_veste_roupa_soz"> Veste roupa sozinho.   </label>
                       <label for="editji1_parcial">
-                      <input type="checkbox" class="ji1_parcial" name="editji1_parcial" id="editji1_parcial"> Parcial.</label>    
+                      <input type="checkbox" class="ji1_parcial" name="editji1_parcial" id="editji1_parcial"> Parcial.</label>
+                    </div>                    
+                    <div class="form-group">                      
                       <label for="">Observações:</label><br>
                       <span class="editji1_obs"></span>
                       <textarea name="editji1_obs" id="editji1_obs" cols="30" rows="4" class="ji1_obs form-control"></textarea>
@@ -636,11 +636,11 @@
                 <fieldset>
                     <div class="form-group">
                       <label for="editji2_retira_roupa_soz">
-                      <input type="checkbox" class="ji2_retira_roupa_soz" name="editji2_retira_roupa_soz" id="editji2_retira_roupa_soz"> Retira a roupa sozinho?</label>
-                    </div>                    
-                    <div class="form-group">
+                      <input type="checkbox" class="ji2_retira_roupa_soz" name="editji2_retira_roupa_soz" id="editji2_retira_roupa_soz"> Retira a roupa sozinho?   </label>
                       <label for="editji2_parcial">
-                      <input type="checkbox" class="ji2_parcial" name="editji2_parcial" id="editji2_parcial"> Parcial.</label>    
+                      <input type="checkbox" class="ji2_parcial" name="editji2_parcial" id="editji2_parcial"> Parcial.</label>
+                    </div>                    
+                    <div class="form-group">                      
                       <label for="">Observações:</label><br>
                       <span class="editji2_obs"></span>
                       <textarea name="editji2_obs" id="editji2_obs" cols="30" rows="4" class="ji2_obs form-control"></textarea>
@@ -649,11 +649,11 @@
                 <fieldset>
                     <div class="form-group">
                       <label for="editji3_toma_banho_soz">
-                      <input type="checkbox" class="ji3_toma_banho_soz" name="editji3_toma_banho_soz" id="editji3_toma_banho_soz"> Toma banho sozinho?</label>
-                    </div>                    
-                    <div class="form-group">
+                      <input type="checkbox" class="ji3_toma_banho_soz" name="editji3_toma_banho_soz" id="editji3_toma_banho_soz"> Toma banho sozinho?   </label>
                       <label for="editji3_parcial">
-                      <input type="checkbox" class="ji3_parcial" name="editji3_parcial" id="editji3_parcial"> Parcial.</label>    
+                      <input type="checkbox" class="ji3_parcial" name="editji3_parcial" id="editji3_parcial"> Parcial.</label>
+                    </div>                    
+                    <div class="form-group">                      
                       <label for="">Observações:</label><br>
                       <span class="editji3_obs"></span>
                       <textarea name="editji3_obs" id="editji3_obs" cols="30" rows="4" class="ji3_obs form-control"></textarea>
@@ -662,7 +662,7 @@
                 <fieldset>                    
                     <div class="form-group">
                       <label for="editji4_jg_len_pp_no_lix">
-                      <input type="checkbox" class="ji4_jg_len_pp_no_lix" name="editji4_jg_len_pp_no_lix" id="editji4_jg_len_pp_no_lix"> Joga o lenço de papel ou guardanapo no lixo após solicitação do adulto?</label>
+                      <input type="checkbox" class="ji4_jg_len_pp_no_lix" name="editji4_jg_len_pp_no_lix" id="editji4_jg_len_pp_no_lix"> Joga o lenço de papel ou guardanapo no lixo após solicitação do adulto?</label><br>
                       <label for="">Observações:</label><br>
                       <span class="editji4_obs"></span>
                       <textarea name="editji4_obs" id="editji4_obs" cols="30" rows="4" class="ji4_obs form-control"></textarea>
@@ -671,7 +671,7 @@
                 <fieldset>
                     <div class="form-group">
                       <label for="editji6_come_ref_na_mesa">
-                      <input type="checkbox" class="ji6_come_ref_na_mesa" name="editji6_come_ref_na_mesa" id="editji6_come_ref_na_mesa"> Come refeições na mesa?</label>
+                      <input type="checkbox" class="ji6_come_ref_na_mesa" name="editji6_come_ref_na_mesa" id="editji6_come_ref_na_mesa"> Come refeições na mesa?</label><br>
                       <label for="">Observações:</label><br>
                       <span class="editji6_obs"></span>
                       <textarea name="editji6_obs" id="editji6_obs" cols="30" rows="4" class="ji6_obs form-control"></textarea>
@@ -680,7 +680,7 @@
                 <fieldset>
                     <div class="form-group">
                       <label for="editji7_usa_colher_ind">
-                      <input type="checkbox" class="ji7_usa_colher_ind" name="editji7_usa_colher_ind" id="editji7_usa_colher_ind"> Usa colher independente?</label>
+                      <input type="checkbox" class="ji7_usa_colher_ind" name="editji7_usa_colher_ind" id="editji7_usa_colher_ind"> Usa colher independente?</label><br>
                       <label for="">Observações:</label><br>
                       <span class="editji7_obs"></span>
                       <textarea name="editji7_obs" id="editji7_obs" cols="30" rows="4" class="ji7_obs form-control"></textarea>
@@ -689,7 +689,7 @@
                 <fieldset>
                     <div class="form-group">
                       <label for="editji8_usa_garfo_ind">
-                      <input type="checkbox" class="ji8_usa_garfo_ind" name="editji8_usa_garfo_ind" id="editji8_usa_garfo_ind"> Usa garfo independente?</label>
+                      <input type="checkbox" class="ji8_usa_garfo_ind" name="editji8_usa_garfo_ind" id="editji8_usa_garfo_ind"> Usa garfo independente?</label><br>
                       <label for="">Observações:</label><br>
                       <span class="editji8_obs"></span>
                       <textarea name="editji8_obs" id="editji8_obs" cols="30" rows="4" class="ji8_obs form-control"></textarea>
@@ -698,7 +698,7 @@
                 <fieldset>
                     <div class="form-group">
                       <label for="editji9_tol_nov_alim">
-                      <input type="checkbox" class="ji9_tol_nov_alim" name="editji9_tol_nov_alim" id="editji9_tol_nov_alim"> Tolera novos alimentos no prato?</label>
+                      <input type="checkbox" class="ji9_tol_nov_alim" name="editji9_tol_nov_alim" id="editji9_tol_nov_alim"> Tolera novos alimentos no prato?</label><br>
                       <label for="">Observações:</label><br>
                       <span class="editji9_obs"></span>
                       <textarea name="editji9_obs" id="editji9_obs" cols="30" rows="4" class="ji9_obs form-control"></textarea>
@@ -707,7 +707,7 @@
                 <fieldset>
                     <div class="form-group">
                       <label for="editji10_usacopo_aberto">
-                      <input type="checkbox" class="ji10_usacopo_aberto" name="editji10_usacopo_aberto" id="editji10_usacopo_aberto"> Usa copo aberto?</label>
+                      <input type="checkbox" class="ji10_usacopo_aberto" name="editji10_usacopo_aberto" id="editji10_usacopo_aberto"> Usa copo aberto?</label><br>
                       <label for="">Observações:</label><br>
                       <span class="editji10_obs"></span>
                       <textarea name="editji10_obs" id="editji10_obs" cols="30" rows="4" class="ji10_obs form-control"></textarea>
@@ -716,7 +716,7 @@
                 <fieldset>
                     <div class="form-group">
                       <label for="editji11_perm_parc_mesa">
-                      <input type="checkbox" class="ji11_perm_parc_mesa" name="editji11_perm_parc_mesa" id="editji11_perm_parc_mesa"> Permanece com os parceiros à mesa?</label>
+                      <input type="checkbox" class="ji11_perm_parc_mesa" name="editji11_perm_parc_mesa" id="editji11_perm_parc_mesa"> Permanece com os parceiros à mesa?</label><br>
                       <label for="">Observações:</label><br>
                       <span class="editji11_obs"></span>
                       <textarea name="editji11_obs" id="editji11_obs" cols="30" rows="4" class="ji11_obs form-control"></textarea>
@@ -725,7 +725,7 @@
                 <fieldset>
                     <div class="form-group">
                       <label for="editji12_desp_roup_ind">
-                      <input type="checkbox" class="ji12_desp_roup_ind" name="editji12_desp_roup_ind" id="editji12_desp_roup_ind"> Despe a roupa independente e coloca no cesto?</label>
+                      <input type="checkbox" class="ji12_desp_roup_ind" name="editji12_desp_roup_ind" id="editji12_desp_roup_ind"> Despe a roupa independente e coloca no cesto?</label><br>
                       <label for="">Observações:</label><br>
                       <span class="editji12_obs"></span>
                       <textarea name="editji12_obs" id="editji12_obs" cols="30" rows="4" class="ji12_obs form-control"></textarea>
@@ -734,7 +734,7 @@
                 <fieldset>
                     <div class="form-group">
                       <label for="editji13_limpa_nariz">
-                      <input type="checkbox" class="ji13_limpa_nariz" name="editji13_limpa_nariz" id="editji13_limpa_nariz"> Limpa o nariz?</label>
+                      <input type="checkbox" class="ji13_limpa_nariz" name="editji13_limpa_nariz" id="editji13_limpa_nariz"> Limpa o nariz?</label><br>
                       <label for="">Observações:</label><br>
                       <span class="editji13_obs"></span>
                       <textarea name="editji13_obs" id="editji13_obs" cols="30" rows="4" class="ji13_obs form-control"></textarea>
@@ -743,7 +743,7 @@
                 <fieldset>
                     <div class="form-group">
                       <label for="editji14_usa_garf_cpab_sderr">
-                      <input type="checkbox" class="ji14_usa_garf_cpab_sderr" name="editji14_usa_garf_cpab_sderr" id="editji14_usa_garf_cpab_sderr"> Usa o garfo e copo aberto sem derramar?</label>
+                      <input type="checkbox" class="ji14_usa_garf_cpab_sderr" name="editji14_usa_garf_cpab_sderr" id="editji14_usa_garf_cpab_sderr"> Usa o garfo e copo aberto sem derramar?</label><br>
                       <label for="">Observações:</label><br>
                       <span class="editji14_obs"></span>
                       <textarea name="editji14_obs" id="editji14_obs" cols="30" rows="4" class="ji14_obs form-control"></textarea>
@@ -752,7 +752,7 @@
                 <fieldset>
                     <div class="form-group">
                       <label for="editji15_abrefecha_moch_lanch_aut">
-                      <input type="checkbox" class="ji15_abrefecha_moch_lanch_aut" name="editji15_abrefecha_moch_lanch_aut" id="editji15_abrefecha_moch_lanch_aut"> Abre e fecha a mochila/lancheira de forma autônoma?</label>
+                      <input type="checkbox" class="ji15_abrefecha_moch_lanch_aut" name="editji15_abrefecha_moch_lanch_aut" id="editji15_abrefecha_moch_lanch_aut"> Abre e fecha a mochila/lancheira de forma autônoma?</label><br>
                       <label for="">Observações:</label><br>
                       <span class="editji15_obs"></span>
                       <textarea name="editji15_obs" id="editji15_obs" cols="30" rows="4" class="ji15_obs form-control"></textarea>
@@ -761,7 +761,7 @@
                 <fieldset>
                     <div class="form-group">
                       <label for="editji16_usa_banh_aut">
-                      <input type="checkbox" class="ji16_usa_banh_aut" name="editji16_usa_banh_aut" id="editji16_usa_banh_aut"> Usa o banheiro de forma autônoma por iniciativa própria?</label>
+                      <input type="checkbox" class="ji16_usa_banh_aut" name="editji16_usa_banh_aut" id="editji16_usa_banh_aut"> Usa o banheiro de forma autônoma por iniciativa própria?</label><br>
                       <label for="">Observações:</label><br>
                       <span class="editji16_obs"></span>
                       <textarea name="editji16_obs" id="editji16_obs" cols="30" rows="4" class="ji16_obs form-control"></textarea>
@@ -770,7 +770,7 @@
                 <fieldset>
                     <div class="form-group">
                       <label for="editji17_tp_boca_qdtoss_esp">
-                      <input type="checkbox" class="ji17_tp_boca_qdtoss_esp" name="editji17_tp_boca_qdtoss_esp" id="editji17_tp_boca_qdtoss_esp"> Tampa a boca quando tosse ou espirra?</label>
+                      <input type="checkbox" class="ji17_tp_boca_qdtoss_esp" name="editji17_tp_boca_qdtoss_esp" id="editji17_tp_boca_qdtoss_esp"> Tampa a boca quando tosse ou espirra?</label><br>
                       <label for="">Observações:</label><br>
                       <span class="editji17_obs"></span>
                       <textarea name="editji17_obs" id="editji17_obs" cols="30" rows="4" class="ji17_obs form-control"></textarea>
@@ -779,7 +779,7 @@
                 <fieldset>
                     <div class="form-group">
                       <label for="editji18_ajuda_escovacao">
-                      <input type="checkbox" class="ji18_ajuda_escovacao" name="editji18_ajuda_escovacao" id="editji18_ajuda_escovacao"> Ajuda na escovação?</label>
+                      <input type="checkbox" class="ji18_ajuda_escovacao" name="editji18_ajuda_escovacao" id="editji18_ajuda_escovacao"> Ajuda na escovação?</label><br>
                       <label for="">Observações:</label><br>
                       <span class="editji18_obs"></span>
                       <textarea name="editji18_obs" id="editji18_obs" cols="30" rows="4" class="ji18_obs form-control"></textarea>
@@ -10330,42 +10330,42 @@ $(document).on('click','.histdes_versaopais_independencia',function(e){
                         if(response.status==200){                                                
                             $(".ji1_veste_roupa_soz").attr('checked',response.histdesversaopaisindependencia.j1_veste_roupa_soz);
                             $(".ji1_parcial").attr('checked',response.histdesversaopaisindependencia.j1_parcial);
-                            $(".ji1_obs").val(response.histdesversaopaiscomportamentos.j1_obs);
+                            $(".ji1_obs").val(response.histdesversaopaisindependencia.j1_obs);
                             $(".ji2_retira_roupa_soz").attr('checked',response.histdesversaopaisindependencia.j2_retira_roupa_soz);
                             $(".ji2_parcial").attr('checked',response.histdesversaopaisindependencia.j2_parcial);
-                            $(".ji2_obs").val(response.histdesversaopaiscomportamentos.j2_obs);
+                            $(".ji2_obs").val(response.histdesversaopaisindependencia.j2_obs);
                             $(".ji3_toma_banho_soz").attr('checked',response.histdesversaopaisindependencia.j3_toma_banho_soz);
                             $(".ji3_parcial").attr('checked',response.histdesversaopaisindependencia.j3_parcial);
-                            $(".ji3_obs").val(response.histdesversaopaiscomportamentos.j3_obs);
-                            $(".ji4_jg_len_pp_no_lix").attr('checked',response.histdesversaopaisindependencia.j4_jg_len_pp_no_lix);
-                            $(".ji4_obs").val(response.histdesversaopaiscomportamentos.j4_obs);
+                            $(".ji3_obs").val(response.histdesversaopaisindependencia.j3_obs);
+                            $(".ji4_jg_len_pp_no_lix").attr('checked',response.histdesversaopaisindependencia.j4_jg_lenc_pp_no_lix);
+                            $(".ji4_obs").val(response.histdesversaopaisindependencia.j4_obs);
                             $(".ji6_come_ref_na_mesa").attr('checked',response.histdesversaopaisindependencia.j6_come_ref_na_mesa);
-                            $(".ji6_obs").val(response.histdesversaopaiscomportamentos.j6_obs);
+                            $(".ji6_obs").val(response.histdesversaopaisindependencia.j6_obs);
                             $(".ji7_usa_colher_ind").attr('checked',response.histdesversaopaisindependencia.j7_usa_colher_ind);
-                            $(".ji7_obs").val(response.histdesversaopaiscomportamentos.j7_obs);
+                            $(".ji7_obs").val(response.histdesversaopaisindependencia.j7_obs);
                             $(".ji8_usa_garfo_ind").attr('checked',response.histdesversaopaisindependencia.j8_usa_garfo_ind);
-                            $(".ji8_obs").val(response.histdesversaopaiscomportamentos.j8_obs);
+                            $(".ji8_obs").val(response.histdesversaopaisindependencia.j8_obs);
                             $(".ji9_tol_nov_alim").attr('checked',response.histdesversaopaisindependencia.j9_tol_nov_alim);
-                            $(".ji9_obs").val(response.histdesversaopaiscomportamentos.j9_obs);
+                            $(".ji9_obs").val(response.histdesversaopaisindependencia.j9_obs);
                             $(".ji10_usacopo_aberto").attr('checked',response.histdesversaopaisindependencia.j10_usacopo_aberto);
-                            $(".ji10_obs").val(response.histdesversaopaiscomportamentos.j10_obs);
+                            $(".ji10_obs").val(response.histdesversaopaisindependencia.j10_obs);
                             $(".ji11_perm_parc_mesa").attr('checked',response.histdesversaopaisindependencia.j11_perm_parc_mesa);
-                            $(".ji11_obs").val(response.histdesversaopaiscomportamentos.j11_obs);
+                            $(".ji11_obs").val(response.histdesversaopaisindependencia.j11_obs);
                             $(".ji12_desp_roup_ind").attr('checked',response.histdesversaopaisindependencia.j12_desp_roup_ind);
-                            $(".ji12_obs").val(response.histdesversaopaiscomportamentos.j12_obs);
+                            $(".ji12_obs").val(response.histdesversaopaisindependencia.j12_obs);
                             $(".ji13_limpa_nariz").attr('checked',response.histdesversaopaisindependencia.j13_limpa_nariz);
-                            $(".ji13_obs").val(response.histdesversaopaiscomportamentos.j13_obs);
+                            $(".ji13_obs").val(response.histdesversaopaisindependencia.j13_obs);
                             $(".ji14_usa_garf_cpab_sderr").attr('checked',response.histdesversaopaisindependencia.j14_usa_garf_cpab_sderr);
-                            $(".ji14_obs").val(response.histdesversaopaiscomportamentos.j14_obs);
+                            $(".ji14_obs").val(response.histdesversaopaisindependencia.j14_obs);
                             $(".ji15_abrefecha_moch_lanch_aut").attr('checked',response.histdesversaopaisindependencia.j15_abrefecha_moch_lanch_aut);
-                            $(".ji15_obs").val(response.histdesversaopaiscomportamentos.j15_obs);
+                            $(".ji15_obs").val(response.histdesversaopaisindependencia.j15_obs);
                             $(".ji16_usa_banh_aut").attr('checked',response.histdesversaopaisindependencia.j16_usa_banh_aut);
-                            $(".ji16_obs").val(response.histdesversaopaiscomportamentos.j16_obs);
+                            $(".ji16_obs").val(response.histdesversaopaisindependencia.j16_obs);
                             $(".ji17_tp_boca_qdtoss_esp").attr('checked',response.histdesversaopaisindependencia.j17_tp_boca_qdtoss_esp);
-                            $(".ji17_obs").val(response.histdesversaopaiscomportamentos.j17_obs);
+                            $(".ji17_obs").val(response.histdesversaopaisindependencia.j17_obs);
                             $(".ji18_ajuda_escovacao").attr('checked',response.histdesversaopaisindependencia.j18_ajuda_escovacao);
-                            $(".ji18_obs").val(response.histdesversaopaiscomportamentos.j18_obs);
-                            $(".ji19_de_detalhes_aut").val(response.histdesversaopaiscomportamentos.j19_de_detalhes_aut);
+                            $(".ji18_obs").val(response.histdesversaopaisindependencia.j18_obs);
+                            $(".ji19_de_detalhes_aut").val(response.histdesversaopaisindependencia.j19_de_detalhes_aut);
                         }
                     }
                 });
@@ -10541,7 +10541,6 @@ $(document).on('click','.histdes_versaopais_independencia',function(e){
 
 //fim histdes_versaopais_independencia
 
-////////////////////////////////////
 //início histdes_versaopais_desenvmotor
 
 $("#AddHistDesVersaoPaisDesenvMotor").on('shown.bs.modal',function(){
@@ -11164,11 +11163,11 @@ $(document).on('click','.histdes_versaopais_desenvmotor',function(e){
                             $(".l1_sust_cabeca").val(response.histdesversaopaisdesenvmotor.l1_sust_cabeca);                            
                             $(".l2_sent_s_apoio").val(response.histdesversaopaisdesenvmotor.l2_sent_s_apoio);                            
                             $(".l3_andou").val(response.histdesversaopaisdesenvmotor.l3_andou);
-                            $(".l4_desproc_desfralde").val(response.histdesversaopaisdesenvmotor.l4_desproc_desfralde);
+                            $(".l4_desproc_desfralde").val(response.histdesversaopaisdesenvmotor.l4_descproc_desfralde);
                             $(".l5_hv_perdcontrol_esfinc").val(response.histdesversaopaisdesenvmotor.l5_hv_perdcontrol_esfinc);
                             $(".l6_rab_em_papel").attr('checked',response.histdesversaopaisdesenvmotor.l6_rab_em_papel);
                             $(".l6_obs").val(response.histdesversaopaisdesenvmotor.l6_obs);
-                            $(".l6_cm_seg_lapis").val(response.histdesversaopaisdesenvmotor.l6_cm_seg_lapis);
+                            $(".l6_cm_seg_lapis").val(response.histdesversaopaisdesenvmotor.i6_cm_seg_lapis);
                             $(".l7_cam_ponta_pes").attr('checked',response.histdesversaopaisdesenvmotor.l7_cam_ponta_pes);
                             $(".l7_obs").val(response.histdesversaopaisdesenvmotor.l7_obs);
                             $(".l8_apres_deseq").attr('checked',response.histdesversaopaisdesenvmotor.l8_apres_deseq);
@@ -11181,7 +11180,7 @@ $(document).on('click','.histdes_versaopais_desenvmotor',function(e){
                             $(".l11_obs").val(response.histdesversaopaisdesenvmotor.l11_obs);
                             $(".l12_sb_esc_sajuda").attr('checked',response.histdesversaopaisdesenvmotor.l12_sb_esc_sajuda);
                             $(".l12_obs").val(response.histdesversaopaisdesenvmotor.l12_obs);
-                            $(".l13_sb_esc_altpess").attr('checked',response.histdesversaopaisdesenvmotor.l13_sb_esc_altpess);
+                            $(".l13_sb_esc_altpess").attr('checked',response.histdesversaopaisdesenvmotor.l13_sb_esc_altpes);
                             $(".l13_obs").val(response.histdesversaopaisdesenvmotor.l13_obs);
                             $(".l14_sb_pedalar").attr('checked',response.histdesversaopaisdesenvmotor.l14_sb_pedalar);
                             $(".l14_obs").val(response.histdesversaopaisdesenvmotor.l14_obs);
@@ -11233,7 +11232,7 @@ $(document).on('click','.histdes_versaopais_desenvmotor',function(e){
         data.append('l11_obs',$(".l11_obs").val());
         data.append('l12_sb_esc_sajuda',$(".l12_sb_esc_sajuda").is(":checked")?'true':'false');        
         data.append('l12_obs',$(".l12_obs").val());
-        data.append('l13_sb_esc_altpess',$(".l13_sb_esc_altpess").is(":checked")?'true':'false');        
+        data.append('l13_sb_esc_altpes',$(".l13_sb_esc_altpess").is(":checked")?'true':'false');        
         data.append('l13_obs',$(".l13_obs").val());
         data.append('l14_sb_pedalar',$(".l14_sb_pedalar").is(":checked")?'true':'false');
         data.append('l14_obs',$(".l14_obs").val());
@@ -11311,7 +11310,7 @@ $(document).on('click','.histdes_versaopais_desenvmotor',function(e){
         data.append('l11_obs',$("#editl11_obs").val());
         data.append('l12_sb_esc_sajuda',$("#editl12_sb_esc_sajuda").is(":checked")?'true':'false');        
         data.append('l12_obs',$("#editl12_obs").val());
-        data.append('l13_sb_esc_altpess',$("#editl13_sb_esc_altpess").is(":checked")?'true':'false');        
+        data.append('l13_sb_esc_altpes',$("#editl13_sb_esc_altpess").is(":checked")?'true':'false');        
         data.append('l13_obs',$("#editl13_obs").val());
         data.append('l14_sb_pedalar',$("#editl14_sb_pedalar").is(":checked")?'true':'false');
         data.append('l14_obs',$("#editl14_obs").val());

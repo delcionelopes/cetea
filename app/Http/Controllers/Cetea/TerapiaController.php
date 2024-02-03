@@ -1768,7 +1768,7 @@ public function storeHistDesVersaoPaisIndependencia(Request $request){
             $data['j3_toma_banho_soz'] = $request->input('j3_toma_banho_soz');
             $data['j3_parcial'] = $request->input('j3_parcial');
             $data['j3_obs'] = $request->input('j3_obs');
-            $data['j4_jg_lenc_pp_no_lix'] = $request->input('j4_jg_lenc_pp_no_lix');
+            $data['j4_jg_lenc_pp_no_lix'] = $request->input('j4_jg_len_pp_no_lix');
             $data['j4_obs'] = $request->input('j4_obs');
             $data['j6_come_ref_na_mesa'] = $request->input('j6_come_ref_na_mesa');
             $data['j6_obs'] = $request->input('j6_obs');
@@ -1826,11 +1826,11 @@ public function storeHistDesVersaoPaisDesenvMotor(Request $request){
             $data['l1_sust_cabeca'] = $request->input('l1_sust_cabeca');
             $data['l2_sent_s_apoio'] = $request->input('l2_sent_s_apoio');
             $data['l3_andou'] = $request->input('l3_andou');
-            $data['l4_descproc_desfralde'] = $request->input('l4_descproc_desfralde');
+            $data['l4_descproc_desfralde'] = $request->input('l4_desproc_desfralde');
             $data['l5_hv_perdcontrol_esfinc'] = $request->input('l5_hv_perdcontrol_esfinc');
             $data['l6_rab_em_papel'] = $request->input('l6_rab_em_papel');
             $data['l6_obs'] = $request->input('l6_obs');
-            $data['i6_cm_seg_lapis'] = $request->input('i6_cm_seg_lapis');
+            $data['i6_cm_seg_lapis'] = $request->input('l6_cm_seg_lapis');
             $data['l7_cam_ponta_pes'] = $request->input('l7_cam_ponta_pes');
             $data['l7_obs'] = $request->input('l7_obs');
             $data['l8_apres_deseq'] = $request->input('l8_apres_deseq');
@@ -1907,11 +1907,11 @@ public function storeHistDesVersaoPaisDesenvMotor(Request $request){
             $data['l1_sust_cabeca'] = $request->input('l1_sust_cabeca');
             $data['l2_sent_s_apoio'] = $request->input('l2_sent_s_apoio');
             $data['l3_andou'] = $request->input('l3_andou');
-            $data['l4_descproc_desfralde'] = $request->input('l4_descproc_desfralde');
+            $data['l4_descproc_desfralde'] = $request->input('l4_desproc_desfralde');
             $data['l5_hv_perdcontrol_esfinc'] = $request->input('l5_hv_perdcontrol_esfinc');
             $data['l6_rab_em_papel'] = $request->input('l6_rab_em_papel');
             $data['l6_obs'] = $request->input('l6_obs');
-            $data['i6_cm_seg_lapis'] = $request->input('i6_cm_seg_lapis');
+            $data['i6_cm_seg_lapis'] = $request->input('l6_cm_seg_lapis');
             $data['l7_cam_ponta_pes'] = $request->input('l7_cam_ponta_pes');
             $data['l7_obs'] = $request->input('l7_obs');
             $data['l8_apres_deseq'] = $request->input('l8_apres_deseq');

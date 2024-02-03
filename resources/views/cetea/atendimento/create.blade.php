@@ -228,6 +228,7 @@ $(document).ready(function(){
                         $.each(response.errors,function(key,err_values){
                             $('#saveform_errList').append('<li>'+err_values+'</li>');
                         });
+                        loading.hide();
                  }else if(response.status==401){
                       $('#saveform_errList').replaceWith('<ul id="saveform_errList"></ul>');
                       $('#saveform_errList').addClass('alert alert-danger');
