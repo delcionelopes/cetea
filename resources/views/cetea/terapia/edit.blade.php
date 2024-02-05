@@ -28,6 +28,138 @@
 
 </style>
 
+<!-- Inicio AddHistDesVersaoPaisHistEscolar -->
+<div class="modal fade animate__animated animate__bounce animate__faster bd-example-modal-xl" id="AddHistDesVersaoPaisHistEscolar" tabindex="-1" role="dialog" aria-labelledby="AddmyExtraLargeModalLabel_HistDesVersaoHistEscolar" aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+        <div class="modal-header bg-{{$color}}">
+            <h5 class="modal-title" id="AddmyExtraLargeModalLabel_HistDesVersaoPaisHistEscolar" style="color: white;">Histórico do Desenvolvimento Versão Pais - Histórico Escolar</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                <span aria-hidden="true" style="color: white.">&times;</span>
+            </button>
+        </div>      
+        <div class="modal-body form-horizontal" role="form">
+            <form id="addform_hisdesversaopaishistescolar" class="form-horizontal" role="form" method="POST">
+                <input type="hidden" id="addpacienteid_histdesversaopaishistescolar">
+                <input type="hidden" id="addatendimentoid_histdesversaopaishistescolar">
+                <ul id="saveform_errlist_histdesversaopaishistescolar"></ul>
+                <fieldset>
+                    <legend>HISTÓRICO ESCOLAR PEDAGÓGICO</legend>
+                </fieldset>                            
+                <fieldset>                      
+                 <div class="form-group">
+                      <label for="addm1_idade_ing_escola">
+                      <input type="checkbox" class="m1_idade_ing_escola" name="addm1_idade_ing_escola" id="addm1_idade_ing_escola"> Idade que ingressou na escola? Conte um pouco sobre a adaptação.</label>
+                      <label for="">Observações:</label><br>
+                      <span class="addm1_obs"></span>
+                      <textarea name="addm1_obs" id="addm1_obs" cols="30" rows="4" class="m1_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Alguma vez alguém da equipe escolar mencionou algum comportamento ou preocupação com o desenvolvimento do seu filho(a)?</legend>
+                    <div class="form-group">
+                      <span class="addm2_alg_eqescolar_mencomport"></span>
+                      <textarea name="addm2_alg_eqescolar_mencomport" id="addm2_alg_eqescolar_mencomport" cols="30" rows="4" class="m2_alg_eqescolar_mencomport form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Seu filho(a) apresenta alguma habilidade especial? (música, leitura ou outras)</legend>
+                    <div class="form-group">
+                      <span class="addm3_apres_hab_especial"></span>
+                      <textarea name="addm3_apres_hab_especial" id="addm3_apres_hab_especial" cols="30" rows="4" class="m3_apres_hab_especial form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>                    
+                    <legend>Atualmente há dificuldades de aprendizagens?</legend>
+                    <div class="form-group">
+                      <span class="addm4_ha_dif_aprendizagem"></span>
+                      <textarea name="addm4_ha_dif_aprendizagem" id="addm4_ha_dif_aprendizagem" cols="30" rows="4" class="m4_ha_dif_aprendizagem form-control"></textarea>
+                    </div>
+                </fieldset>    
+                <fieldset>
+                    <legend>Necessita de mediador escolar?</legend>
+                    <div class="form-group">
+                      <span class="addm5_neces_med_escolar"></span>
+                      <textarea name="addm5_neces_med_escolar" id="addm5_neces_med_escolar" cols="30" rows="4" class="m5_neces_med_escolar form-control"></textarea>
+                    </div>
+                </fieldset>                
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            <button data-color="{{$color}}" class="btn btn-{{$color}} add_histdesversaopais_histescolar_btn"><img id="imgadd_histdesversaopaishistescolar" src="{{asset('storage/ajax-loader.gif')}}" style="display: none;" class="rounded-circle" width="20"> Salvar</button>
+        </div>
+    </div>
+  </div>
+</div>
+<!-- Fim AddHistDesVersaoPaisHistEscolar -->
+
+<!-- Inicio EditHistDesVersaoPaisHistEscolar -->
+<div class="modal fade animate__animated animate__bounce animate__faster bd-example-modal-xl" id="EditHistDesVersaoPaisHistEscolar" tabindex="-1" role="dialog" aria-labelledby="EditmyExtraLargeModalLabel_histdesversaopaishistescolar" aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+        <div class="modal-header bg-{{$color}}">
+            <h5 class="modal-title" id="EditmyExtraLargeModalLabel_histdesversaopaishistescolar" style="color: white;">Histórico do Desenvolvimento Versão Pais - Histórico Escolar</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                <span aria-hidden="true" style="color: white.">&times;</span>
+            </button>
+        </div>      
+        <div class="modal-body form-horizontal" role="form">
+            <form id="editform_histdesversaopaishistescolar" class="form-horizontal" role="form" method="POST">
+                <input type="hidden" id="editpacienteid_histdesversaopaishistescolar">
+                <input type="hidden" id="editatendimentoid_histdesversaopaishistescolar">
+                <ul id="updateform_errlist_histdesversaopaisdesenvmotor"></ul>
+                <fieldset>
+                    <legend>HISTÓRICO ESCOLAR PEDAGÓGICO</legend>
+                </fieldset>                            
+                <fieldset>                      
+                 <div class="form-group">
+                      <label for="editm1_idade_ing_escola">
+                      <input type="checkbox" class="m1_idade_ing_escola" name="editm1_idade_ing_escola" id="editm1_idade_ing_escola"> Idade que ingressou na escola? Conte um pouco sobre a adaptação.</label>
+                      <label for="">Observações:</label><br>
+                      <span class="editm1_obs"></span>
+                      <textarea name="editm1_obs" id="editm1_obs" cols="30" rows="4" class="m1_obs form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Alguma vez alguém da equipe escolar mencionou algum comportamento ou preocupação com o desenvolvimento do seu filho(a)?</legend>
+                    <div class="form-group">
+                      <span class="editm2_alg_eqescolar_mencomport"></span>
+                      <textarea name="editm2_alg_eqescolar_mencomport" id="editm2_alg_eqescolar_mencomport" cols="30" rows="4" class="m2_alg_eqescolar_mencomport form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Seu filho(a) apresenta alguma habilidade especial? (música, leitura ou outras)</legend>
+                    <div class="form-group">
+                      <span class="editm3_apres_hab_especial"></span>
+                      <textarea name="editm3_apres_hab_especial" id="editm3_apres_hab_especial" cols="30" rows="4" class="m3_apres_hab_especial form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>                    
+                    <legend>Atualmente há dificuldades de aprendizagens?</legend>
+                    <div class="form-group">
+                      <span class="editm4_ha_dif_aprendizagem"></span>
+                      <textarea name="editm4_ha_dif_aprendizagem" id="editm4_ha_dif_aprendizagem" cols="30" rows="4" class="m4_ha_dif_aprendizagem form-control"></textarea>
+                    </div>
+                </fieldset>    
+                <fieldset>
+                    <legend>Necessita de mediador escolar?</legend>
+                    <div class="form-group">
+                      <span class="editm5_neces_med_escolar"></span>
+                      <textarea name="editm5_neces_med_escolar" id="editm5_neces_med_escolar" cols="30" rows="4" class="m5_neces_med_escolar form-control"></textarea>
+                    </div>
+                </fieldset>   
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            <button data-color="{{$color}}" class="btn btn-{{$color}} update_histdesversaopaishistescolar_btn"><img id="imgedit_histdesversaopaishistescolar" src="{{asset('storage/ajax-loader.gif')}}" style="display: none;" class="rounded-circle" width="20"> Salvar</button>
+        </div>
+    </div>
+  </div>
+</div>
+<!-- Fim EditHistDesVersaoPaisHistEscolar -->
+
 <!-- Inicio AddHistDesVersaoPaisDesenvMotor -->
 <div class="modal fade animate__animated animate__bounce animate__faster bd-example-modal-xl" id="AddHistDesVersaoPaisDesenvMotor" tabindex="-1" role="dialog" aria-labelledby="AddmyExtraLargeModalLabel_HistDesVersaoDesenvMotor" aria-hidden="true">
   <div class="modal-dialog modal-xl" role="document">
@@ -39,7 +171,7 @@
             </button>
         </div>      
         <div class="modal-body form-horizontal" role="form">
-            <form id="addform_hisdesversaopaisddesenvmotor" class="form-horizontal" role="form" method="POST">
+            <form id="addform_hisdesversaopaisdesenvmotor" class="form-horizontal" role="form" method="POST">
                 <input type="hidden" id="addpacienteid_histdesversaopaisdesenvmotor">
                 <input type="hidden" id="addatendimentoid_histdesversaopaisdesenvmotor">
                 <ul id="saveform_errlist_histdesversaopaisdesenvmotor"></ul>
@@ -3712,7 +3844,7 @@
                                             @if($count_histdes_versaopais_independencia)<i data-id="1" id="histdes_versaopais_independencia{{$atendimento->id}}" class="fas fa-check" style="color: green"></i>@else<i data-id="0" id="histdes_versaopais_independencia{{$atendimento->id}}"></i>@endif Independência</a></li>
                                         <li class="dropdown-item bg-light"><a href="#" class="histdes_versaopais_desenvmotor dropdown-item" data-pacienteid="{{$atendimento->paciente_id}}" data-atendimentoid="{{$atendimento->id}}">
                                             @if($count_histdes_versaopais_desenvmotor)<i data-id="1" id="histdes_versaopais_desenvmotor{{$atendimento->id}}" class="fas fa-check" style="color: green"></i>@else<i data-id="0" id="histdes_versaopais_desenvmotor{{$atendimento->id}}"></i>@endif Desenvolvimento Motor</a></li>    
-                                        <li class="dropdown-item bg-light"><a href="#" class="dropdown-item" data-id="{{$atendimento->paciente_id}}">
+                                        <li class="dropdown-item bg-light"><a href="#" class="histdes_versaopais_histescolar dropdown-item" data-pacienteid="{{$atendimento->paciente_id}}" data-atendimentoid="{{$atendimento->id}}">
                                             @if($count_histdes_versaopais_histescolar)<i data-id="1" id="histdes_versaopais_histescolar{{$atendimento->id}}" class="fas fa-check" style="color: green"></i>@else<i data-id="0" id="histdes_versaopais_histescolar{{$atendimento->id}}"></i>@endif Histórico Escolar</a></li>
                                         <li class="dropdown-item bg-light"><a href="#" class="dropdown-item" data-id="{{$atendimento->paciente_id}}">
                                             @if($count_histdes_versaopais_compcasa)<i data-id="1" id="histdes_versaopais_compcasa{{$atendimento->id}}" class="fas fa-check" style="color: green"></i>@else<i data-id="0" id="histdes_versaopais_compcasa{{$atendimento->id}}"></i>@endif Comportamento em Casa</a></li>
@@ -11145,7 +11277,7 @@ $(document).on('click','.histdes_versaopais_desenvmotor',function(e){
                 $("#editatendimentoid_histdesversaopaisdesenvmotor").val(atendimentoid);
                 $("#editform_histdesversaopaisdesenvmotor").trigger('reset');
                 $("#EditHistDesVersaoPaisDesenvMotor").modal('show'); 
-                $("#updateform_errList_histdesversaodesenvmotor").replaceWith('<ul id="updateform_errList_histdesversaodesenvmotor"></ul>');
+                $("#updateform_errList_histdesversaopaisdesenvmotor").replaceWith('<ul id="updateform_errList_histdesversaopaisdesenvmotor"></ul>');
 
                  $.ajaxSetup({
                     headers:{
@@ -11354,6 +11486,322 @@ $(document).on('click','.histdes_versaopais_desenvmotor',function(e){
     });
 
 //fim histdes_versaopais_desenvmotor
+
+//início histdes_versaopais_histescolar
+
+$("#AddHistDesVersaoPaisHistEscolar").on('shown.bs.modal',function(){
+            $(".m1_idade_ing_escola").focus();
+    });
+
+$("#EditHistDesVersaoPaisHistEscolar").on('shown.bs.modal',function(){
+            $(".m1_idade_ing_escola").focus();
+    });
+
+//inicio conta caracteres dos textarea HistDesVersaoPaisHistEscolar
+
+    //add
+  
+    $(document).on('input','#addm1_obs',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var m1_obs = $('textarea[name="addm1_obs"]').val();
+            $('textarea[name="addm1_obs"]').val(m1_obs.substr(0,limite));
+            $(".addm1_obs").text("0" + " " + informativo);
+        }else{
+            $(".addm1_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addm2_alg_eqescolar_mencomport',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var m2_alg_eqescolar_mencomport = $('textarea[name="addm2_alg_eqescolar_mencomport"]').val();
+            $('textarea[name="addm2_alg_eqescolar_mencomport"]').val(m2_alg_eqescolar_mencomport.substr(0,limite));
+            $(".addm2_alg_eqescolar_mencomport").text("0" + " " + informativo);
+        }else{
+            $(".addm2_alg_eqescolar_mencomport").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addm3_apres_hab_especial',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var m3_apres_hab_especial = $('textarea[name="addm3_apres_hab_especial"]').val();
+            $('textarea[name="addm3_apres_hab_especial"]').val(m3_apres_hab_especial.substr(0,limite));
+            $(".addm3_apres_hab_especial").text("0" + " " + informativo);
+        }else{
+            $(".addm3_apres_hab_especial").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addm4_ha_dif_aprendizagem',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var m4_ha_dif_aprendizagem = $('textarea[name="addm4_ha_dif_aprendizagem"]').val();
+            $('textarea[name="addm4_ha_dif_aprendizagem"]').val(m4_ha_dif_aprendizagem.substr(0,limite));
+            $(".addm4_ha_dif_aprendizagem").text("0" + " " + informativo);
+        }else{
+            $(".addm4_ha_dif_aprendizagem").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addm5_neces_med_escolar',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var m5_neces_med_escolar = $('textarea[name="addm5_neces_med_escolar"]').val();
+            $('textarea[name="addm5_neces_med_escolar"]').val(m5_neces_med_escolar.substr(0,limite));
+            $(".addm5_neces_med_escolar").text("0" + " " + informativo);
+        }else{
+            $(".addm5_neces_med_escolar").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    //edit
+  
+    $(document).on('input','#editm1_obs',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var m1_obs = $('textarea[name="editm1_obs"]').val();
+            $('textarea[name="editm1_obs"]').val(m1_obs.substr(0,limite));
+            $(".editm1_obs").text("0" + " " + informativo);
+        }else{
+            $(".editm1_obs").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editm2_alg_eqescolar_mencomport',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var m2_alg_eqescolar_mencomport = $('textarea[name="editm2_alg_eqescolar_mencomport"]').val();
+            $('textarea[name="editm2_alg_eqescolar_mencomport"]').val(m2_alg_eqescolar_mencomport.substr(0,limite));
+            $(".editm2_alg_eqescolar_mencomport").text("0" + " " + informativo);
+        }else{
+            $(".editm2_alg_eqescolar_mencomport").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editm3_apres_hab_especial',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var m3_apres_hab_especial = $('textarea[name="editm3_apres_hab_especial"]').val();
+            $('textarea[name="editm3_apres_hab_especial"]').val(m3_apres_hab_especial.substr(0,limite));
+            $(".editm3_apres_hab_especial").text("0" + " " + informativo);
+        }else{
+            $(".editm3_apres_hab_especial").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editm4_ha_dif_aprendizagem',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var m4_ha_dif_aprendizagem = $('textarea[name="editm4_ha_dif_aprendizagem"]').val();
+            $('textarea[name="editm4_ha_dif_aprendizagem"]').val(m4_ha_dif_aprendizagem.substr(0,limite));
+            $(".editm4_ha_dif_aprendizagem").text("0" + " " + informativo);
+        }else{
+            $(".editm4_ha_dif_aprendizagem").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editm5_neces_med_escolar',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var m5_neces_med_escolar = $('textarea[name="editm5_neces_med_escolar"]').val();
+            $('textarea[name="editm5_neces_med_escolar"]').val(m5_neces_med_escolar.substr(0,limite));
+            $(".editm5_neces_med_escolar").text("0" + " " + informativo);
+        }else{
+            $(".editm5_neces_med_escolar").text(caracteresRestantes + " " + informativo);
+        }
+    });
+    
+    
+$(document).on('click','.histdes_versaopais_histescolar',function(e){
+        e.preventDefault();
+        var pacienteid = $(this).data("pacienteid");
+        var atendimentoid = $(this).data("atendimentoid");
+        var opcao_form_histdes_versaopais_histescolar = $("#histdes_versaopais_histescolar"+atendimentoid).data("id");
+
+        if(opcao_form_histdes_versaopais_histescolar==0){
+                $("#addpacienteid_histdesversaopaishistescolar").val(pacienteid);
+                $("#addatendimentoid_histdesversaopaishistescolar").val(atendimentoid);
+                $("#addform_histdesversaopaishistescolar").trigger('reset');
+                $("#AddHistDesVersaoPaisHistEscolar").modal('show'); 
+                $("#saveform_errList_histdesversaopaishistescolar").replaceWith('<ul id="saveform_errList_histdesversaopaishistescolar"></ul>');
+        }else{            
+                $("#editpacienteid_histdesversaopaishistescolar").val(pacienteid);
+                $("#editatendimentoid_histdesversaopaishistescolar").val(atendimentoid);
+                $("#editform_histdesversaopaishistescolar").trigger('reset');
+                $("#EditHistDesVersaoPaisHistEscolar").modal('show'); 
+                $("#updateform_errList_histdesversaopaishistescolar").replaceWith('<ul id="updateform_errList_histdesversaopaishistescolar"></ul>');
+
+                 $.ajaxSetup({
+                    headers:{
+                        'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+    
+    
+                $.ajax({ 
+                    type: 'GET',             
+                    dataType: 'json',                                    
+                    url: '/ceteaadmin/terapia/edit_histdesversaopaishistescolar/'+pacienteid,
+                    success: function(response){           
+                        if(response.status==200){                                                                            
+                            $(".m1_idade_ing_escola").attr('checked',response.histdesversaopaishistescolar.m1_idade_ing_escola);
+                            $(".m1_obs").val(response.histdesversaopaishistescolar.m1_obs);
+                            $('.m2_alg_eqescolar_mencomport').val(response.histdesversaopaishistescolar.m2_alg_eqescolar_mencomport);
+                            $('.m3_apres_hab_especial').val(response.histdesversaopaishistescolar.m3_apres_hab_especial);
+                            $('.m4_ha_dif_aprendizagem').val(response.histdesversaopaishistescolar.m4_ha_dif_aprendizagem);
+                            $('.m5_neces_med_escolar').val(response.histdesversaopaishistescolar.m5_neces_med_escolar);
+                        }
+                    }
+                });
+        }
+    });
+
+
+    $(document).on('click','.add_histdesversaopais_histescolar_btn',function(e){
+        e.preventDefault();
+        var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+        var pacienteid = $("#addpacienteid_histdesversaopaishistescolar").val();
+        var atendimentoid = $("#addatendimentoid_histdesversaopaishistescolar").val();
+
+        var loading = $("#imgadd_histdesversaopaishistescolar");
+            loading.show();
+
+        var data = new FormData();
+
+        data.append('atendimento',atendimentoid);
+        data.append('paciente',pacienteid);        
+        data.append('m1_idade_ing_escola',$(".m1_idade_ing_escola").is(':checked')?'true':'false');
+        data.append('m1_obs',$(".m1_obs").val());
+        data.append('m2_alg_eqescolar_mencomport',$(".m2_alg_eqescolar_mencomport").val());
+        data.append('m3_apres_hab_especial',$(".m3_apres_hab_especial").val());
+        data.append('m4_ha_dif_aprendizagem',$(".m4_ha_dif_aprendizagem").val());        
+        data.append('m5_neces_med_escolar',$(".m5_neces_med_escolar").val());
+        data.append('_token',CSRF_TOKEN);
+        data.append('_method','PUT');
+
+        $.ajax({
+            url:'/ceteaadmin/terapia/store_histdesversaopaishistescolar',
+            type: 'POST',
+            dataType: 'json',
+            data: data,
+            cache: false,
+            processData: false,
+            contentType: false,
+            async:true,
+            success:function(response){
+                if(response.status==400){
+                    $("#saveform_errlist_histdesversaopaishistescolar").replaceWith('<ul id="saveform_errList_histdesversaopaishistescolar"></ul>');
+                    $("#saveform_errlist_histdesversaopaishistescolar").addClass("alert alert-danger");
+                    $.each(response.errors,function(key,err_values){
+                        $("#saveform_errlist_histdesversaopaishistescolar").append('<li>'+err_values+'</li>')
+                    });
+                    loading.hide();
+                }else{
+                    loading.hide();
+                    $("#saveform_errlist_histdesversaopaishistescolar").replaceWith('<ul id="saveform_errList_histdesversaopaishistescolar"></ul>');
+                    $("#histdes_versaopais_histescolar"+atendimentoid).replaceWith('<i data-id="1" id="histdes_versaopais_histescolar'+atendimentoid+'" class="fas fa-check" style="color: green"></i>');
+                    $("#addform_histdesversaopaishistescolar").trigger('reset');
+                    $("#AddHistDesVersaoPaisHistEscolar").modal('hide');                     
+                }
+            }
+
+        });
+
+    });
+
+
+    $(document).on('click','.update_histdesversaopaishistescolar_btn',function(e){
+        var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+        var atendimentoid = $("#editatendimentoid_histdesversaopaishistescolar").val();
+        var pacienteid = $("#editpacienteid_histdesversaopaishistescolar").val();
+
+        var loading = $("#imgedit_histdesversaopaishistescolar");
+            loading.show();
+
+        var data = new FormData();
+
+        data.append('atendimento',atendimentoid);
+        data.append('paciente',pacienteid);
+        data.append('m1_idade_ing_escola',$("#editm1_idade_ing_escola").is(':checked')?'true':'false');
+        data.append('m1_obs',$("#editm1_obs").val());
+        data.append('m2_alg_eqescolar_mencomport',$("#editm2_alg_eqescolar_mencomport").val());
+        data.append('m3_apres_hab_especial',$("#editm3_apres_hab_especial").val());
+        data.append('m4_ha_dif_aprendizagem',$("#editm4_ha_dif_aprendizagem").val());        
+        data.append('m5_neces_med_escolar',$("#editm5_neces_med_escolar").val());
+        data.append('_token',CSRF_TOKEN);
+        data.append('_method','PUT');   
+
+        $.ajax({
+            url:'/ceteaadmin/terapia/update_histdesversaopaishistescolar/'+pacienteid,
+            type:'POST',
+            contentType: 'json',
+            data: data,
+            cache: false,
+            processData: false,
+            contentType: false,
+            async:true,
+            success:function(response){
+                if(response.status==400){
+                    $("#updateform_errList_histdesversaopaishistescolar").replaceWith('<ul id="updateform_errList_histdesversaopaishistescolar"></ul>');
+                    $("#updateform_errlist_histdesversaopaishistescolar").addClass('alert alert-danger');
+                    $.each(response.errors,function(key,err_values){
+                        $("#updateform_errlist_histdesversaopaishistescolar").append('<li>'+err_values+'</li>');
+                    });
+                    loading.hide();
+                }else{
+                    loading.hide();
+                    $("#updateform_errlist_histdesversaopaishistescolar").replaceWith('<ul id="updateform_errList_histdesversaopaishistescolar"></ul>');
+                    $("#histdes_versaopais_histescolar"+atendimentoid).replaceWith('<i data-id="1" id="histdes_versaopais_histescolar'+atendimentoid+'" class="fas fa-check" style="color: green"></i>');
+                    $("#editform_histdesversaopaishistescolar").trigger('reset');
+                    $("#EditHistDesVersaoPaisHistEscolar").modal('hide');    
+                }
+            }
+        });
+    });
+
+//fim histdes_versaopais_histescolar
 
 
 });

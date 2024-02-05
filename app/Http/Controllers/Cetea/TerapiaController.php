@@ -1903,7 +1903,6 @@ public function storeHistDesVersaoPaisDesenvMotor(Request $request){
             $user = auth()->user();            
             $data['atendimento_id'] = $request->input('atendimento');
             $data['paciente_id'] = $request->input('paciente');
-            $data['paciente_id'] = $request->input('paciente');
             $data['l1_sust_cabeca'] = $request->input('l1_sust_cabeca');
             $data['l2_sent_s_apoio'] = $request->input('l2_sent_s_apoio');
             $data['l3_andou'] = $request->input('l3_andou');
@@ -1946,6 +1945,90 @@ public function storeHistDesVersaoPaisDesenvMotor(Request $request){
     }
     }
 
+public function storeHistDesVersaoPaisHistEscolar(Request $request){
+        $validator = Validator::make($request->all(),[
+            'atendimento' => ['required'],
+            'paciente' => ['required'],                    
+        ]);
+        if($validator->fails()){
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->errors()->getMessages(),
+            ]);
+        }else{
+            $user = auth()->user();
+            $data['id'] = $this->maxId_HistDesVersaoPaisHistEscolar();
+            $data['atendimento_id'] = $request->input('atendimento');
+            $data['paciente_id'] = $request->input('paciente');
+            $data['m1_idade_ing_escola'] = $request->input('m1_idade_ing_escola');
+            $data['m1_obs'] = $request->input('m1_obs');
+            $data['m2_alg_eqescolar_mencomport'] = $request->input('m2_alg_eqescolar_mencomport');
+            $data['m3_apres_hab_especial'] = $request->input('m3_apres_hab_especial');
+            $data['m4_ha_dif_aprendizagem'] = $request->input('m4_ha_dif_aprendizagem');
+            $data['m5_neces_med_escolar'] = $request->input('m5_neces_med_escolar');
+            $data['created_at'] = now();
+            $data['updated_at'] = null;
+            $data['creater_user'] = $user->id;
+            $data['updater_user'] = null;
+            $this->histdes_versaopais_histescolar->create($data);
+
+            return response()->json([
+                'status' => 200,
+            ]);
+
+        }
+    }    
+
+    protected function maxId_HistDesVersaoPaisHistEscolar(){
+        $histdes_versaopais_histescolar = $this->histdes_versaopais_histescolar->orderByDesc('id')->first();
+        if($histdes_versaopais_histescolar){
+            $codigo = $histdes_versaopais_histescolar->id;
+        }else{
+            $codigo = 0;
+        }
+        return $codigo+1;
+    }
+
+    public function editHistDesVersaoPaisHistEscolar(int $id){
+        $busca_pelo_paciente = $this->histdes_versaopais_histescolar->wherePaciente_id($id)->first();        
+        $histdes_versaopais_histescolar = $this->histdes_versaopais_histescolar->find($busca_pelo_paciente->id);
+        return response()->json([
+            'status' => 200,
+            'histdesversaopaishistescolar' => $histdes_versaopais_histescolar,
+        ]);
+    }
+
+    public function updateHistDesVersaoPaisHistEscolar(Request $request, int $id){
+        $validator = Validator::make($request->all(),[
+            'atendimento' => ['required'],
+            'paciente' => ['required'],                        
+        ]);
+        if($validator->fails()){
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->errors()->getMessages(),
+            ]);
+        }else{
+            $busca_pelo_paciente = $this->histdes_versaopais_histescolar->wherePaciente_id($id)->first();
+            $histescolar = $this->histdes_versaopais_histescolar->find($busca_pelo_paciente->id);
+            $user = auth()->user();            
+            $data['atendimento_id'] = $request->input('atendimento');
+            $data['paciente_id'] = $request->input('paciente');            
+            $data['m1_idade_ing_escola'] = $request->input('m1_idade_ing_escola');
+            $data['m1_obs'] = $request->input('m1_obs');
+            $data['m2_alg_eqescolar_mencomport'] = $request->input('m2_alg_eqescolar_mencomport');
+            $data['m3_apres_hab_especial'] = $request->input('m3_apres_hab_especial');
+            $data['m4_ha_dif_aprendizagem'] = $request->input('m4_ha_dif_aprendizagem');
+            $data['m5_neces_med_escolar'] = $request->input('m5_neces_med_escolar');
+            $data['updated_at'] = now();
+            $data['updater_user'] = $user->id;
+            $histescolar->update($data);            
+
+            return response()->json([
+                'status' => 200,                
+            ]);        
+    }
+    }
 
 
 
