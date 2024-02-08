@@ -28,6 +28,114 @@
 
 </style>
 
+<!-- Inicio AddHistDesVersaoPaisCompCasa -->
+<div class="modal fade animate__animated animate__bounce animate__faster bd-example-modal-xl" id="AddHistDesVersaoPaisCompCasa" tabindex="-1" role="dialog" aria-labelledby="AddmyExtraLargeModalLabel_HistDesVersaoCompCasa" aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+        <div class="modal-header bg-{{$color}}">
+            <h5 class="modal-title" id="AddmyExtraLargeModalLabel_HistDesVersaoPaisCompCasa" style="color: white;">Histórico do Desenvolvimento Versão Pais - Comportamento em casa</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                <span aria-hidden="true" style="color: white.">&times;</span>
+            </button>
+        </div>      
+        <div class="modal-body form-horizontal" role="form">
+            <form id="addform_hisdesversaopaiscompcasa" class="form-horizontal" role="form" method="POST">
+                <input type="hidden" id="addpacienteid_histdesversaopaiscompcasa">
+                <input type="hidden" id="addatendimentoid_histdesversaopaiscompcasa">
+                <ul id="saveform_errlist_histdesversaopaiscompcasa"></ul>
+                <fieldset>
+                    <legend>Comportamento em casa e prática parental na aplicação de limites.</legend>
+                </fieldset>                                            
+                <fieldset>
+                    <legend>Conte um pouco sobre o comportamento da criança em casa e qual a forma que os pais aplicam limites.</legend>
+                    <div class="form-group">
+                      <span class="addn1_comp_cri_casa"></span>
+                      <textarea name="addn1_comp_cri_casa" id="addn1_comp_cri_casa" cols="30" rows="4" class="n1_comp_cri_casa form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Descreva um dia típico na vida da criança.</legend>
+                    <label for="">Manhã</label><br>
+                    <div class="form-group">
+                      <span class="addn2_dia_tipico_manha"></span>
+                      <textarea name="addn2_dia_tipico_manha" id="addn2_dia_tipico_manha" cols="30" rows="4" class="n2_dia_tipico_manha form-control"></textarea>
+                    </div>
+                    <label for="">Tarde</label><br>
+                    <div class="form-group">
+                      <span class="addn2_dia_tipico_tarde"></span>
+                      <textarea name="addn2_dia_tipico_tarde" id="addn2_dia_tipico_tarde" cols="30" rows="4" class="n2_dia_tipico_tarde form-control"></textarea>
+                    </div>
+                    <label for="">Noite</label><br>
+                    <div class="form-group">
+                      <span class="addn2_dia_tipico_noite"></span>
+                      <textarea name="addn2_dia_tipico_noite" id="addn2_dia_tipico_noite" cols="30" rows="4" class="n2_dia_tipico_noite form-control"></textarea>
+                    </div>
+                </fieldset>                           
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            <button data-color="{{$color}}" class="btn btn-{{$color}} add_histdesversaopais_compcasa_btn"><img id="imgadd_histdesversaopaiscompcasa" src="{{asset('storage/ajax-loader.gif')}}" style="display: none;" class="rounded-circle" width="20"> Salvar</button>
+        </div>
+    </div>
+  </div>
+</div>
+<!-- Fim AddHistDesVersaoPaisCompCasa -->
+
+<!-- Inicio EditHistDesVersaoPaisCompCasa -->
+<div class="modal fade animate__animated animate__bounce animate__faster bd-example-modal-xl" id="EditHistDesVersaoPaisCompCasa" tabindex="-1" role="dialog" aria-labelledby="EditmyExtraLargeModalLabel_histdesversaopaiscompcasa" aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+        <div class="modal-header bg-{{$color}}">
+            <h5 class="modal-title" id="EditmyExtraLargeModalLabel_histdesversaopaiscompcasa" style="color: white;">Histórico do Desenvolvimento Versão Pais - Comportamento em casa</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                <span aria-hidden="true" style="color: white.">&times;</span>
+            </button>
+        </div>      
+        <div class="modal-body form-horizontal" role="form">
+            <form id="editform_histdesversaopaishistescolar" class="form-horizontal" role="form" method="POST">
+                <input type="hidden" id="editpacienteid_histdesversaopaiscompcasa">
+                <input type="hidden" id="editatendimentoid_histdesversaopaiscompcasa">
+                <ul id="updateform_errlist_histdesversaopaiscompcasa"></ul>
+                <fieldset>
+                    <legend>Comportamento em casa e prática parental na aplicação de limites.</legend>
+                </fieldset>                                            
+                <fieldset>
+                    <legend>Conte um pouco sobre o comportamento da criança em casa e qual a forma que os pais aplicam limites.</legend>
+                    <div class="form-group">
+                      <span class="editn1_comp_cri_casa"></span>
+                      <textarea name="editn1_comp_cri_casa" id="editn1_comp_cri_casa" cols="30" rows="4" class="n1_comp_cri_casa form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Descreva um dia típico na vida da criança.</legend>
+                    <label for="">Manhã</label><br>
+                    <div class="form-group">
+                      <span class="editn2_dia_tipico_manha"></span>
+                      <textarea name="editn2_dia_tipico_manha" id="editn2_dia_tipico_manha" cols="30" rows="4" class="n2_dia_tipico_manha form-control"></textarea>
+                    </div>
+                    <label for="">Tarde</label><br>
+                    <div class="form-group">
+                      <span class="editn2_dia_tipico_tarde"></span>
+                      <textarea name="editn2_dia_tipico_tarde" id="editn2_dia_tipico_tarde" cols="30" rows="4" class="n2_dia_tipico_tarde form-control"></textarea>
+                    </div>
+                    <label for="">Noite</label><br>
+                    <div class="form-group">
+                      <span class="editn2_dia_tipico_noite"></span>
+                      <textarea name="editn2_dia_tipico_noite" id="editn2_dia_tipico_noite" cols="30" rows="4" class="n2_dia_tipico_noite form-control"></textarea>
+                    </div>
+                </fieldset>     
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            <button data-color="{{$color}}" class="btn btn-{{$color}} update_histdesversaopaiscompcasa_btn"><img id="imgedit_histdesversaopaiscompcasa" src="{{asset('storage/ajax-loader.gif')}}" style="display: none;" class="rounded-circle" width="20"> Salvar</button>
+        </div>
+    </div>
+  </div>
+</div>
+<!-- Fim EditHistDesVersaoPaisCompCasa -->
+
 <!-- Inicio AddHistDesVersaoPaisHistEscolar -->
 <div class="modal fade animate__animated animate__bounce animate__faster bd-example-modal-xl" id="AddHistDesVersaoPaisHistEscolar" tabindex="-1" role="dialog" aria-labelledby="AddmyExtraLargeModalLabel_HistDesVersaoHistEscolar" aria-hidden="true">
   <div class="modal-dialog modal-xl" role="document">
@@ -108,7 +216,7 @@
             <form id="editform_histdesversaopaishistescolar" class="form-horizontal" role="form" method="POST">
                 <input type="hidden" id="editpacienteid_histdesversaopaishistescolar">
                 <input type="hidden" id="editatendimentoid_histdesversaopaishistescolar">
-                <ul id="updateform_errlist_histdesversaopaisdesenvmotor"></ul>
+                <ul id="updateform_errlist_histdesversaopaishistescolar"></ul>
                 <fieldset>
                     <legend>HISTÓRICO ESCOLAR PEDAGÓGICO</legend>
                 </fieldset>                            
@@ -3846,7 +3954,7 @@
                                             @if($count_histdes_versaopais_desenvmotor)<i data-id="1" id="histdes_versaopais_desenvmotor{{$atendimento->id}}" class="fas fa-check" style="color: green"></i>@else<i data-id="0" id="histdes_versaopais_desenvmotor{{$atendimento->id}}"></i>@endif Desenvolvimento Motor</a></li>    
                                         <li class="dropdown-item bg-light"><a href="#" class="histdes_versaopais_histescolar dropdown-item" data-pacienteid="{{$atendimento->paciente_id}}" data-atendimentoid="{{$atendimento->id}}">
                                             @if($count_histdes_versaopais_histescolar)<i data-id="1" id="histdes_versaopais_histescolar{{$atendimento->id}}" class="fas fa-check" style="color: green"></i>@else<i data-id="0" id="histdes_versaopais_histescolar{{$atendimento->id}}"></i>@endif Histórico Escolar</a></li>
-                                        <li class="dropdown-item bg-light"><a href="#" class="dropdown-item" data-id="{{$atendimento->paciente_id}}">
+                                        <li class="dropdown-item bg-light"><a href="#" class="histdes_versaopais_compcasa dropdown-item" data-pacienteid="{{$atendimento->paciente_id}}" data-atendimentoid="{{$atendimento->id}}">
                                             @if($count_histdes_versaopais_compcasa)<i data-id="1" id="histdes_versaopais_compcasa{{$atendimento->id}}" class="fas fa-check" style="color: green"></i>@else<i data-id="0" id="histdes_versaopais_compcasa{{$atendimento->id}}"></i>@endif Comportamento em Casa</a></li>
                                         <li class="dropdown-item bg-light"><a href="#" class="dropdown-item" data-id="{{$atendimento->paciente_id}}">
                                             @if($count_histdes_anexo1_rotalim)<i data-id="1" id="histdes_anexo1_rotalim{{$atendimento->id}}" class="fas fa-check" style="color: green"></i>@else<i data-id="0" id="histdes_anexo1_rotalim{{$atendimento->id}}"></i>@endif Rotina Alimentar</a></li>
@@ -11802,6 +11910,286 @@ $(document).on('click','.histdes_versaopais_histescolar',function(e){
     });
 
 //fim histdes_versaopais_histescolar
+
+//início histdes_versaopais_compcasa
+
+$("#AddHistDesVersaoPaisCompCasa").on('shown.bs.modal',function(){
+            $(".n1_comp_cri_casa").focus();
+    });
+
+$("#EditHistDesVersaoPaisCompCasa").on('shown.bs.modal',function(){
+            $(".n1_comp_cri_casa").focus();
+    });
+
+//inicio conta caracteres dos textarea HistDesVersaoPaisCompCasa
+
+    //add
+  
+    $(document).on('input','#addn1_comp_cri_casa',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var n1_comp_cri_casa = $('textarea[name="addn1_comp_cri_casa"]').val();
+            $('textarea[name="addn1_comp_cri_casa"]').val(n1_comp_cri_casa.substr(0,limite));
+            $(".addn1_comp_cri_casa").text("0" + " " + informativo);
+        }else{
+            $(".addn1_comp_cri_casa").text(caracteresRestantes + " " + informativo);
+        }
+    });
+    
+    $(document).on('input','#addn2_dia_tipico_manha',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var n2_dia_tipico_manha = $('textarea[name="addn2_dia_tipico_manha"]').val();
+            $('textarea[name="addn2_dia_tipico_manha"]').val(n2_dia_tipico_manha.substr(0,limite));
+            $(".addn2_dia_tipico_manha").text("0" + " " + informativo);
+        }else{
+            $(".addn2_dia_tipico_manha").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addn2_dia_tipico_tarde',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var n2_dia_tipico_tarde = $('textarea[name="addn2_dia_tipico_tarde"]').val();
+            $('textarea[name="addn2_dia_tipico_tarde"]').val(n2_dia_tipico_tarde.substr(0,limite));
+            $(".addn2_dia_tipico_tarde").text("0" + " " + informativo);
+        }else{
+            $(".addn2_dia_tipico_tarde").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addn2_dia_tipico_noite',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var n2_dia_tipico_noite = $('textarea[name="addn2_dia_tipico_noite"]').val();
+            $('textarea[name="addn2_dia_tipico_noite"]').val(n2_dia_tipico_noite.substr(0,limite));
+            $(".addn2_dia_tipico_noite").text("0" + " " + informativo);
+        }else{
+            $(".addn2_dia_tipico_noite").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    //edit
+  
+    $(document).on('input','#editn1_comp_cri_casa',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var n1_comp_cri_casa = $('textarea[name="editn1_comp_cri_casa"]').val();
+            $('textarea[name="editn1_comp_cri_casa"]').val(n1_comp_cri_casa.substr(0,limite));
+            $(".editn1_comp_cri_casa").text("0" + " " + informativo);
+        }else{
+            $(".editn1_comp_cri_casa").text(caracteresRestantes + " " + informativo);
+        }
+    });
+    
+    $(document).on('input','#editn2_dia_tipico_manha',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var n2_dia_tipico_manha = $('textarea[name="editn2_dia_tipico_manha"]').val();
+            $('textarea[name="editn2_dia_tipico_manha"]').val(n2_dia_tipico_manha.substr(0,limite));
+            $(".editn2_dia_tipico_manha").text("0" + " " + informativo);
+        }else{
+            $(".editn2_dia_tipico_manha").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editn2_dia_tipico_tarde',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var n2_dia_tipico_tarde = $('textarea[name="editn2_dia_tipico_tarde"]').val();
+            $('textarea[name="editn2_dia_tipico_tarde"]').val(n2_dia_tipico_tarde.substr(0,limite));
+            $(".editn2_dia_tipico_tarde").text("0" + " " + informativo);
+        }else{
+            $(".editn2_dia_tipico_tarde").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editn2_dia_tipico_noite',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var n2_dia_tipico_noite = $('textarea[name="editn2_dia_tipico_noite"]').val();
+            $('textarea[name="editn2_dia_tipico_noite"]').val(n2_dia_tipico_noite.substr(0,limite));
+            $(".editn2_dia_tipico_noite").text("0" + " " + informativo);
+        }else{
+            $(".editn2_dia_tipico_noite").text(caracteresRestantes + " " + informativo);
+        }
+    });
+    
+$(document).on('click','.histdes_versaopais_compcasa',function(e){
+        e.preventDefault();
+        var pacienteid = $(this).data("pacienteid");
+        var atendimentoid = $(this).data("atendimentoid");
+        var opcao_form_histdes_versaopais_compcasa = $("#histdes_versaopais_compcasa"+atendimentoid).data("id");
+
+        if(opcao_form_histdes_versaopais_compcasa==0){
+                $("#addpacienteid_histdesversaopaiscompcasa").val(pacienteid);
+                $("#addatendimentoid_histdesversaopaiscompcasa").val(atendimentoid);
+                $("#addform_histdesversaopaiscompcasa").trigger('reset');
+                $("#AddHistDesVersaoPaisCompCasa").modal('show'); 
+                $("#saveform_errList_histdesversaopaiscompcasa").replaceWith('<ul id="saveform_errList_histdesversaopaiscompcasa"></ul>');
+        }else{            
+                $("#editpacienteid_histdesversaopaiscompcasa").val(pacienteid);
+                $("#editatendimentoid_histdesversaopaiscompcasa").val(atendimentoid);
+                $("#editform_histdesversaopaiscompcasa").trigger('reset');
+                $("#EditHistDesVersaoPaisCompCasa").modal('show'); 
+                $("#updateform_errList_histdesversaopaiscompcasa").replaceWith('<ul id="updateform_errList_histdesversaopaiscompcasa"></ul>');
+
+                 $.ajaxSetup({
+                    headers:{
+                        'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+    
+    
+                $.ajax({ 
+                    type: 'GET',             
+                    dataType: 'json',                                    
+                    url: '/ceteaadmin/terapia/edit_histdesversaopaiscompcasa/'+pacienteid,
+                    success: function(response){           
+                        if(response.status==200){                                                                                                        
+                            $(".n1_comp_cri_casa").val(response.histdesversaopaiscompcasa.n1_comp_cri_casa);
+                            $('.n2_dia_tipico_manha').val(response.histdesversaopaiscompcasa.n2_dia_tipico_manha);
+                            $('.n2_dia_tipico_tarde').val(response.histdesversaopaiscompcasa.n2_dia_tipico_tarde);
+                            $('.n2_dia_tipico_noite').val(response.histdesversaopaiscompcasa.n2_dia_tipico_noite);
+                        }
+                    }
+                });
+        }
+    });
+
+
+    $(document).on('click','.add_histdesversaopais_compcasa_btn',function(e){
+        e.preventDefault();
+        var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+        var pacienteid = $("#addpacienteid_histdesversaopaiscompcasa").val();
+        var atendimentoid = $("#addatendimentoid_histdesversaopaiscompcasa").val();
+
+        var loading = $("#imgadd_histdesversaopaiscompcasa");
+            loading.show();
+
+        var data = new FormData();
+
+        data.append('atendimento',atendimentoid);
+        data.append('paciente',pacienteid);
+        data.append('n1_comp_cri_casa',$(".n1_comp_cri_casa").val());
+        data.append('n2_dia_tipico_manha',$(".n2_dia_tipico_manha").val());
+        data.append('n2_dia_tipico_tarde',$(".n2_dia_tipico_tarde").val());
+        data.append('n2_dia_tipico_noite',$(".n2_dia_tipico_noite").val());
+        data.append('_token',CSRF_TOKEN);
+        data.append('_method','PUT');
+
+        $.ajax({
+            url:'/ceteaadmin/terapia/store_histdesversaopaiscompcasa',
+            type: 'POST',
+            dataType: 'json',
+            data: data,
+            cache: false,
+            processData: false,
+            contentType: false,
+            async:true,
+            success:function(response){
+                if(response.status==400){
+                    $("#saveform_errlist_histdesversaopaiscompcasa").replaceWith('<ul id="saveform_errList_histdesversaopaiscompcasa"></ul>');
+                    $("#saveform_errlist_histdesversaopaiscompcasa").addClass("alert alert-danger");
+                    $.each(response.errors,function(key,err_values){
+                        $("#saveform_errlist_histdesversaopaiscompcasa").append('<li>'+err_values+'</li>')
+                    });
+                    loading.hide();
+                }else{
+                    loading.hide();
+                    $("#saveform_errlist_histdesversaopaiscompcasa").replaceWith('<ul id="saveform_errList_histdesversaopaiscompcasa"></ul>');
+                    $("#histdes_versaopais_compcasa"+atendimentoid).replaceWith('<i data-id="1" id="histdes_versaopais_compcasa'+atendimentoid+'" class="fas fa-check" style="color: green"></i>');
+                    $("#addform_histdesversaopaiscompcasa").trigger('reset');
+                    $("#AddHistDesVersaoPaisCompCasa").modal('hide');                     
+                }
+            }
+
+        });
+
+    });
+
+
+    $(document).on('click','.update_histdesversaopaiscompcasa_btn',function(e){
+        var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+        var atendimentoid = $("#editatendimentoid_histdesversaopaiscompcasa").val();
+        var pacienteid = $("#editpacienteid_histdesversaopaiscompcasa").val();
+
+        var loading = $("#imgedit_histdesversaopaiscompcasa");
+            loading.show();
+
+        var data = new FormData();
+
+        data.append('atendimento',atendimentoid);
+        data.append('paciente',pacienteid);
+        data.append('n1_comp_cri_casa',$("#editn1_comp_cri_casa").val());
+        data.append('n2_dia_tipico_manha',$("#editn2_dia_tipico_manha").val());
+        data.append('n2_dia_tipico_tarde',$("#editn2_dia_tipico_tarde").val());
+        data.append('n2_dia_tipico_noite',$("#editn2_dia_tipico_noite").val());
+        data.append('_token',CSRF_TOKEN);
+        data.append('_method','PUT');   
+
+        $.ajax({
+            url:'/ceteaadmin/terapia/update_histdesversaopaiscompcasa/'+pacienteid,
+            type:'POST',
+            contentType: 'json',
+            data: data,
+            cache: false,
+            processData: false,
+            contentType: false,
+            async:true,
+            success:function(response){
+                if(response.status==400){
+                    $("#updateform_errList_histdesversaopaiscompcasa").replaceWith('<ul id="updateform_errList_histdesversaopaiscompcasa"></ul>');
+                    $("#updateform_errlist_histdesversaopaiscompcasa").addClass('alert alert-danger');
+                    $.each(response.errors,function(key,err_values){
+                        $("#updateform_errlist_histdesversaopaiscompcasa").append('<li>'+err_values+'</li>');
+                    });
+                    loading.hide();
+                }else{
+                    loading.hide();
+                    $("#updateform_errlist_histdesversaopaiscompcasa").replaceWith('<ul id="updateform_errList_histdesversaopaiscompcasa"></ul>');
+                    $("#histdes_versaopais_compcasa"+atendimentoid).replaceWith('<i data-id="1" id="histdes_versaopais_compcasa'+atendimentoid+'" class="fas fa-check" style="color: green"></i>');
+                    $("#editform_histdesversaopaiscompcasa").trigger('reset');
+                    $("#EditHistDesVersaoPaisCompCasa").modal('hide');    
+                }
+            }
+        });
+    });
+
+//fim histdes_versaopais_compcasa
+
 
 
 });

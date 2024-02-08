@@ -2030,6 +2030,85 @@ public function storeHistDesVersaoPaisHistEscolar(Request $request){
     }
     }
 
+public function storeHistDesVersaoPaisCompCasa(Request $request){
+        $validator = Validator::make($request->all(),[
+            'atendimento' => ['required'],
+            'paciente' => ['required'],                    
+        ]);
+        if($validator->fails()){
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->errors()->getMessages(),
+            ]);
+        }else{
+            $user = auth()->user();
+            $data['id'] = $this->maxId_HistDesVersaoPaisCompCasa();
+            $data['atendimento_id'] = $request->input('atendimento');
+            $data['paciente_id'] = $request->input('paciente');
+            $data['n1_comp_cri_casa'] = $request->input('n1_comp_cri_casa');
+            $data['n2_dia_tipico_manha'] = $request->input('n2_dia_tipico_manha');
+            $data['n2_dia_tipico_tarde'] = $request->input('n2_dia_tipico_tarde');
+            $data['n2_dia_tipico_noite'] = $request->input('n2_dia_tipico_noite');
+            $data['created_at'] = now();
+            $data['updated_at'] = null;
+            $data['creater_user'] = $user->id;
+            $data['updater_user'] = null;
+            $this->histdes_versaopais_compcasa->create($data);
 
+            return response()->json([
+                'status' => 200,
+            ]);
+
+        }
+    }    
+
+    protected function maxId_HistDesVersaoPaisCompCasa(){
+        $histdes_versaopais_compcasa = $this->histdes_versaopais_compcasa->orderByDesc('id')->first();
+        if($histdes_versaopais_compcasa){
+            $codigo = $histdes_versaopais_compcasa->id;
+        }else{
+            $codigo = 0;
+        }
+        return $codigo+1;
+    }
+
+    public function editHistDesVersaoPaiCompCasa(int $id){
+        $busca_pelo_paciente = $this->histdes_versaopais_compcasa->wherePaciente_id($id)->first();        
+        $histdes_versaopais_compcasa = $this->histdes_versaopais_compcasa->find($busca_pelo_paciente->id);
+        return response()->json([
+            'status' => 200,
+            'histdesversaopaiscompcasa' => $histdes_versaopais_compcasa,
+        ]);
+    }
+
+    public function updateHistDesVersaoPaisCompCasa(Request $request, int $id){
+        $validator = Validator::make($request->all(),[
+            'atendimento' => ['required'],
+            'paciente' => ['required'],                        
+        ]);
+        if($validator->fails()){
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->errors()->getMessages(),
+            ]);
+        }else{
+            $busca_pelo_paciente = $this->histdes_versaopais_compcasa->wherePaciente_id($id)->first();
+            $compcasa = $this->histdes_versaopais_compcasa->find($busca_pelo_paciente->id);
+            $user = auth()->user();            
+            $data['atendimento_id'] = $request->input('atendimento');
+            $data['paciente_id'] = $request->input('paciente');            
+            $data['n1_comp_cri_casa'] = $request->input('n1_comp_cri_casa');
+            $data['n2_dia_tipico_manha'] = $request->input('n2_dia_tipico_manha');
+            $data['n2_dia_tipico_tarde'] = $request->input('n2_dia_tipico_tarde');
+            $data['n2_dia_tipico_noite'] = $request->input('n2_dia_tipico_noite');
+            $data['updated_at'] = now();
+            $data['updater_user'] = $user->id;
+            $compcasa->update($data);            
+
+            return response()->json([
+                'status' => 200,                
+            ]);        
+    }
+    }
 
 }
