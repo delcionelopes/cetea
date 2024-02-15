@@ -2072,7 +2072,7 @@ public function storeHistDesVersaoPaisCompCasa(Request $request){
         return $codigo+1;
     }
 
-    public function editHistDesVersaoPaiCompCasa(int $id){
+    public function editHistDesVersaoPaisCompCasa(int $id){
         $busca_pelo_paciente = $this->histdes_versaopais_compcasa->wherePaciente_id($id)->first();        
         $histdes_versaopais_compcasa = $this->histdes_versaopais_compcasa->find($busca_pelo_paciente->id);
         return response()->json([
@@ -2110,5 +2110,100 @@ public function storeHistDesVersaoPaisCompCasa(Request $request){
             ]);        
     }
     }
+
+    
+    public function storeHistDRotAlim(Request $request){
+        $validator = Validator::make($request->all(),[
+            'atendimento' => ['required'],
+            'paciente' => ['required'],                    
+        ]);
+        if($validator->fails()){
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->errors()->getMessages(),
+            ]);
+        }else{
+            $user = auth()->user();
+            $data['id'] = $this->maxId_HistDesRotAlim();
+            $data['atendimento_id'] = $request->input('atendimento');
+            $data['paciente_id'] = $request->input('paciente');
+            $data['p1_dif_alimentares'] = $request->input('p1_dif_alimentares');
+            $data['p2_dif_rec_alim_solidos'] = $request->input('p2_dif_rec_alim_solidos');
+            $data['p3_dif_rec_alim_past'] = $request->input('p3_dif_rec_alim_past');
+            $data['p4_apres_selet_alim'] = $request->input('p4_apres_selet_alim');
+            $data['p5_preocupa_alim'] = $request->input('p5_preocupa_alim');
+            $data['p6_q_inf_esc_alim'] = $request->input('p6_q_inf_esc_alim');
+            $data['p7_diatip_alim_cafe'] = $request->input('p7_diatip_alim_cafe');
+            $data['p7_diatip_alim_almoco'] = $request->input('p7_diatip_alim_almoco');
+            $data['p7_diatip_alim_lanche'] = $request->input('p7_diatip_alim_lanche');
+            $data['p7_diatip_alim_jantar'] = $request->input('p7_diatip_alim_jantar');
+            $data['created_at'] = now();
+            $data['updated_at'] = null;
+            $data['creater_user'] = $user->id;
+            $data['updater_user'] = null;
+            $this->histdes_anexo1_rotalim->create($data);
+
+            return response()->json([
+                'status' => 200,
+            ]);
+
+        }
+    }    
+
+    protected function maxId_HistDesRotAlim(){
+        $histdes_anexo1_rotalim = $this->histdes_anexo1_rotalim->orderByDesc('id')->first();
+        if($histdes_anexo1_rotalim){
+            $codigo = $histdes_anexo1_rotalim->id;
+        }else{
+            $codigo = 0;
+        }
+        return $codigo+1;
+    }
+
+    public function editHistDesRotAlim(int $id){
+        $busca_pelo_paciente = $this->histdes_anexo1_rotalim->wherePaciente_id($id)->first();        
+        $histdes_anexo1_rotalim = $this->histdes_anexo1_rotalim->find($busca_pelo_paciente->id);
+        return response()->json([
+            'status' => 200,
+            'histdesrotalim' => $histdes_anexo1_rotalim,
+        ]);
+    }
+
+    public function updateHistDesRotAlim(Request $request, int $id){
+        $validator = Validator::make($request->all(),[
+            'atendimento' => ['required'],
+            'paciente' => ['required'],                        
+        ]);
+        if($validator->fails()){
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->errors()->getMessages(),
+            ]);
+        }else{
+            $busca_pelo_paciente = $this->histdes_anexo1_rotalim->wherePaciente_id($id)->first();
+            $rotalim = $this->histdes_anexo1_rotalim->find($busca_pelo_paciente->id);
+            $user = auth()->user();            
+            $data['atendimento_id'] = $request->input('atendimento');
+            $data['paciente_id'] = $request->input('paciente');            
+            $data['p1_dif_alimentares'] = $request->input('p1_dif_alimentares');
+            $data['p2_dif_rec_alim_solidos'] = $request->input('p2_dif_rec_alim_solidos');
+            $data['p3_dif_rec_alim_past'] = $request->input('p3_dif_rec_alim_past');
+            $data['p4_apres_selet_alim'] = $request->input('p4_apres_selet_alim');
+            $data['p5_preocupa_alim'] = $request->input('p5_preocupa_alim');
+            $data['p6_q_inf_esc_alim'] = $request->input('p6_q_inf_esc_alim');
+            $data['p7_diatip_alim_cafe'] = $request->input('p7_diatip_alim_cafe');
+            $data['p7_diatip_alim_almoco'] = $request->input('p7_diatip_alim_almoco');
+            $data['p7_diatip_alim_lanche'] = $request->input('p7_diatip_alim_lanche');
+            $data['p7_diatip_alim_jantar'] = $request->input('p7_diatip_alim_jantar');
+            $data['updated_at'] = now();
+            $data['updater_user'] = $user->id;
+            $rotalim->update($data);            
+
+            return response()->json([
+                'status' => 200,                
+            ]);        
+    }
+    }
+
 
 }

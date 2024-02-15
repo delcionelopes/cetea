@@ -28,8 +28,182 @@
 
 </style>
 
+<!-- Inicio AddHistDesRotAlim -->
+<div class="modal fade animate__animated animate__bounce animate__faster bd-example-modal-xl" id="AddHistDesRotAlim" tabindex="-1" role="dialog" aria-labelledby="AddmyExtraLargeModalLabel_HistDesRotAlim" aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+        <div class="modal-header bg-{{$color}}">
+            <h5 class="modal-title" id="AddmyExtraLargeModalLabel_HistDesRotAlim" style="color: white;">Histórico do Desenvolvimento - Anexo 1 - Rotina Alimentar</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                <span aria-hidden="true" style="color: white.">&times;</span>
+            </button>
+        </div>      
+        <div class="modal-body form-horizontal" role="form">
+            <form id="addform_hisdesrotalim" class="form-horizontal" role="form" method="POST">
+                <input type="hidden" id="addpacienteid_histdesrotalim">
+                <input type="hidden" id="addatendimentoid_histdesrotalim">
+                <ul id="saveform_errlist_histdesrotalim"></ul>
+                <fieldset>
+                    <legend>ANEXO 1 INFORMAÇÕES - ROTINA ALIMENTAR.</legend>
+                </fieldset>                                            
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addp1_dif_alimentares">
+                      <input type="checkbox" class="p1_dif_alimentares" name="addp1_dif_alimentares" id="addp1_dif_alimentares"> Em sua opinião: A criança apresenta dificuldades alimentares?</label>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addp2_dif_rec_alim_solidos">
+                      <input type="checkbox" class="p2_dif_rec_alim_solidos" name="addp2_dif_rec_alim_solidos" id="addp2_dif_rec_alim_solidos"> Apresenta dificuldade ou recusa para alimentos sólidos?</label>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addp2_dif_rec_alim_past">
+                      <input type="checkbox" class="p2_dif_rec_alim_past" name="addp2_dif_rec_alim_past" id="addp2_dif_rec_alim_past"> Apresenta dificuldade ou recusa para alimentos pastosos?</label>
+                    </div>
+                </fieldset>
+                <fieldset>                    
+                    <label for="">Apresenta alguma seletividade alimentar? (relatar aqui qualquer alteração relacionada a dificuldades baseada na textura de alimentos, preferência por marcas específicas e etc.)</label><br>
+                    <div class="form-group">
+                      <span class="addp4_apres_selet_alim"></span>
+                      <textarea name="addp4_apres_selet_alim" id="addp4_apres_selet_alim" cols="30" rows="6" class="p4_apres_selet_alim form-control"></textarea>
+                    </div>
+                    <label for="">Você está preocupada ou já se preocupou com a alimentação de seu filho(a)? Se sim, explique o motivo.</label><br>
+                    <div class="form-group">
+                      <span class="addp5_preocupa_alim"></span>
+                      <textarea name="addp5_preocupa_alim" id="addp5_preocupa_alim" cols="30" rows="6" class="p5_preocupa_alim form-control"></textarea>
+                    </div>
+                    <label for="">Quais informações a escola aponta sobre a alimentação dele(a)?</label><br>
+                    <div class="form-group">
+                      <span class="addp6_q_inf_esc_alim"></span>
+                      <textarea name="addp6_q_inf_esc_alim" id="addp6_q_inf_esc_alim" cols="30" rows="6" class="p6_q_inf_esc_alim form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Descreva um dia típico alimentar de seu filho.</legend>
+                    <label for="">Café da manhã:</label><br>
+                    <div class="form-group">
+                      <span class="addp7_diatip_alim_cafe"></span>
+                      <textarea name="addp7_diatip_alim_cafe" id="addp7_diatip_alim_cafe" cols="30" rows="3" class="p7_diatip_alim_cafe form-control"></textarea>
+                    </div>
+                    <label for="">Almoço:</label><br>
+                    <div class="form-group">
+                      <span class="addp7_diatip_alim_almoco"></span>
+                      <textarea name="addp7_diatip_alim_almoco" id="addp7_diatip_alim_almoco" cols="30" rows="3" class="p7_diatip_alim_almoco form-control"></textarea>
+                    </div>
+                    <label for="">Lanche:</label><br>
+                    <div class="form-group">
+                      <span class="addp7_diatip_alim_lanche"></span>
+                      <textarea name="addp7_diatip_alim_lanche" id="addp7_diatip_alim_lanche" cols="30" rows="3" class="p7_diatip_alim_lanche form-control"></textarea>
+                    </div>
+                    <label for="">Jantar:</label><br>
+                    <div class="form-group">
+                      <span class="addp7_diatip_alim_jantar"></span>
+                      <textarea name="addp7_diatip_alim_jantar" id="addp7_diatip_alim_jantar" cols="30" rows="3" class="p7_diatip_alim_jantar form-control"></textarea>
+                    </div>
+                </fieldset>    
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            <button data-color="{{$color}}" class="btn btn-{{$color}} add_histdes_rotalim_btn"><img id="imgadd_histdesrotalim" src="{{asset('storage/ajax-loader.gif')}}" style="display: none;" class="rounded-circle" width="20"> Salvar</button>
+        </div>
+    </div>
+  </div>
+</div>
+<!-- Fim AddHistDesRotAlim -->
+
+<!-- Inicio EditHistDesRotAlim -->
+<div class="modal fade animate__animated animate__bounce animate__faster bd-example-modal-xl" id="EditHistDesRotAlim" tabindex="-1" role="dialog" aria-labelledby="EditmyExtraLargeModalLabel_histdesrotalim" aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+        <div class="modal-header bg-{{$color}}">
+            <h5 class="modal-title" id="EditmyExtraLargeModalLabel_histdesrotalim" style="color: white;">Histórico do Desenvolvimento - Anexo 1 - Rotina Alimentar</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                <span aria-hidden="true" style="color: white.">&times;</span>
+            </button>
+        </div>      
+        <div class="modal-body form-horizontal" role="form">
+            <form id="editform_histdesrotalim" class="form-horizontal" role="form" method="POST">
+                <input type="hidden" id="editpacienteid_histdesrotalim">
+                <input type="hidden" id="editatendimentoid_histdesrotalim">
+                <ul id="updateform_errlist_histdesrotalim"></ul>
+                <fieldset>
+                    <legend>ANEXO 1 INFORMAÇÕES - ROTINA ALIMENTAR.</legend>
+                </fieldset>                                            
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editp1_dif_alimentares">
+                      <input type="checkbox" class="p1_dif_alimentares" name="editp1_dif_alimentares" id="editp1_dif_alimentares"> Em sua opinião: A criança apresenta dificuldades alimentares?</label>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editp2_dif_rec_alim_solidos">
+                      <input type="checkbox" class="p2_dif_rec_alim_solidos" name="editp2_dif_rec_alim_solidos" id="editp2_dif_rec_alim_solidos"> Apresenta dificuldade ou recusa para alimentos sólidos?</label>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editp2_dif_rec_alim_past">
+                      <input type="checkbox" class="p2_dif_rec_alim_past" name="editp2_dif_rec_alim_past" id="editp2_dif_rec_alim_past"> Apresenta dificuldade ou recusa para alimentos pastosos?</label>
+                    </div>
+                </fieldset>
+                <fieldset>                    
+                    <label for="">Apresenta alguma seletividade alimentar? (relatar aqui qualquer alteração relacionada a dificuldades baseada na textura de alimentos, preferência por marcas específicas e etc.)</label><br>
+                    <div class="form-group">
+                      <span class="editp4_apres_selet_alim"></span>
+                      <textarea name="editp4_apres_selet_alim" id="editp4_apres_selet_alim" cols="30" rows="6" class="p4_apres_selet_alim form-control"></textarea>
+                    </div>
+                    <label for="">Você está preocupada ou já se preocupou com a alimentação de seu filho(a)? Se sim, explique o motivo.</label><br>
+                    <div class="form-group">
+                      <span class="editp5_preocupa_alim"></span>
+                      <textarea name="editp5_preocupa_alim" id="editp5_preocupa_alim" cols="30" rows="6" class="p5_preocupa_alim form-control"></textarea>
+                    </div>
+                    <label for="">Quais informações a escola aponta sobre a alimentação dele(a)?</label><br>
+                    <div class="form-group">
+                      <span class="editp6_q_inf_esc_alim"></span>
+                      <textarea name="editp6_q_inf_esc_alim" id="editp6_q_inf_esc_alim" cols="30" rows="6" class="p6_q_inf_esc_alim form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Descreva um dia típico alimentar de seu filho.</legend>
+                    <label for="">Café da manhã:</label><br>
+                    <div class="form-group">
+                      <span class="editp7_diatip_alim_cafe"></span>
+                      <textarea name="editp7_diatip_alim_cafe" id="editp7_diatip_alim_cafe" cols="30" rows="3" class="p7_diatip_alim_cafe form-control"></textarea>
+                    </div>
+                    <label for="">Almoço:</label><br>
+                    <div class="form-group">
+                      <span class="editp7_diatip_alim_almoco"></span>
+                      <textarea name="editp7_diatip_alim_almoco" id="editp7_diatip_alim_almoco" cols="30" rows="3" class="p7_diatip_alim_almoco form-control"></textarea>
+                    </div>
+                    <label for="">Lanche:</label><br>
+                    <div class="form-group">
+                      <span class="editp7_diatip_alim_lanche"></span>
+                      <textarea name="editp7_diatip_alim_lanche" id="editp7_diatip_alim_lanche" cols="30" rows="3" class="p7_diatip_alim_lanche form-control"></textarea>
+                    </div>
+                    <label for="">Jantar:</label><br>
+                    <div class="form-group">
+                      <span class="editp7_diatip_alim_jantar"></span>
+                      <textarea name="editp7_diatip_alim_jantar" id="editp7_diatip_alim_jantar" cols="30" rows="3" class="p7_diatip_alim_jantar form-control"></textarea>
+                    </div>
+                </fieldset>       
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            <button data-color="{{$color}}" class="btn btn-{{$color}} update_histdesrotalim_btn"><img id="imgedit_histdesrotalim" src="{{asset('storage/ajax-loader.gif')}}" style="display: none;" class="rounded-circle" width="20"> Salvar</button>
+        </div>
+    </div>
+  </div>
+</div>
+<!-- Fim EditHistDesRotAlim -->
+
 <!-- Inicio AddHistDesVersaoPaisCompCasa -->
-<div class="modal fade animate__animated animate__bounce animate__faster bd-example-modal-xl" id="AddHistDesVersaoPaisCompCasa" tabindex="-1" role="dialog" aria-labelledby="AddmyExtraLargeModalLabel_HistDesVersaoCompCasa" aria-hidden="true">
+<div class="modal fade animate__animated animate__bounce animate__faster bd-example-modal-xl" id="AddHistDesVersaoPaisCompCasa" tabindex="-1" role="dialog" aria-labelledby="AddmyExtraLargeModalLabel_HistDesVersaoPaisCompCasa" aria-hidden="true">
   <div class="modal-dialog modal-xl" role="document">
     <div class="modal-content">
         <div class="modal-header bg-{{$color}}">
@@ -44,7 +218,7 @@
                 <input type="hidden" id="addatendimentoid_histdesversaopaiscompcasa">
                 <ul id="saveform_errlist_histdesversaopaiscompcasa"></ul>
                 <fieldset>
-                    <legend>Comportamento em casa e prática parental na aplicação de limites.</legend>
+                    <legend>COMPORTAMENTO EM CASA E PRÁTICA PARENTAL NA APLICAÇÃO DE LIMITES.</legend>
                 </fieldset>                                            
                 <fieldset>
                     <legend>Conte um pouco sobre o comportamento da criança em casa e qual a forma que os pais aplicam limites.</legend>
@@ -93,12 +267,12 @@
             </button>
         </div>      
         <div class="modal-body form-horizontal" role="form">
-            <form id="editform_histdesversaopaishistescolar" class="form-horizontal" role="form" method="POST">
+            <form id="editform_histdesversaopaiscompcasa" class="form-horizontal" role="form" method="POST">
                 <input type="hidden" id="editpacienteid_histdesversaopaiscompcasa">
                 <input type="hidden" id="editatendimentoid_histdesversaopaiscompcasa">
                 <ul id="updateform_errlist_histdesversaopaiscompcasa"></ul>
                 <fieldset>
-                    <legend>Comportamento em casa e prática parental na aplicação de limites.</legend>
+                    <legend>COMPORTAMENTO EM CASA E PRÁTICA PARENTAL NA APLICAÇÃO DE LIMITES.</legend>
                 </fieldset>                                            
                 <fieldset>
                     <legend>Conte um pouco sobre o comportamento da criança em casa e qual a forma que os pais aplicam limites.</legend>
@@ -3956,7 +4130,7 @@
                                             @if($count_histdes_versaopais_histescolar)<i data-id="1" id="histdes_versaopais_histescolar{{$atendimento->id}}" class="fas fa-check" style="color: green"></i>@else<i data-id="0" id="histdes_versaopais_histescolar{{$atendimento->id}}"></i>@endif Histórico Escolar</a></li>
                                         <li class="dropdown-item bg-light"><a href="#" class="histdes_versaopais_compcasa dropdown-item" data-pacienteid="{{$atendimento->paciente_id}}" data-atendimentoid="{{$atendimento->id}}">
                                             @if($count_histdes_versaopais_compcasa)<i data-id="1" id="histdes_versaopais_compcasa{{$atendimento->id}}" class="fas fa-check" style="color: green"></i>@else<i data-id="0" id="histdes_versaopais_compcasa{{$atendimento->id}}"></i>@endif Comportamento em Casa</a></li>
-                                        <li class="dropdown-item bg-light"><a href="#" class="dropdown-item" data-id="{{$atendimento->paciente_id}}">
+                                        <li class="dropdown-item bg-light"><a href="#" class="histdes_anexo1_rotalim dropdown-item" data-pacienteid="{{$atendimento->paciente_id}}" data-atendimentoid="{{$atendimento->id}}">
                                             @if($count_histdes_anexo1_rotalim)<i data-id="1" id="histdes_anexo1_rotalim{{$atendimento->id}}" class="fas fa-check" style="color: green"></i>@else<i data-id="0" id="histdes_anexo1_rotalim{{$atendimento->id}}"></i>@endif Rotina Alimentar</a></li>
                                         <li class="dropdown-item bg-light"><a href="#" class="dropdown-item" data-id="{{$atendimento->paciente_id}}">
                                             @if($count_histdes_anexo2_histmedico)<i data-id="1" id="histdes_anexo2_histmedico{{$atendimento->id}}" class="fas fa-check" style="color: green"></i>@else<i data-id="0" id="histdes_anexo2_histmedico{{$atendimento->id}}"></i>@endif Histórico Médico</a></li>
@@ -12079,7 +12253,7 @@ $(document).on('click','.histdes_versaopais_compcasa',function(e){
                     url: '/ceteaadmin/terapia/edit_histdesversaopaiscompcasa/'+pacienteid,
                     success: function(response){           
                         if(response.status==200){                                                                                                        
-                            $(".n1_comp_cri_casa").val(response.histdesversaopaiscompcasa.n1_comp_cri_casa);
+                            $('.n1_comp_cri_casa').val(response.histdesversaopaiscompcasa.n1_comp_cri_casa);
                             $('.n2_dia_tipico_manha').val(response.histdesversaopaiscompcasa.n2_dia_tipico_manha);
                             $('.n2_dia_tipico_tarde').val(response.histdesversaopaiscompcasa.n2_dia_tipico_tarde);
                             $('.n2_dia_tipico_noite').val(response.histdesversaopaiscompcasa.n2_dia_tipico_noite);
@@ -12189,6 +12363,393 @@ $(document).on('click','.histdes_versaopais_compcasa',function(e){
     });
 
 //fim histdes_versaopais_compcasa
+
+//início histdes_rotalim
+
+$("#AddHistDesRotAlim").on('shown.bs.modal',function(){
+            $(".p1_dif_alimentares").focus();
+    });
+
+$("#EditHistDesRotAlim").on('shown.bs.modal',function(){
+            $(".p1_dif_alimentares").focus();
+    });
+
+//inicio conta caracteres dos textarea HistDesRotAlim
+
+    //add
+  
+    $(document).on('input','#addp4_apres_selet_alim',function(){
+        var limite = 600;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var p4_apres_selet_alim = $('textarea[name="addp4_apres_selet_alim"]').val();
+            $('textarea[name="addp4_apres_selet_alim"]').val(p4_apres_selet_alim.substr(0,limite));
+            $(".addp4_apres_selet_alim").text("0" + " " + informativo);
+        }else{
+            $(".addp4_apres_selet_alim").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addp5_preocupa_alim',function(){
+        var limite = 600;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var p5_preocupa_alim = $('textarea[name="addp5_preocupa_alim"]').val();
+            $('textarea[name="addp5_preocupa_alim"]').val(p5_preocupa_alim.substr(0,limite));
+            $(".addp5_preocupa_alim").text("0" + " " + informativo);
+        }else{
+            $(".addp5_preocupa_alim").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addp6_q_inf_esc_alim',function(){
+        var limite = 600;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var p6_q_inf_esc_alim = $('textarea[name="addp6_q_inf_esc_alim"]').val();
+            $('textarea[name="addp6_q_inf_esc_alim"]').val(p6_q_inf_esc_alim.substr(0,limite));
+            $(".addp6_q_inf_esc_alim").text("0" + " " + informativo);
+        }else{
+            $(".addp6_q_inf_esc_alim").text(caracteresRestantes + " " + informativo);
+        }
+    });
+    
+    $(document).on('input','#addp7_diatip_alim_cafe',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var p7_diatip_alim_cafe = $('textarea[name="addp7_diatip_alim_cafe"]').val();
+            $('textarea[name="addp7_diatip_alim_cafe"]').val(p7_diatip_alim_cafe.substr(0,limite));
+            $(".addp7_diatip_alim_cafe").text("0" + " " + informativo);
+        }else{
+            $(".addp7_diatip_alim_cafe").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addp7_diatip_alim_almoco',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var p7_diatip_alim_almoco = $('textarea[name="addp7_diatip_alim_almoco"]').val();
+            $('textarea[name="addp7_diatip_alim_almoco"]').val(p7_diatip_alim_almoco.substr(0,limite));
+            $(".addp7_diatip_alim_almoco").text("0" + " " + informativo);
+        }else{
+            $(".addp7_diatip_alim_almoco").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addp7_diatip_alim_lanche',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var p7_diatip_alim_lanche = $('textarea[name="addp7_diatip_alim_lanche"]').val();
+            $('textarea[name="addp7_diatip_alim_lanche"]').val(p7_diatip_alim_lanche.substr(0,limite));
+            $(".addp7_diatip_alim_lanche").text("0" + " " + informativo);
+        }else{
+            $(".addp7_diatip_alim_lanche").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addp7_diatip_alim_jantar',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var p7_diatip_alim_jantar = $('textarea[name="addp7_diatip_alim_jantar"]').val();
+            $('textarea[name="addp7_diatip_alim_jantar"]').val(p7_diatip_alim_jantar.substr(0,limite));
+            $(".addp7_diatip_alim_jantar").text("0" + " " + informativo);
+        }else{
+            $(".addp7_diatip_alim_jantar").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    //edit
+  
+    $(document).on('input','#editp4_apres_selet_alim',function(){
+        var limite = 600;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var p4_apres_selet_alim = $('textarea[name="editp4_apres_selet_alim"]').val();
+            $('textarea[name="editp4_apres_selet_alim"]').val(p4_apres_selet_alim.substr(0,limite));
+            $(".editp4_apres_selet_alim").text("0" + " " + informativo);
+        }else{
+            $(".editp4_apres_selet_alim").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editp5_preocupa_alim',function(){
+        var limite = 600;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var p5_preocupa_alim = $('textarea[name="editp5_preocupa_alim"]').val();
+            $('textarea[name="editp5_preocupa_alim"]').val(p5_preocupa_alim.substr(0,limite));
+            $(".editp5_preocupa_alim").text("0" + " " + informativo);
+        }else{
+            $(".editp5_preocupa_alim").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editp6_q_inf_esc_alim',function(){
+        var limite = 600;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var p6_q_inf_esc_alim = $('textarea[name="editp6_q_inf_esc_alim"]').val();
+            $('textarea[name="editp6_q_inf_esc_alim"]').val(p6_q_inf_esc_alim.substr(0,limite));
+            $(".editp6_q_inf_esc_alim").text("0" + " " + informativo);
+        }else{
+            $(".editp6_q_inf_esc_alim").text(caracteresRestantes + " " + informativo);
+        }
+    });
+    
+    $(document).on('input','#editp7_diatip_alim_cafe',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var p7_diatip_alim_cafe = $('textarea[name="editp7_diatip_alim_cafe"]').val();
+            $('textarea[name="editp7_diatip_alim_cafe"]').val(p7_diatip_alim_cafe.substr(0,limite));
+            $(".editp7_diatip_alim_cafe").text("0" + " " + informativo);
+        }else{
+            $(".editp7_diatip_alim_cafe").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editp7_diatip_alim_almoco',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var p7_diatip_alim_almoco = $('textarea[name="editp7_diatip_alim_almoco"]').val();
+            $('textarea[name="editp7_diatip_alim_almoco"]').val(p7_diatip_alim_almoco.substr(0,limite));
+            $(".editp7_diatip_alim_almoco").text("0" + " " + informativo);
+        }else{
+            $(".editp7_diatip_alim_almoco").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editp7_diatip_alim_lanche',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var p7_diatip_alim_lanche = $('textarea[name="editp7_diatip_alim_lanche"]').val();
+            $('textarea[name="editp7_diatip_alim_lanche"]').val(p7_diatip_alim_lanche.substr(0,limite));
+            $(".editp7_diatip_alim_lanche").text("0" + " " + informativo);
+        }else{
+            $(".editp7_diatip_alim_lanche").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editp7_diatip_alim_jantar',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var p7_diatip_alim_jantar = $('textarea[name="editp7_diatip_alim_jantar"]').val();
+            $('textarea[name="editp7_diatip_alim_jantar"]').val(p7_diatip_alim_jantar.substr(0,limite));
+            $(".editp7_diatip_alim_jantar").text("0" + " " + informativo);
+        }else{
+            $(".editp7_diatip_alim_jantar").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+$(document).on('click','.histdes_anexo1_rotalim',function(e){
+        e.preventDefault();
+        var pacienteid = $(this).data("pacienteid");
+        var atendimentoid = $(this).data("atendimentoid");
+        var opcao_form_histdes_rotalim = $("#histdes_anexo1_rotalim"+atendimentoid).data("id");
+
+        if(opcao_form_histdes_rotalim==0){
+                $("#addpacienteid_histdesrotalim").val(pacienteid);
+                $("#addatendimentoid_histdesrotalim").val(atendimentoid);
+                $("#addform_histdesrotalim").trigger('reset');
+                $("#AddHistDesRotAlim").modal('show'); 
+                $("#saveform_errList_histdesrotalim").replaceWith('<ul id="saveform_errList_histdesrotalim"></ul>');
+        }else{            
+                $("#editpacienteid_histdesrotalim").val(pacienteid);
+                $("#editatendimentoid_histdesrotalim").val(atendimentoid);
+                $("#editform_histdesrotalim").trigger('reset');
+                $("#EditHistDesRotAlim").modal('show'); 
+                $("#updateform_errList_histdesrotalim").replaceWith('<ul id="updateform_errList_histdesrotalim"></ul>');
+
+                 $.ajaxSetup({
+                    headers:{
+                        'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+    
+    
+                $.ajax({ 
+                    type: 'GET',             
+                    dataType: 'json',                                    
+                    url: '/ceteaadmin/terapia/edit_histdesrotalim/'+pacienteid,
+                    success: function(response){           
+                        if(response.status==200){                                                                                                        
+                            $('.p1_dif_alimentares').attr('checked',response.histdesrotalim.p1_dif_alimentares);
+                            $('.p2_dif_rec_alim_solidos').attr('checked',response.histdesrotalim.p2_dif_rec_alim_solidos);
+                            $('.p2_dif_rec_alim_past').attr('checked',response.histdesrotalim.p2_dif_rec_alim_past);
+                            $('.p4_apres_selet_alim').val(response.histdesrotalim.p4_apres_selet_alim);
+                            $('.p5_preocupa_alim').val(response.histdesrotalim.p5_preocupa_alim);
+                            $('.p6_q_inf_esc_alim').val(response.histdesrotalim.p6_q_inf_esc_alim);
+                            $('.p7_diatip_alim_cafe').val(response.histdesrotalim.p7_diatip_alim_cafe);
+                            $('.p7_diatip_alim_almoco').val(response.histdesrotalim.p7_diatip_alim_almoco);
+                            $('.p7_diatip_alim_lanche').val(response.histdesrotalim.p7_diatip_alim_lanche);
+                            $('.p7_diatip_alim_jantar').val(response.histdesrotalim.p7_diatip_alim_jantar);
+                        }
+                    }
+                });
+        }
+    });
+
+
+    $(document).on('click','.add_histdes_rotalim_btn',function(e){
+        e.preventDefault();
+        var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+        var pacienteid = $("#addpacienteid_histdesrotalim").val();
+        var atendimentoid = $("#addatendimentoid_histdesrotalim").val();
+
+        var loading = $("#imgadd_histdesrotalim");
+            loading.show();
+
+        var data = new FormData();
+
+        data.append('atendimento',atendimentoid);
+        data.append('paciente',pacienteid);
+        data.append('p1_dif_alimentares',$(".p1_dif_alimentares").is(":checked")?'true':'false');
+        data.append('p2_dif_rec_alim_solidos',$(".p2_dif_rec_alim_solidos").is(":checked")?'true':'false');
+        data.append('p2_dif_rec_alim_past',$(".p2_dif_rec_alim_past").is(":checked")?'true':'false');
+        data.append('p4_apres_selet_alim',$(".p4_apres_selet_alim").val());
+        data.append('p5_preocupa_alim',$(".p5_preocupa_alim").val());
+        data.append('p6_q_inf_esc_alim',$(".p6_q_inf_esc_alim").val());
+        data.append('p7_diatip_alim_cafe',$(".p7_diatip_alim_cafe").val());
+        data.append('p7_diatip_alim_almoco',$(".p7_diatip_alim_almoco").val());
+        data.append('p7_diatip_alim_lanche',$(".p7_diatip_alim_lanche").val());
+        data.append('p7_diatip_alim_jantar',$(".p7_diatip_alim_jantar").val());
+        data.append('_token',CSRF_TOKEN);
+        data.append('_method','PUT');
+
+        $.ajax({
+            url:'/ceteaadmin/terapia/store_histdesrotalim',
+            type: 'POST',
+            dataType: 'json',
+            data: data,
+            cache: false,
+            processData: false,
+            contentType: false,
+            async:true,
+            success:function(response){
+                if(response.status==400){
+                    $("#saveform_errlist_histdesrotalim").replaceWith('<ul id="saveform_errList_histdesrotalim"></ul>');
+                    $("#saveform_errlist_histdesrotalim").addClass("alert alert-danger");
+                    $.each(response.errors,function(key,err_values){
+                        $("#saveform_errlist_histdesrotalim").append('<li>'+err_values+'</li>')
+                    });
+                    loading.hide();
+                }else{
+                    loading.hide();
+                    $("#saveform_errlist_histdesrotalim").replaceWith('<ul id="saveform_errList_histdesrotalim"></ul>');
+                    $("#histdes_anexo1_rotalim"+atendimentoid).replaceWith('<i data-id="1" id="histdes_anexo1_rotalim'+atendimentoid+'" class="fas fa-check" style="color: green"></i>');
+                    $("#addform_histdesrotalim").trigger('reset');
+                    $("#AddHistDesRotAlim").modal('hide');                     
+                }
+            }
+
+        });
+
+    });
+
+
+    $(document).on('click','.update_histdesrotalim_btn',function(e){
+        var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+        var atendimentoid = $("#editatendimentoid_histdesrotalim").val();
+        var pacienteid = $("#editpacienteid_histdesrotalim").val();
+
+        var loading = $("#imgedit_histdesrotalim");
+            loading.show();
+
+        var data = new FormData();
+
+        data.append('atendimento',atendimentoid);
+        data.append('paciente',pacienteid);
+        data.append('p1_dif_alimentares',$("#editp1_dif_alimentares").is(":checked")?'true':'false');
+        data.append('p2_dif_rec_alim_solidos',$("#editp2_dif_rec_alim_solidos").is(":checked")?'true':'false');
+        data.append('p2_dif_rec_alim_past',$("#editp2_dif_rec_alim_past").is(":checked")?'true':'false');
+        data.append('p4_apres_selet_alim',$("#editp4_apres_selet_alim").val());
+        data.append('p5_preocupa_alim',$("#editp5_preocupa_alim").val());
+        data.append('p6_q_inf_esc_alim',$("#editp6_q_inf_esc_alim").val());
+        data.append('p7_diatip_alim_cafe',$("#editp7_diatip_alim_cafe").val());
+        data.append('p7_diatip_alim_almoco',$("#editp7_diatip_alim_almoco").val());
+        data.append('p7_diatip_alim_lanche',$("#editp7_diatip_alim_lanche").val());
+        data.append('p7_diatip_alim_jantar',$("#editp7_diatip_alim_jantar").val());
+        data.append('_token',CSRF_TOKEN);
+        data.append('_method','PUT');   
+
+        $.ajax({
+            url:'/ceteaadmin/terapia/update_histdesrotalim/'+pacienteid,
+            type:'POST',
+            contentType: 'json',
+            data: data,
+            cache: false,
+            processData: false,
+            contentType: false,
+            async:true,
+            success:function(response){
+                if(response.status==400){
+                    $("#updateform_errList_histdesrotalim").replaceWith('<ul id="updateform_errList_histdesrotalim"></ul>');
+                    $("#updateform_errlist_histdesrotalim").addClass('alert alert-danger');
+                    $.each(response.errors,function(key,err_values){
+                        $("#updateform_errlist_histdesrotalim").append('<li>'+err_values+'</li>');
+                    });
+                    loading.hide();
+                }else{
+                    loading.hide();
+                    $("#updateform_errlist_histdesrotalim").replaceWith('<ul id="updateform_errList_histdesrotalim"></ul>');
+                    $("#histdes_anexo1_rotalim"+atendimentoid).replaceWith('<i data-id="1" id="histdes_anexo1_rotalim'+atendimentoid+'" class="fas fa-check" style="color: green"></i>');
+                    $("#editform_histdesrotalim").trigger('reset');
+                    $("#EditHistDesRotAlim").modal('hide');    
+                }
+            }
+        });
+    });
+
+//fim histdes_anexo1_rotalim
 
 
 
