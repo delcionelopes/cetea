@@ -28,6 +28,228 @@
 
 </style>
 
+<!-- Inicio AddHistDesHistMedico -->
+<div class="modal fade animate__animated animate__bounce animate__faster bd-example-modal-xl" id="AddHistDesHistMedico" tabindex="-1" role="dialog" aria-labelledby="AddmyExtraLargeModalLabel_HistDesHistMedico" aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+        <div class="modal-header bg-{{$color}}">
+            <h5 class="modal-title" id="AddmyExtraLargeModalLabel_HistDesHistMedico" style="color: white;">Histórico do Desenvolvimento - Anexo 2 - Informações Histórico Médico</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                <span aria-hidden="true" style="color: white.">&times;</span>
+            </button>
+        </div>      
+        <div class="modal-body form-horizontal" role="form">
+            <form id="addform_hisdeshistmedico" class="form-horizontal" role="form" method="POST">
+                <input type="hidden" id="addpacienteid_histdeshistmedico">
+                <input type="hidden" id="addatendimentoid_histdeshistmedico">
+                <ul id="saveform_errlist_histdeshistmedico"></ul>
+                <fieldset>
+                    <legend>ANEXO 2 INFORMAÇÕES - HISTÓRICO MÉDICO.</legend>
+                </fieldset>                                            
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addq1_proc_neuro">
+                      <input type="checkbox" class="q1_proc_neuro checkbox" name="addq1_proc_neuro" id="addq1_proc_neuro"> Já procurou neurologista?</label>
+                    </div>
+                    <div class="form-group">
+                      <label for="addq1_qualdata_aprox">Em que data aproximadamente?</label>
+                      <input type="text" class="q1_qualdata_aprox form-control" name="addq1_qualdata_aprox" id="addq1_qualdata_aprox" placeholder="DD/MM/AAAA" data-mask="00/00/0000" data-mask-reverse="true">
+                    </div>
+                    <div class="form-group">
+                      <label for="">Qual o diagnóstico / orientação / encaminhamento?</label><br>
+                      <span class="addq1_diag_orient_enc"></span>
+                      <textarea name="addq1_diag_orient_enc" id="addq1_diag_orient_enc" cols="30" rows="6" class="q1_diag_orient_enc form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addq2_proc_psiq_inf">
+                      <input type="checkbox" class="q2_proc_psiq_inf checkbox" name="addq2_proc_psiq_inf" id="addq2_proc_psiq_inf"> Já procurou psiquiatra infantil?</label>
+                    </div>
+                    <div class="form-group">
+                      <label for="addq2_qualdata_aprox">Em que data aproximadamente?</label>
+                      <input type="text" class="q2_qualdata_aprox form-control" name="addq2_qualdata_aprox" id="addq2_qualdata_aprox" placeholder="DD/MM/AAAA" data-mask="00/00/0000" data-mask-reverse="true">
+                    </div>
+                    <div class="form-group">
+                      <label for="">Qual o diagnóstico / orientação / encaminhamento?</label><br>
+                      <span class="addq2_diag_orient_enc"></span>
+                      <textarea name="addq2_diag_orient_enc" id="addq2_diag_orient_enc" cols="30" rows="6" class="q2_diag_orient_enc form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addq3_proc_fonoaudiol">
+                      <input type="checkbox" class="q3_proc_fonoaudiol checkbox" name="addq3_proc_fonoaudiol" id="addq3_proc_fonoaudiol"> Já procurou fonoaudiólogo(a)?</label>
+                    </div>
+                    <div class="form-group">
+                      <label for="addq3_qualdata_aprox">Em que data aproximadamente?</label>
+                      <input type="text" class="q3_qualdata_aprox form-control" name="addq3_qualdata_aprox" id="addq3_qualdata_aprox" placeholder="DD/MM/AAAA" data-mask="00/00/0000" data-mask-reverse="true">
+                    </div>
+                    <div class="form-group">
+                      <label for="">Qual o diagnóstico / orientação / encaminhamento?</label><br>
+                      <span class="addq3_diag_orient_enc"></span>
+                      <textarea name="addq3_diag_orient_enc" id="addq3_diag_orient_enc" cols="30" rows="6" class="q3_diag_orient_enc form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>                    
+                    <div class="form-group">
+                      <label for="addq4_proc_neuropsico">
+                      <input type="checkbox" class="q4_proc_neuropsico checkbox" name="addq4_proc_neuropsico" id="addq4_proc_neuropsico"> Já procurou neuropsicólogo(a)?</label>
+                    </div>
+                    <div class="form-group">
+                      <label for="addq4_qualdata_aprox">Em que data aproximadamente?</label>
+                      <input type="text" class="q4_qualdata_aprox form-control" name="addq4_qualdata_aprox" id="addq4_qualdata_aprox" placeholder="DD/MM/AAAA" data-mask="00/00/0000" data-mask-reverse="true">
+                    </div>
+                    <div class="form-group">
+                      <label for="">Qual o diagnóstico / orientação / encaminhamento?</label><br>
+                      <span class="addq4_diag_orient_enc"></span>
+                      <textarea name="addq4_diag_orient_enc" id="addq4_diag_orient_enc" cols="30" rows="6" class="q4_diag_orient_enc form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addq5_proc_psicologa">
+                      <input type="checkbox" class="q5_proc_psicologa checkbox" name="addq5_proc_psicologa" id="addq5_proc_psicologa"> Já procurou psicólogo(a)?</label>
+                    </div>
+                    <div class="form-group">
+                      <label for="addq5_qualdata_aprox">Em que data aproximadamente?</label>
+                      <input type="text" class="q5_qualdata_aprox form-control" name="addq5_qualdata_aprox" id="addq5_qualdata_aprox" placeholder="DD/MM/AAAA" data-mask="00/00/0000" data-mask-reverse="true">
+                    </div>
+                    <div class="form-group">
+                      <label for="">Qual o diagnóstico / orientação / encaminhamento?</label><br>
+                      <span class="addq5_diag_orient_enc"></span>
+                      <textarea name="addq5_diag_orient_enc" id="addq5_diag_orient_enc" cols="30" rows="6" class="q5_diag_orient_enc form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Relate aqui outras informações sobre o histórico médico que ache relevante. (medicamentos, cirurgias, etc.)</legend>
+                    <div class="form-group">                    
+                      <span class="addq6_relato_histmed_relev"></span>
+                      <textarea name="addq6_relato_histmed_relev" id="addq6_relato_histmed_relev" cols="30" rows="6" class="q6_relato_histmed_relev form-control"></textarea>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            <button data-color="{{$color}}" class="btn btn-{{$color}} add_histdes_histmedico_btn"><img id="imgadd_histdeshistmedico" src="{{asset('storage/ajax-loader.gif')}}" style="display: none;" class="rounded-circle" width="20"> Salvar</button>
+        </div>
+    </div>
+  </div>
+</div>
+<!-- Fim AddHistDesHistMedico -->
+
+<!-- Inicio EditHistDesHistMedico -->
+<div class="modal fade animate__animated animate__bounce animate__faster bd-example-modal-xl" id="EditHistDesHistMedico" tabindex="-1" role="dialog" aria-labelledby="EditmyExtraLargeModalLabel_histdeshistmedico" aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+        <div class="modal-header bg-{{$color}}">
+            <h5 class="modal-title" id="EditmyExtraLargeModalLabel_histdeshistmedico" style="color: white;">Histórico do Desenvolvimento - Anexo 2 - Informações Histórico Médico</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                <span aria-hidden="true" style="color: white.">&times;</span>
+            </button>
+        </div>      
+        <div class="modal-body form-horizontal" role="form">
+            <form id="editform_histdeshistmedico" class="form-horizontal" role="form" method="POST">
+                <input type="hidden" id="editpacienteid_histdeshistmedico">
+                <input type="hidden" id="editatendimentoid_histdeshistmedico">
+                <ul id="updateform_errlist_histdeshistmedico"></ul>
+                 <fieldset>
+                    <legend>ANEXO 2 INFORMAÇÕES - HISTÓRICO MÉDICO.</legend>
+                </fieldset>                                            
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editq1_proc_neuro">
+                      <input type="checkbox" class="q1_proc_neuro checkbox" name="editq1_proc_neuro" id="editq1_proc_neuro"> Já procurou neurologista?</label>
+                    </div>
+                    <div class="form-group">
+                      <label for="editq1_qualdata_aprox">Em que data aproximadamente?</label>
+                      <input type="text" class="q1_qualdata_aprox form-control" name="editq1_qualdata_aprox" id="editq1_qualdata_aprox" placeholder="DD/MM/AAAA" data-mask="00/00/0000" data-mask-reverse="true">
+                    </div>
+                    <div class="form-group">
+                      <label for="">Qual o diagnóstico / orientação / encaminhamento?</label><br>
+                      <span class="editq1_diag_orient_enc"></span>
+                      <textarea name="editq1_diag_orient_enc" id="editq1_diag_orient_enc" cols="30" rows="6" class="q1_diag_orient_enc form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editq2_proc_psiq_inf">
+                      <input type="checkbox" class="q2_proc_psiq_inf checkbox" name="editq2_proc_psiq_inf" id="editq2_proc_psiq_inf"> Já procurou psiquiatra infantil?</label>
+                    </div>
+                    <div class="form-group">
+                      <label for="editq2_qualdata_aprox">Em que data aproximadamente?</label>
+                      <input type="text" class="q2_qualdata_aprox form-control" name="editq2_qualdata_aprox" id="editq2_qualdata_aprox" placeholder="DD/MM/AAAA" data-mask="00/00/0000" data-mask-reverse="true">
+                    </div>
+                    <div class="form-group">
+                      <label for="">Qual o diagnóstico / orientação / encaminhamento?</label><br>
+                      <span class="editq2_diag_orient_enc"></span>
+                      <textarea name="editq2_diag_orient_enc" id="editq2_diag_orient_enc" cols="30" rows="6" class="q2_diag_orient_enc form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editq3_proc_fonoaudiol">
+                      <input type="checkbox" class="q3_proc_fonoaudiol checkbox" name="editq3_proc_fonoaudiol" id="editq3_proc_fonoaudiol"> Já procurou fonoaudiólogo(a)?</label>
+                    </div>
+                    <div class="form-group">
+                      <label for="editq3_qualdata_aprox">Em que data aproximadamente?</label>
+                      <input type="text" class="q3_qualdata_aprox form-control" name="editq3_qualdata_aprox" id="editq3_qualdata_aprox" placeholder="DD/MM/AAAA" data-mask="00/00/0000" data-mask-reverse="true">
+                    </div>
+                    <div class="form-group">
+                      <label for="">Qual o diagnóstico / orientação / encaminhamento?</label><br>
+                      <span class="editq3_diag_orient_enc"></span>
+                      <textarea name="editq3_diag_orient_enc" id="editq3_diag_orient_enc" cols="30" rows="6" class="q3_diag_orient_enc form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>                    
+                    <div class="form-group">
+                      <label for="editq4_proc_neuropsico">
+                      <input type="checkbox" class="q4_proc_neuropsico checkbox" name="editq4_proc_neuropsico" id="editq4_proc_neuropsico"> Já procurou neuropsicólogo(a)?</label>
+                    </div>
+                    <div class="form-group">
+                      <label for="editq4_qualdata_aprox">Em que data aproximadamente?</label>
+                      <input type="text" class="q4_qualdata_aprox form-control" name="editq4_qualdata_aprox" id="editq4_qualdata_aprox" placeholder="DD/MM/AAAA" data-mask="00/00/0000" data-mask-reverse="true">
+                    </div>
+                    <div class="form-group">
+                      <label for="">Qual o diagnóstico / orientação / encaminhamento?</label><br>
+                      <span class="editq4_diag_orient_enc"></span>
+                      <textarea name="editq4_diag_orient_enc" id="editq4_diag_orient_enc" cols="30" rows="6" class="q4_diag_orient_enc form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editq5_proc_psicologa">
+                      <input type="checkbox" class="q5_proc_psicologa checkbox" name="editq5_proc_psicologa" id="editq5_proc_psicologa"> Já procurou psicólogo(a)?</label>
+                    </div>
+                    <div class="form-group">
+                      <label for="editq5_qualdata_aprox">Em que data aproximadamente?</label>
+                      <input type="text" class="q5_qualdata_aprox form-control" name="editq5_qualdata_aprox" id="editq5_qualdata_aprox" placeholder="DD/MM/AAAA" data-mask="00/00/0000" data-mask-reverse="true">
+                    </div>
+                    <div class="form-group">
+                      <label for="">Qual o diagnóstico / orientação / encaminhamento?</label><br>
+                      <span class="editq5_diag_orient_enc"></span>
+                      <textarea name="editq5_diag_orient_enc" id="editq5_diag_orient_enc" cols="30" rows="6" class="q5_diag_orient_enc form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Relate aqui outras informações sobre o histórico médico que ache relevante. (medicamentos, cirurgias, etc.)</legend>
+                    <div class="form-group">                    
+                      <span class="editq6_relato_histmed_relev"></span>
+                      <textarea name="editq6_relato_histmed_relev" id="editq6_relato_histmed_relev" cols="30" rows="6" class="q6_relato_histmed_relev form-control"></textarea>
+                    </div>
+                </fieldset>      
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            <button data-color="{{$color}}" class="btn btn-{{$color}} update_histdeshistmedico_btn"><img id="imgedit_histdeshistmedico" src="{{asset('storage/ajax-loader.gif')}}" style="display: none;" class="rounded-circle" width="20"> Salvar</button>
+        </div>
+    </div>
+  </div>
+</div>
+<!-- Fim EditHistDesHistMedico -->
+
 <!-- Inicio AddHistDesRotAlim -->
 <div class="modal fade animate__animated animate__bounce animate__faster bd-example-modal-xl" id="AddHistDesRotAlim" tabindex="-1" role="dialog" aria-labelledby="AddmyExtraLargeModalLabel_HistDesRotAlim" aria-hidden="true">
   <div class="modal-dialog modal-xl" role="document">
