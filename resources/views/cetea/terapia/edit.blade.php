@@ -4354,7 +4354,7 @@
                                             @if($count_histdes_versaopais_compcasa)<i data-id="1" id="histdes_versaopais_compcasa{{$atendimento->id}}" class="fas fa-check" style="color: green"></i>@else<i data-id="0" id="histdes_versaopais_compcasa{{$atendimento->id}}"></i>@endif Comportamento em Casa</a></li>
                                         <li class="dropdown-item bg-light"><a href="#" class="histdes_anexo1_rotalim dropdown-item" data-pacienteid="{{$atendimento->paciente_id}}" data-atendimentoid="{{$atendimento->id}}">
                                             @if($count_histdes_anexo1_rotalim)<i data-id="1" id="histdes_anexo1_rotalim{{$atendimento->id}}" class="fas fa-check" style="color: green"></i>@else<i data-id="0" id="histdes_anexo1_rotalim{{$atendimento->id}}"></i>@endif Rotina Alimentar</a></li>
-                                        <li class="dropdown-item bg-light"><a href="#" class="dropdown-item" data-id="{{$atendimento->paciente_id}}">
+                                        <li class="dropdown-item bg-light"><a href="#" class="histdes_anexo2_histmedico dropdown-item" data-pacienteid="{{$atendimento->paciente_id}}" data-atendimentoid="{{$atendimento->id}}">
                                             @if($count_histdes_anexo2_histmedico)<i data-id="1" id="histdes_anexo2_histmedico{{$atendimento->id}}" class="fas fa-check" style="color: green"></i>@else<i data-id="0" id="histdes_anexo2_histmedico{{$atendimento->id}}"></i>@endif Histórico Médico</a></li>
                                         <li class="dropdown-item bg-light"><a href="#" class="dropdown-item" data-id="{{$atendimento->paciente_id}}">
                                             @if($count_histdes_anexo3_infosensoriais)<i data-id="1" id="histdes_anexo3_infosensoriais{{$atendimento->id}}" class="fas fa-check" style="color: green"></i>@else<i data-id="0" id="histdes_anexo3_infosensoriais{{$atendimento->id}}"></i>@endif Informações Sensoriais</a></li>
@@ -12973,6 +12973,407 @@ $(document).on('click','.histdes_anexo1_rotalim',function(e){
 
 //fim histdes_anexo1_rotalim
 
+//início histdes_anexo2_histmedico
+
+$("#AddHistDesHistMedico").on('shown.bs.modal',function(){
+            $(".q1_proc_neuro").focus();
+    });
+
+$("#EditHistDesHistMedico").on('shown.bs.modal',function(){
+            $(".q1_proc_neuro").focus();
+    });
+
+//inicio conta caracteres dos textarea HistDesHistMedico
+
+    //add
+  
+    $(document).on('input','#addq1_diag_orient_enc',function(){
+        var limite = 600;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var q1_diag_orient_enc = $('textarea[name="addq1_diag_orient_enc"]').val();
+            $('textarea[name="addq1_diag_orient_enc"]').val(q1_diag_orient_enc.substr(0,limite));
+            $(".addq1_diag_orient_enc").text("0" + " " + informativo);
+        }else{
+            $(".addq1_diag_orient_enc").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addq2_diag_orient_enc',function(){
+        var limite = 600;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var q2_diag_orient_enc = $('textarea[name="addq2_diag_orient_enc"]').val();
+            $('textarea[name="addq2_diag_orient_enc"]').val(q2_diag_orient_enc.substr(0,limite));
+            $(".addq2_diag_orient_enc").text("0" + " " + informativo);
+        }else{
+            $(".addq2_diag_orient_enc").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addq3_diag_orient_enc',function(){
+        var limite = 600;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var q3_diag_orient_enc = $('textarea[name="addq3_diag_orient_enc"]').val();
+            $('textarea[name="addq3_diag_orient_enc"]').val(q3_diag_orient_enc.substr(0,limite));
+            $(".addq3_diag_orient_enc").text("0" + " " + informativo);
+        }else{
+            $(".addq3_diag_orient_enc").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addq4_diag_orient_enc',function(){
+        var limite = 600;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var q4_diag_orient_enc = $('textarea[name="addq4_diag_orient_enc"]').val();
+            $('textarea[name="addq4_diag_orient_enc"]').val(q4_diag_orient_enc.substr(0,limite));
+            $(".addq4_diag_orient_enc").text("0" + " " + informativo);
+        }else{
+            $(".addq4_diag_orient_enc").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addq5_diag_orient_enc',function(){
+        var limite = 600;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var q5_diag_orient_enc = $('textarea[name="addq5_diag_orient_enc"]').val();
+            $('textarea[name="addq5_diag_orient_enc"]').val(q5_diag_orient_enc.substr(0,limite));
+            $(".addq5_diag_orient_enc").text("0" + " " + informativo);
+        }else{
+            $(".addq5_diag_orient_enc").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addq6_relato_histmed_relev',function(){
+        var limite = 600;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var q6_relato_histmed_relev = $('textarea[name="addq6_relato_histmed_relev"]').val();
+            $('textarea[name="addq6_relato_histmed_relev"]').val(q6_relato_histmed_relev.substr(0,limite));
+            $(".addq6_relato_histmed_relev").text("0" + " " + informativo);
+        }else{
+            $(".addq6_relato_histmed_relev").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    //edit
+  
+    $(document).on('input','#editq1_diag_orient_enc',function(){
+        var limite = 600;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var q1_diag_orient_enc = $('textarea[name="editq1_diag_orient_enc"]').val();
+            $('textarea[name="editq1_diag_orient_enc"]').val(q1_diag_orient_enc.substr(0,limite));
+            $(".editq1_diag_orient_enc").text("0" + " " + informativo);
+        }else{
+            $(".editq1_diag_orient_enc").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editq2_diag_orient_enc',function(){
+        var limite = 600;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var q2_diag_orient_enc = $('textarea[name="editq2_diag_orient_enc"]').val();
+            $('textarea[name="editq2_diag_orient_enc"]').val(q2_diag_orient_enc.substr(0,limite));
+            $(".editq2_diag_orient_enc").text("0" + " " + informativo);
+        }else{
+            $(".editq2_diag_orient_enc").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editq3_diag_orient_enc',function(){
+        var limite = 600;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var q3_diag_orient_enc = $('textarea[name="editq3_diag_orient_enc"]').val();
+            $('textarea[name="editq3_diag_orient_enc"]').val(q3_diag_orient_enc.substr(0,limite));
+            $(".editq3_diag_orient_enc").text("0" + " " + informativo);
+        }else{
+            $(".editq3_diag_orient_enc").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editq4_diag_orient_enc',function(){
+        var limite = 600;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var q4_diag_orient_enc = $('textarea[name="editq4_diag_orient_enc"]').val();
+            $('textarea[name="editq4_diag_orient_enc"]').val(q4_diag_orient_enc.substr(0,limite));
+            $(".editq4_diag_orient_enc").text("0" + " " + informativo);
+        }else{
+            $(".editq4_diag_orient_enc").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editq5_diag_orient_enc',function(){
+        var limite = 600;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var q5_diag_orient_enc = $('textarea[name="editq5_diag_orient_enc"]').val();
+            $('textarea[name="editq5_diag_orient_enc"]').val(q5_diag_orient_enc.substr(0,limite));
+            $(".editq5_diag_orient_enc").text("0" + " " + informativo);
+        }else{
+            $(".editq5_diag_orient_enc").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#editq6_relato_histmed_relev',function(){
+        var limite = 600;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var q6_relato_histmed_relev = $('textarea[name="editq6_relato_histmed_relev"]').val();
+            $('textarea[name="editq6_relato_histmed_relev"]').val(q6_relato_histmed_relev.substr(0,limite));
+            $(".editq6_relato_histmed_relev").text("0" + " " + informativo);
+        }else{
+            $(".editq6_relato_histmed_relev").text(caracteresRestantes + " " + informativo);
+        }
+    });
+    
+
+$(document).on('click','.histdes_anexo2_histmedico',function(e){
+        e.preventDefault();
+        var pacienteid = $(this).data("pacienteid");
+        var atendimentoid = $(this).data("atendimentoid");
+        var opcao_form_histdes_histmedico = $("#histdes_anexo2_histmedico"+atendimentoid).data("id");
+
+        if(opcao_form_histdes_histmedico==0){
+                $("#addpacienteid_histdeshistmedico").val(pacienteid);
+                $("#addatendimentoid_histdeshistmedico").val(atendimentoid);
+                $("#addform_histdeshistmedico").trigger('reset');
+                $("#AddHistDesHistMedico").modal('show'); 
+                $("#saveform_errList_histdeshistmedico").replaceWith('<ul id="saveform_errList_histdeshistmedico"></ul>');
+        }else{            
+                $("#editpacienteid_histdeshistmedico").val(pacienteid);
+                $("#editatendimentoid_histdeshistmedico").val(atendimentoid);
+                $("#editform_histdeshistmedico").trigger('reset');
+                $("#EditHistDesHistMedico").modal('show'); 
+                $("#updateform_errList_histdeshistmedico").replaceWith('<ul id="updateform_errList_histdeshistmedico"></ul>');
+
+                 $.ajaxSetup({
+                    headers:{
+                        'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+    
+    
+                $.ajax({ 
+                    type: 'GET',             
+                    dataType: 'json',                                    
+                    url: '/ceteaadmin/terapia/edit_histdeshistmedico/'+pacienteid,
+                    success: function(response){           
+                        if(response.status==200){                                                                                                        
+                            $('.q1_proc_neuro').attr('checked',response.histdeshistmedico.q1_proc_neuro);
+                            var q1data = response.histdeshistmedico.q1_qualdata_aprox;
+                            q1data = q1data.replace(/(\d*)-(\d*)-(\d*).*/, '$3/$2/$1');
+                            if(q1data=="31/12/1969"){
+                            q1data = "";
+                            }                                       
+                            $('.q1_qualdata_aprox').val(q1data);
+                            $('.q1_diag_orient_enc').val(response.histdeshistmedico.q1_diag_orient_enc);
+                            $('.q2_proc_psiq_inf').attr('checked',response.histdeshistmedico.q2_proc_psiq_inf);
+                            var q2data = response.histdeshistmedico.q2_qualdata_aprox;
+                            q2data = q2data.replace(/(\d*)-(\d*)-(\d*).*/, '$3/$2/$1');
+                            if(q2data=="31/12/1969"){
+                            q2data = "";
+                            }                                       
+                            $('.q2_qualdata_aprox').val(q2data);
+                            $('.q2_diag_orient_enc').val(response.histdeshistmedico.q2_diag_orient_enc);
+                            $('.q3_proc_fonoaudiol').attr('checked',response.histdeshistmedico.q3_proc_fonoaudiol);
+                            var q3data = response.histdeshistmedico.q3_qualdata_aprox;
+                            q3data = q3data.replace(/(\d*)-(\d*)-(\d*).*/, '$3/$2/$1');
+                            if(q3data=="31/12/1969"){
+                            q3data = "";
+                            }                                       
+                            $('.q3_qualdata_aprox').val(q3data);
+                            $('.q3_diag_orient_enc').val(response.histdeshistmedico.q3_diag_orient_enc);
+                            $('.q4_proc_neuropsico').attr('checked',response.histdeshistmedico.q4_proc_neuropsico);
+                            var q4data = response.histdeshistmedico.q4_qualdata_aprox;
+                            q4data = q4data.replace(/(\d*)-(\d*)-(\d*).*/, '$3/$2/$1');
+                            if(q4data=="31/12/1969"){
+                            q4data = "";
+                            }                                       
+                            $('.q4_qualdata_aprox').val(q4data);
+                            $('.q4_diag_orient_enc').val(response.histdeshistmedico.q4_diag_orient_enc);
+                            $('.q5_proc_psicologa').attr('checked',response.histdeshistmedico.q5_proc_psicologa);
+                            var q5data = response.histdeshistmedico.q5_qualdata_aprox;
+                            q5data = q5data.replace(/(\d*)-(\d*)-(\d*).*/, '$3/$2/$1');
+                            if(q5data=="31/12/1969"){
+                            q5data = "";
+                            }                                       
+                            $('.q5_qualdata_aprox').val(q5data);
+                            $('.q5_diag_orient_enc').val(response.histdeshistmedico.q5_diag_orient_enc);
+
+                            $('.q6_relato_histmed_relev').val(response.histdeshistmedico.q6_relato_histmed_relev);
+                        }
+                    }
+                });
+        }
+    });
+
+
+    $(document).on('click','.add_histdes_histmedico_btn',function(e){
+        e.preventDefault();
+        var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+        var pacienteid = $("#addpacienteid_histdeshistmedico").val();
+        var atendimentoid = $("#addatendimentoid_histdeshistmedico").val();
+
+        var loading = $("#imgadd_histdeshistmedico");
+            loading.show();
+
+        var data = new FormData();
+
+        data.append('atendimento',atendimentoid);
+        data.append('paciente',pacienteid);
+        data.append('q1_proc_neuro',$(".q1_proc_neuro").is(":checked")?'true':'false');
+        data.append('q1_qualdata_aprox',formatDate($(".q1_qualdata_aprox").val()));
+        data.append('q1_diag_orient_enc',$(".q1_diag_orient_enc").val());
+        data.append('q2_proc_psiq_inf',$(".q2_proc_psiq_inf").is(":checked")?'true':'false');
+        data.append('q2_qualdata_aprox',formatDate($(".q2_qualdata_aprox").val()));
+        data.append('q2_diag_orient_enc',$(".q2_diag_orient_enc").val());
+        data.append('q3_proc_fonoaudiol',$(".q3_proc_fonoaudiol").is(":checked")?'true':'false');
+        data.append('q3_qualdata_aprox',formatDate($(".q3_qualdata_aprox").val()));
+        data.append('q3_diag_orient_enc',$(".q3_diag_orient_enc").val());
+        data.append('q4_proc_neuropsico',$(".q4_proc_neuropsico").is(":checked")?'true':'false');
+        data.append('q4_qualdata_aprox',formatDate($(".q4_qualdata_aprox").val()));
+        data.append('q4_diag_orient_enc',$(".q4_diag_orient_enc").val());
+        data.append('q5_proc_psicologa',$(".q5_proc_psicologa").is(":checked")?'true':'false');
+        data.append('q5_qualdata_aprox',formatDate($(".q5_qualdata_aprox").val()));
+        data.append('q5_diag_orient_enc',$(".q5_diag_orient_enc").val());
+        data.append('q6_relato_histmed_relev',$(".q6_relato_histmed_relev").val());
+        data.append('_token',CSRF_TOKEN);
+        data.append('_method','PUT');
+
+        $.ajax({
+            url:'/ceteaadmin/terapia/store_histdeshistmedico',
+            type: 'POST',
+            dataType: 'json',
+            data: data,
+            cache: false,
+            processData: false,
+            contentType: false,
+            async:true,
+            success:function(response){
+                if(response.status==400){
+                    $("#saveform_errlist_histdeshistmedico").replaceWith('<ul id="saveform_errList_histdeshistmedico"></ul>');
+                    $("#saveform_errlist_histdeshistmedico").addClass("alert alert-danger");
+                    $.each(response.errors,function(key,err_values){
+                        $("#saveform_errlist_histdeshistmedico").append('<li>'+err_values+'</li>')
+                    });
+                    loading.hide();
+                }else{
+                    loading.hide();
+                    $("#saveform_errlist_histdeshistmedico").replaceWith('<ul id="saveform_errList_histdeshistmedico"></ul>');
+                    $("#histdes_anexo2_histmedico"+atendimentoid).replaceWith('<i data-id="1" id="histdes_anexo2_histmedico'+atendimentoid+'" class="fas fa-check" style="color: green"></i>');
+                    $("#addform_histdeshistmedico").trigger('reset');
+                    $("#AddHistDesHistMedico").modal('hide');                     
+                }
+            }
+
+        });
+
+    });
+
+
+    $(document).on('click','.update_histdeshistmedico_btn',function(e){
+        var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+        var atendimentoid = $("#editatendimentoid_histdeshistmedico").val();
+        var pacienteid = $("#editpacienteid_histdeshistmedico").val();
+
+        var loading = $("#imgedit_histdeshistmedico");
+            loading.show();
+
+        var data = new FormData();
+
+        data.append('atendimento',atendimentoid);
+        data.append('paciente',pacienteid);
+        data.append('q1_proc_neuro',$("#editq1_proc_neuro").is(":checked")?'true':'false');
+        data.append('q1_qualdata_aprox',formatDate($("#editq1_qualdata_aprox").val()));
+        data.append('q1_diag_orient_enc',$("#editq1_diag_orient_enc").val());
+        data.append('q2_proc_psiq_inf',$("#editq2_proc_psiq_inf").is(":checked")?'true':'false');
+        data.append('q2_qualdata_aprox',formatDate($("#editq2_qualdata_aprox").val()));
+        data.append('q2_diag_orient_enc',$("#editq2_diag_orient_enc").val());
+        data.append('q3_proc_fonoaudiol',$("#editq3_proc_fonoaudiol").is(":checked")?'true':'false');
+        data.append('q3_qualdata_aprox',formatDate($("#editq3_qualdata_aprox").val()));
+        data.append('q3_diag_orient_enc',$("#editq3_diag_orient_enc").val());
+        data.append('q4_proc_neuropsico',$("#editq4_proc_neuropsico").is(":checked")?'true':'false');
+        data.append('q4_qualdata_aprox',formatDate($("#editq4_qualdata_aprox").val()));
+        data.append('q4_diag_orient_enc',$("#editq4_diag_orient_enc").val());
+        data.append('q5_proc_psicologa',$("#editq5_proc_psicologa").is(":checked")?'true':'false');
+        data.append('q5_qualdata_aprox',formatDate($("#editq5_qualdata_aprox").val()));
+        data.append('q5_diag_orient_enc',$("#editq5_diag_orient_enc").val());
+        data.append('q6_relato_histmed_relev',$("#editq6_relato_histmed_relev").val());
+        data.append('_token',CSRF_TOKEN);
+        data.append('_method','PUT');   
+
+        $.ajax({
+            url:'/ceteaadmin/terapia/update_histdeshistmedico/'+pacienteid,
+            type:'POST',
+            contentType: 'json',
+            data: data,
+            cache: false,
+            processData: false,
+            contentType: false,
+            async:true,
+            success:function(response){
+                if(response.status==400){
+                    $("#updateform_errList_histdeshistmedico").replaceWith('<ul id="updateform_errList_histdeshistmedico"></ul>');
+                    $("#updateform_errlist_histdeshistmedico").addClass('alert alert-danger');
+                    $.each(response.errors,function(key,err_values){
+                        $("#updateform_errlist_histdeshistmedico").append('<li>'+err_values+'</li>');
+                    });
+                    loading.hide();
+                }else{
+                    loading.hide();
+                    $("#updateform_errlist_histdeshistmedico").replaceWith('<ul id="updateform_errList_histdeshistmedico"></ul>');
+                    $("#histdes_anexo2_histmedico"+atendimentoid).replaceWith('<i data-id="1" id="histdes_anexo2_histmedico'+atendimentoid+'" class="fas fa-check" style="color: green"></i>');
+                    $("#editform_histdeshistmedico").trigger('reset');
+                    $("#EditHistDesHistMedico").modal('hide');    
+                }
+            }
+        });
+    });
+
+//fim histdes_anexo2_histmedico
 
 
 });

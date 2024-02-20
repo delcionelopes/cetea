@@ -245,6 +245,12 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::put('/store_histdesversaopaiscompcasa',[TerapiaController::class,'storeHistDesVersaoPaisCompCasa']);
         Route::get('/edit_histdesversaopaiscompcasa/{id}',[TerapiaController::class,'editHistDesVersaoPaisCompCasa']);
         Route::put('/update_histdesversaopaiscompcasa/{id}',[TerapiaController::class,'updateHistDesVersaoPaisCompCasa']);
+        Route::put('/store_histdesrotalim',[TerapiaController::class,'storeHistDesRotAlim']);
+        Route::get('/edit_histdesrotalim/{id}',[TerapiaController::class,'editHistDesRotAlim']);
+        Route::put('/update_histdesrotalim/{id}',[TerapiaController::class,'updateHistDesRotAlim']);
+        Route::put('/store_histdeshistmedico',[TerapiaController::class,'storeHistDesHistMedico']);
+        Route::get('/edit_histdeshistmedico/{id}',[TerapiaController::class,'editHistDesHistMedico']);
+        Route::put('/update_histdeshistmedico/{id}',[TerapiaController::class,'updateHistDesHistMedico']);
       });
 
       Route::prefix('feriado')->name('feriado.')->group(function(){

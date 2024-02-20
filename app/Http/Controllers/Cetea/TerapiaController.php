@@ -2111,8 +2111,7 @@ public function storeHistDesVersaoPaisCompCasa(Request $request){
     }
     }
 
-    
-    public function storeHistDRotAlim(Request $request){
+    public function storeHistDesRotAlim(Request $request){
         $validator = Validator::make($request->all(),[
             'atendimento' => ['required'],
             'paciente' => ['required'],                    
@@ -2204,6 +2203,112 @@ public function storeHistDesVersaoPaisCompCasa(Request $request){
             ]);        
     }
     }
+    
+    public function storeHistDesHistMedico(Request $request){
+        $validator = Validator::make($request->all(),[
+            'atendimento' => ['required'],
+            'paciente' => ['required'],                    
+        ]);
+        if($validator->fails()){
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->errors()->getMessages(),
+            ]);
+        }else{
+            $user = auth()->user();
+            $data['id'] = $this->maxId_HistDesHistMedico();
+            $data['atendimento_id'] = $request->input('atendimento');
+            $data['paciente_id'] = $request->input('paciente');
+            $data['q1_proc_neuro'] = $request->input('q1_proc_neuro');
+            $data['q1_qualdata_aprox'] = $request->input('q1_qualdata_aprox');
+            $data['q1_diag_orient_enc'] = $request->input('q1_diag_orient_enc');
+            $data['q2_proc_psiq_inf'] = $request->input('q2_proc_psiq_inf');
+            $data['q2_qualdata_aprox'] = $request->input('q2_qualdata_aprox');
+            $data['q2_diag_orient_enc'] = $request->input('q2_diag_orient_enc');
+            $data['q3_proc_fonoaudiol'] = $request->input('q3_proc_fonoaudiol');
+            $data['q3_qualdata_aprox'] = $request->input('q3_qualdata_aprox');
+            $data['q3_diag_orient_enc'] = $request->input('q3_diag_orient_enc');
+            $data['q4_proc_neuropsico'] = $request->input('q4_proc_neuropsico');
+            $data['q4_qualdata_aprox'] = $request->input('q4_qualdata_aprox');
+            $data['q4_diag_orient_enc'] = $request->input('q4_diag_orient_enc');
+            $data['q5_proc_psicologa'] = $request->input('q5_proc_psicologa');
+            $data['q5_qualdata_aprox'] = $request->input('q5_qualdata_aprox');
+            $data['q5_diag_orient_enc'] = $request->input('q5_diag_orient_enc');
+            $data['q6_relato_histmed_relev'] = $request->input('q6_relato_histmed_relev');
+            $data['created_at'] = now();
+            $data['updated_at'] = null;
+            $data['creater_user'] = $user->id;
+            $data['updater_user'] = null;
+            $this->histdes_anexo2_histmedico->create($data);
+
+            return response()->json([
+                'status' => 200,
+            ]);
+
+        }
+    }    
+
+    protected function maxId_HistDesHistMedico(){
+        $histdes_anexo2_histmedico = $this->histdes_anexo2_histmedico->orderByDesc('id')->first();
+        if($histdes_anexo2_histmedico){
+            $codigo = $histdes_anexo2_histmedico->id;
+        }else{
+            $codigo = 0;
+        }
+        return $codigo+1;
+    }
+
+    public function editHistDesHistMedico(int $id){
+        $busca_pelo_paciente = $this->histdes_anexo2_histmedico->wherePaciente_id($id)->first();        
+        $histdes_anexo2_histmedico = $this->histdes_anexo2_histmedico->find($busca_pelo_paciente->id);
+        return response()->json([
+            'status' => 200,
+            'histdeshistmedico' => $histdes_anexo2_histmedico,
+        ]);
+    }
+
+    public function updateHistDesHistMedico(Request $request, int $id){
+        $validator = Validator::make($request->all(),[
+            'atendimento' => ['required'],
+            'paciente' => ['required'],                        
+        ]);
+        if($validator->fails()){
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->errors()->getMessages(),
+            ]);
+        }else{
+            $busca_pelo_paciente = $this->histdes_anexo2_histmedico->wherePaciente_id($id)->first();
+            $histmedico = $this->histdes_anexo2_histmedico->find($busca_pelo_paciente->id);
+            $user = auth()->user();            
+            $data['atendimento_id'] = $request->input('atendimento');
+            $data['paciente_id'] = $request->input('paciente');            
+            $data['q1_proc_neuro'] = $request->input('q1_proc_neuro');
+            $data['q1_qualdata_aprox'] = $request->input('q1_qualdata_aprox');
+            $data['q1_diag_orient_enc'] = $request->input('q1_diag_orient_enc');
+            $data['q2_proc_psiq_inf'] = $request->input('q2_proc_psiq_inf');
+            $data['q2_qualdata_aprox'] = $request->input('q2_qualdata_aprox');
+            $data['q2_diag_orient_enc'] = $request->input('q2_diag_orient_enc');
+            $data['q3_proc_fonoaudiol'] = $request->input('q3_proc_fonoaudiol');
+            $data['q3_qualdata_aprox'] = $request->input('q3_qualdata_aprox');
+            $data['q3_diag_orient_enc'] = $request->input('q3_diag_orient_enc');
+            $data['q4_proc_neuropsico'] = $request->input('q4_proc_neuropsico');
+            $data['q4_qualdata_aprox'] = $request->input('q4_qualdata_aprox');
+            $data['q4_diag_orient_enc'] = $request->input('q4_diag_orient_enc');
+            $data['q5_proc_psicologa'] = $request->input('q5_proc_psicologa');
+            $data['q5_qualdata_aprox'] = $request->input('q5_qualdata_aprox');
+            $data['q5_diag_orient_enc'] = $request->input('q5_diag_orient_enc');
+            $data['q6_relato_histmed_relev'] = $request->input('q6_relato_histmed_relev');
+            $data['updated_at'] = now();
+            $data['updater_user'] = $user->id;
+            $histmedico->update($data);            
+
+            return response()->json([
+                'status' => 200,                
+            ]);        
+    }
+    }
+
 
 
 }
