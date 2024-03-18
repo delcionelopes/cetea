@@ -28,6 +28,439 @@
 
 </style>
 
+<!-- Inicio AddHistDesAnexo3InfoSensoriais -->
+<div class="modal fade animate__animated animate__bounce animate__faster bd-example-modal-xl" id="AddHistDesAnexo3InfoSensoriais" tabindex="-1" role="dialog" aria-labelledby="AddmyExtraLargeModalLabel_AddHistDesAnexo3InfoSensoriais" aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+        <div class="modal-header bg-{{$color}}">
+            <h5 class="modal-title" id="AddmyExtraLargeModalLabel_AddHistDesAnexo3InfoSensoriais" style="color: white;">Histórico do Desenvolvimento - Anexo 3 - Informações Sensoriais</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                <span aria-hidden="true" style="color: white.">&times;</span>
+            </button>
+        </div>      
+        <div class="modal-body form-horizontal" role="form">
+            <form id="addform_hisdesanexo3infosensoriais" class="form-horizontal" role="form" method="POST">
+                <input type="hidden" id="addpacienteid_histdesanexo3infosensoriais">
+                <input type="hidden" id="addatendimentoid_histdesanexo3infosensoriais">
+                <ul id="saveform_errlist_histdesanexo3infosensoriais"></ul>
+                <fieldset>
+                    <legend>ANEXO 3 INFORMAÇÕES SENSORIAIS.</legend>
+                </fieldset>                                            
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addr1_reac_int_sons_amb">
+                      <input type="checkbox" class="r1_reac_int_sons_amb checkbox" name="addr1_reac_int_sons_amb" id="addr1_reac_int_sons_amb"> A criança apresenta reação intensa aos sons inesperados do ambiente?</label>
+                    </div>                    
+                    <div class="form-group">
+                      <label for="">Exemplos.</label><br>
+                      <span class="addr1_exemplos"></span>
+                      <textarea name="addr1_exemplos" id="addr1_exemplos" cols="30" rows="3" class="r1_exemplos form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addr2_cost_col_maos_ouv">
+                      <input type="checkbox" class="r2_cost_col_maos_ouv checkbox" name="addr2_cost_col_maos_ouv" id="addr2_cost_col_maos_ouv"> Costuma colocar as mãos sobre os ouvidos?</label>
+                    </div>                    
+                    <div class="form-group">
+                      <label for="">Exemplos.</label><br>
+                      <span class="addr2_exemplos"></span>
+                      <textarea name="addr2_exemplos" id="addr2_exemplos" cols="30" rows="3" class="r2_exemplos form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addr3_gt_bar_estranhos">
+                      <input type="checkbox" class="r3_gt_bar_estranhos checkbox" name="addr3_gt_bar_estranhos" id="addr3_gt_bar_estranhos"> A criança gosta de barulhos estranhos?</label>
+                    </div>                    
+                    <div class="form-group">
+                      <label for="">Exemplos.</label><br>
+                      <span class="addr3_exemplos"></span>
+                      <textarea name="addr3_exemplos" id="addr3_exemplos" cols="30" rows="3" class="r3_exemplos form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>                    
+                    <div class="form-group">
+                      <label for="addr4_div_olh_det_vis_obj">
+                      <input type="checkbox" class="r4_div_olh_det_vis_obj checkbox" name="addr4_div_olh_det_vis_obj" id="addr4_div_olh_det_vis_obj"> A criança se diverte ao olhar para detalhes visuais dos objetos?</label>
+                    </div>
+                    <div class="form-group">
+                      <label for="">Exemplos.</label><br>
+                      <span class="addr4_exemplos"></span>
+                      <textarea name="addr4_exemplos" id="addr4_exemplos" cols="30" rows="3" class="r4_exemplos form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addr5_inc_luzes_obj">
+                      <input type="checkbox" class="r5_inc_luzes_obj checkbox" name="addr5_inc_luzes_obj" id="addr5_inc_luzes_obj"> A criança se incomoda com luzes e objetos brilhantes?</label>
+                    </div>                    
+                    <div class="form-group">
+                      <label for="">Exemplos.</label><br>
+                      <span class="addr5_exemplos"></span>
+                      <textarea name="addr5_exemplos" id="addr5_exemplos" cols="30" rows="3" class="r5_exemplos form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addr6_desc_com_anseios">
+                      <input type="checkbox" class="r6_desc_com_anseios checkbox" name="addr6_desc_com_anseios" id="addr6_desc_com_anseios"> A criança mostra desconforto ao pentear os cabelos, escovar os dentes, trocar de roupa ou fralda, cortar as unhas?</label>
+                    </div>                    
+                    <div class="form-group">
+                      <label for="">Exemplos.</label><br>
+                      <span class="addr6_exemplos"></span>
+                      <textarea name="addr6_exemplos" id="addr6_exemplos" cols="30" rows="3" class="r6_exemplos form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addr7_desc_com_sapatos">
+                      <input type="checkbox" class="r7_desc_com_sapatos checkbox" name="addr7_desc_com_sapatos" id="addr7_desc_com_sapatos"> A criança mostra desconforto com o uso de sapatos e meias?</label>
+                    </div>                    
+                    <div class="form-group">
+                      <label for="">Exemplos.</label><br>
+                      <span class="addr7_exemplos"></span>
+                      <textarea name="addr7_exemplos" id="addr7_exemplos" cols="30" rows="3" class="r7_exemplos form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addr8_desc_qdo_tocada">
+                      <input type="checkbox" class="r8_desc_qdo_tocada checkbox" name="addr8_desc_qdo_tocada" id="addr8_desc_qdo_tocada"> A criança mostra desconforto ou reação emocional excessiva quando é tocada?</label>
+                    </div>                    
+                    <div class="form-group">
+                      <label for="">Exemplos.</label><br>
+                      <span class="addr8_exemplos"></span>
+                      <textarea name="addr8_exemplos" id="addr8_exemplos" cols="30" rows="3" class="r8_exemplos form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addr9_tend_tocar_obj_pess">
+                      <input type="checkbox" class="r9_tend_tocar_obj_pess checkbox" name="addr9_tend_tocar_obj_pess" id="addr9_tend_tocar_obj_pess"> A criança tem tendência a tocar em objetos e pessoas?</label>
+                    </div>                    
+                    <div class="form-group">
+                      <label for="">Exemplos.</label><br>
+                      <span class="addr9_exemplos"></span>
+                      <textarea name="addr9_exemplos" id="addr9_exemplos" cols="30" rows="3" class="r9_exemplos form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addr10_apres_pc_rec_temp">
+                      <input type="checkbox" class="r10_apres_pc_rec_temp checkbox" name="addr10_apres_pc_rec_temp" id="addr10_apres_pc_rec_temp"> A criança apresenta poucas reações de dor ou mudanças de temperatura?</label>
+                    </div>                    
+                    <div class="form-group">
+                      <label for="">Exemplos.</label><br>
+                      <span class="addr10_exemplos"></span>
+                      <textarea name="addr10_exemplos" id="addr10_exemplos" cols="30" rows="3" class="r10_exemplos form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addr11_apres_pc_cons_perigo">
+                      <input type="checkbox" class="r11_apres_pc_cons_perigo checkbox" name="addr11_apres_pc_cons_perigo" id="addr11_apres_pc_cons_perigo"> A criança apresenta pouca consciência dos perigos?</label>
+                    </div>                    
+                    <div class="form-group">
+                      <label for="">Exemplos.</label><br>
+                      <span class="addr11_exemplos"></span>
+                      <textarea name="addr11_exemplos" id="addr11_exemplos" cols="30" rows="3" class="r11_exemplos form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addr12_se_mov_man_rig">
+                      <input type="checkbox" class="r12_se_mov_man_rig checkbox" name="addr12_se_mov_man_rig" id="addr12_se_mov_man_rig"> A criança se movimenta da maneira rígida?</label>
+                    </div>                    
+                    <div class="form-group">
+                      <label for="">Exemplos.</label><br>
+                      <span class="addr12_exemplos"></span>
+                      <textarea name="addr12_exemplos" id="addr12_exemplos" cols="30" rows="3" class="r12_exemplos form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addr13_parece_nter_forca">
+                      <input type="checkbox" class="r13_parece_nter_forca checkbox" name="addr13_parece_nter_forca" id="addr13_parece_nter_forca"> A criança parece não ter força?</label>
+                    </div>                    
+                    <div class="form-group">
+                      <label for="">Exemplos.</label><br>
+                      <span class="addr13_exemplos"></span>
+                      <textarea name="addr13_exemplos" id="addr13_exemplos" cols="30" rows="3" class="r13_exemplos form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addr14_tem_nausea_textura">
+                      <input type="checkbox" class="r14_tem_nausea_textura checkbox" name="addr14_tem_nausea_textura" id="addr14_tem_nausea_textura"> A criança tem náusea frente a certas texturas?</label>
+                    </div>                    
+                    <div class="form-group">
+                      <label for="">Exemplos.</label><br>
+                      <span class="addr14_exemplos"></span>
+                      <textarea name="addr14_exemplos" id="addr14_exemplos" cols="30" rows="3" class="r14_exemplos form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addr15_rej_sab_exclu_outros">
+                      <input type="checkbox" class="r15_rej_sab_exclu_outros checkbox" name="addr15_rej_sab_exclu_outros" id="addr15_rej_sab_exclu_outros"> A criança rejeita certos sabores e se alimenta exclusivamente de outros?</label>
+                    </div>                    
+                    <div class="form-group">
+                      <label for="">Exemplos.</label><br>
+                      <span class="addr15_exemplos"></span>
+                      <textarea name="addr15_exemplos" id="addr15_exemplos" cols="30" rows="3" class="r15_exemplos form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addr16_col_obj_na_boca">
+                      <input type="checkbox" class="r16_col_obj_na_boca checkbox" name="addr16_col_obj_na_boca" id="addr16_col_obj_na_boca"> A criança coloca objetos na boca?</label>
+                    </div>                    
+                    <div class="form-group">
+                      <label for="">Exemplos.</label><br>
+                      <span class="addr16_exemplos"></span>
+                      <textarea name="addr16_exemplos" id="addr16_exemplos" cols="30" rows="3" class="r16_exemplos form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="addr17_parece_desatento">
+                      <input type="checkbox" class="r17_parece_desatento checkbox" name="addr17_parece_desatento" id="addr17_parece_desatento"> A criança por vezes parece desatento ou alheio ao que acontece ao seu redor?</label>
+                    </div>                    
+                    <div class="form-group">
+                      <label for="">Exemplos.</label><br>
+                      <span class="addr17_exemplos"></span>
+                      <textarea name="addr17_exemplos" id="addr17_exemplos" cols="30" rows="3" class="r17_exemplos form-control"></textarea>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            <button data-color="{{$color}}" class="btn btn-{{$color}} add_histdes_anexo3infosensoriais_btn"><img id="imgadd_histdesanexo3infosensoriais" src="{{asset('storage/ajax-loader.gif')}}" style="display: none;" class="rounded-circle" width="20"> Salvar</button>
+        </div>
+    </div>
+  </div>
+</div>
+<!-- Fim AddHistDesAnexo3InfoSensoriais -->
+
+<!-- Inicio EditHistDesAnexo3InfoSensoriais -->
+<div class="modal fade animate__animated animate__bounce animate__faster bd-example-modal-xl" id="EditHistDesAnexo3InfoSensoriais" tabindex="-1" role="dialog" aria-labelledby="EditmyExtraLargeModalLabel_histdesanexo3infosensoriais" aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+        <div class="modal-header bg-{{$color}}">
+            <h5 class="modal-title" id="EditmyExtraLargeModalLabel_histdesanexo3infosensoriais" style="color: white;">Histórico do Desenvolvimento - Anexo 3 - Informações Sensoriais</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                <span aria-hidden="true" style="color: white.">&times;</span>
+            </button>
+        </div>      
+        <div class="modal-body form-horizontal" role="form">
+            <form id="editform_histdesanexo3infosensoriais" class="form-horizontal" role="form" method="POST">
+                <input type="hidden" id="editpacienteid_histdesanexo3infosensoriais">
+                <input type="hidden" id="editatendimentoid_histdesanexo3infosensoriais">
+                <ul id="updateform_errlist_histdesanexo3infosensoriais"></ul>
+                 <fieldset>
+                    <legend>ANEXO 3 INFORMAÇÕES SENSORIAIS.</legend>
+                </fieldset>                                                            
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editr1_reac_int_sons_amb">
+                      <input type="checkbox" class="r1_reac_int_sons_amb checkbox" name="editr1_reac_int_sons_amb" id="editr1_reac_int_sons_amb"> A criança apresenta reação intensa aos sons inesperados do ambiente?</label>
+                    </div>                    
+                    <div class="form-group">
+                      <label for="">Exemplos.</label><br>
+                      <span class="editr1_exemplos"></span>
+                      <textarea name="editr1_exemplos" id="editr1_exemplos" cols="30" rows="3" class="r1_exemplos form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editr2_cost_col_maos_ouv">
+                      <input type="checkbox" class="r2_cost_col_maos_ouv checkbox" name="editr2_cost_col_maos_ouv" id="editr2_cost_col_maos_ouv"> Costuma colocar as mãos sobre os ouvidos?</label>
+                    </div>                    
+                    <div class="form-group">
+                      <label for="">Exemplos.</label><br>
+                      <span class="editr2_exemplos"></span>
+                      <textarea name="editr2_exemplos" id="editr2_exemplos" cols="30" rows="3" class="r2_exemplos form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editr3_gt_bar_estranhos">
+                      <input type="checkbox" class="r3_gt_bar_estranhos checkbox" name="editr3_gt_bar_estranhos" id="editr3_gt_bar_estranhos"> A criança gosta de barulhos estranhos?</label>
+                    </div>                    
+                    <div class="form-group">
+                      <label for="">Exemplos.</label><br>
+                      <span class="editr3_exemplos"></span>
+                      <textarea name="editr3_exemplos" id="editr3_exemplos" cols="30" rows="3" class="r3_exemplos form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>                    
+                    <div class="form-group">
+                      <label for="editr4_div_olh_det_vis_obj">
+                      <input type="checkbox" class="r4_div_olh_det_vis_obj checkbox" name="editr4_div_olh_det_vis_obj" id="editr4_div_olh_det_vis_obj"> A criança se diverte ao olhar para detalhes visuais dos objetos?</label>
+                    </div>
+                    <div class="form-group">
+                      <label for="">Exemplos.</label><br>
+                      <span class="editr4_exemplos"></span>
+                      <textarea name="editr4_exemplos" id="editr4_exemplos" cols="30" rows="3" class="r4_exemplos form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editr5_inc_luzes_obj">
+                      <input type="checkbox" class="r5_inc_luzes_obj checkbox" name="editr5_inc_luzes_obj" id="editr5_inc_luzes_obj"> A criança se incomoda com luzes e objetos brilhantes?</label>
+                    </div>                    
+                    <div class="form-group">
+                      <label for="">Exemplos.</label><br>
+                      <span class="editr5_exemplos"></span>
+                      <textarea name="editr5_exemplos" id="editr5_exemplos" cols="30" rows="3" class="r5_exemplos form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editr6_desc_com_anseios">
+                      <input type="checkbox" class="r6_desc_com_anseios checkbox" name="editr6_desc_com_anseios" id="editr6_desc_com_anseios"> A criança mostra desconforto ao pentear os cabelos, escovar os dentes, trocar de roupa ou fralda, cortar as unhas?</label>
+                    </div>                    
+                    <div class="form-group">
+                      <label for="">Exemplos.</label><br>
+                      <span class="editr6_exemplos"></span>
+                      <textarea name="editr6_exemplos" id="editr6_exemplos" cols="30" rows="3" class="r6_exemplos form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editr7_desc_com_sapatos">
+                      <input type="checkbox" class="r7_desc_com_sapatos checkbox" name="editr7_desc_com_sapatos" id="editr7_desc_com_sapatos"> A criança mostra desconforto com o uso de sapatos e meias?</label>
+                    </div>                    
+                    <div class="form-group">
+                      <label for="">Exemplos.</label><br>
+                      <span class="editr7_exemplos"></span>
+                      <textarea name="editr7_exemplos" id="editr7_exemplos" cols="30" rows="3" class="r7_exemplos form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editr8_desc_qdo_tocada">
+                      <input type="checkbox" class="r8_desc_qdo_tocada checkbox" name="editr8_desc_qdo_tocada" id="editr8_desc_qdo_tocada"> A criança mostra desconforto ou reação emocional excessiva quando é tocada?</label>
+                    </div>                    
+                    <div class="form-group">
+                      <label for="">Exemplos.</label><br>
+                      <span class="editr8_exemplos"></span>
+                      <textarea name="editr8_exemplos" id="editr8_exemplos" cols="30" rows="3" class="r8_exemplos form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editr9_tend_tocar_obj_pess">
+                      <input type="checkbox" class="r9_tend_tocar_obj_pess checkbox" name="editr9_tend_tocar_obj_pess" id="editr9_tend_tocar_obj_pess"> A criança tem tendência a tocar em objetos e pessoas?</label>
+                    </div>                    
+                    <div class="form-group">
+                      <label for="">Exemplos.</label><br>
+                      <span class="editr9_exemplos"></span>
+                      <textarea name="editr9_exemplos" id="editr9_exemplos" cols="30" rows="3" class="r9_exemplos form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editr10_apres_pc_rec_temp">
+                      <input type="checkbox" class="r10_apres_pc_rec_temp checkbox" name="editr10_apres_pc_rec_temp" id="editr10_apres_pc_rec_temp"> A criança apresenta poucas reações de dor ou mudanças de temperatura?</label>
+                    </div>                    
+                    <div class="form-group">
+                      <label for="">Exemplos.</label><br>
+                      <span class="editr10_exemplos"></span>
+                      <textarea name="editr10_exemplos" id="editr10_exemplos" cols="30" rows="3" class="r10_exemplos form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editr11_apres_pc_cons_perigo">
+                      <input type="checkbox" class="r11_apres_pc_cons_perigo checkbox" name="editr11_apres_pc_cons_perigo" id="editr11_apres_pc_cons_perigo"> A criança apresenta pouca consciência dos perigos?</label>
+                    </div>                    
+                    <div class="form-group">
+                      <label for="">Exemplos.</label><br>
+                      <span class="editr11_exemplos"></span>
+                      <textarea name="editr11_exemplos" id="editr11_exemplos" cols="30" rows="3" class="r11_exemplos form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editr12_se_mov_man_rig">
+                      <input type="checkbox" class="r12_se_mov_man_rig checkbox" name="editr12_se_mov_man_rig" id="editr12_se_mov_man_rig"> A criança se movimenta da maneira rígida?</label>
+                    </div>                    
+                    <div class="form-group">
+                      <label for="">Exemplos.</label><br>
+                      <span class="editr12_exemplos"></span>
+                      <textarea name="editr12_exemplos" id="editr12_exemplos" cols="30" rows="3" class="r12_exemplos form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editr13_parece_nter_forca">
+                      <input type="checkbox" class="r13_parece_nter_forca checkbox" name="editr13_parece_nter_forca" id="editr13_parece_nter_forca"> A criança parece não ter força?</label>
+                    </div>                    
+                    <div class="form-group">
+                      <label for="">Exemplos.</label><br>
+                      <span class="editr13_exemplos"></span>
+                      <textarea name="editr13_exemplos" id="editr13_exemplos" cols="30" rows="3" class="r13_exemplos form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editr14_tem_nausea_textura">
+                      <input type="checkbox" class="r14_tem_nausea_textura checkbox" name="editr14_tem_nausea_textura" id="editr14_tem_nausea_textura"> A criança tem náusea frente a certas texturas?</label>
+                    </div>                    
+                    <div class="form-group">
+                      <label for="">Exemplos.</label><br>
+                      <span class="editr14_exemplos"></span>
+                      <textarea name="editr14_exemplos" id="editr14_exemplos" cols="30" rows="3" class="r14_exemplos form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editr15_rej_sab_exclu_outros">
+                      <input type="checkbox" class="r15_rej_sab_exclu_outros checkbox" name="editr15_rej_sab_exclu_outros" id="editr15_rej_sab_exclu_outros"> A criança rejeita certos sabores e se alimenta exclusivamente de outros?</label>
+                    </div>                    
+                    <div class="form-group">
+                      <label for="">Exemplos.</label><br>
+                      <span class="editr15_exemplos"></span>
+                      <textarea name="editr15_exemplos" id="editr15_exemplos" cols="30" rows="3" class="r15_exemplos form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editr16_col_obj_na_boca">
+                      <input type="checkbox" class="r16_col_obj_na_boca checkbox" name="editr16_col_obj_na_boca" id="editr16_col_obj_na_boca"> A criança coloca objetos na boca?</label>
+                    </div>                    
+                    <div class="form-group">
+                      <label for="">Exemplos.</label><br>
+                      <span class="editr16_exemplos"></span>
+                      <textarea name="editr16_exemplos" id="editr16_exemplos" cols="30" rows="3" class="r16_exemplos form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="editr17_parece_desatento">
+                      <input type="checkbox" class="r17_parece_desatento checkbox" name="editr17_parece_desatento" id="editr17_parece_desatento"> A criança por vezes parece desatento ou alheio ao que acontece ao seu redor?</label>
+                    </div>                    
+                    <div class="form-group">
+                      <label for="">Exemplos.</label><br>
+                      <span class="editr17_exemplos"></span>
+                      <textarea name="editr17_exemplos" id="editr17_exemplos" cols="30" rows="3" class="r17_exemplos form-control"></textarea>
+                    </div>
+                </fieldset>     
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            <button data-color="{{$color}}" class="btn btn-{{$color}} update_histdesanexo3infosensoriais_btn"><img id="imgedit_histdesanexo3infosensoriais" src="{{asset('storage/ajax-loader.gif')}}" style="display: none;" class="rounded-circle" width="20"> Salvar</button>
+        </div>
+    </div>
+  </div>
+</div>
+<!-- Fim EditHistDesAnexo3InfoSensoriais -->
+
+
 <!-- Inicio AddHistDesHistMedico -->
 <div class="modal fade animate__animated animate__bounce animate__faster bd-example-modal-xl" id="AddHistDesHistMedico" tabindex="-1" role="dialog" aria-labelledby="AddmyExtraLargeModalLabel_HistDesHistMedico" aria-hidden="true">
   <div class="modal-dialog modal-xl" role="document">
@@ -282,8 +715,8 @@
                 </fieldset>
                 <fieldset>
                     <div class="form-group">
-                      <label for="addp2_dif_rec_alim_past">
-                      <input type="checkbox" class="p2_dif_rec_alim_past" name="addp2_dif_rec_alim_past" id="addp2_dif_rec_alim_past"> Apresenta dificuldade ou recusa para alimentos pastosos?</label>
+                      <label for="addp3_dif_rec_alim_past">
+                      <input type="checkbox" class="p3_dif_rec_alim_past" name="addp3_dif_rec_alim_past" id="addp3_dif_rec_alim_past"> Apresenta dificuldade ou recusa para alimentos pastosos?</label>
                     </div>
                 </fieldset>
                 <fieldset>                    
@@ -369,8 +802,8 @@
                 </fieldset>
                 <fieldset>
                     <div class="form-group">
-                      <label for="editp2_dif_rec_alim_past">
-                      <input type="checkbox" class="p2_dif_rec_alim_past" name="editp2_dif_rec_alim_past" id="editp2_dif_rec_alim_past"> Apresenta dificuldade ou recusa para alimentos pastosos?</label>
+                      <label for="editp3_dif_rec_alim_past">
+                      <input type="checkbox" class="p3_dif_rec_alim_past" name="editp3_dif_rec_alim_past" id="editp3_dif_rec_alim_past"> Apresenta dificuldade ou recusa para alimentos pastosos?</label>
                     </div>
                 </fieldset>
                 <fieldset>                    
@@ -12846,7 +13279,7 @@ $(document).on('click','.histdes_anexo1_rotalim',function(e){
                         if(response.status==200){                                                                                                        
                             $('.p1_dif_alimentares').attr('checked',response.histdesrotalim.p1_dif_alimentares);
                             $('.p2_dif_rec_alim_solidos').attr('checked',response.histdesrotalim.p2_dif_rec_alim_solidos);
-                            $('.p2_dif_rec_alim_past').attr('checked',response.histdesrotalim.p2_dif_rec_alim_past);
+                            $('.p3_dif_rec_alim_past').attr('checked',response.histdesrotalim.p3_dif_rec_alim_past);
                             $('.p4_apres_selet_alim').val(response.histdesrotalim.p4_apres_selet_alim);
                             $('.p5_preocupa_alim').val(response.histdesrotalim.p5_preocupa_alim);
                             $('.p6_q_inf_esc_alim').val(response.histdesrotalim.p6_q_inf_esc_alim);
@@ -12876,7 +13309,7 @@ $(document).on('click','.histdes_anexo1_rotalim',function(e){
         data.append('paciente',pacienteid);
         data.append('p1_dif_alimentares',$(".p1_dif_alimentares").is(":checked")?'true':'false');
         data.append('p2_dif_rec_alim_solidos',$(".p2_dif_rec_alim_solidos").is(":checked")?'true':'false');
-        data.append('p2_dif_rec_alim_past',$(".p2_dif_rec_alim_past").is(":checked")?'true':'false');
+        data.append('p3_dif_rec_alim_past',$(".p3_dif_rec_alim_past").is(":checked")?'true':'false');
         data.append('p4_apres_selet_alim',$(".p4_apres_selet_alim").val());
         data.append('p5_preocupa_alim',$(".p5_preocupa_alim").val());
         data.append('p6_q_inf_esc_alim',$(".p6_q_inf_esc_alim").val());
@@ -12932,7 +13365,7 @@ $(document).on('click','.histdes_anexo1_rotalim',function(e){
         data.append('paciente',pacienteid);
         data.append('p1_dif_alimentares',$("#editp1_dif_alimentares").is(":checked")?'true':'false');
         data.append('p2_dif_rec_alim_solidos',$("#editp2_dif_rec_alim_solidos").is(":checked")?'true':'false');
-        data.append('p2_dif_rec_alim_past',$("#editp2_dif_rec_alim_past").is(":checked")?'true':'false');
+        data.append('p3_dif_rec_alim_past',$("#editp3_dif_rec_alim_past").is(":checked")?'true':'false');
         data.append('p4_apres_selet_alim',$("#editp4_apres_selet_alim").val());
         data.append('p5_preocupa_alim',$("#editp5_preocupa_alim").val());
         data.append('p6_q_inf_esc_alim',$("#editp6_q_inf_esc_alim").val());
