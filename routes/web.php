@@ -251,6 +251,9 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::put('/store_histdeshistmedico',[TerapiaController::class,'storeHistDesHistMedico']);
         Route::get('/edit_histdeshistmedico/{id}',[TerapiaController::class,'editHistDesHistMedico']);
         Route::put('/update_histdeshistmedico/{id}',[TerapiaController::class,'updateHistDesHistMedico']);
+        Route::put('/store_histdesanexo3infosensoriais',[TerapiaController::class,'storeHistDesAnexo3InfoSensoriais']);
+        Route::get('/edit_histdesanexo3infosensoriais/{id}',[TerapiaController::class,'editHistDesAnexo3InfoSensoriais']);
+        Route::put('/update_histdesanexo3infosensoriais/{id}',[TerapiaController::class,'updateHistDesAnexo3InfoSensoriais']);
       });
 
       Route::prefix('feriado')->name('feriado.')->group(function(){

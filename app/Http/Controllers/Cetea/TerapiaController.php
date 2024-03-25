@@ -2309,6 +2309,224 @@ public function storeHistDesVersaoPaisCompCasa(Request $request){
     }
     }
 
+public function storeHistDesAnexo3InfoSensoriais(Request $request){
+        $validator = Validator::make($request->all(),[
+            'atendimento' => ['required'],
+            'paciente' => ['required'],                    
+        ]);
+        if($validator->fails()){
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->errors()->getMessages(),
+            ]);
+        }else{
+            $user = auth()->user();
+            $data['id'] = $this->maxId_HistDesAnexo3InfoSensoriais();
+            $data['atendimento_id'] = $request->input('atendimento');
+            $data['paciente_id'] = $request->input('paciente');
+            $data['r1_reac_int_sons_amb'] = $request->input('r1_reac_int_sons_amb');
+            $data['r1_exemplos'] = $request->input('r1_exemplos');
+            $data['r2_cost_col_maos_ouv'] = $request->input('r2_cost_col_maos_ouv');
+            $data['r2_exemplos'] = $request->input('r2_exemplos');
+            $data['r3_gt_bar_estranhos'] = $request->input('r3_gt_bar_estranhos');
+            $data['r3_exemplos'] = $request->input('r3_exemplos');
+            $data['r4_div_olh_det_vis_obj'] = $request->input('r4_div_olh_det_vis_obj');
+            $data['r4_exemplos'] = $request->input('r4_exemplos');
+            $data['r5_inc_luzes_obj_bril'] = $request->input('r5_inc_luzes_obj_bril');
+            $data['r5_exemplos'] = $request->input('r5_exemplos');
+            $data['r6_desc_com_asseios'] = $request->input('r6_desc_com_asseios');
+            $data['r6_exemplos'] = $request->input('r6_exemplos');
+            $data['r7_desc_com_sapatos'] = $request->input('r7_desc_com_sapatos');
+            $data['r7_exemplos'] = $request->input('r7_exemplos');
+            $data['r8_desc_qdo_tocada'] = $request->input('r8_desc_qdo_tocada');
+            $data['r8_exemplos'] = $request->input('r8_exemplos');
+            $data['r9_tend_tocar_obj_pess'] = $request->input('r9_tend_tocar_obj_pess');
+            $data['r9_exemplos'] = $request->input('r9_exemplos');
+            $data['r10_apres_pc_rec_temp'] = $request->input('r10_apres_pc_rec_temp');
+            $data['r10_exemplos'] = $request->input('r10_exemplos');
+            $data['r11_apres_pc_cons_perigo'] = $request->input('r11_apres_pc_cons_perigo');
+            $data['r11_exemplos'] = $request->input('r11_exemplos');
+            $data['r12_se_mov_man_rig'] = $request->input('r12_se_mov_man_rig');
+            $data['r12_exemplos'] = $request->input('r12_exemplos');
+            $data['r13_parece_nter_forca'] = $request->input('r13_parece_nter_forca');
+            $data['r13_exemplos'] = $request->input('r13_exemplos');
+            $data['r14_tem_nausea_textura'] = $request->input('r14_tem_nausea_textura');
+            $data['r14_exemplos'] = $request->input('r14_exemplos');
+            $data['r15_rej_sab_exclu_outros'] = $request->input('r15_rej_sab_exclu_outros');
+            $data['r15_exemplos'] = $request->input('r15_exemplos');
+            $data['r16_col_obj_na_boca'] = $request->input('r16_col_obj_na_boca');
+            $data['r16_exemplos'] = $request->input('r16_exemplos');
+            $data['r17_parece_desatento'] = $request->input('r17_parece_desatento');
+            $data['r17_exemplos'] = $request->input('r17_exemplos');
+            $data['created_at'] = now();
+            $data['updated_at'] = null;
+            $data['creater_user'] = $user->id;
+            $data['updater_user'] = null;
+            $this->histdes_anexo3_infosensoriais->create($data);
+
+            return response()->json([
+                'status' => 200,
+            ]);
+
+        }
+    }    
+
+    protected function maxId_HistDesAnexo3InfoSensoriais(){
+        $histdes_anexo3_infosensoriais = $this->histdes_anexo3_infosensoriais->orderByDesc('id')->first();
+        if($histdes_anexo3_infosensoriais){
+            $codigo = $histdes_anexo3_infosensoriais->id;
+        }else{
+            $codigo = 0;
+        }
+        return $codigo+1;
+    }
+
+    public function editHistDesAnexo3InfoSensoriais(int $id){
+        $busca_pelo_paciente = $this->histdes_anexo3_infosensoriais->wherePaciente_id($id)->first();
+        $histdes_anexo3_infosensoriais = $this->histdes_anexo3_infosensoriais->find($busca_pelo_paciente->id);
+        $histdes_anexo3_docs = $this->histdes_anexo3_docs->wherePaciente_id($id)->get();
+        $paciente = $this->paciente->find($busca_pelo_paciente->id);
+        return response()->json([
+            'status' => 200,
+            'histdesanexo3infosensoriais' => $histdes_anexo3_infosensoriais,
+            'paciente' => $paciente,
+            'histdes_anexo3_docs' => $histdes_anexo3_docs,
+        ]);
+    }
+
+    public function updateHistDesAnexo3InfoSensoriais(Request $request, int $id){
+        $validator = Validator::make($request->all(),[
+            'atendimento' => ['required'],
+            'paciente' => ['required'],                        
+        ]);
+        if($validator->fails()){
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->errors()->getMessages(),
+            ]);
+        }else{
+            $busca_pelo_paciente = $this->histdes_anexo3_infosensoriais->wherePaciente_id($id)->first();
+            $anexo3infosensoriais = $this->histdes_anexo3_infosensoriais->find($busca_pelo_paciente->id);
+            $user = auth()->user();            
+            $data['atendimento_id'] = $request->input('atendimento');
+            $data['paciente_id'] = $request->input('paciente');            
+            $data['r1_reac_int_sons_amb'] = $request->input('r1_reac_int_sons_amb');
+            $data['r1_exemplos'] = $request->input('r1_exemplos');
+            $data['r2_cost_col_maos_ouv'] = $request->input('r2_cost_col_maos_ouv');
+            $data['r2_exemplos'] = $request->input('r2_exemplos');
+            $data['r3_gt_bar_estranhos'] = $request->input('r3_gt_bar_estranhos');
+            $data['r3_exemplos'] = $request->input('r3_exemplos');
+            $data['r4_div_olh_det_vis_obj'] = $request->input('r4_div_olh_det_vis_obj');
+            $data['r4_exemplos'] = $request->input('r4_exemplos');
+            $data['r5_inc_luzes_obj_bril'] = $request->input('r5_inc_luzes_obj_bril');
+            $data['r5_exemplos'] = $request->input('r5_exemplos');
+            $data['r6_desc_com_asseios'] = $request->input('r6_desc_com_asseios');
+            $data['r6_exemplos'] = $request->input('r6_exemplos');
+            $data['r7_desc_com_sapatos'] = $request->input('r7_desc_com_sapatos');
+            $data['r7_exemplos'] = $request->input('r7_exemplos');
+            $data['r8_desc_qdo_tocada'] = $request->input('r8_desc_qdo_tocada');
+            $data['r8_exemplos'] = $request->input('r8_exemplos');
+            $data['r9_tend_tocar_obj_pess'] = $request->input('r9_tend_tocar_obj_pess');
+            $data['r9_exemplos'] = $request->input('r9_exemplos');
+            $data['r10_apres_pc_rec_temp'] = $request->input('r10_apres_pc_rec_temp');
+            $data['r10_exemplos'] = $request->input('r10_exemplos');
+            $data['r11_apres_pc_cons_perigo'] = $request->input('r11_apres_pc_cons_perigo');
+            $data['r11_exemplos'] = $request->input('r11_exemplos');
+            $data['r12_se_mov_man_rig'] = $request->input('r12_se_mov_man_rig');
+            $data['r12_exemplos'] = $request->input('r12_exemplos');
+            $data['r13_parece_nter_forca'] = $request->input('r13_parece_nter_forca');
+            $data['r13_exemplos'] = $request->input('r13_exemplos');
+            $data['r14_tem_nausea_textura'] = $request->input('r14_tem_nausea_textura');
+            $data['r14_exemplos'] = $request->input('r14_exemplos');
+            $data['r15_rej_sab_exclu_outros'] = $request->input('r15_rej_sab_exclu_outros');
+            $data['r15_exemplos'] = $request->input('r15_exemplos');
+            $data['r16_col_obj_na_boca'] = $request->input('r16_col_obj_na_boca');
+            $data['r16_exemplos'] = $request->input('r16_exemplos');
+            $data['r17_parece_desatento'] = $request->input('r17_parece_desatento');
+            $data['r17_exemplos'] = $request->input('r17_exemplos');
+            $data['updated_at'] = now();
+            $data['updater_user'] = $user->id;
+            $anexo3infosensoriais->update($data);            
+
+            return response()->json([
+                'status' => 200,                
+            ]);        
+    }
+    }
+
+    public function uploadDocsAnexo3InfoSensoriais(Request $request, int $id){             
+         if ($request->TotalFiles>0) 
+         {
+           $user = auth()->user();
+           $arquivo = $this->histdes_anexo3_docs->orderByDesc('id')->first();
+           if($arquivo){
+            $maxid = $arquivo->id;
+           }else{
+            $maxid = 0;
+           }
+
+           for($x = 0; $x < $request->TotalFiles; $x++) 
+           {                                              
+              if($request->hasFile('arquivo'.$x))
+              {
+                    $file = $request->file('arquivo'.$x);
+                    $fileLabel = $file->getClientOriginalName();
+                    $fileName = $id.'_'.$fileLabel;                        
+                    $filePath = 'arquivos_histdes_anexo3/'.$fileName;
+                    $storagePath = public_path().'/storage/arquivos_histdes_anexo3/';
+                    $file->move($storagePath,$fileName);                                                 
+
+                    $maxid++;
+                    
+                    $data[$x]['id'] = $maxid;                    
+                    $data[$x]['paciente_id'] = $id;                    
+                    $data[$x]['nome'] = $fileLabel;
+                    $data[$x]['nomearq'] = $fileName;
+                    $data[$x]['path'] = $filePath;                    
+                    $data[$x]['created_at'] = now();
+                    $data[$x]['updated_at'] = now();
+                    $data[$x]['creater_user'] = $user->id;
+                    $data[$x]['updater_user'] = $user->id;
+                } 
+           }                      
+             HistDes_Anexo3_R18_Docs::insert($data);                                                                  
+         }    
+             $paciente = $this->paciente->find($id);             
+             $arquivos = $paciente->histdes_anexo3_r18_docs;
+             return response()->json([
+                 'paciente' => $paciente,
+                 'arquivos' => $arquivos,
+                 'status' => 200,                 
+             ]);  
+
+    }
+
+    public function deleteDocsAnexo3InfoSensoriais(int $id){                
+            $arquivo = $this->histdes_anexo3_docs->find($id);    
+            $pacienteid = $arquivo->paciente_id;
+            //deleção do arquivo na pasta /storage/arquivos_histdes_anexo3/
+            if($arquivo){            
+            $arquivoPath = public_path('/storage/'.$arquivo->path);
+            if(file_exists($arquivoPath)){
+                unlink($arquivoPath);
+            }    
+        }
+            //excluir na tabela                             
+            $arquivo->delete();
+            $paciente = $this->paciente->find($pacienteid);    
+            return response()->json([
+                'paciente' => $paciente,
+                'status' => 200,                
+            ]);        
+    }
+
+    public function abrirDocAnexo3InfoSensoriais(int $id){
+        $arquivo = $this->histdes_anexo3_docs->find($id);
+        return response()->json([
+            'status' => 200,
+            'arquivo' => $arquivo,
+        ]);
+    }
 
 
 }

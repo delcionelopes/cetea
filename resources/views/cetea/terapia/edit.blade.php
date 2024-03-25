@@ -92,8 +92,8 @@
                 </fieldset>
                 <fieldset>
                     <div class="form-group">
-                      <label for="addr5_inc_luzes_obj">
-                      <input type="checkbox" class="r5_inc_luzes_obj checkbox" name="addr5_inc_luzes_obj" id="addr5_inc_luzes_obj"> A criança se incomoda com luzes e objetos brilhantes?</label>
+                      <label for="addr5_inc_luzes_obj_bril">
+                      <input type="checkbox" class="r5_inc_luzes_obj_bril checkbox" name="addr5_inc_luzes_obj_bril" id="addr5_inc_luzes_obj_bril"> A criança se incomoda com luzes e objetos brilhantes?</label>
                     </div>                    
                     <div class="form-group">
                       <label for="">Exemplos.</label><br>
@@ -103,8 +103,8 @@
                 </fieldset>
                 <fieldset>
                     <div class="form-group">
-                      <label for="addr6_desc_com_anseios">
-                      <input type="checkbox" class="r6_desc_com_anseios checkbox" name="addr6_desc_com_anseios" id="addr6_desc_com_anseios"> A criança mostra desconforto ao pentear os cabelos, escovar os dentes, trocar de roupa ou fralda, cortar as unhas?</label>
+                      <label for="addr6_desc_com_asseios">
+                      <input type="checkbox" class="r6_desc_com_asseios checkbox" name="addr6_desc_com_asseios" id="addr6_desc_com_asseios"> A criança mostra desconforto ao pentear os cabelos, escovar os dentes, trocar de roupa ou fralda, cortar as unhas?</label>
                     </div>                    
                     <div class="form-group">
                       <label for="">Exemplos.</label><br>
@@ -234,6 +234,27 @@
                     </div>
                 </fieldset>
             </form>
+            <form id="addform_arquivo" name="addform_arquivo" class="form-horizontal" role="form" enctype="multipart/form-data">
+                <!--arquivos -->
+                <div class="form-group mb-3">
+                    <label for="">Arquivos (*.pdf format)</label>
+                    <span class="btn btn-{{$color}} fileinput-button"><i class="fas fa-folder-open" style="color: blue"></i>
+                      <input id="addarquivo" class="arquivo" type="file" name="addarquivo[]" accept="application/pdf" multiple>
+                    </span>  
+                </div>
+            </form>
+            <table class="table table-hover">
+                        <thead class="bg-{{$color}}" style="color: white">
+                            <tr>                                
+                                <th scope="col">NOME DO ARQUIVO</th>                                
+                                <th scope="col">DATA</th>
+                                <th scope="col">ANEXADO POR</th>                                                                
+                            </tr>
+                        </thead>
+                        <tbody id="addlista_arquivos">
+                        <tr id="addnovoinfosensoriais" style="display:none;"></tr>
+                        </tbody>
+                    </table> 
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
@@ -308,8 +329,8 @@
                 </fieldset>
                 <fieldset>
                     <div class="form-group">
-                      <label for="editr5_inc_luzes_obj">
-                      <input type="checkbox" class="r5_inc_luzes_obj checkbox" name="editr5_inc_luzes_obj" id="editr5_inc_luzes_obj"> A criança se incomoda com luzes e objetos brilhantes?</label>
+                      <label for="editr5_inc_luzes_obj_bril">
+                      <input type="checkbox" class="r5_inc_luzes_obj_bril checkbox" name="editr5_inc_luzes_obj_bril" id="editr5_inc_luzes_obj_bril"> A criança se incomoda com luzes e objetos brilhantes?</label>
                     </div>                    
                     <div class="form-group">
                       <label for="">Exemplos.</label><br>
@@ -319,8 +340,8 @@
                 </fieldset>
                 <fieldset>
                     <div class="form-group">
-                      <label for="editr6_desc_com_anseios">
-                      <input type="checkbox" class="r6_desc_com_anseios checkbox" name="editr6_desc_com_anseios" id="editr6_desc_com_anseios"> A criança mostra desconforto ao pentear os cabelos, escovar os dentes, trocar de roupa ou fralda, cortar as unhas?</label>
+                      <label for="editr6_desc_com_asseios">
+                      <input type="checkbox" class="r6_desc_com_asseios checkbox" name="editr6_desc_com_asseios" id="editr6_desc_com_asseios"> A criança mostra desconforto ao pentear os cabelos, escovar os dentes, trocar de roupa ou fralda, cortar as unhas?</label>
                     </div>                    
                     <div class="form-group">
                       <label for="">Exemplos.</label><br>
@@ -450,6 +471,27 @@
                     </div>
                 </fieldset>     
             </form>
+            <form id="editform_arquivo" name="editform_arquivo" class="form-horizontal" role="form" enctype="multipart/form-data">
+                <!--arquivos -->
+                <div class="form-group mb-3">
+                    <label for="">Arquivos (*.pdf format)</label>
+                    <span class="btn btn-{{$color}} fileinput-button"><i class="fas fa-folder-open" style="color: blue"></i>
+                      <input id="editarquivo" class="arquivo" type="file" name="editarquivo[]" accept="application/pdf" multiple>
+                    </span>  
+                </div>
+            </form>
+            <table class="table table-hover">
+                        <thead class="bg-{{$color}}" style="color: white">
+                            <tr>                                
+                                <th scope="col">NOME DO ARQUIVO</th>                                
+                                <th scope="col">DATA</th>
+                                <th scope="col">ANEXADO POR</th>                                                                
+                            </tr>
+                        </thead>
+                        <tbody id="editlista_arquivos">
+                        <tr id="editnovoinfosensoriais" style="display:none;"></tr>
+                        </tbody>
+                    </table> 
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
@@ -459,7 +501,6 @@
   </div>
 </div>
 <!-- Fim EditHistDesAnexo3InfoSensoriais -->
-
 
 <!-- Inicio AddHistDesHistMedico -->
 <div class="modal fade animate__animated animate__bounce animate__faster bd-example-modal-xl" id="AddHistDesHistMedico" tabindex="-1" role="dialog" aria-labelledby="AddmyExtraLargeModalLabel_HistDesHistMedico" aria-hidden="true">
@@ -4789,7 +4830,7 @@
                                             @if($count_histdes_anexo1_rotalim)<i data-id="1" id="histdes_anexo1_rotalim{{$atendimento->id}}" class="fas fa-check" style="color: green"></i>@else<i data-id="0" id="histdes_anexo1_rotalim{{$atendimento->id}}"></i>@endif Rotina Alimentar</a></li>
                                         <li class="dropdown-item bg-light"><a href="#" class="histdes_anexo2_histmedico dropdown-item" data-pacienteid="{{$atendimento->paciente_id}}" data-atendimentoid="{{$atendimento->id}}">
                                             @if($count_histdes_anexo2_histmedico)<i data-id="1" id="histdes_anexo2_histmedico{{$atendimento->id}}" class="fas fa-check" style="color: green"></i>@else<i data-id="0" id="histdes_anexo2_histmedico{{$atendimento->id}}"></i>@endif Histórico Médico</a></li>
-                                        <li class="dropdown-item bg-light"><a href="#" class="dropdown-item" data-id="{{$atendimento->paciente_id}}">
+                                        <li class="dropdown-item bg-light"><a href="#" class="histdes_anexo3_infosensoriais dropdown-item" data-pacienteid="{{$atendimento->paciente_id}}" data-atendimentoid="{{$atendimento->id}}">
                                             @if($count_histdes_anexo3_infosensoriais)<i data-id="1" id="histdes_anexo3_infosensoriais{{$atendimento->id}}" class="fas fa-check" style="color: green"></i>@else<i data-id="0" id="histdes_anexo3_infosensoriais{{$atendimento->id}}"></i>@endif Informações Sensoriais</a></li>
                                     </ul>                                
                                 </div>            
@@ -13807,6 +13848,509 @@ $(document).on('click','.histdes_anexo2_histmedico',function(e){
     });
 
 //fim histdes_anexo2_histmedico
+
+
+//início histdes_anexo3_infosensoriais
+
+$("#AddHistDesInfoSensoriais").on('shown.bs.modal',function(){
+            $(".r1_reac_int_sons_amb").focus();
+    });
+
+$("#EditHistDesInfoSensoriais").on('shown.bs.modal',function(){
+            $(".r1_reac_int_sons_amb").focus();
+    });
+
+//inicio conta caracteres dos textarea HistDesInfoSensoriais
+
+    //add
+  
+    $(document).on('input','#addr1_exemplos',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var r1_exemplos = $('textarea[name="addr1_exemplos"]').val();
+            $('textarea[name="addr1_exemplos"]').val(r1_exemplos.substr(0,limite));
+            $(".addr1_exemplos").text("0" + " " + informativo);
+        }else{
+            $(".addr1_exemplos").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addr2_exemplos',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var r2_exemplos = $('textarea[name="addr2_exemplos"]').val();
+            $('textarea[name="addr2_exemplos"]').val(r2_exemplos.substr(0,limite));
+            $(".addr2_exemplos").text("0" + " " + informativo);
+        }else{
+            $(".addr2_exemplos").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addr3_exemplos',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var r3_exemplos = $('textarea[name="addr3_exemplos"]').val();
+            $('textarea[name="addr3_exemplos"]').val(r3_exemplos.substr(0,limite));
+            $(".addr3_exemplos").text("0" + " " + informativo);
+        }else{
+            $(".addr3_exemplos").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addr4_exemplos',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var r4_exemplos = $('textarea[name="addr4_exemplos"]').val();
+            $('textarea[name="addr4_exemplos"]').val(r4_exemplos.substr(0,limite));
+            $(".addr4_exemplos").text("0" + " " + informativo);
+        }else{
+            $(".addr4_exemplos").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addr5_exemplos',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var r5_exemplos = $('textarea[name="addr5_exemplos"]').val();
+            $('textarea[name="addr5_exemplos"]').val(r5_exemplos.substr(0,limite));
+            $(".addr5_exemplos").text("0" + " " + informativo);
+        }else{
+            $(".addr5_exemplos").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addr6_exemplos',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var r6_exemplos = $('textarea[name="addr6_exemplos"]').val();
+            $('textarea[name="addr6_exemplos"]').val(r6_exemplos.substr(0,limite));
+            $(".addr6_exemplos").text("0" + " " + informativo);
+        }else{
+            $(".addr6_exemplos").text(caracteresRestantes + " " + informativo);
+        }        
+    });
+
+    $(document).on('input','#addr7_exemplos',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var r7_exemplos = $('textarea[name="addr7_exemplos"]').val();
+            $('textarea[name="addr7_exemplos"]').val(r7_exemplos.substr(0,limite));
+            $(".addr7_exemplos").text("0" + " " + informativo);
+        }else{
+            $(".addr7_exemplos").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addr8_exemplos',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var r8_exemplos = $('textarea[name="addr8_exemplos"]').val();
+            $('textarea[name="addr8_exemplos"]').val(r8_exemplos.substr(0,limite));
+            $(".addr8_exemplos").text("0" + " " + informativo);
+        }else{
+            $(".addr8_exemplos").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addr9_exemplos',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var r9_exemplos = $('textarea[name="addr9_exemplos"]').val();
+            $('textarea[name="addr9_exemplos"]').val(r9_exemplos.substr(0,limite));
+            $(".addr9_exemplos").text("0" + " " + informativo);
+        }else{
+            $(".addr9_exemplos").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addr10_exemplos',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var r10_exemplos = $('textarea[name="addr10_exemplos"]').val();
+            $('textarea[name="addr10_exemplos"]').val(r10_exemplos.substr(0,limite));
+            $(".addr10_exemplos").text("0" + " " + informativo);
+        }else{
+            $(".addr10_exemplos").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addr11_exemplos',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var r11_exemplos = $('textarea[name="addr11_exemplos"]').val();
+            $('textarea[name="addr11_exemplos"]').val(r11_exemplos.substr(0,limite));
+            $(".addr11_exemplos").text("0" + " " + informativo);
+        }else{
+            $(".addr11_exemplos").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addr12_exemplos',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var r12_exemplos = $('textarea[name="addr12_exemplos"]').val();
+            $('textarea[name="addr12_exemplos"]').val(r12_exemplos.substr(0,limite));
+            $(".addr12_exemplos").text("0" + " " + informativo);
+        }else{
+            $(".addr12_exemplos").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addr13_exemplos',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var r13_exemplos = $('textarea[name="addr13_exemplos"]').val();
+            $('textarea[name="addr13_exemplos"]').val(r13_exemplos.substr(0,limite));
+            $(".addr13_exemplos").text("0" + " " + informativo);
+        }else{
+            $(".addr13_exemplos").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addr14_exemplos',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var r14_exemplos = $('textarea[name="addr14_exemplos"]').val();
+            $('textarea[name="addr14_exemplos"]').val(r14_exemplos.substr(0,limite));
+            $(".addr14_exemplos").text("0" + " " + informativo);
+        }else{
+            $(".addr14_exemplos").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addr15_exemplos',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var r15_exemplos = $('textarea[name="addr15_exemplos"]').val();
+            $('textarea[name="addr15_exemplos"]').val(r15_exemplos.substr(0,limite));
+            $(".addr15_exemplos").text("0" + " " + informativo);
+        }else{
+            $(".addr15_exemplos").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addr16_exemplos',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var r16_exemplos = $('textarea[name="addr16_exemplos"]').val();
+            $('textarea[name="addr16_exemplos"]').val(r16_exemplos.substr(0,limite));
+            $(".addr16_exemplos").text("0" + " " + informativo);
+        }else{
+            $(".addr16_exemplos").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+    $(document).on('input','#addr17_exemplos',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var r17_exemplos = $('textarea[name="addr17_exemplos"]').val();
+            $('textarea[name="addr17_exemplos"]').val(r17_exemplos.substr(0,limite));
+            $(".addr17_exemplos").text("0" + " " + informativo);
+        }else{
+            $(".addr17_exemplos").text(caracteresRestantes + " " + informativo);
+        }
+    });
+
+$(document).on('click','.histdes_anexo3_infosensoriais',function(e){
+        e.preventDefault();
+        var pacienteid = $(this).data("pacienteid");
+        var atendimentoid = $(this).data("atendimentoid");
+        var opcao_form_histdes_infosensoriais = $("#histdes_anexo3_infosensoriais"+atendimentoid).data("id");
+
+        if(opcao_form_histdes_infosensoriais==0){
+                $("#addpacienteid_histdesanexo3infosensoriais").val(pacienteid);
+                $("#addatendimentoid_histdesanexo3infosensoriais").val(atendimentoid);
+                $("#addform_histdesanexo3infosensoriais").trigger('reset');
+                $("#AddHistDesAnexo3InfoSensoriais").modal('show'); 
+                $("#saveform_errList_histdesanexo3infosensoriais").replaceWith('<ul id="saveform_errList_histdesanexo3infosensoriais"></ul>');
+        }else{            
+                $("#editpacienteid_histdesanexo3infosensoriais").val(pacienteid);
+                $("#editatendimentoid_histdesanexo3infosensoriais").val(atendimentoid);
+                $("#editform_histdesanexo3infosensoriais").trigger('reset');
+                $("#EditHistDesAnexo3InfoSensoriais").modal('show'); 
+                $("#updateform_errList_histdesanexo3infosensoriais").replaceWith('<ul id="updateform_errList_histdesanexo3infosensoriais"></ul>');
+
+                 $.ajaxSetup({
+                    headers:{
+                        'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+    
+    
+                $.ajax({ 
+                    type: 'GET',             
+                    dataType: 'json',                                    
+                    url: '/ceteaadmin/terapia/edit_histdesanexo3infosensoriais/'+pacienteid,
+                    success: function(response){           
+                        if(response.status==200){                                                                                                        
+                            $('.r1_reac_int_sons_amb').attr('checked',response.histdesanexo3infosensoriais.r1_reac_int_sons_amb);                            
+                            $('.r1_exemplos').val(response.histdesanexo3infosensoriais.r1_exemplos);
+                            $('.r2_cost_col_maos_ouv').attr('checked',response.histdesanexo3infosensoriais.r2_cost_col_maos_ouv);
+                            $('.r2_exemplos').val(response.histdesanexo3infosensoriais.r2_exemplos);
+                            $('.r3_gt_bar_estranhos').attr('checked',response.histdesanexo3infosensoriais.r3_gt_bar_estranhos);
+                            $('.r3_exemplos').val(response.histdesanexo3infosensoriais.r3_exemplos);
+                            $('.r4_div_olh_det_vis_obj').attr('checked',response.histdesanexo3infosensoriais.r4_div_olh_det_vis_obj);
+                            $('.r4_exemplos').val(response.histdesanexo3infosensoriais.r4_exemplos);
+                            $('.r5_inc_luzes_obj_bril').attr('checked',response.histdesanexo3infosensoriais.r5_inc_luzes_obj_bril);
+                            $('.r5_exemplos').val(response.histdesanexo3infosensoriais.r5_exemplos);
+                            $('.r6_desc_com_asseios').attr('checked',response.histdesanexo3infosensoriais.r6_desc_com_asseios);
+                            $('.r6_exemplos').val(response.histdesanexo3infosensoriais.r6_exemplos);
+                            $('.r7_desc_com_sapatos').attr('checked',response.histdesanexo3infosensoriais.r7_desc_com_sapatos);
+                            $('.r7_exemplos').val(response.histdesanexo3infosensoriais.r7_exemplos);
+                            $('.r8_desc_qdo_tocada').attr('checked',response.histdesanexo3infosensoriais.r8_desc_qdo_tocada);
+                            $('.r8_exemplos').val(response.histdesanexo3infosensoriais.r8_exemplos);
+                            $('.r9_tend_tocar_obj_pess').attr('checked',response.histdesanexo3infosensoriais.r9_tend_tocar_obj_pess);
+                            $('.r9_exemplos').val(response.histdesanexo3infosensoriais.r9_exemplos);
+                            $('.r10_apres_pc_rec_temp').attr('checked',response.histdesanexo3infosensoriais.r10_apres_pc_rec_temp);
+                            $('.r10_exemplos').val(response.histdesanexo3infosensoriais.r10_exemplos);
+                            $('.r11_apres_pc_cons_perigo').attr('checked',response.histdesanexo3infosensoriais.r11_apres_pc_cons_perigo);
+                            $('.r11_exemplos').val(response.histdesanexo3infosensoriais.r11_exemplos);
+                            $('.r12_se_mov_man_rig').attr('checked',response.histdesanexo3infosensoriais.r12_se_mov_man_rig);
+                            $('.r12_exemplos').val(response.histdesanexo3infosensoriais.r12_exemplos);
+                            $('.r13_parece_nter_forca').attr('checked',response.histdesanexo3infosensoriais.r13_parece_nter_forca);
+                            $('.r13_exemplos').val(response.histdesanexo3infosensoriais.r13_exemplos);
+                            $('.r14_tem_nausea_textura').attr('checked',response.histdesanexo3infosensoriais.r14_tem_nausea_textura);
+                            $('.r14_exemplos').val(response.histdesanexo3infosensoriais.r14_exemplos);
+                            $('.r15_rej_sab_exclu_outros').attr('checked',response.histdesanexo3infosensoriais.r15_rej_sab_exclu_outros);
+                            $('.r15_exemplos').val(response.histdesanexo3infosensoriais.r15_exemplos);
+                            $('.r16_col_obj_na_boca').attr('checked',response.histdesanexo3infosensoriais.r16_col_obj_na_boca);
+                            $('.r16_exemplos').val(response.histdesanexo3infosensoriais.r16_exemplos);
+                            $('.r17_parece_desatento').attr('checked',response.histdesanexo3infosensoriais.r17_parece_desatento);
+                            $('.r17_exemplos').val(response.histdesanexo3infosensoriais.r17_exemplos);
+                        }
+                    }
+                });
+        }
+    });
+
+
+    $(document).on('click','.add_histdes_anexo3infosensoriais_btn',function(e){
+        e.preventDefault();
+        var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+        var pacienteid = $("#addpacienteid_histdesanexo3infosensoriais").val();
+        var atendimentoid = $("#addatendimentoid_histdesanexo3infosensoriais").val();
+
+        var loading = $("#imgadd_histdesanexo34infosensoriais");
+            loading.show();
+
+        var data = new FormData();
+
+        data.append('atendimento',atendimentoid);
+        data.append('paciente',pacienteid);
+        data.append('r1_reac_int_sons_amb',$(".r1_reac_int_sons_amb").is(":checked")?'true':'false');
+        data.append('r1_exemplos',$(".r1_exemplos").val());
+        data.append('r2_cost_col_maos_ouv',$(".r2_cost_col_maos_ouv").is(":checked")?'true':'false');
+        data.append('r2_exemplos',$(".r2_exemplos").val());
+        data.append('r3_gt_bar_estranhos',$(".r3_gt_bar_estranhos").is(":checked")?'true':'false');
+        data.append('r3_exemplos',$(".r3_exemplos").val());
+        data.append('r4_div_olh_det_vis_obj',$(".r4_div_olh_det_vis_obj").is(":checked")?'true':'false');
+        data.append('r4_exemplos',$(".r4_exemplos").val());
+        data.append('r5_inc_luzes_obj_bril',$(".r5_inc_luzes_obj_bril").is(":checked")?'true':'false');
+        data.append('r5_exemplos',$(".r5_exemplos").val());
+        data.append('r6_desc_com_asseios',$(".r6_desc_com_asseios").is(":checked")?'true':'false');
+        data.append('r6_exemplos',$(".r6_exemplos").val());
+        data.append('r7_desc_com_sapatos',$(".r7_desc_com_sapatos").is(":checked")?'true':'false');
+        data.append('r7_exemplos',$(".r7_exemplos").val());
+        data.append('r8_desc_qdo_tocada',$(".r8_desc_qdo_tocada").is(":checked")?'true':'false');
+        data.append('r8_exemplos',$(".r8_exemplos").val());
+        data.append('r9_tend_tocar_obj_pess',$(".r9_tend_tocar_obj_pess").is(":checked")?'true':'false');
+        data.append('r9_exemplos',$(".r9_exemplos").val());
+        data.append('r10_apres_pc_rec_temp',$(".r10_apres_pc_rec_temp").is(":checked")?'true':'false');
+        data.append('r10_exemplos',$(".r10_exemplos").val());
+        data.append('r11_apres_pc_cons_perigo',$(".r11_apres_pc_cons_perigo").is(":checked")?'true':'false');
+        data.append('r11_exemplos',$(".r11_exemplos").val());
+        data.append('r12_se_mov_man_rig',$(".r12_se_mov_man_rig").is(":checked")?'true':'false');
+        data.append('r12_exemplos',$(".r12_exemplos").val());
+        data.append('r13_parece_nter_forca',$(".r13_parece_nter_forca").is(":checked")?'true':'false');
+        data.append('r13_exemplos',$(".r13_exemplos").val());
+        data.append('r14_tem_nausea_textura',$(".r14_tem_nausea_textura").is(":checked")?'true':'false');
+        data.append('r14_exemplos',$(".r14_exemplos").val());
+        data.append('r15_rej_sab_exclu_outros',$(".r15_rej_sab_exclu_outros").is(":checked")?'true':'false');
+        data.append('r15_exemplos',$(".r15_exemplos").val());
+        data.append('r16_col_obj_na_boca',$(".r16_col_obj_na_boca").is(":checked")?'true':'false');
+        data.append('r16_exemplos',$(".r16_exemplos").val());
+        data.append('r17_parece_desatento',$(".r17_parece_desatento").is(":checked")?'true':'false');
+        data.append('r17_exemplos',$(".r17_exemplos").val());
+        data.append('_token',CSRF_TOKEN);
+        data.append('_method','PUT');
+
+        $.ajax({
+            url:'/ceteaadmin/terapia/store_histdesanexo3infosensoriais',
+            type: 'POST',
+            dataType: 'json',
+            data: data,
+            cache: false,
+            processData: false,
+            contentType: false,
+            async:true,
+            success:function(response){
+                if(response.status==400){
+                    $("#saveform_errlist_histdesanexo3insosensoriais").replaceWith('<ul id="saveform_errList_histdesanexo3infosensoriais"></ul>');
+                    $("#saveform_errlist_histdesanexo3infosensoriais").addClass("alert alert-danger");
+                    $.each(response.errors,function(key,err_values){
+                        $("#saveform_errlist_histdesanexo3infosensoriais").append('<li>'+err_values+'</li>')
+                    });
+                    loading.hide();
+                }else{
+                    loading.hide();
+                    $("#saveform_errlist_histdesanexo3infosensoriais").replaceWith('<ul id="saveform_errList_histdesanexo3infosensoriais"></ul>');
+                    $("#histdes_anexo3_infosensoriais"+atendimentoid).replaceWith('<i data-id="1" id="histdes_anexo3_infosensoriais'+atendimentoid+'" class="fas fa-check" style="color: green"></i>');
+                    $("#addform_histdesanexo3infosensoriais").trigger('reset');
+                    $("#AddHistDesAnexo3InfoSensoriais").modal('hide');                     
+                }
+            }
+
+        });
+
+    });
+
+
+    $(document).on('click','.update_histdesanexo3infosensoriais_btn',function(e){
+        var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+        var atendimentoid = $("#editatendimentoid_histdesanexo3infosensoriais").val();
+        var pacienteid = $("#editpacienteid_histdesanexo3infosensoriais").val();
+
+        var loading = $("#imgedit_histdesanexo3infosensoriais");
+            loading.show();
+
+        var data = new FormData();
+
+        data.append('atendimento',atendimentoid);
+        data.append('paciente',pacienteid);
+        data.append('r1_reac_int_sons_amb',$("#editr1_reac_int_sons_amb").is(":checked")?'true':'false');
+        data.append('r1_exemplos',$("#editr1_exemplos").val());
+        data.append('r2_cost_col_maos_ouv',$("#editr2_cost_col_maos_ouv").is(":checked")?'true':'false');
+        data.append('r2_exemplos',$("#editr2_exemplos").val());
+        data.append('r3_gt_bar_estranhos',$("#editr3_gt_bar_estranhos").is(":checked")?'true':'false');
+        data.append('r3_exemplos',$("#editr3_exemplos").val());
+        data.append('r4_div_olh_det_vis_obj',$("#editr4_div_olh_det_vis_obj").is(":checked")?'true':'false');
+        data.append('r4_exemplos',$("#editr4_exemplos").val());
+        data.append('r5_inc_luzes_obj_bril',$("#editr5_inc_luzes_obj_bril").is(":checked")?'true':'false');
+        data.append('r5_exemplos',$("#editr5_exemplos").val());
+        data.append('r6_desc_com_asseios',$("#editr6_desc_com_asseios").is(":checked")?'true':'false');
+        data.append('r6_exemplos',$("#editr6_exemplos").val());
+        data.append('r7_desc_com_sapatos',$("#editr7_desc_com_sapatos").is(":checked")?'true':'false');
+        data.append('r7_exemplos',$("#editr7_exemplos").val());
+        data.append('r8_desc_qdo_tocada',$("#editr8_desc_qdo_tocada").is(":checked")?'true':'false');
+        data.append('r8_exemplos',$("#editr8_exemplos").val());
+        data.append('r9_tend_tocar_obj_pess',$("#editr9_tend_tocar_obj_pess").is(":checked")?'true':'false');
+        data.append('r9_exemplos',$("#editr9_exemplos").val());
+        data.append('r10_apres_pc_rec_temp',$("#editr10_apres_pc_rec_temp").is(":checked")?'true':'false');
+        data.append('r10_exemplos',$("#editr10_exemplos").val());
+        data.append('r11_apres_pc_cons_perigo',$("#editr11_apres_pc_cons_perigo").is(":checked")?'true':'false');
+        data.append('r11_exemplos',$("#editr11_exemplos").val());
+        data.append('r12_se_mov_man_rig',$("#editr12_se_mov_man_rig").is(":checked")?'true':'false');
+        data.append('r12_exemplos',$("#editr12_exemplos").val());
+        data.append('r13_parece_nter_forca',$("#editr13_parece_nter_forca").is(":checked")?'true':'false');
+        data.append('r13_exemplos',$("#editr13_exemplos").val());
+        data.append('r14_tem_nausea_textura',$("#editr14_tem_nausea_textura").is(":checked")?'true':'false');
+        data.append('r14_exemplos',$("#editr14_exemplos").val());
+        data.append('r15_rej_sab_exclu_outros',$("#editr15_rej_sab_exclu_outros").is(":checked")?'true':'false');
+        data.append('r15_exemplos',$("#editr15_exemplos").val());
+        data.append('r16_col_obj_na_boca',$("#editr16_col_obj_na_boca").is(":checked")?'true':'false');
+        data.append('r16_exemplos',$("#editr16_exemplos").val());
+        data.append('r17_parece_desatento',$("#editr17_parece_desatento").is(":checked")?'true':'false');
+        data.append('r17_exemplos',$("#editr17_exemplos").val());
+        data.append('_token',CSRF_TOKEN);
+        data.append('_method','PUT');   
+
+        $.ajax({
+            url:'/ceteaadmin/terapia/update_histdesanexo3infosensoriais/'+pacienteid,
+            type:'POST',
+            contentType: 'json',
+            data: data,
+            cache: false,
+            processData: false,
+            contentType: false,
+            async:true,
+            success:function(response){
+                if(response.status==400){
+                    $("#updateform_errList_histdesanexo3infosensoriais").replaceWith('<ul id="updateform_errList_histdesanexo3infosensoriais"></ul>');
+                    $("#updateform_errlist_histdesanexo3infosensoriais").addClass('alert alert-danger');
+                    $.each(response.errors,function(key,err_values){
+                        $("#updateform_errlist_histdesanexo3infosensoriais").append('<li>'+err_values+'</li>');
+                    });
+                    loading.hide();
+                }else{
+                    loading.hide();
+                    $("#updateform_errlist_histdesanexo3infosensoriais").replaceWith('<ul id="updateform_errList_histdesanexo3infosensoriais"></ul>');
+                    $("#histdes_anexo3_infosensoriais"+atendimentoid).replaceWith('<i data-id="1" id="histdes_anexo3_infosensoriais'+atendimentoid+'" class="fas fa-check" style="color: green"></i>');
+                    $("#editform_histdesanexo3infosensoriais").trigger('reset');
+                    $("#EditHistDesAnexo3InfoSensoriais").modal('hide');    
+                }
+            }
+        });
+    });
+
+//fim histdes_anexo3_infosensoriais
 
 
 });

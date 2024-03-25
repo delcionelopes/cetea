@@ -12,8 +12,7 @@ class HistDes_Anexo3_R18_Docs extends Model
     protected $table = 'histdes_anexo3_r18_docs';
     protected $primaryKey = 'id';
     protected $fillable = [
-        'id',
-        'histdes_anexo3_infosensoriais_id',
+        'id',        
         'paciente_id',
         'nome',
         'nomearq',
@@ -28,10 +27,5 @@ class HistDes_Anexo3_R18_Docs extends Model
     public function paciente():BelongsTo{
         return $this->belongsTo(Paciente::class,'paciente_id');
     }
-
-    public function histdes_anexo3_infosensoriais():BelongsTo{
-        return $this->belongsTo(HistDes_Anexo3_InfoSensoriais::class,'histdes_anexo3_infosensoriais_id');
-    }
-
 
 }
