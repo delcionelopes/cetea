@@ -194,7 +194,10 @@ class TerapiaController extends Controller
         $count_histdes_anexo1_rotalim = $this->histdes_anexo1_rotalim->wherePaciente_id($atendimento->paciente_id)->first();
         $count_histdes_anexo2_histmedico = $this->histdes_anexo2_histmedico->wherePaciente_id($atendimento->paciente_id)->first();
         $count_histdes_anexo3_infosensoriais = $this->histdes_anexo3_infosensoriais->wherePaciente_id($atendimento->paciente_id)->first();
-        $count_evolucao = $this->evolucao->wherePaciente_id($atendimento->paciente_id)->first();        
+        $count_evolucao = $this->evolucao->wherePaciente_id($atendimento->paciente_id)->first();
+
+        $paciente = $this->paciente->find($atendimento->paciente_id);
+        $histdes_anexo3_docs = $this->histdes_anexo3_docs->wherePaciente_id($paciente->id)->get();
 
         return view('cetea.terapia.edit',[
             'status' => 200,
@@ -218,7 +221,9 @@ class TerapiaController extends Controller
             'count_histdes_anexo1_rotalim' => $count_histdes_anexo1_rotalim,
             'count_histdes_anexo2_histmedico' => $count_histdes_anexo2_histmedico,
             'count_histdes_anexo3_infosensoriais' => $count_histdes_anexo3_infosensoriais,
-            'count_evolucao' => $count_evolucao,            
+            'count_evolucao' => $count_evolucao,
+            'histdes_anexo3_docs' => $histdes_anexo3_docs,
+            'paciente' => $paciente,
         ]);
     }
 
@@ -2383,9 +2388,9 @@ public function storeHistDesAnexo3InfoSensoriais(Request $request){
 
     public function editHistDesAnexo3InfoSensoriais(int $id){
         $busca_pelo_paciente = $this->histdes_anexo3_infosensoriais->wherePaciente_id($id)->first();
-        $histdes_anexo3_infosensoriais = $this->histdes_anexo3_infosensoriais->find($busca_pelo_paciente->id);
-        $histdes_anexo3_docs = $this->histdes_anexo3_docs->wherePaciente_id($id)->get();
-        $paciente = $this->paciente->find($busca_pelo_paciente->id);
+        $histdes_anexo3_infosensoriais = $this->histdes_anexo3_infosensoriais->find($busca_pelo_paciente->id);        
+        $paciente = $this->paciente->find($id);
+        $histdes_anexo3_docs = $this->histdes_anexo3_docs->wherePaciente_id($paciente->id)->get();
         return response()->json([
             'status' => 200,
             'histdesanexo3infosensoriais' => $histdes_anexo3_infosensoriais,
@@ -2454,7 +2459,7 @@ public function storeHistDesAnexo3InfoSensoriais(Request $request){
     }
     }
 
-    public function uploadDocsAnexo3InfoSensoriais(Request $request, int $id){             
+    public function uploadDocsAnexo3(Request $request, int $id){             
          if ($request->TotalFiles>0) 
          {
            $user = auth()->user();
@@ -2492,7 +2497,7 @@ public function storeHistDesAnexo3InfoSensoriais(Request $request){
              HistDes_Anexo3_R18_Docs::insert($data);                                                                  
          }    
              $paciente = $this->paciente->find($id);             
-             $arquivos = $paciente->histdes_anexo3_r18_docs;
+             $arquivos = $this->histdes_anexo3_docs->wherePaciente_id($paciente->id)->get();
              return response()->json([
                  'paciente' => $paciente,
                  'arquivos' => $arquivos,
@@ -2501,7 +2506,7 @@ public function storeHistDesAnexo3InfoSensoriais(Request $request){
 
     }
 
-    public function deleteDocsAnexo3InfoSensoriais(int $id){                
+    public function deleteDocsAnexo3(int $id){                
             $arquivo = $this->histdes_anexo3_docs->find($id);    
             $pacienteid = $arquivo->paciente_id;
             //deleção do arquivo na pasta /storage/arquivos_histdes_anexo3/
@@ -2520,7 +2525,7 @@ public function storeHistDesAnexo3InfoSensoriais(Request $request){
             ]);        
     }
 
-    public function abrirDocAnexo3InfoSensoriais(int $id){
+    public function abrirDocAnexo3(int $id){
         $arquivo = $this->histdes_anexo3_docs->find($id);
         return response()->json([
             'status' => 200,

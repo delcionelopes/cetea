@@ -254,6 +254,9 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::put('/store_histdesanexo3infosensoriais',[TerapiaController::class,'storeHistDesAnexo3InfoSensoriais']);
         Route::get('/edit_histdesanexo3infosensoriais/{id}',[TerapiaController::class,'editHistDesAnexo3InfoSensoriais']);
         Route::put('/update_histdesanexo3infosensoriais/{id}',[TerapiaController::class,'updateHistDesAnexo3InfoSensoriais']);
+        Route::put('/anexo3-upload-docs/{id}',[TerapiaController::class,'uploadDocsAnexo3']);
+        Route::delete('/anexo3-delete-docs/{id}',[TerapiaController::class,'deleteDocsAnexo3']);
+        Route::get('/anexo3-abrir-doc/{id}',[TerapiaController::class,'abrirDocAnexo3']);        
       });
 
       Route::prefix('feriado')->name('feriado.')->group(function(){
@@ -263,10 +266,10 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::put('/update/{id}',[FeriadoController::class,'update']);
         Route::put('/store',[FeriadoController::class,'store']);
       });
-
+    
 
     }); //fim ceteaadmin
-
+  
 }); //fim do escopo do middleware auth
 
 ///parte do site front-page

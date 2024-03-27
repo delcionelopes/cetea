@@ -234,12 +234,14 @@
                     </div>
                 </fieldset>
             </form>
-            <form id="addform_arquivo" name="addform_arquivo" class="form-horizontal" role="form" enctype="multipart/form-data">
+            <form id="addform_arquivo" name="addform_arquivo" class="form-horizontal" role="form" enctype="multipart/form-data" method="POST">
+                @csrf
+                @method('PUT')
                 <!--arquivos -->
                 <div class="form-group mb-3">
                     <label for="">Arquivos (*.pdf format)</label>
-                    <span class="btn btn-{{$color}} fileinput-button"><i class="fas fa-folder-open" style="color: blue"></i>
-                      <input id="addarquivo" class="arquivo" type="file" name="addarquivo[]" accept="application/pdf" multiple>
+                    <span class="btn btn-none fileinput-button"><i class="fas fa-folder-open" style="color: orange"></i>
+                      <input data-id="{{$paciente->id}}" data-atendimentoid="{{$atendimento->id}}" id="addarquivo" class="arquivo" type="file" name="addarquivo[]" accept="application/pdf" multiple>
                     </span>  
                 </div>
             </form>
@@ -248,11 +250,28 @@
                             <tr>                                
                                 <th scope="col">NOME DO ARQUIVO</th>                                
                                 <th scope="col">DATA</th>
-                                <th scope="col">ANEXADO POR</th>                                                                
+                                <th scope="col">ANEXADO POR</th>
+                                <th scope="col">AÇÕES</th>
                             </tr>
                         </thead>
-                        <tbody id="addlista_arquivos">
-                        <tr id="addnovoinfosensoriais" style="display:none;"></tr>
+                        <tbody id="addlistdocs">
+                        @forelse($histdes_anexo3_docs as $doc)
+                        <tr id="adddoc{{$doc->id}}">
+                            <th scope="row">{{$doc->nome}}</th>
+                            <td>{{date('d/m/Y',strtotime($doc->created_at))}}</td>
+                            <td>{{$doc->criador->name}}</td>
+                             <td>                                    
+                                        <div class="btn-group">                                                                                       
+                                            <button type="button" data-id="{{$doc->id}}" data-nome="{{$doc->nome}}" class="abrir_arquivo_btn fas fa-folder" style="background:transparent;border:none;"></button>
+                                            <button type="button" data-atendimentoid="{{$atendimento->id}}" data-id="{{$doc->id}}" data-nome="{{$doc->nome}}" class="delete_arquivo_btn fas fa-trash" style="background:transparent;border:none;"></button>
+                                        </div>                                    
+                             </td>
+                        </tr>
+                        @empty
+                        <tr id="addnadaencontrado">
+                            <td colspan="4">Nenhum arquivo!</td>
+                        </tr>
+                        @endforelse
                         </tbody>
                     </table> 
         </div>
@@ -471,12 +490,14 @@
                     </div>
                 </fieldset>     
             </form>
-            <form id="editform_arquivo" name="editform_arquivo" class="form-horizontal" role="form" enctype="multipart/form-data">
+            <form id="editform_arquivo" name="editform_arquivo" class="form-horizontal" role="form" enctype="multipart/form-data" method="POST">
+                @csrf
+                @method('PUT')
                 <!--arquivos -->
                 <div class="form-group mb-3">
                     <label for="">Arquivos (*.pdf format)</label>
-                    <span class="btn btn-{{$color}} fileinput-button"><i class="fas fa-folder-open" style="color: blue"></i>
-                      <input id="editarquivo" class="arquivo" type="file" name="editarquivo[]" accept="application/pdf" multiple>
+                    <span class="btn btn-none fileinput-button"><i class="fas fa-folder-open" style="color: orange"></i>
+                      <input data-id="{{$paciente->id}}" data-atendimentoid="{{$atendimento->id}}" id="editarquivo" class="arquivo" type="file" name="editarquivo[]" accept="application/pdf" multiple>
                     </span>  
                 </div>
             </form>
@@ -485,11 +506,28 @@
                             <tr>                                
                                 <th scope="col">NOME DO ARQUIVO</th>                                
                                 <th scope="col">DATA</th>
-                                <th scope="col">ANEXADO POR</th>                                                                
+                                <th scope="col">ANEXADO POR</th>
+                                <th scope="col">AÇÕES</th>
                             </tr>
                         </thead>
-                        <tbody id="editlista_arquivos">
-                        <tr id="editnovoinfosensoriais" style="display:none;"></tr>
+                        <tbody id="editlistdocs">                      
+                        @forelse($histdes_anexo3_docs as $doc)
+                        <tr id="editdoc{{$doc->id}}">
+                            <th scope="row">{{$doc->nome}}</th>
+                            <td>{{date('d/m/Y',strtotime($doc->created_at))}}</td>
+                            <td>{{$doc->criador->name}}</td>
+                            <td>                                    
+                                        <div class="btn-group">                                                                                       
+                                            <button type="button" data-id="{{$doc->id}}" data-nome="{{$doc->nome}}" class="abrir_arquivo_btn fas fa-folder" style="background:transparent;border:none;"></button>
+                                            <button type="button" data-atendimentoid="{{$atendimento->id}}" data-id="{{$doc->id}}" data-nome="{{$doc->nome}}" class="delete_arquivo_btn fas fa-trash" style="background:transparent;border:none;"></button>
+                                        </div>                                    
+                             </td>
+                        </tr>
+                        @empty
+                        <tr id="editnadaencontrado">
+                            <td colspan="4">Nenhum arquivo!</td>
+                        </tr>
+                        @endforelse
                         </tbody>
                     </table> 
         </div>
@@ -14351,6 +14389,155 @@ $(document).on('click','.histdes_anexo3_infosensoriais',function(e){
     });
 
 //fim histdes_anexo3_infosensoriais
+
+///Envio de anexo3_docs
+//inicio enviar docs
+    $(document).on('change','.arquivo',function(){
+            var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
+            var formData = new FormData();
+            var atendimentoid = $(this).data("atendimentoid");
+            var opcao_form_histdes_infosensoriais = $("#histdes_anexo3_infosensoriais"+atendimentoid).data("id");
+
+            let id = $(this).data("id"); //id do paciente
+
+            if (opcao_form_histdes_infosensoriais == 0) {
+            let TotalFiles = $('#addarquivo')[0].files.length;
+            let files = $('#addarquivo')[0];    
+
+            for(let i=0; i < TotalFiles; i++){
+                formData.append('arquivo'+i, files.files[i]);
+            }
+
+            formData.append('TotalFiles',TotalFiles);
+            formData.append('_token',CSRF_TOKEN);
+            formData.append('_enctype','multipart/form-data');
+            formData.append('_method','PUT'); 
+        }else{
+            let TotalFiles = $('#editarquivo')[0].files.length;
+            let files = $('#editarquivo')[0];    
+
+            for(let i=0; i < TotalFiles; i++){
+                formData.append('arquivo'+i, files.files[i]);
+            }
+
+            formData.append('TotalFiles',TotalFiles);
+            formData.append('_token',CSRF_TOKEN);
+            formData.append('_enctype','multipart/form-data');
+            formData.append('_method','PUT'); 
+        }
+            
+            $('.arquivo').val(""); ///limpa o input
+                                
+            $.ajax({                                             
+                url: '/ceteaadmin/terapia/anexo3-upload-docs/'+id,
+                type:'POST',
+                dataType: 'json',        
+                data:formData,
+                cache:false,        
+                contentType: false,        
+                processData: false, 
+                async: true,       
+                success: function(response){                              
+                if(response.status==200){    
+                    if (opcao_form_histdes_infosensoriais == 0) {   
+                      $('#addlistdocs').replaceWith('<tbody id="addlistdocs"></tbody>');
+                      $.each(response.arquivos,function(key,docs){                          
+                        var datacriacao = new Date(docs.created_at);
+                            datacriacao = datacriacao.toLocaleString('pt-BR');
+                        $('#addlistdocs').append('<tr id='+'"adddoc'+docs.id+'"'+'>\
+                            <th scope="row">'+docs.nome+'</th>\
+                            <td>'+datacriacao+'</td>\
+                            <td></td>\
+                             <td>\
+                                        <div class="btn-group">\
+                                            <button type="button" data-id="'+docs.id+'" data-nome="'+docs.nome+'" class="abrir_arquivo_btn fas fa-folder" style="background:transparent;border:none;"></button>\
+                                            <button type="button" data-atendimentoid="'+atendimentoid+'" data-id="'+docs.id+'" data-nome="'+docs.nome+'" class="delete_arquivo_btn fas fa-trash" style="background:transparent;border:none;"></button>\
+                                        </div>\
+                             </td>\
+                        </tr>');
+                      });
+                    }else{
+                        $('#editlistdocs').replaceWith('<tbody id="editlistdocs"></tbody>');
+                        $.each(response.arquivos,function(key,docs){                          
+                        var datacriacao = new Date(docs.created_at);
+                            datacriacao = datacriacao.toLocaleString('pt-BR');
+                        $('#editlistdocs').append('<tr id='+'"editdoc'+docs.id+'"'+'>\
+                            <th scope="row">'+docs.nome+'</th>\
+                            <td>'+datacriacao+'</td>\
+                            <td></td>\
+                             <td>\
+                                        <div class="btn-group">\
+                                            <button type="button" data-id="'+docs.id+'" data-nome="'+docs.nome+'" class="abrir_arquivo_btn fas fa-folder" style="background:transparent;border:none;"></button>\
+                                            <button type="button" data-atendimentoid="'+atendimentoid+'" data-id="'+docs.id+'" data-nome="'+docs.nome+'" class="delete_arquivo_btn fas fa-trash" style="background:transparent;border:none;"></button>\
+                                        </div>\
+                             </td>\
+                        </tr>');
+                      });
+                    }
+                }   
+                }                                  
+        });  
+    });
+    ////fim enviar docs
+    ///delete doc
+     $(document).on('click','.delete_arquivo_btn',function(e){ 
+            e.preventDefault();           
+            var CSRF_TOKEN  = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+            var id = $(this).data("id");
+            var atendimentoid = $(this).data("atendimentoid");
+            var opcao_form_histdes_infosensoriais = $("#histdes_anexo3_infosensoriais"+atendimentoid).data("id");
+                      
+                $.ajax({
+                    url: '/ceteaadmin/terapia/anexo3-delete-docs/'+id,
+                    type: 'POST',
+                    dataType: 'json',
+                    data:{
+                        'id': id,
+                        '_method': 'DELETE',                    
+                        '_token':CSRF_TOKEN,
+                    },
+                    success:function(response){
+                        if(response.status==200){
+                            if (opcao_form_histdes_infosensoriais==0){
+                            $('#adddoc'+id).remove();
+                            }else{
+                            $('#editdoc'+id).remove();
+                            }
+                        }
+                    }
+                });            
+      
+      
+        }); 
+    ///fim delete doc
+    ////Abrir doc
+    $(document).on('click','.abrir_arquivo_btn',function(e){
+        e.preventDefault();            
+            var id = $(this).data("id"); 
+
+               $.ajaxSetup({
+                    headers:{
+                        'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+    
+    
+            $.ajax({ 
+                type: 'GET',             
+                dataType: 'json',                                    
+                url: '/ceteaadmin/terapia/anexo3-abrir-doc/'+id,                                
+                success: function(response){ 
+                    if(response.status==200){
+                      var link = "{{asset('')}}"+"storage/"+response.arquivo.path;
+                      //visualizar o pdf no browser                
+                          window.open(link);                    
+                    }
+                }
+            });
+
+    });
+    ///fim abrir doc
+///Fim de envio anexo3_docs
 
 
 });

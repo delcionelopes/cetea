@@ -16,8 +16,7 @@ class HistDes_Anexo3_R18_Docs extends Model
         'paciente_id',
         'nome',
         'nomearq',
-        'path',
-        'arquivo',
+        'path',        
         'created_at',
         'updated_at',
         'creater_user',
@@ -26,6 +25,10 @@ class HistDes_Anexo3_R18_Docs extends Model
 
     public function paciente():BelongsTo{
         return $this->belongsTo(Paciente::class,'paciente_id');
+    }
+
+    public function criador():BelongsTo{
+        return $this->belongsTo(User::class,'creater_user');
     }
 
 }
