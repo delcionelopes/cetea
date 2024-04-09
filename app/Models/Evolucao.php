@@ -16,6 +16,7 @@ class Evolucao extends Model
         'atendimento_id',
         'paciente_id',
         'tipo',
+        'abrangencia',
         'conteudo',
         'sim_nao',
         'justificativa',
