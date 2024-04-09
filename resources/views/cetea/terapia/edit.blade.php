@@ -26,7 +26,97 @@
             max-height: 28px;
         }    
 
+
+.dropdown-menu li {
+position: relative;
+}
+.dropdown-menu .dropdown-submenu {
+display: none;
+position: absolute;
+left: 100%;
+top: -7px;
+}
+.dropdown-menu .dropdown-submenu-left {
+right: 100%;
+left: auto;
+}
+.dropdown-menu > li:hover > .dropdown-submenu {
+display: block;
+}
+
 </style>
+
+<!-- Inicio AddEvolucao -->
+<div class="modal fade animate__animated animate__bounce animate__faster bd-example-modal-xl" id="AddEvolucao" tabindex="-1" role="dialog" aria-labelledby="AddmyExtraLargeModalLabel_Evolucao" aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+        <div class="modal-header bg-{{$color}}">
+            <h5 class="modal-title" id="AddmyExtraLargeModalLabel_Evolucao" style="color: white;">Novo Registro - Evolução</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                <span aria-hidden="true" style="color: white.">&times;</span>
+            </button>
+        </div>      
+        <div class="modal-body form-horizontal" role="form">
+            <form id="addform_evolucao" class="form-horizontal" role="form" method="POST">
+                <input type="hidden" id="addpacienteid_evolucao">
+                <input type="hidden" id="addatendimentoid_evolucao">
+                <ul id="saveform_errlist_evolucao"></ul>
+                <fieldset>
+                    <legend>EVOLUÇÃO</legend>
+                </fieldset>                                            
+                <fieldset>                    
+                    <div class="form-group">
+                      <label for="">Conteúdo</label><br>
+                      <span class="addevolucaoconteudo"></span>
+                      <textarea name="addevolucaoconteudo" id="addevolucaoconteudo" cols="30" rows="3" class="evolucaoconteudo form-control"></textarea>
+                    </div>
+                </fieldset>
+            </form>
+        </div>     
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            <button data-color="{{$color}}" class="btn btn-{{$color}} add_evolucao_btn"><img id="imgadd_evolucao" src="{{asset('storage/ajax-loader.gif')}}" style="display: none;" class="rounded-circle" width="20"> Salvar</button>
+        </div>
+    </div>
+  </div>
+</div>
+<!-- Fim AddEvolucao -->
+
+<!-- Inicio EditEvolucao -->
+<div class="modal fade animate__animated animate__bounce animate__faster bd-example-modal-xl" id="EditHistDesAnexo3InfoSensoriais" tabindex="-1" role="dialog" aria-labelledby="EditmyExtraLargeModalLabel_evolucao" aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+        <div class="modal-header bg-{{$color}}">
+            <h5 class="modal-title" id="EditmyExtraLargeModalLabel_evolucao" style="color: white;">Alteração de registro - Evolução</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                <span aria-hidden="true" style="color: white.">&times;</span>
+            </button>
+        </div>      
+        <div class="modal-body form-horizontal" role="form">
+            <form id="editform_evolucao" class="form-horizontal" role="form" method="POST">
+                <input type="hidden" id="editpacienteid_evolucao">
+                <input type="hidden" id="editatendimentoid_evolucao">
+                <ul id="updateform_errlist_evolucao"></ul>
+                 <fieldset>
+                    <legend>EVOLUÇÃO</legend>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                      <label for="">Conteúdo</label><br>
+                      <span class="editevolucaoconteudo"></span>
+                      <textarea name="editevolucaoconteudo" id="editevolucaoconteudo" cols="30" rows="3" class="evolucaoconteudo form-control"></textarea>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            <button data-color="{{$color}}" class="btn btn-{{$color}} update_evolucao_btn"><img id="imgedit_evolucao" src="{{asset('storage/ajax-loader.gif')}}" style="display: none;" class="rounded-circle" width="20"> Salvar</button>
+        </div>
+    </div>
+  </div>
+</div>
+<!-- Fim EditEvolucao -->
 
 <!-- Inicio AddHistDesAnexo3InfoSensoriais -->
 <div class="modal fade animate__animated animate__bounce animate__faster bd-example-modal-xl" id="AddHistDesAnexo3InfoSensoriais" tabindex="-1" role="dialog" aria-labelledby="AddmyExtraLargeModalLabel_AddHistDesAnexo3InfoSensoriais" aria-hidden="true">
@@ -4877,8 +4967,24 @@
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-none dropdown-toggle bg-light" data-toggle="dropdown" aria-expanded="false">Evolução</button>
                                     <ul class="dropdown-menu">
-                                        <li class="dropdown-item bg-light"><a href="#" class="dropdown-item" data-id="{{$atendimento->paciente_id}}">
-                                            @if($count_evolucao)<i id="evolucao{{$atendimento->id}}" class="fas fa-check" style="color: green"></i>@else<i id="evolucao{{$atendimento->id}}"></i>@endif Registro</a></li>
+                                        <li class="dropdown-item bg-light"><a href="#" class="registro_evolucao dropdown-item" data-pacienteid="{{$atendimento->paciente_id}}" data-atendimentoid="{{$atendimento->id}}">
+                                            @if($count_evolucao)<i id="evolucao{{$atendimento->id}}" class="fas fa-check" style="color: green"></i>@else<i id="evolucao{{$atendimento->id}}"></i>@endif Registro Evolutivo</a>
+                                            <ul class="listaregistrosevolutivos dropdown-menu dropdown-submenu">
+                                                <li id="novaevolucao{{$atendimento->id}}" class="novaevolucao dropdown-item">Nova evolução</li>
+                                                <div class="dropdown-divider"></div>
+                                                <li id="novo_evolucao" style="display:none;"></li>
+                                                <li id="evolucaoreg{{$atendimento->id}}" class="evolucaoreg dropdown-item">Registro 1</li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown-item bg-light"><a href="#" class="registro_psicologico dropdown-item" data-pacienteid="{{$atendimento->paciente_id}}" data-atendimentoid="{{$atendimento->id}}">
+                                            @if($count_evolucao)<i id="psicologico{{$atendimento->id}}" class="fas fa-check" style="color: green"></i>@else<i id="psicologico{{$atendimento->id}}"></i>@endif Registro Psicológico</a>
+                                            <ul class="listaregistrospsicologicos dropdown-menu dropdown-submenu">
+                                                <li id="novopsicologico{{$atendimento->id}}" class="novopsicologico dropdown-item">Novo reg. psicológico</li>
+                                                <div class="dropdown-divider"></div>              
+                                                <li id="novo_psicologico" style="display:none;"></li>
+                                                <li id="psicologicoreg{{$atendimento->id}}" class="psicologicoreg dropdown-item">Registro 1</li>
+                                            </ul>
+                                        </li>
                                     </ul>
                                 </div>            
                             </div>
@@ -14538,6 +14644,11 @@ $(document).on('click','.histdes_anexo3_infosensoriais',function(e){
     });
     ///fim abrir doc
 ///Fim de envio anexo3_docs
+
+////Evolução
+
+
+///Fim Evolução
 
 
 });
