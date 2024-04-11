@@ -256,7 +256,10 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::put('/update_histdesanexo3infosensoriais/{id}',[TerapiaController::class,'updateHistDesAnexo3InfoSensoriais']);
         Route::put('/anexo3-upload-docs/{id}',[TerapiaController::class,'uploadDocsAnexo3']);
         Route::delete('/anexo3-delete-docs/{id}',[TerapiaController::class,'deleteDocsAnexo3']);
-        Route::get('/anexo3-abrir-doc/{id}',[TerapiaController::class,'abrirDocAnexo3']);        
+        Route::get('/anexo3-abrir-doc/{id}',[TerapiaController::class,'abrirDocAnexo3']);
+        Route::put('/store_evolucao',[TerapiaController::class,'storeEvolucao']);
+        Route::get('/edit_evolucao/{id}',[TerapiaController::class,'editEvolucao']);
+        Route::put('/update_evolucao/{id}',[TerapiaController::class,'updateEvolucao']);
       });
 
       Route::prefix('feriado')->name('feriado.')->group(function(){

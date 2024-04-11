@@ -199,6 +199,16 @@ class TerapiaController extends Controller
         $paciente = $this->paciente->find($atendimento->paciente_id);
         $histdes_anexo3_docs = $this->histdes_anexo3_docs->wherePaciente_id($paciente->id)->get();
 
+        $evolucao_qry = $this->evolucao->query()
+                                       ->where('paciente_id','=',$atendimento->paciente_id)
+                                       ->where('tipo','LIKE','EVOLUÇÃO');
+        $evolucoes = $evolucao_qry->orderByDesc("id")->get();
+
+        $psicologico_qry = $this->evolucao->query()
+                                       ->where('paciente_id','=',$atendimento->paciente_id)
+                                       ->where('tipo','LIKE','PSICOLÓGICO');
+        $psicologicos = $psicologico_qry->orderByDesc("id")->get();
+
         return view('cetea.terapia.edit',[
             'status' => 200,
             'atendimento' => $atendimento,            
@@ -224,6 +234,8 @@ class TerapiaController extends Controller
             'count_evolucao' => $count_evolucao,
             'histdes_anexo3_docs' => $histdes_anexo3_docs,
             'paciente' => $paciente,
+            'evolucoes' => $evolucoes,
+            'psicologicos' => $psicologicos,
         ]);
     }
 
@@ -2533,5 +2545,80 @@ public function storeHistDesAnexo3InfoSensoriais(Request $request){
         ]);
     }
 
+////////////////
+
+public function storeEvolucao(Request $request){
+        $validator = Validator::make($request->all(),[
+            'atendimento' => ['required'],
+            'paciente' => ['required'],                    
+        ]);
+        if($validator->fails()){
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->errors()->getMessages(),
+            ]);
+        }else{
+            $user = auth()->user();
+            $data['id'] = $this->maxId_Evolucao();
+            $data['atendimento_id'] = $request->input('atendimento');
+            $data['paciente_id'] = $request->input('paciente');            
+            $data['tipo'] = $request->input('tipo');
+            $data['conteudo'] = $request->input('conteudo');
+            $data['created_at'] = now();
+            $data['updated_at'] = null;
+            $data['creater_user'] = $user->id;
+            $data['updater_user'] = null;
+            $this->evolucao->create($data);
+
+            return response()->json([
+                'status' => 200,
+            ]);
+
+        }
+    }    
+
+    protected function maxId_Evolucao(){
+        $evolucao = $this->evolucao->orderByDesc('id')->first();
+        if($evolucao){
+            $codigo = $evolucao->id;
+        }else{
+            $codigo = 0;
+        }
+        return $codigo+1;
+    }
+
+    public function editEvolucao(int $id){        
+        $evolucao = $this->evolucao->find($id);                        
+        return response()->json([
+            'status' => 200,
+            'evolucao' => $evolucao,
+        ]);
+    }
+
+    public function updateEvolucao(Request $request, int $id){
+        $validator = Validator::make($request->all(),[
+            'atendimento' => ['required'],
+            'paciente' => ['required'],                        
+        ]);
+        if($validator->fails()){
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->errors()->getMessages(),
+            ]);
+        }else{            
+            $evolucao = $this->evolucao->find($id);
+            $user = auth()->user();            
+            $data['atendimento_id'] = $request->input('atendimento');
+            $data['paciente_id'] = $request->input('paciente');            
+            $data['conteudo'] = $request->input('conteudo');
+            $data['updated_at'] = now();
+            $data['updater_user'] = $user->id;
+            $evolucao->update($data);            
+
+            return response()->json([
+                'status' => 200,                
+            ]);        
+    }
+    }
 
 }

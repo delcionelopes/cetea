@@ -83,7 +83,7 @@ display: block;
 <!-- Fim AddEvolucao -->
 
 <!-- Inicio EditEvolucao -->
-<div class="modal fade animate__animated animate__bounce animate__faster bd-example-modal-xl" id="EditHistDesAnexo3InfoSensoriais" tabindex="-1" role="dialog" aria-labelledby="EditmyExtraLargeModalLabel_evolucao" aria-hidden="true">
+<div class="modal fade animate__animated animate__bounce animate__faster bd-example-modal-xl" id="EditEvolucao" tabindex="-1" role="dialog" aria-labelledby="EditmyExtraLargeModalLabel_evolucao" aria-hidden="true">
   <div class="modal-dialog modal-xl" role="document">
     <div class="modal-content">
         <div class="modal-header bg-{{$color}}">
@@ -96,6 +96,7 @@ display: block;
             <form id="editform_evolucao" class="form-horizontal" role="form" method="POST">
                 <input type="hidden" id="editpacienteid_evolucao">
                 <input type="hidden" id="editatendimentoid_evolucao">
+                <input type="hidden" id="editid_evolucao">
                 <ul id="updateform_errlist_evolucao"></ul>
                  <fieldset>
                     <legend>EVOLUÇÃO</legend>
@@ -4970,19 +4971,27 @@ display: block;
                                         <li class="dropdown-item bg-light"><a href="#" class="registro_evolucao dropdown-item" data-pacienteid="{{$atendimento->paciente_id}}" data-atendimentoid="{{$atendimento->id}}">
                                             @if($count_evolucao)<i id="evolucao{{$atendimento->id}}" class="fas fa-check" style="color: green"></i>@else<i id="evolucao{{$atendimento->id}}"></i>@endif Registro Evolutivo</a>
                                             <ul class="listaregistrosevolutivos dropdown-menu dropdown-submenu">
-                                                <li id="novaevolucao{{$atendimento->id}}" class="novaevolucao dropdown-item">Nova evolução</li>
+                                                <li id="novaevolucao{{$atendimento->id}}" class="novaevolucao dropdown-item" data-pacienteid="{{$atendimento->paciente_id}}" data-atendimentoid="{{$atendimento->id}}">Nova evolução</li>
                                                 <div class="dropdown-divider"></div>
-                                                <li id="novo_evolucao" style="display:none;"></li>
-                                                <li id="evolucaoreg{{$atendimento->id}}" class="evolucaoreg dropdown-item">Registro 1</li>
+                                                <li id="novo_evolucao" style="display:none;"></li>                                                
+                                                @forelse ($evolucoes as $evolucao)
+                                                    <li id="evolucao"{{$evolucao->id}} data-id="{{$evolucao->id}}" data-pacienteid="{{$atendimento->paciente_id}}" data-atendimentoid="{{$atendimento->id}}" class="editaevolucao dropdown-item">{{date('d/m/Y', strtotime($evolucao->atendimento->data_atendimento))}} - EVOLUÇÃO</li>
+                                                @empty
+                                                    <li id="nenhumregistro_evolucao" class="dropdown-item">Não há registros</li>
+                                                @endforelse
                                             </ul>
                                         </li>
                                         <li class="dropdown-item bg-light"><a href="#" class="registro_psicologico dropdown-item" data-pacienteid="{{$atendimento->paciente_id}}" data-atendimentoid="{{$atendimento->id}}">
                                             @if($count_evolucao)<i id="psicologico{{$atendimento->id}}" class="fas fa-check" style="color: green"></i>@else<i id="psicologico{{$atendimento->id}}"></i>@endif Registro Psicológico</a>
                                             <ul class="listaregistrospsicologicos dropdown-menu dropdown-submenu">
-                                                <li id="novopsicologico{{$atendimento->id}}" class="novopsicologico dropdown-item">Novo reg. psicológico</li>
+                                                <li id="novopsicologico{{$atendimento->id}}" class="novopsicologico dropdown-item" data-pacienteid="{{$atendimento->paciente_id}}" data-atendimentoid="{{$atendimento->id}}">Novo reg. psicológico</li>
                                                 <div class="dropdown-divider"></div>              
-                                                <li id="novo_psicologico" style="display:none;"></li>
-                                                <li id="psicologicoreg{{$atendimento->id}}" class="psicologicoreg dropdown-item">Registro 1</li>
+                                                <li id="novo_psicologico" style="display:none;"></li>                                                
+                                                @forelse ($psicologicos as $psicologico)
+                                                    <li id="psicologico"{{$psicologico->id}} data-id="{{$psicologico->id}}" data-pacienteid="{{$atendimento->paciente_id}}" data-atendimentoid="{{$atendimento->id}}" class="editaevolucao dropdown-item">{{date('d/m/Y', strtotime($evolucao->atendimento->data_atendimento))}} - {{$psicologico->abrangencia}}</li>
+                                                @empty
+                                                    <li id="nenhumregistro_psicologico" class="dropdown-item">Não há registros</li>
+                                                @endforelse
                                             </ul>
                                         </li>
                                     </ul>
@@ -14645,8 +14654,177 @@ $(document).on('click','.histdes_anexo3_infosensoriais',function(e){
     ///fim abrir doc
 ///Fim de envio anexo3_docs
 
-////Evolução
+////Evolução inicio
 
+$("#AddEvolucao").on('shown.bs.modal',function(){
+            $(".evolucaoconteudo").focus();
+    });
+
+$("#EditEvolucao").on('shown.bs.modal',function(){
+            $(".evolucaoconteudo").focus();
+    });
+
+//inicio conta caracteres dos textarea Evolução
+
+    //add
+  
+    /* $(document).on('input','#addr1_exemplos',function(){
+        var limite = 200;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var r1_exemplos = $('textarea[name="addr1_exemplos"]').val();
+            $('textarea[name="addr1_exemplos"]').val(r1_exemplos.substr(0,limite));
+            $(".addr1_exemplos").text("0" + " " + informativo);
+        }else{
+            $(".addr1_exemplos").text(caracteresRestantes + " " + informativo);
+        }
+    }); */    
+
+ $(document).on('click','.novaevolucao',function(e){
+        e.preventDefault();
+        var pacienteid = $(this).data("pacienteid");
+        var atendimentoid = $(this).data("atendimentoid");
+        
+        $("#addpacienteid_evolucao").val(pacienteid);
+        $("#addatendimentoid_evolucao").val(atendimentoid);
+        $("#addform_evolucao").trigger('reset');
+        $("#AddEvolucao").modal('show'); 
+        $("#saveform_errList_evolucao").replaceWith('<ul id="saveform_errList_evolucao"></ul>');
+       
+    });
+
+
+    $(document).on('click','.add_evolucao_btn',function(e){
+        e.preventDefault();
+        var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+        var pacienteid = $("#addpacienteid_evolucao").val();
+        var atendimentoid = $("#addatendimentoid_evolucao").val();
+
+        var loading = $("#imgadd_evolucao");
+            loading.show();
+
+        var data = new FormData();
+
+        data.append('atendimento',atendimentoid);
+        data.append('paciente',pacienteid);
+        data.append('conteudo',$(".evolucaoconteudo").val());
+        data.append('tipo',"EVOLUÇÃO");        
+        data.append('_token',CSRF_TOKEN);
+        data.append('_method','PUT');
+
+        $.ajax({
+            url:'/ceteaadmin/terapia/store_evolucao',
+            type: 'POST',
+            dataType: 'json',
+            data: data,
+            cache: false,
+            processData: false,
+            contentType: false,
+            async:true,
+            success:function(response){
+                if(response.status==400){
+                    $("#saveform_errlist_evolucao").replaceWith('<ul id="saveform_errList_evolucao"></ul>');
+                    $("#saveform_errlist_evolucao").addClass("alert alert-danger");
+                    $.each(response.errors,function(key,err_values){
+                        $("#saveform_errlist_evolucao").append('<li>'+err_values+'</li>')
+                    });
+                    loading.hide();
+                }else{
+                    loading.hide();
+                    $("#saveform_errlist_evolucao").replaceWith('<ul id="saveform_errList_evolucao"></ul>');
+                    ///montar a lista no menu
+                    $("#addform_evolucao").trigger('reset');
+                    $("#AddEvolucao").modal('hide');                     
+                }
+            }
+
+        });
+
+    });
+ 
+    //chama form edit evolução
+    $(document).on('click','.editaevolucao',function(e){
+        e.preventDefault();
+        var id = $(this).data("id");
+        var atendimentoid = $(this).data("atendimentoid");
+        var pacienteid = $(this).data("pacienteid");
+
+        $("#editid_evolucao").val(id);
+        $("#editpacienteid_evolucao").val(pacienteid);
+        $("#editatendimentoid_evolucao").val(atendimentoid);
+        $("#editform_evolucao").trigger('reset');
+        $("#EditEvolucao").modal('show'); 
+        $("#updateform_errList_evolucao").replaceWith('<ul id="updateform_errList_evolucao"></ul>');
+
+        $.ajaxSetup({
+                    headers:{
+                        'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+    
+    
+                $.ajax({ 
+                    type: 'GET',             
+                    dataType: 'json',                                    
+                    url: '/ceteaadmin/terapia/edit_evolucao/'+id,
+                    success: function(response){           
+                        if(response.status==200){
+                            $('.evolucaoconteudo').val(response.evolucao.conteudo);
+                        }
+                    }
+                });
+    });
+
+    //fim form edit evolução
+
+    // inicio atualiza evolução
+    $(document).on('click','.update_evolucao_btn',function(e){
+        var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+        var id = $("#editid_evolucao").val();
+        var atendimentoid = $("#editatendimentoid_evolucao").val();
+        var pacienteid = $("#editpacienteid_evolucao").val();
+
+        var loading = $("#imgedit_evolucao");
+            loading.show();
+
+        var data = new FormData();
+
+        data.append('atendimento',atendimentoid);
+        data.append('paciente',pacienteid);
+        data.append('conteudo',$("#editevolucaoconteudo").val());
+        data.append('_token',CSRF_TOKEN);
+        data.append('_method','PUT');   
+
+        $.ajax({
+            url:'/ceteaadmin/terapia/update_evolucao/'+id,
+            type:'POST',
+            contentType: 'json',
+            data: data,
+            cache: false,
+            processData: false,
+            contentType: false,
+            async:true,
+            success:function(response){
+                if(response.status==400){
+                    $("#updateform_errList_evolucao").replaceWith('<ul id="updateform_errList_evolucao"></ul>');
+                    $("#updateform_errlist_evolucao").addClass('alert alert-danger');
+                    $.each(response.errors,function(key,err_values){
+                        $("#updateform_errlist_evolucao").append('<li>'+err_values+'</li>');
+                    });
+                    loading.hide();
+                }else{
+                    loading.hide();
+                    $("#updateform_errlist_evolucao").replaceWith('<ul id="updateform_errList_evolucao"></ul>');
+                    //atualizar o item na lista do menu
+                    $("#editform_evolucao").trigger('reset');
+                    $("#EditEvolucao").modal('hide');    
+                }
+            }
+        });
+    });
 
 ///Fim Evolução
 
