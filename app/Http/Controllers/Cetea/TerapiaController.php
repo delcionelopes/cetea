@@ -194,7 +194,15 @@ class TerapiaController extends Controller
         $count_histdes_anexo1_rotalim = $this->histdes_anexo1_rotalim->wherePaciente_id($atendimento->paciente_id)->first();
         $count_histdes_anexo2_histmedico = $this->histdes_anexo2_histmedico->wherePaciente_id($atendimento->paciente_id)->first();
         $count_histdes_anexo3_infosensoriais = $this->histdes_anexo3_infosensoriais->wherePaciente_id($atendimento->paciente_id)->first();
-        $count_evolucao = $this->evolucao->wherePaciente_id($atendimento->paciente_id)->first();
+        
+        $count_evolucao = $this->evolucao->query()
+                               ->where('paciente_id','=',$atendimento->paciente_id)
+                               ->where('tipo','LIKE','EVOLUÇÃO')
+                               ->first();
+        $count_psicologico = $this->evolucao->query()
+                               ->where('paciente_id','=',$atendimento->paciente_id)
+                               ->where('tipo','LIKE','PSICOLÓGICO')
+                               ->first();
 
         $paciente = $this->paciente->find($atendimento->paciente_id);
         $histdes_anexo3_docs = $this->histdes_anexo3_docs->wherePaciente_id($paciente->id)->get();
@@ -232,6 +240,7 @@ class TerapiaController extends Controller
             'count_histdes_anexo2_histmedico' => $count_histdes_anexo2_histmedico,
             'count_histdes_anexo3_infosensoriais' => $count_histdes_anexo3_infosensoriais,
             'count_evolucao' => $count_evolucao,
+            'count_psicologico' => $count_psicologico,
             'histdes_anexo3_docs' => $histdes_anexo3_docs,
             'paciente' => $paciente,
             'evolucoes' => $evolucoes,
@@ -2545,7 +2554,6 @@ public function storeHistDesAnexo3InfoSensoriais(Request $request){
         ]);
     }
 
-////////////////
 
 public function storeEvolucao(Request $request){
         $validator = Validator::make($request->all(),[
@@ -2568,10 +2576,12 @@ public function storeEvolucao(Request $request){
             $data['updated_at'] = null;
             $data['creater_user'] = $user->id;
             $data['updater_user'] = null;
-            $this->evolucao->create($data);
-
+            $evolucao = $this->evolucao->create($data);
+            $datacriacao = $evolucao->atendimento->data_atendimento;
             return response()->json([
                 'status' => 200,
+                'evolucao' => $evolucao,
+                'datacriacao' => $datacriacao,
             ]);
 
         }
@@ -2589,9 +2599,11 @@ public function storeEvolucao(Request $request){
 
     public function editEvolucao(int $id){        
         $evolucao = $this->evolucao->find($id);                        
+        $datacriacao = $evolucao->atendimento->data_atendimento;
         return response()->json([
             'status' => 200,
             'evolucao' => $evolucao,
+            'datacriacao' => $datacriacao,
         ]);
     }
 
@@ -2613,10 +2625,14 @@ public function storeEvolucao(Request $request){
             $data['conteudo'] = $request->input('conteudo');
             $data['updated_at'] = now();
             $data['updater_user'] = $user->id;
-            $evolucao->update($data);            
+            $evolucao->update($data);
+            $evo = Evolucao::find($id);
+            $datacriacao = $evo->atendimento->data_atendimento;            
 
             return response()->json([
-                'status' => 200,                
+                'status' => 200,
+                'evolucao' => $evo,
+                'datacriacao' => $datacriacao,
             ]);        
     }
     }

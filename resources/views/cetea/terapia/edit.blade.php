@@ -4973,16 +4973,16 @@ display: block;
                                             <ul class="listaregistrosevolutivos dropdown-menu dropdown-submenu">
                                                 <li id="novaevolucao{{$atendimento->id}}" class="novaevolucao dropdown-item" data-pacienteid="{{$atendimento->paciente_id}}" data-atendimentoid="{{$atendimento->id}}">Nova evolução</li>
                                                 <div class="dropdown-divider"></div>
-                                                <li id="novo_evolucao" style="display:none;"></li>                                                
+                                                <li id="novo_evolucao" style="display:none;"></li>
                                                 @forelse ($evolucoes as $evolucao)
-                                                    <li id="evolucao"{{$evolucao->id}} data-id="{{$evolucao->id}}" data-pacienteid="{{$atendimento->paciente_id}}" data-atendimentoid="{{$atendimento->id}}" class="editaevolucao dropdown-item">{{date('d/m/Y', strtotime($evolucao->atendimento->data_atendimento))}} - EVOLUÇÃO</li>
+                                                    <li id="evolucao{{$evolucao->id}}" data-id="{{$evolucao->id}}" data-pacienteid="{{$atendimento->paciente_id}}" data-atendimentoid="{{$atendimento->id}}" class="editaevolucao dropdown-item">{{date('d/m/Y H:i:s', strtotime($evolucao->atendimento->data_atendimento))}} - EVOLUÇÃO</li>
                                                 @empty
                                                     <li id="nenhumregistro_evolucao" class="dropdown-item">Não há registros</li>
                                                 @endforelse
                                             </ul>
                                         </li>
                                         <li class="dropdown-item bg-light"><a href="#" class="registro_psicologico dropdown-item" data-pacienteid="{{$atendimento->paciente_id}}" data-atendimentoid="{{$atendimento->id}}">
-                                            @if($count_evolucao)<i id="psicologico{{$atendimento->id}}" class="fas fa-check" style="color: green"></i>@else<i id="psicologico{{$atendimento->id}}"></i>@endif Registro Psicológico</a>
+                                            @if($count_psicologico)<i id="psicologico{{$atendimento->id}}" class="fas fa-check" style="color: green"></i>@else<i id="psicologico{{$atendimento->id}}"></i>@endif Registro Psicológico</a>
                                             <ul class="listaregistrospsicologicos dropdown-menu dropdown-submenu">
                                                 <li id="novopsicologico{{$atendimento->id}}" class="novopsicologico dropdown-item" data-pacienteid="{{$atendimento->paciente_id}}" data-atendimentoid="{{$atendimento->id}}">Novo reg. psicológico</li>
                                                 <div class="dropdown-divider"></div>              
@@ -14735,7 +14735,10 @@ $("#EditEvolucao").on('shown.bs.modal',function(){
                 }else{
                     loading.hide();
                     $("#saveform_errlist_evolucao").replaceWith('<ul id="saveform_errList_evolucao"></ul>');
-                    ///montar a lista no menu
+                    var datacriacao = new Date(response.datacriacao);
+                        datacriacao = datacriacao.toLocaleString('pt-BR');
+                    $("#novo_evolucao").replaceWith('<li id="evolucao'+response.evolucao.id+'" data-id="'+response.evolucao.id+'" data-pacienteid="'+response.evolucao.paciente_id+'" data-atendimentoid="'+response.evolucao.atendimento_id+'" class="editaevolucao dropdown-item">'+datacriacao+' - EVOLUÇÃO</li>')
+                    $('.listaregistrosevolutivos').append('<li id="novo_evolucao" style="display:none;"></li>');
                     $("#addform_evolucao").trigger('reset');
                     $("#AddEvolucao").modal('hide');                     
                 }
@@ -14818,7 +14821,9 @@ $("#EditEvolucao").on('shown.bs.modal',function(){
                 }else{
                     loading.hide();
                     $("#updateform_errlist_evolucao").replaceWith('<ul id="updateform_errList_evolucao"></ul>');
-                    //atualizar o item na lista do menu
+                    var datacriacao = new Date(response.datacriacao);
+                        datacriacao = datacriacao.toLocaleString('pt-BR');                    
+                    $("#evolucao"+response.evolucao.id).replaceWith('<li id="evolucao'+response.evolucao.id+'" data-id="'+response.evolucao.id+'" data-pacienteid="'+response.evolucao.paciente_id+'" data-atendimentoid="'+response.evolucao.atendimento_id+'" class="editaevolucao dropdown-item">'+datacriacao+' - EVOLUÇÃO</li>');
                     $("#editform_evolucao").trigger('reset');
                     $("#EditEvolucao").modal('hide');    
                 }
