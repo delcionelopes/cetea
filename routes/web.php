@@ -260,6 +260,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::put('/store_evolucao',[TerapiaController::class,'storeEvolucao']);
         Route::get('/edit_evolucao/{id}',[TerapiaController::class,'editEvolucao']);
         Route::put('/update_evolucao/{id}',[TerapiaController::class,'updateEvolucao']);
+        Route::delete('/delete-evolucao/{id}',[TerapiaController::class,'deleteEvolucao']);
       });
 
       Route::prefix('feriado')->name('feriado.')->group(function(){

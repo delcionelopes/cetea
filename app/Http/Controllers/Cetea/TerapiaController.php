@@ -2637,4 +2637,12 @@ public function storeEvolucao(Request $request){
     }
     }
 
+public function deleteEvolucao(int $id){
+    $evolucao = $this->evolucao->find($id);                        
+    $evolucao->delete();
+        return response()->json([
+            'status' => 200,
+        ]);
+}
+
 }

@@ -113,6 +113,7 @@ display: block;
         <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
             <button data-color="{{$color}}" class="btn btn-{{$color}} update_evolucao_btn"><img id="imgedit_evolucao" src="{{asset('storage/ajax-loader.gif')}}" style="display: none;" class="rounded-circle" width="20"> Salvar</button>
+            <button class="btn btn-default excluir_evolucao_btn"><img id="imgdelete_evolucao" src="{{asset('storage/ajax-loader.gif')}}" style="display: none;" class="rounded-circle" width="20"> Excluir</button>
         </div>
     </div>
   </div>
@@ -14668,20 +14669,37 @@ $("#EditEvolucao").on('shown.bs.modal',function(){
 
     //add
   
-    /* $(document).on('input','#addr1_exemplos',function(){
-        var limite = 200;
+    $(document).on('input','#addevolucaoconteudo',function(){
+        var limite = 400;
         var informativo = "caracteres restantes";
         var caracteresDigitados = $(this).val().length;
         var caracteresRestantes = limite - caracteresDigitados;
 
         if (caracteresRestantes <= 0){
-            var r1_exemplos = $('textarea[name="addr1_exemplos"]').val();
-            $('textarea[name="addr1_exemplos"]').val(r1_exemplos.substr(0,limite));
-            $(".addr1_exemplos").text("0" + " " + informativo);
+            var evolucaoconteudo = $('textarea[name="addevolucaoconteudo"]').val();
+            $('textarea[name="addevolucaoconteudo"]').val(evolucaoconteudo.substr(0,limite));
+            $(".addevolucaoconteudo").text("0" + " " + informativo);
         }else{
-            $(".addr1_exemplos").text(caracteresRestantes + " " + informativo);
+            $(".addevolucaoconteudo").text(caracteresRestantes + " " + informativo);
         }
-    }); */    
+    });
+
+    //edit
+  
+    $(document).on('input','#editevolucaoconteudo',function(){
+        var limite = 400;
+        var informativo = "caracteres restantes";
+        var caracteresDigitados = $(this).val().length;
+        var caracteresRestantes = limite - caracteresDigitados;
+
+        if (caracteresRestantes <= 0){
+            var evolucaoconteudo = $('textarea[name="editevolucaoconteudo"]').val();
+            $('textarea[name="editevolucaoconteudo"]').val(evolucaoconteudo.substr(0,limite));
+            $(".editevolucaoconteudo").text("0" + " " + informativo);
+        }else{
+            $(".editevolucaoconteudo").text(caracteresRestantes + " " + informativo);
+        }
+    });
 
  $(document).on('click','.novaevolucao',function(e){
         e.preventDefault();
@@ -14737,7 +14755,7 @@ $("#EditEvolucao").on('shown.bs.modal',function(){
                     $("#saveform_errlist_evolucao").replaceWith('<ul id="saveform_errList_evolucao"></ul>');
                     var datacriacao = new Date(response.datacriacao);
                         datacriacao = datacriacao.toLocaleString('pt-BR');
-                    $("#novo_evolucao").replaceWith('<li id="evolucao'+response.evolucao.id+'" data-id="'+response.evolucao.id+'" data-pacienteid="'+response.evolucao.paciente_id+'" data-atendimentoid="'+response.evolucao.atendimento_id+'" class="editaevolucao dropdown-item">'+datacriacao+' - EVOLUÇÃO</li>')
+                    $("#novo_evolucao").replaceWith('<li id="evolucao'+response.evolucao.id+'" data-id="'+response.evolucao.id+'" data-pacienteid="'+response.evolucao.paciente_id+'" data-atendimentoid="'+response.evolucao.atendimento_id+'" class="editaevolucao dropdown-item"><i class="fas fa-check" style="color: green"></i>'+datacriacao+' - EVOLUÇÃO</li>')
                     $('.listaregistrosevolutivos').append('<li id="novo_evolucao" style="display:none;"></li>');
                     $("#addform_evolucao").trigger('reset');
                     $("#AddEvolucao").modal('hide');                     
@@ -14785,6 +14803,7 @@ $("#EditEvolucao").on('shown.bs.modal',function(){
 
     // inicio atualiza evolução
     $(document).on('click','.update_evolucao_btn',function(e){
+        e.preventDefault();
         var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
         var id = $("#editid_evolucao").val();
         var atendimentoid = $("#editatendimentoid_evolucao").val();
@@ -14823,13 +14842,41 @@ $("#EditEvolucao").on('shown.bs.modal',function(){
                     $("#updateform_errlist_evolucao").replaceWith('<ul id="updateform_errList_evolucao"></ul>');
                     var datacriacao = new Date(response.datacriacao);
                         datacriacao = datacriacao.toLocaleString('pt-BR');                    
-                    $("#evolucao"+response.evolucao.id).replaceWith('<li id="evolucao'+response.evolucao.id+'" data-id="'+response.evolucao.id+'" data-pacienteid="'+response.evolucao.paciente_id+'" data-atendimentoid="'+response.evolucao.atendimento_id+'" class="editaevolucao dropdown-item">'+datacriacao+' - EVOLUÇÃO</li>');
+                    $("#evolucao"+response.evolucao.id).replaceWith('<li id="evolucao'+response.evolucao.id+'" data-id="'+response.evolucao.id+'" data-pacienteid="'+response.evolucao.paciente_id+'" data-atendimentoid="'+response.evolucao.atendimento_id+'" class="editaevolucao dropdown-item"><i class="fas fa-check" style="color: green"></i>'+datacriacao+' - EVOLUÇÃO</li>');
                     $("#editform_evolucao").trigger('reset');
                     $("#EditEvolucao").modal('hide');    
                 }
             }
         });
     });
+
+$(document).on('click','.excluir_evolucao_btn',function(e){
+    e.preventDefault();
+     var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+        var id = $("#editid_evolucao").val();
+
+        var loading = $("#imgdelete_evolucao");
+            loading.show();
+        
+         $.ajax({
+                    url: '/ceteaadmin/terapia/delete-evolucao/'+id,
+                    type: 'POST',
+                    dataType: 'json',
+                    data:{
+                        'id': id,
+                        '_method': 'DELETE',                    
+                        '_token':CSRF_TOKEN,
+                    },
+                    success:function(response){
+                    if(response.status==200){
+                    $("#evolucao"+id).remove();
+                    loading.hide();
+                    $("#editform_evolucao").trigger('reset');
+                    $("#EditEvolucao").modal('hide');    
+                        }
+                    }
+                    });   
+});
 
 ///Fim Evolução
 
