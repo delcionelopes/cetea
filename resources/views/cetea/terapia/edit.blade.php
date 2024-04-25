@@ -46,6 +46,139 @@ display: block;
 
 </style>
 
+<!-- Inicio AddPsicologico -->
+<div class="modal fade animate__animated animate__bounce animate__faster bd-example-modal-xl" id="AddPsicologico" tabindex="-1" role="dialog" aria-labelledby="AddmyExtraLargeModalLabel_Psicologico" aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+        <div class="modal-header bg-{{$color}}">
+            <h5 class="modal-title" id="AddmyExtraLargeModalLabel_Psicologico" style="color: white;">Novo Registro - Ac.Psicológico</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                <span aria-hidden="true" style="color: white.">&times;</span>
+            </button>
+        </div>      
+        <div class="modal-body form-horizontal" role="form">
+            <form id="addform_psicologico" class="form-horizontal" role="form" method="POST">
+                <input type="hidden" id="addpacienteid_psicologico">
+                <input type="hidden" id="addatendimentoid_psicologico">
+                <ul id="saveform_errlist_psicologico"></ul>
+                <fieldset>
+                    <legend>ACOMPANHAMENTO PSICOLÓGICO</legend>
+                </fieldset>     
+                <fieldset>
+                    <div class="form-group">
+                        <label for="addabrangencia">Abrangência</label>
+                        <select name="addabrangencia" id="addabrangencia" class="abrangencia custom-select">
+                            <option value="individuo/familia">INDIVIDUO/FAMILIA</option>
+                            <option value="familia/criança">FAMILIA/CRIANÇA</option>
+                        </select>
+                    </div>
+                </fieldset>                                       
+                <fieldset>                    
+                    <div class="form-group">
+                      <label for="">Conteúdo</label><br>
+                      <span class="addpsicologicoconteudo"></span>
+                      <textarea name="addpsicologicoconteudo" id="addpsicologicoconteudo" cols="30" rows="3" class="psicologicoconteudo form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                        <label for="addpsicologicodata">Data</label>
+                        <input type="text" maxLength="10" name="addpsicologicodata" id="addpsicologicodata" class="psicologicodata form-control" data-format="00/00/0000"  placeholder="dd/mm/yyyy" value="{{date('d/m/Y')}}"/>
+                    </div>
+                </fieldset>
+                <fieldset>
+                        <label for="addsimnao">Sim/Não</label>
+                        <select name="addsimnao" id="addsimnao" class="simnao custom-select">
+                            <option value="sim">SIM</option>
+                            <option value="não">NÃO</option>
+                        </select>
+                </fieldset>
+                <fieldset>                    
+                    <div class="form-group">
+                      <label for="">Justificativa</label><br>
+                      <span class="addpsicologicojustificativa"></span>
+                      <textarea name="addpsicologicojustificativa" id="addpsicologicojustificativa" cols="30" rows="3" class="psicologicojustificativa form-control"></textarea>
+                    </div>
+                </fieldset>
+            </form>
+        </div>     
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            <button data-color="{{$color}}" class="btn btn-{{$color}} add_psicologico_btn"><img id="imgadd_psicologico" src="{{asset('storage/ajax-loader.gif')}}" style="display: none;" class="rounded-circle" width="20"> Salvar</button>
+        </div>
+    </div>
+  </div>
+</div>
+<!-- Fim AddPsicologico -->
+
+<!-- Inicio EditPsicologico -->
+<div class="modal fade animate__animated animate__bounce animate__faster bd-example-modal-xl" id="EditPsicologico" tabindex="-1" role="dialog" aria-labelledby="EditmyExtraLargeModalLabel_psicologico" aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+        <div class="modal-header bg-{{$color}}">
+            <h5 class="modal-title" id="EditmyExtraLargeModalLabel_psicologico" style="color: white;">Alteração de registro - Ac.Psicológico</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                <span aria-hidden="true" style="color: white.">&times;</span>
+            </button>
+        </div>      
+        <div class="modal-body form-horizontal" role="form">
+            <form id="editform_psicologico" class="form-horizontal" role="form" method="POST">
+                <input type="hidden" id="editpacienteid_psicologico">
+                <input type="hidden" id="editatendimentoid_psicologico">
+                <input type="hidden" id="editid_psicologico">
+                <ul id="updateform_errlist_psicologico"></ul>
+                                <fieldset>
+                    <legend>ACOMPANHAMENTO PSICOLÓGICO</legend>
+                </fieldset>     
+                <fieldset>
+                    <div class="form-group">
+                        <label for="editabrangencia">Abrangência</label>
+                        <select name="editabrangencia" id="editabrangencia" class="abrangencia custom-select">
+                            <option value="individuo/familia">INDIVIDUO/FAMILIA</option>
+                            <option value="familia/criança">FAMILIA/CRIANÇA</option>
+                        </select>
+                    </div>
+                </fieldset>                                       
+                <fieldset>                    
+                    <div class="form-group">
+                      <label for="">Conteúdo</label><br>
+                      <span class="editpsicologicoconteudo"></span>
+                      <textarea name="editpsicologicoconteudo" id="editpsicologicoconteudo" cols="30" rows="3" class="psicologicoconteudo form-control"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                        <label for="editpsicologicodata">Data</label>
+                        <input type="text" maxLength="10" name="editpsicologicodata" id="editpsicologicodata" class="psicologicodata form-control" data-format="00/00/0000"  placeholder="dd/mm/yyyy" value="{{date('d/m/Y')}}"/>
+                    </div>
+                </fieldset>
+                <fieldset>
+                        <label for="editsimnao">Sim/Não</label>
+                        <select name="editsimnao" id="editsimnao" class="simnao custom-select">
+                            <option value="sim">SIM</option>
+                            <option value="não">NÃO</option>
+                        </select>
+                </fieldset>
+                <fieldset>                    
+                    <div class="form-group">
+                      <label for="">Justificativa</label><br>
+                      <span class="editpsicologicojustificativa"></span>
+                      <textarea name="editpsicologicojustificativa" id="editpsicologicojustificativa" cols="30" rows="3" class="psicologicojustificativa form-control"></textarea>
+                    </div>
+                </fieldset>
+
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            <button data-color="{{$color}}" class="btn btn-{{$color}} update_psicologico_btn"><img id="imgedit_psicologico" src="{{asset('storage/ajax-loader.gif')}}" style="display: none;" class="rounded-circle" width="20"> Salvar</button>
+            <button class="btn btn-default excluir_psicologico_btn"><img id="imgdelete_psicologico" src="{{asset('storage/ajax-loader.gif')}}" style="display: none;" class="rounded-circle" width="20"> Excluir</button>
+        </div>
+    </div>
+  </div>
+</div>
+<!-- Fim EditPsicologico -->
+
 <!-- Inicio AddEvolucao -->
 <div class="modal fade animate__animated animate__bounce animate__faster bd-example-modal-xl" id="AddEvolucao" tabindex="-1" role="dialog" aria-labelledby="AddmyExtraLargeModalLabel_Evolucao" aria-hidden="true">
   <div class="modal-dialog modal-xl" role="document">

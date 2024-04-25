@@ -20,6 +20,7 @@ class Evolucao extends Model
         'conteudo',
         'sim_nao',
         'justificativa',
+        'data_registro',
         'created_at',
         'updated_at',
         'creater_user',
